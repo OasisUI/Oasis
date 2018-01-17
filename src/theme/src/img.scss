@@ -1,0 +1,28 @@
+@import "../common/_var";
+@import "../common/_base";
+
+@component-namespace n {
+
+    @b upload {
+        input {
+            display: none;
+        }
+        @m loadbtn {
+            display: block;
+            i {
+                display: block;
+                width: 100%;
+                height: 100%;
+                font-style: normal;
+                font-size: 30px;
+            }
+            &:hover {
+                color: #999;
+                border: 1px dashed #999;
+            }
+        }
+        @when loading {
+			border: red;
+        }
+    }
+}

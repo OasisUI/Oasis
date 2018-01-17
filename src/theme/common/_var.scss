@@ -1,0 +1,33 @@
+:root {
+    /*color*/
+    --color-font: #222222;
+    --color-gray: #999999;
+    --color-primary: #1793d1;
+    --color-white: #ffffff;
+    --color-danger: #ff4949;
+    --color-default: #666666;
+    --color-ignore: #999999;
+    --color-success: #13ce66;
+    --color-info: #40bfff;
+    --color-warning: #f7ba2a;
+    --color-black: #000000;
+    --color-disable-font: #bfcbd9;
+    --color-disable-bg: #eef1f6;
+    --color-border: #d1dbe5;
+    --color-transparent: transparent;
+
+    /*upload*/
+    --upload-size-width: 66px;
+
+    /*border-radius */
+    --border-radius: 5px;
+
+    /*box-shadow*/
+    --box-shadow-lg: 0 2px 8px 0 rgba(5, 39, 56, 0.3);
+
+    /*transition*/
+    --all-transition: all .3s cubic-bezier(.645,.045,.355,1);
+    --fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    --fade-linear-transition: opacity 200ms linear;
+    --md-fade-transition: all cubic-bezier(0.23, 1, 0.32, 1) 12000ms;
+}
