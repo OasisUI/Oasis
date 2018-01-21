@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --open --config ./build/webpack.dev.js",
     "dev": "gulp dev:server",
+    "build:module": "gulp build:module",
     "build:theme": "gulp build:theme",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,23 +26,33 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.8",
-    "gulp-cssmin": "^0.2.0",
+    "gulp": "^3.9.1",
     "gulp-postcss": "^7.0.1",
     "gulp-util": "^3.0.8",
     "html-webpack-plugin": "^2.30.1",
+    "postcss": "^6.0.16",
     "postcss-bem": "^0.4.1",
+    "postcss-bem-linter": "^3.1.0",
+    "postcss-calc": "^6.0.1",
+    "postcss-color": "^1.0.1",
+    "postcss-color-function": "^4.0.1",
     "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.10",
+    "postcss-salad": "^2.0.1",
     "postcss-scss": "^1.0.3",
-    "precss": "^3.0.0",
+    "precss": "^1.4.0",
+    "saladcss-bem": "0.0.2",
     "style-loader": "^0.19.1",
+    "sugarss": "^1.0.1",
     "vue-loader": "^13.7.0",
+    "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.0"
+    "webpack-dev-server": "^2.11.0",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "gulp": "^3.9.1",
     "vue": "^2.5.13"
   }
 }

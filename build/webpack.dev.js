@@ -1,41 +1,24 @@
 const path = require('path')
+const merge = require('webpack-merge')
+const base = require('./webpack.base')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
+module.exports = merge(base, {
 	entry: path.join(__dirname, '../example/index.js'),
 	output: {
 		path: path.join(__dirname, '../dist'),
 		filename: 'index.js',
 		publicPath: '/'
 	},
-	devtool: '#cheap-module-eval-source-map',
-	resolve: {
-		modules: ['node_modules'],	
-		extensions: ['.vue', '.js', '.json']
-	},
-	module: {
-		rules: [
-			{
-				test: /\.css$/i,
-				use: 'css-loader'
-			},
-			{
-				test: /\.scss$/i,
-				use: 'style-loader!css-loader!postcss-loader'
-			},
-			{
-				test: /\.js$/i,
-				use: 'babel-loader'
-			},
-			{
-				test: /\.vue$/i,
-				use: 'vue-loader'
-			}
-		]
-	},
+	devtool: 'source-map',
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: path.join(__dirname, '../example/index.html')
 		})
-	]
-}
+	],
+	devServer: {
+		contentBase: path.resolve(__dirname, '../dist'),
+		stats: 'errors-only'
+	}
+})
+

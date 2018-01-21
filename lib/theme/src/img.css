@@ -1,0 +1,27 @@
+:root {
+	/* font */
+	
+}
+
+.oa-Img {
+	position: relative;
+	display: inline-block;
+	font-size: 0;
+	
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	
+}
+
+.oa-Img.is-failed {
+		color: red;
+	
+}
+
+.oa-Img__loading, .oa-Img__backup {
+		font-size: 14px;
+	
+}

@@ -1,7 +1,7 @@
-import VImg from './src/img.vue';
+import Img from './src/img.vue';
 
-VImg.install = function (Vue) {
-    Vue.component(VImg.name, VImg);
-};
+Img.install = function (Vue) {
+    Vue.component(Img.name, Img)
+}
 
-export default VImg;
+export default Img;

@@ -1,35 +1,47 @@
 <template>
-	<div class="img-box">
+	<div class="o-Img">
 		<img v-show="show === 1" :src="newSrc" alt="" @load="onLoad" @error="onError">
-		<button v-if="show === 2" class="img-loading" type="button">
-			<i class="iconfont icon-icon-loading"></i>
-		</button>
-		<div v-if="show === 0" class="backup">
+		<div v-if="show === 2" class="o-Img__loading" type="button">
+			<!-- TODO use loading icon -->
+		</div>
+		<div v-if="show === 0" class="o-Img__backup">
 			<label>图片加载失败</label>
 		</div>
 	</div>
 </template>
 
 <script>
-	const props = ['src']
+	const props = {
+		src: {
+			type: String,
+			default () {
+				return ''
+			}
+		},
+		suffix: {
+			default () {
+				return ''
+			}
+		}
+	}
 
 	export default {
-		name: 'image',
+		name: 'o-img',
 		props,
 		data () {
 			return {
-				show: true,		// 0 failed, 1 succeed,  2 loading
+				show: true,		// 0 failed, 1 succeed, 2 loading
 				success: false,
 				useWebp: false
 			}
 		},
 		mounted () {
-			if (Cookies.get('useWebp')) this.useWebp = true
 			this.load(this.src)
 		},
 		computed: {
 			newSrc () {
-				return (this.useWebp ? this.src.replace('_ac', '_acwbp') : this.src) || 'no-src'
+				const suffix = typeof this.suffix === 'function' ? this.suffix() : this.suffix
+				return this.src + suffix
 			}
 		},
 		methods: {

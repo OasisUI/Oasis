@@ -1,21 +1,24 @@
 module.exports = {
-	parser: 'postcss-scss',
+	// parser: 'sugarss',
 	plugins: [
-		require('precss'),		
-		require('postcss-bem')({
-			defaultNamespace: undefined,
-			style: 'bem',
+		// require('postcss-mixins'),
+		require('precss')(),
+		require('saladcss-bem')({
+			defaultNamespace: 'o',
+			style: 'suit',
 			separators: {
 				descendent: '__'
 			},
 			shortcuts: {
-				utility: 'util'
+				utility: 'u',
+				component: 'c',
+				descendent: 'd',
+				modifier: 'm',
+				state: 's'
 			}
 		}),
-		// require('postcss-bem-linter')('bem'),
-		// require('autoprefixer'),
-		require('postcss-cssnext'),
-		require('cssnano')
-
+		require('postcss-cssnext'),			
+		// require('postcss-bem-linter')('suit'),
+		// require('cssnano')
 	]
 }
