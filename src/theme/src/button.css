@@ -1,0 +1,54 @@
+@import '../common/_var.css';
+
+@component Btn {
+
+	border-radius: 4px;
+
+	/*type*/
+	@m primary {
+		background: var(--color-primary);
+		background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light) 60%);
+		color: var(--color-white);
+	}
+	@m danger {
+		background: var(--color-danger);
+		color: var(--color-white);
+	}
+	@m warning {
+		background: var(--color-warning);
+		color: var(--color-white);
+		/*TODO:	use  --color-warning-light? */
+	}
+	@m info {
+		background: var(--color-info);
+		color: var(--color-black-4);
+	}
+
+	/*size*/
+	@m sm {
+		height: var(--Button-sm-height);
+		padding: 0 var(--Button-sm-padding);
+		font-size: var(--fontSize-14);
+	}
+	@m md {
+		height: var(--Button-md-height);
+		padding: 0 var(--Button-md-padding);
+		font-size: var(--fontSize-16);
+	}
+	@m lg {
+		height: var(--Button-lg-height);
+		padding: 0 var(--Button-lg-padding);
+		font-size: var(--fontSize-16);
+	}
+
+	/*shap*/
+	@m circle {
+		/*TODO	*/
+	}
+
+	/*disabled*/
+	@when disabled {
+		pointer-events: none !important;
+	}
+
+}

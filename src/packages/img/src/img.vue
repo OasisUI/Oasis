@@ -5,7 +5,7 @@
 			<!-- TODO use loading icon -->
 		</div>
 		<div v-if="show === 0" class="o-Img__backup">
-			<label>图片加载失败</label>
+			<label>{{failedMsg}}</label>
 		</div>
 	</div>
 </template>
@@ -22,6 +22,10 @@
 			default () {
 				return ''
 			}
+		},
+		failedMsg: {
+			type: String,
+			default: () => '图片加载失败'
 		}
 	}
 

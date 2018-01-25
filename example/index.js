@@ -7,6 +7,7 @@ import '../src/theme/common/_animation.css';
 import '../src/theme/src/img.css'
 import '../src/theme/src/loading.css'
 import '../src/theme/src/form.css'
+import '../src/theme/src/button.css';
 
 Vue.use(Oasis)
 
