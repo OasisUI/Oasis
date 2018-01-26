@@ -14,8 +14,11 @@
 }
 
 
+/*reset style*/
 /*button*/
 button {
 	outline: none;
 	border: none;
+	margin: 0;
+	white-space: nowrap;
 }

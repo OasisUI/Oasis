@@ -33,6 +33,7 @@
 		</li>
 		<li>
 			<h2>Disabled</h2>
+			<Button @click="onClick" type="primary" :disabled="!disabled" round>{{!disabled ? 'disabled' : 'usable'}}</Button>
 			<Button @click="onClick" :disabled="disabled" round>{{disabled ? 'disabled' : 'usable'}}</Button>
 			<Button @click="onClick" round>click me!</Button>
 		</li>
@@ -40,9 +41,9 @@
 			<h2>Button group</h2>
 			<ButtonGroup>
 				<Button type="primary" size="lg" round>A</Button>
-				<Button type="primary" size="lg" round>B</Button>
-				<Button type="primary" size="lg" round>C</Button>
-				<Button type="primary" size="lg" round>D</Button>
+				<Button type="primary" size="lg" round outline>B</Button>
+				<Button type="primary" size="lg" round outline>C</Button>
+				<Button type="primary" size="lg" round outline>D</Button>
 			</ButtonGroup>
 			<ButtonGroup>
 				<Button type="danger" size="md" round>A</Button>

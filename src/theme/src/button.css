@@ -2,13 +2,13 @@
 @import '../common/_animation.css';
 
 @component Btn {
+	display: inline-block;
+	border-radius: 4px;
+	font-size: var(--fontSize-default);
+	transition: var(--transition-btn-default);
 	&:not(.disabled) {
 		cursor: pointer;
 	}
-	font-size: var(--fontSize-default);
-	border-radius: 4px;
-	transition: var(--transition-btn-default);
-
 	/*type*/
 	@m primary {
 		background: var(--color-primary);
@@ -68,11 +68,11 @@
 			background: transparent;
 			color: var(--color-black-4);
 			&:hover {
-				 background: var(--color-gray-2);
+				 background: var(--color-gray-3);
 			 }
 		}
 		&:hover {
-			background: var(--color-gray-2);
+			background: var(--color-gray-3);
 		}
 		& .o-Btn__loading:after {
 			border-color: var(--color-black-4);
@@ -111,6 +111,11 @@
 		border: none;
 		color: var(--color-white);
 		background: var(--color-gray-2);
+		border-color: var(--color-gray-2);
+		&:hover {
+			 background: var(--color-gray-2);
+			 border-color: var(--color-gray-2);
+		}
 	}
 
 	/*loading*/
@@ -156,7 +161,7 @@
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
-	& .o-Btn--primary:not(:hover) {
+	& .o-Btn--primary:not(:hover):not(.outline) {
 		background: var(--color-primary);
 		background: linear-gradient(90deg, var(--color-primary), var(--color-primary) 100%);
 	}
