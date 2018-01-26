@@ -1,3 +1,8 @@
+/*default*/
+* {
+	box-sizing: border-box;
+}
+
 /*layout*/
 @u center{
 	position: absolute;

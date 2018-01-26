@@ -1,12 +1,16 @@
 <template>
 	<button class="o-Btn"
+		@click="onClick"
 		:class="[
 			'o-Btn--' + type,
 			'o-Btn--' + size,
-			'o-Btn--' + shap
+			round ? 'round' : '',
+			outline ? 'outline' : '',
+			disabled ? 'is-disabled' : ''
 		]"
 		type="button"
 	>
+		<span v-if="loading" class="o-Btn__loading"></span>
 		<slot></slot>
 	</button>
 </template>
@@ -15,16 +19,13 @@
 	const props = {
 		type: {
 			type: String,
-			default: 'primary'
+			default: 'default'
 		},
 		size: {
 			type: String,
 			default: 'md'
 		},
-		shap: {
-			type: String,
-			default: 'circle'
-		},
+		round: Boolean,
 		loading: Boolean,
 		disabled: Boolean,
 		outline: Boolean,
@@ -35,6 +36,14 @@
 		props,
 		data () {
 			return {}
+		},
+		methods: {
+			onClick (e) {
+				if (!this.disabled) {
+					this.$emit('click', e)
+				}
+				e.stopPropagation()
+			}
 		}
 	}
 </script>

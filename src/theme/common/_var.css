@@ -2,11 +2,15 @@
 	/* theme */
 	--color-primary: #34B697;
 	--color-primary-light: #64DC9C;
+	--color-primary-dark: #1F9D7F;
 
 	--color-warning: #F08200;
 	--color-warning-light: #FFB864;
+	--color-warning-dark: #CC7100;
 
 	--color-danger: #F06868;
+	--color-danger-light: #FF7D7D;
+	--color-danger-dark: #CF5158;
 
 	--color-info: #FFEDD7;
 
@@ -45,4 +49,8 @@
 	--Button-md-padding: 24px;
 	--Button-lg-padding: 36px;
 
+
+	/*transition*/
+	--transition-default: all ease-in-out 150ms;
+	--transition-btn-default: var(--transition-default);
 }

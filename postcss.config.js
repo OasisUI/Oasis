@@ -7,7 +7,8 @@ module.exports = {
 			defaultNamespace: 'o',
 			style: 'suit',
 			separators: {
-				descendent: '__'
+				descendent: '__',
+				modifier: '--',
 			},
 			shortcuts: {
 				utility: 'u',
@@ -18,7 +19,7 @@ module.exports = {
 			}
 		}),
 		require('postcss-cssnext'),			
-		// require('postcss-bem-linter')('suit'),
+		require('postcss-bem-linter')('suit'),
 		// require('cssnano')
 	]
 }

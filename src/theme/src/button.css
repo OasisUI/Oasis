@@ -1,27 +1,79 @@
 @import '../common/_var.css';
+@import '../common/_animation.css';
 
 @component Btn {
+	&:not(.disabled) {
+		cursor: pointer;
+	}
 
 	border-radius: 4px;
+	transition: var(--transition-btn-default);
 
 	/*type*/
 	@m primary {
 		background: var(--color-primary);
 		background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light) 60%);
 		color: var(--color-white);
+		&.outline {
+			border: 1px solid var(--color-primary);
+			background: transparent;
+			color: var(--color-primary);
+			&:hover {
+				background: var(--color-primary);
+				color: var(--color-white);
+			}
+		}
+		&:hover {
+			background: var(--color-primary-dark);
+			background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-dark) 100%);
+		 }
 	}
 	@m danger {
 		background: var(--color-danger);
 		color: var(--color-white);
+		&.outline {
+			border: 1px solid var(--color-danger);
+			background: transparent;
+			color: var(--color-danger);
+			&:hover {
+				background: var(--color-danger);
+				color: var(--color-white);
+			}
+		}
+		&:hover {
+			background: var(--color-danger-dark);
+		}
 	}
 	@m warning {
 		background: var(--color-warning);
 		color: var(--color-white);
-		/*TODO:	use  --color-warning-light? */
+		&.outline {
+			border: 1px solid var(--color-warning);
+			background: transparent;
+			color: var(--color-warning);
+			&:hover {
+				background: var(--color-warning);
+				color: var(--color-white);
+			}
+		}
+		&:hover {
+			background: var(--color-warning-dark);
+		}
 	}
-	@m info {
-		background: var(--color-info);
+	@m default {
+		background: var(--color-gray-4);
 		color: var(--color-black-4);
+		&.outline {
+			border: 1px solid var(--color-black-4);
+			background: transparent;
+			color: var(--color-black-4);
+			&:hover {
+				 background: var(--color-gray-2);
+			 }
+		}
+		&:hover {
+			background: var(--color-gray-2);
+		}
 	}
 
 	/*size*/
@@ -29,26 +81,53 @@
 		height: var(--Button-sm-height);
 		padding: 0 var(--Button-sm-padding);
 		font-size: var(--fontSize-14);
+		&.round {
+			border-radius: calc(var(--Button-sm-height) / 2);
+		}
 	}
 	@m md {
 		height: var(--Button-md-height);
 		padding: 0 var(--Button-md-padding);
 		font-size: var(--fontSize-16);
+		&.round {
+			border-radius: calc(var(--Button-md-height) / 2);
+		}
 	}
 	@m lg {
 		height: var(--Button-lg-height);
 		padding: 0 var(--Button-lg-padding);
 		font-size: var(--fontSize-16);
-	}
-
-	/*shap*/
-	@m circle {
-		/*TODO	*/
+		&.round {
+			border-radius: calc(var(--Button-lg-height) / 2);
+		}
 	}
 
 	/*disabled*/
 	@when disabled {
-		pointer-events: none !important;
+		/*pointer-events: none !important;*/
+		cursor: not-allowed !important;
+		border: none;
+		color: var(--color-white);
+		background: var(--color-gray-2);
 	}
 
+	/*loading*/
+	@d loading {
+		display: inline-block;
+		width: var(--fontSize-12);
+		height: var(--fontSize-12);
+
+		&:after {
+			box-sizing: border-box;
+			display: block;
+			position: relative;
+			content: '';
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			border: 2px solid var(--color-white);
+			border-bottom-color: transparent;
+			animation: loading-spin infinite 1.4s 0s linear;
+		}
+	}
 }
