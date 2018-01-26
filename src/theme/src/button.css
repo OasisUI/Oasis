@@ -142,6 +142,7 @@
 
 @component BtnGroup {
 	font-size: 0;
+
 	& .o-Btn:not(:first-of-type).outline {
 		margin-left: -1px;
 	}

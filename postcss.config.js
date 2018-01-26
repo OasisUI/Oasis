@@ -18,7 +18,10 @@ module.exports = {
 				state: 's'
 			}
 		}),
-		require('postcss-cssnext'),			
+		require('postcss-cssnext')({
+			browsers: ['ie > 9', 'last 2 versions'],
+			cascade: false
+		}),
 		require('postcss-bem-linter')('suit'),
 		// require('cssnano')
 	]

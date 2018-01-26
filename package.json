@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/joe223/nana#readme",
   "devDependencies": {
+    "autoprefixer": "^7.2.5",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",

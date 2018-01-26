@@ -1,5 +1,5 @@
 @import './common/_base.css';
-@import '../common/_animation.css';
+@import './common/_animation.css';
 
 @import './src/img.css';
 @import './src/loading.css';
