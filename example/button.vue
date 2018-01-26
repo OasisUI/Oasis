@@ -1,32 +1,67 @@
 <template>
 	<ul>
 		<li>
-			<o-button type="primary" size="lg" round>{{text}}</o-button>
-			<o-button type="danger" size="lg" round>{{text}}</o-button>
-			<o-button type="warning" size="lg" round>{{text}}</o-button>
-			<o-button type="default" size="lg" round>{{text}}</o-button>
+			<h1>Button & ButtonGroup</h1>
 		</li>
 		<li>
-			<o-button type="primary" round :loading="loading">{{text}}</o-button>
-			<o-button type="danger" round :loading="loading">{{text}}</o-button>
-			<o-button type="warning" round loading>{{text}}</o-button>
-			<o-button type="default" round loading>{{text}}</o-button>
+			<h2>Large button</h2>
+			<Button type="primary" size="lg" round>primary</Button>
+			<Button type="danger" size="lg" round>danger</Button>
+			<Button type="warning" size="lg" round>warning</Button>
+			<Button type="default" size="lg" round>default</Button>
 		</li>
 		<li>
-			<o-button type="primary">{{text}}</o-button>
-			<o-button type="danger" size="md">{{text}}</o-button>
-			<o-button type="warning" size="md">{{text}}</o-button>
-			<o-button type="default" size="md">{{text}}</o-button>
+			<h2>Loading</h2>
+			<Button type="primary" round :loading="loading">default size</Button>
+			<Button type="danger" round :loading="loading">default size</Button>
+			<Button type="warning" round loading>default size</Button>
+			<Button type="default" round loading>default size</Button>
 		</li>
 		<li>
-			<o-button type="primary" size="sm" outline round>{{text}}</o-button>
-			<o-button type="danger" size="sm" outline round>{{text}}</o-button>
-			<o-button type="warning" size="sm" outline round>{{text}}</o-button>
-			<o-button type="default" size="sm" outline round>{{text}}</o-button>
+			<h2>No circle</h2>
+			<Button type="primary">{{text}}</Button>
+			<Button type="danger" size="md">{{text}}</Button>
+			<Button type="warning" size="md">{{text}}</Button>
+			<Button type="default" size="md">{{text}}</Button>
 		</li>
 		<li>
-			<o-button @click="onClick" :disabled="disabled" round>{{disabled ? 'disabled' : 'usable'}}</o-button>
-			<o-button @click="onClick" round>click me!</o-button>
+			<h2>Outline</h2>
+			<Button type="primary" size="sm" outline round>{{text}}</Button>
+			<Button type="danger" size="sm" outline round>{{text}}</Button>
+			<Button type="warning" size="sm" outline round>{{text}}</Button>
+			<Button type="default" size="sm" outline round>{{text}}</Button>
+		</li>
+		<li>
+			<h2>Disabled</h2>
+			<Button @click="onClick" :disabled="disabled" round>{{disabled ? 'disabled' : 'usable'}}</Button>
+			<Button @click="onClick" round>click me!</Button>
+		</li>
+		<li>
+			<h2>Button group</h2>
+			<ButtonGroup>
+				<Button type="primary" size="lg" round>A</Button>
+				<Button type="primary" size="lg" round>B</Button>
+				<Button type="primary" size="lg" round>C</Button>
+				<Button type="primary" size="lg" round>D</Button>
+			</ButtonGroup>
+			<ButtonGroup>
+				<Button type="danger" size="md" round>A</Button>
+				<Button type="danger" size="md" round>B</Button>
+				<Button type="danger" size="md" round>C</Button>
+				<Button type="danger" size="md" round>D</Button>
+			</ButtonGroup>
+			<ButtonGroup>
+				<Button type="warning" outline>A</Button>
+				<Button type="warning" outline>B</Button>
+				<Button type="warning" outline>C</Button>
+				<Button type="warning" outline>D</Button>
+			</ButtonGroup>
+			<ButtonGroup>
+				<Button outline round>A</Button>
+				<Button outline round>B</Button>
+				<Button outline round>C</Button>
+				<Button outline round>D</Button>
+			</ButtonGroup>
 		</li>
 	</ul>
 </template>

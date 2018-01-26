@@ -1,11 +1,11 @@
 <template>
-	<form class="o-Form">
+	<div class="o-BtnGroup">
 		<slot></slot>
-	</form>
+	</div>
 </template>
 
 <script>
 	export default {
-		name: 'Form'
+		name: 'ButtonGroup'
 	}
 </script>

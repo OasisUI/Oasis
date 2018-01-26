@@ -5,7 +5,7 @@
 	&:not(.disabled) {
 		cursor: pointer;
 	}
-
+	font-size: var(--fontSize-default);
 	border-radius: 4px;
 	transition: var(--transition-btn-default);
 
@@ -74,6 +74,9 @@
 		&:hover {
 			background: var(--color-gray-2);
 		}
+		& .o-Btn__loading:after {
+			border-color: var(--color-black-4);
+		}
 	}
 
 	/*size*/
@@ -104,7 +107,6 @@
 
 	/*disabled*/
 	@when disabled {
-		/*pointer-events: none !important;*/
 		cursor: not-allowed !important;
 		border: none;
 		color: var(--color-white);
@@ -126,8 +128,36 @@
 			height: 100%;
 			border-radius: 50%;
 			border: 2px solid var(--color-white);
-			border-bottom-color: transparent;
+			border-bottom-color: transparent !important;
 			animation: loading-spin infinite 1.4s 0s linear;
 		}
+	}
+}
+
+
+@component BtnGroup {
+	font-size: 0;
+	& .o-Btn:not(:first-of-type).outline {
+		margin-left: -1px;
+	}
+	& .o-Btn:not(:first-of-type):not(:last-of-type) {
+		margin-left: -1px;
+		border-radius: 0;
+	}
+	& .o-Btn:not(:first-of-type):not(:last-of-type):not(.outline) {
+		border-right: 1px solid rgba(255,255,255,0.2);
+		border-left: 1px solid rgba(255,255,255,0.2);
+	}
+	& .o-Btn:first-of-type {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+  	}
+	& .o-Btn:last-of-type {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	& .o-Btn--primary:not(:hover) {
+		background: var(--color-primary);
+		background: linear-gradient(90deg, var(--color-primary), var(--color-primary) 100%);
 	}
 }

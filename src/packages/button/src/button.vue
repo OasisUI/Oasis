@@ -32,7 +32,7 @@
 	}
 
 	export default {
-		name: 'o-button',
+		name: 'Button',
 		props,
 		data () {
 			return {}

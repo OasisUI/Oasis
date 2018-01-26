@@ -30,7 +30,7 @@
 	}
 
 	export default {
-		name: 'o-img',
+		name: 'Img',
 		props,
 		data () {
 			return {

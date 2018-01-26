@@ -2,12 +2,12 @@
 	<ul>
 		<li>
 			<p>img</p>
-			<o-form v-loading="showLoading">
-				<o-img :src="src" class="img"></o-img>
-			</o-form>
+			<Form v-loading="showLoading">
+				<Img :src="src" class="img"></Img>
+			</Form>
 		</li>
 		<li>
-			<o-loading></o-loading>
+			<Loading></Loading>
 		</li>
 	</ul>
 </template>
