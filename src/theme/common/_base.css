@@ -16,15 +16,22 @@
 
 /*reset style*/
 body {
+	color: var(--fontColor-default);
 	font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	/*you should read: https://davidwalsh.name/font-smoothing*/
 }
-/*button*/
+
 button {
 	outline: none;
 	border: none;
 	margin: 0;
 	white-space: nowrap;
+}
+
+input {
+	border: none;
+	outline: none;
+	font-size: inherit;
 }

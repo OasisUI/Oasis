@@ -1,5 +1,5 @@
 <template>
-	<ul>
+	<ul class="doc">
 		<li>
 			<h1>Button & ButtonGroup</h1>
 		</li>
@@ -87,11 +87,7 @@
 </script>
 
 <style lang="postcss">
-	ul {
-		list-style: none;
-		li {
-			margin-top: 1rem;
-		}
+	.doc {
 		button {
 			margin-bottom: 0.4rem;
 		}

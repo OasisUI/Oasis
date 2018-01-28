@@ -4,13 +4,15 @@ import Img from './img'
 import Loading from './loading'
 import Form from './form'
 import Button from './button'
+import Input from './input'
 // tools
 
 const components = [
 	Img,
 	Loading,
 	Form,
-	Button
+	Button,
+	Input
 ];
 
 const Oasis = {

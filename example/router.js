@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Component from './components'
 import Button from './button'
+import Input from './Input'
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,10 @@ const routes = [
 	{
 		path: '/button',
 		component: Button
+	},
+	{
+		path: '/input',
+		component: Input
 	}
 ]
 

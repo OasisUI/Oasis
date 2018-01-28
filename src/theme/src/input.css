@@ -1,0 +1,90 @@
+@import '../common/_var.css';
+
+@component InputText {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: var(--Input-md-height);
+	border: 1px solid var(--Input-borderColor);
+	border-radius: var(--Input-borderRadius);
+
+	& input {
+		display: table-cell;
+		width: 100%;
+		height: 100%;
+		border: none;
+		outline: none;
+		background: transparent;
+	}
+
+	@when disabled {
+		background: #EEEEEE;
+		color: var(--color-gray-1);
+
+		& input {
+			cursor: not-allowed;
+		}
+	}
+
+	@d wrappper {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		height: 100%;
+		padding: 0 var(--Input-padding);
+	}
+
+	@d openList {
+		display: table-cell;
+		height: 8px;
+		right: 0;
+		width: 16px;
+		vertical-align: middle;
+		cursor: pointer;
+
+		&:after {
+			box-sizing: border-box;
+			position: relative;
+			margin-top: 50%;
+			display: inline-block;
+			content: '';
+			border: 8px solid transparent;
+			border-bottom-width: 0;
+			border-top: 10px solid var(--Input-borderColor);
+			transition: ease all 0.2s;
+		}
+		&:hover:after {
+			 border-top-color: var(--color-black-4);
+		}
+	}
+
+	@d options {
+		position: absolute;
+		z-index: 9;
+		top: 100%;
+		right: 0;
+		padding: 0;
+		margin-top: 4px;
+		min-height: 38px;
+		max-height: 300px;
+		width: 100%;
+		overflow: auto;
+		list-style: none;
+		background: #fff;
+		border-radius: var(--Input-borderRadius);
+		box-shadow: var(--shadow-dropBox);
+
+		li {
+			margin: 0;
+			padding: 0 var(--Input-padding);
+			height: var(--Input-md-height);
+			line-height: var(--Input-md-height);
+			transition: ease all 0.2s;
+			cursor: pointer;
+
+			&:hover {
+				background: var(--color-gray-4);
+			}
+		}
+	}
+}

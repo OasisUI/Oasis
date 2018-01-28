@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --config ./build/webpack.dev.js",
-    "dev": "gulp dev:server",
+    "dev": "gulp dev",
     "build:module": "gulp build:module",
     "build:theme": "gulp build:theme",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,6 +30,7 @@
     "gulp": "^3.9.1",
     "gulp-postcss": "^7.0.1",
     "gulp-util": "^3.0.8",
+    "gulp-watch": "^5.0.0",
     "html-webpack-plugin": "^2.30.1",
     "postcss": "^6.0.16",
     "postcss-bem": "^0.4.1",

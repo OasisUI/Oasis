@@ -1,7 +1,8 @@
 const gulp = require('gulp')
 const util = require('gulp-util')
-const postcss = require('gulp-postcss')
 const webpack = require('webpack')
+const watch = require('gulp-watch')
+const postcss = require('gulp-postcss')
 const WebpackDevServer = require('webpack-dev-server')
 const WebpackDevConfig = require('./build/webpack.dev')
 const WebpackBuildConfig = require('./build/webpack.build')
@@ -35,10 +36,21 @@ gulp.task('dev:server', () => {
 	})
 })
 
+gulp.task('dev:theme', function () {
+	return watch('./src/theme/**/*.css', function () {
+		gulp.src('./src/theme/index.css')
+			.pipe(postcss())
+			.pipe(gulp.dest('./lib/theme'))
+	})
+})
+
 gulp.task('build:theme', function() {
 	return gulp.src('./src/theme/**/*.css')
 		.pipe(postcss())
+		// minify
 		.pipe(gulp.dest('./lib/theme'))
 })
+
+gulp.task('dev', ['dev:theme', 'dev:server'])
 
 gulp.task('default', ['dev:build', 'dev:server'])

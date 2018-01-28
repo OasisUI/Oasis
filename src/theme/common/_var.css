@@ -28,6 +28,7 @@
 	--color-gray-5: #FDFDFD;
 
 	/* font */
+	--fontColor-default: #666666;
 	--fontSize-default: var(--fontSize-14);
 
 	--fontSize-12: 12px;
@@ -49,8 +50,19 @@
 	--Button-md-padding: 24px;
 	--Button-lg-padding: 36px;
 
+	/*input*/
+	--Input-sm-height: 40px;
+	--Input-md-height: 34px;
+	--Input-lg-height: 24px;
+	--Input-borderRadius: 4px;
+	--Input-padding: 12px;
+	--Input-borderColor: #E1E1E1;
+
 
 	/*transition*/
 	--transition-default: all ease-in-out 150ms;
 	--transition-btn-default: var(--transition-default);
+
+	/*shadow*/
+	--shadow-dropBox: 0 0 8px 0 rgba(0,0,0,0.14);
 }
