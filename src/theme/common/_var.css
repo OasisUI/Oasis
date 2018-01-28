@@ -28,7 +28,7 @@
 	--color-gray-5: #FDFDFD;
 
 	/* font */
-	--fontColor-default: #666666;
+	--fontColor-default: #333333;
 	--fontSize-default: var(--fontSize-14);
 
 	--fontSize-12: 12px;
@@ -64,5 +64,5 @@
 	--transition-btn-default: var(--transition-default);
 
 	/*shadow*/
-	--shadow-dropBox: 0 0 8px 0 rgba(0,0,0,0.14);
+	--shadow-dropBox: 0 1px 8px 0 rgba(0,0,0,0.24);
 }

@@ -33,5 +33,6 @@ button {
 input {
 	border: none;
 	outline: none;
+	color: inherit;
 	font-size: inherit;
 }

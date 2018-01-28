@@ -1,12 +1,16 @@
 @import '../common/_var.css';
 
-@component InputText {
+@component InputWrapper {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	height: var(--Input-md-height);
 	border: 1px solid var(--Input-borderColor);
 	border-radius: var(--Input-borderRadius);
+}
+
+@component InputText {
+	height: var(--Input-md-height);
+
 
 	& input {
 		display: table-cell;
