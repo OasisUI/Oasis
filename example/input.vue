@@ -78,6 +78,25 @@
 			>
 			</InputNumber>
 		</li>
+		<li>
+			<h1>InputSelect</h1>
+		</li>
+		<li class="input-list">
+			<InputSelect
+				v-model="inputSelect"
+				:options="inputSelectOptions"
+			></InputSelect>
+			<InputSelect
+				v-model="inputSelect"
+				:options="inputSelectOptions"
+				disabled
+			></InputSelect>
+			<InputSelect
+				v-model="inputSelect"
+				:options="inputSelectOptions"
+				readonly
+			></InputSelect>
+		</li>
 	</ul>
 </template>
 
@@ -88,6 +107,21 @@
 				inputText: 'input text',
 				inputTextOptions: ['Alice', 'Bob', 'Eve'],
 				inputNumber: 2,
+				inputSelect: 2,
+				inputSelectOptions: [
+					{
+						key: '二手',
+						value: 1
+					},
+					{
+						key: '家政',
+						value: 2
+					},
+					{
+						key: '维修',
+						value: 3
+					}
+				]
 			}
 		}
 	}

@@ -33,14 +33,16 @@
 		}
 	}
 	@when readonly {
-		color: var(--color-black-4);
+		color: var(--color-gray-1);
 		background: var(--Input-readonly-bg);
+		& input {
+		  cursor: not-allowed;
+		}
 	}
 
 	@when disabled {
 		background: var(--Input-disabled-bg);
 		color: var(--color-gray-1);
-
 		& input {
 			cursor: not-allowed;
 		}
@@ -63,6 +65,7 @@
 		display: block;
 		right: 0;
 		width: 24px;
+		height: 100%;
 		text-align: center;
 		cursor: pointer;
 	}
@@ -173,5 +176,14 @@
 
 	@d sub {
 		bottom: 2px;
+	}
+}
+
+
+@component InputSelect {
+	@d input {
+		position: relative;
+		z-index: 1;
+		cursor: pointer;
 	}
 }

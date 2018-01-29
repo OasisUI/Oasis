@@ -1,9 +1,11 @@
 import InputText from './src/text'
 import InputNumber from './src/number'
+import InputSelect from './src/select'
 
 const components = [
 	InputText,
-	InputNumber
+	InputNumber,
+	InputSelect
 ]
 
 export default {

@@ -1,10 +1,33 @@
 <!--select 组件-->
 <template>
-	<div class="form-input input-select" :class="{'disabled': disabled}">
-		<input v-model="currentVal" @click="displayList" type="text" :disabled="disabled">
-		<span v-if="options" class="open-list"></span>
-		<ul v-show="showList" @click="setVal" class="options" ref="list">
-			<li v-for="(opt, index) in currentOpts">{{opt.key ? opt.key : opt}}</li>
+	<div
+		class="o-Input o-InputSelect"
+		:class="[
+			disabled ? 'is-disabled' : '',
+			readonly ? 'is-readonly' : '',
+			'o-Input--' + size
+		]"
+	>
+		<input
+			class="o-InputSelect__input"
+			v-model="currentVal"
+			@click.stop="displayList"
+			:disabled="disabled"
+			readonly="readonly"
+			type="text">
+		<span
+			v-if="options"
+			class="o-Input__openList"
+		>
+			<i class="iconfont icon-arrow-down"></i>
+		</span>
+		<ul
+			@click="setVal"
+			v-show="showList"
+			ref="list"
+			class="o-Input__options"
+		>
+			<li v-for="opt in currentOpts">{{opt.key ? opt.key : opt}}</li>
 		</ul>
 	</div>
 </template>
@@ -14,17 +37,24 @@
 		value: {
 			required: true
 		},
+
 		options: {
 			type: Array
+		},
+		size: {
+			type: String,
+			default: 'md'
 		},
 		disabled: {
 			type: Boolean,
 			default: false
-		}
+		},
+		disabled: Boolean,
+		readonly: Boolean
 	}
 
 	export default {
-		name: 'input-select',
+		name: 'InputSelect',
 		props,
 		data () {
 			return {
@@ -43,8 +73,8 @@
 			setVal (e) {
 				const list = this.$refs.list.children
 				const index = Array.prototype.indexOf.call(list, e.target)
-				const val = this.currentOpts[index] && this.currentOpts[index].val
-				this.$emit('input', val)
+				const value = this.currentOpts[index] && this.currentOpts[index].value
+				this.$emit('input', value)
 				this.showList = false
 			},
 			hideList (e) {
@@ -54,10 +84,12 @@
 				}
 			},
 			displayList () {
-				this.showList = true
+				if (!this.disabled && !this.readonly) {
+					this.showList = true
+				}
 			},
 			initVal () {
-				const v = this.currentOpts.find(item => item.val === this.value)
+				const v = this.currentOpts.find(item => item.value === this.value)
 				this.currentVal = v ? v.key : '未选择'
 			}
 		},
@@ -68,7 +100,7 @@
 					return options.map((item, index) => {
 						return {
 							key: item,
-							val: item
+							value: item
 						}
 					})
 				} else {
@@ -77,100 +109,16 @@
 			}
 		},
 		watch: {
-			currentVal (val) {
+			currentVal (value) {
 				// TODO
 			},
-			value () {
-				this.initVal()
+			value: {
+				handler () {
+					this.initVal()
+				},
+				immediate: true
 			}
 		}
 	}
 </script>
 
-<style lang="scss" scoped>
-
-	$btn-size: 36px;
-	$btn-color: #E1E1E1;
-
-	.input-select {
-		position: relative;
-		display: inline-block;
-		width: 100%;
-		border: 1px solid #E1E1E1;
-		border-radius: 4px;
-		&:hover {
-			.open-list:after {
-				border-top-color: #9d9d9d;
-			}
-		}
-
-		&.disabled {
-			background: #EEE;
-			color: #989898;
-			input {
-				cursor: not-allowed;
-			}
-		}
-
-		input {
-			z-index: 2;
-			position: relative;
-			display: block;
-			width: 100%;
-			height: 100%;
-			padding: 0 15px;
-			border: none;
-			outline: none;
-			font-size: 14px;
-			padding-right: 36px;
-			cursor: pointer;
-			background: transparent;
-		}
-
-		.open-list {
-			position: absolute;
-			top: 0;
-			height: 100%;
-			right: 0;
-			width: $btn-size;
-
-			&:after {
-				position: relative;
-				margin: 14px auto 0 auto;
-				display: block;
-				content: '';
-				width: 10px;
-				height: 100%;
-				border: 8px solid transparent;
-				border-bottom: 0px solid transparent;
-				border-top: 10px solid $btn-color;
-				transition: ease all 0.2s;
-			}
-		}
-		.options {
-			position: absolute;
-			z-index: 9;
-			top: 40px;
-			right: 0;
-			padding: 0;
-			min-height: 38px;
-			max-height: 300px;
-			width: 100%;
-			overflow: auto;
-			list-style: none;
-			background: #fff;
-			border-radius: 4px;
-			box-shadow: 0 0 8px 4px rgba(0,0,0,0.14);
-
-			li {
-				line-height: 40px;
-				padding: 2px 14px;
-				transition: ease all 0.2s;
-				cursor: pointer;
-				&:hover {
-					background: rgba(0,0,0,0.1);
-				}
-			}
-		}
-	}
-</style>

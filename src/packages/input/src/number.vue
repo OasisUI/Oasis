@@ -61,11 +61,12 @@
 			type: String,
 			default: ''
 		},
-		appendsuffix: Boolean,
 		max: Number,
 		min: Number,
 		disabled: Boolean,
-		readonly: Boolean
+		readonly: Boolean,
+		appendsuffix: Boolean,
+
 	}
 
 	export default {

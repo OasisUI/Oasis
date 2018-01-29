@@ -351,8 +351,11 @@
 	cursor: not-allowed;
 }
 .o-Input.is-readonly {
-		color: #666666;
+		color: #999999;
 		background: #F5FAF9;
+}
+.o-Input.is-readonly input {
+	cursor: not-allowed;
 }
 .o-Input__wrapper {
 		position: relative;
@@ -370,6 +373,7 @@
 		display: block;
 		right: 0;
 		width: 24px;
+		height: 100%;
 		text-align: center;
 		cursor: pointer;
 }
@@ -466,6 +470,12 @@
 }
 .o-InputNumber__sub {
 		bottom: 2px;
+}
+.o-InputSelect {}
+.o-InputSelect__input {
+		position: relative;
+		z-index: 1;
+		cursor: pointer;
 }
 
 
