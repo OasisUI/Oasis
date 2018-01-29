@@ -1,28 +1,44 @@
 @import '../common/_var.css';
 
-@component InputWrapper {
+@component Input {
 	position: relative;
 	display: inline-block;
 	width: 100%;
-	border: 1px solid var(--Input-borderColor);
 	border-radius: var(--Input-borderRadius);
-}
+	color: #464646;
 
-@component InputText {
-	height: var(--Input-md-height);
-
+	& input::placeholder {
+		color: #999999;
+	}
 
 	& input {
-		display: table-cell;
+		display: block;
 		width: 100%;
 		height: 100%;
+		letter-spacing: 0;
 		border: none;
 		outline: none;
+		padding: 0 var(--Input-padding);
 		background: transparent;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: var(--Input-borderRadius);
+	}
+
+	& .iconfont {
+		color: var(--Input-toggleOptionsColor);
+		font-size: 12px;
+
+		&:hover {
+			color: var(--color-black-4);
+		}
+	}
+	@when readonly {
+		color: var(--color-black-4);
+		background: var(--Input-readonly-bg);
 	}
 
 	@when disabled {
-		background: #EEEEEE;
+		background: var(--Input-disabled-bg);
 		color: var(--color-gray-1);
 
 		& input {
@@ -30,41 +46,30 @@
 		}
 	}
 
-	@d wrappper {
-		display: table;
+	@d wrapper {
+		position: relative;
+		display: block;
+		overflow: hidden;
 		table-layout: fixed;
 		width: 100%;
 		height: 100%;
-		padding: 0 var(--Input-padding);
+		padding: 0;
 	}
 
 	@d openList {
-		display: table-cell;
-		height: 8px;
+		position: absolute;
+		top: 0;
 		right: 0;
-		width: 16px;
-		vertical-align: middle;
+		display: block;
+		right: 0;
+		width: 24px;
+		text-align: center;
 		cursor: pointer;
-
-		&:after {
-			box-sizing: border-box;
-			position: relative;
-			margin-top: 50%;
-			display: inline-block;
-			content: '';
-			border: 8px solid transparent;
-			border-bottom-width: 0;
-			border-top: 10px solid var(--Input-borderColor);
-			transition: ease all 0.2s;
-		}
-		&:hover:after {
-			 border-top-color: var(--color-black-4);
-		}
 	}
 
 	@d options {
 		position: absolute;
-		z-index: 9;
+		z-index: var(--zindex-dropdown);
 		top: 100%;
 		right: 0;
 		padding: 0;
@@ -76,7 +81,7 @@
 		list-style: none;
 		background: #fff;
 		border-radius: var(--Input-borderRadius);
-		box-shadow: var(--shadow-dropBox);
+		box-shadow: var(--shadw-dropdown);
 
 		li {
 			margin: 0;
@@ -90,5 +95,83 @@
 				background: var(--color-gray-4);
 			}
 		}
+	}
+
+	@m sm {
+		line-height: var(--Input-sm-height);
+		height: var(--Input-sm-height);
+	}
+	@m md {
+		line-height: var(--Input-md-height);
+		height: var(--Input-md-height);
+	}
+	@m lg {
+		line-height: var(--Input-lg-height);
+		height: var(--Input-lg-height);
+	}
+
+}
+
+@component InputText {
+	& input {
+		padding-right: 24px;
+	}
+}
+
+@component InputNumber {
+	@d actions {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 24px;
+		height: 100%;
+	}
+	& input {
+		padding-right: 24px;
+	}
+	& .iconfont {
+		font-size: 12px
+	}
+	.o-InputNumber__add,
+	.o-InputNumber__sub {
+		position: absolute;
+		right: 0;
+		width: 24px;
+		text-align: center;
+		line-height: 1;
+		cursor: pointer;
+
+		&:after {
+			display: inline-block;
+			content: '';
+		}
+
+		&.is-disabled:hover * {
+			color: var(--Input-toggleOptionsColor);
+			cursor: not-allowed;
+		}
+	}
+
+	@d actions {
+		z-index: 2;
+	}
+
+	@d suffix {
+		color: var(--color-gray-1);
+	}
+
+	@d input {
+		z-index: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	@d add {
+		top: 2px;
+	}
+
+	@d sub {
+		bottom: 2px;
 	}
 }

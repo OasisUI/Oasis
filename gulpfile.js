@@ -13,10 +13,7 @@ gulp.task('build:module', () => {
 	const compiler = webpack(WebpackBuildConfig)
 	compiler.run((err, stats) => {
 		console.log(err)
-	})	
-	// gulp.watch(['./example', './src'], function () {
-		
-	// })
+	})
 })
 
 gulp.task('dev:server', () => {
@@ -24,9 +21,11 @@ gulp.task('dev:server', () => {
 	new WebpackDevServer(compiler, {
 		publicPath: '/',
 		stats: {
-			assets: true,
 			colors: true,
-			errors: true,
+			modules: false,
+			children: false,
+			chunks: false,
+			chunkModules: false,
 			errorDetails: true,
 			hash: true,
 		},
@@ -40,7 +39,11 @@ gulp.task('dev:theme', function () {
 	return watch('./src/theme/**/*.css', function () {
 		gulp.src('./src/theme/index.css')
 			.pipe(postcss())
+			.on('error', err => {
+				console.log(err.name, err.reason, err.file, err.line + '/' + err.column)
+			})
 			.pipe(gulp.dest('./lib/theme'))
+
 	})
 })
 

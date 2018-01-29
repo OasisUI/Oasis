@@ -10,6 +10,7 @@
 	margin: auto;
 }/*reset style*/body {
 	color: #333333;
+	font-size: 14px;
 	font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -66,7 +67,7 @@
 	}
 }
 
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
 }
 
 .o-Img {
@@ -88,7 +89,7 @@
 .o-Img__loading, .o-Img__backup {
 		font-size: 14px;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
 }
 .o-Loading {
 	position: absolute;
@@ -120,7 +121,7 @@
 .o-Form__Item {
 		position: relative;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
 }
 @keyframes loading-spin {0% {
 		stroke-dasharray: 100, 40;
@@ -302,67 +303,79 @@
 	background: -webkit-gradient(linear, left top, right top, from(#34B697), to(#34B697));
 	background: linear-gradient(90deg, #34B697, #34B697 100%);
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
 }
-.o-InputWrapper {
+.o-Input {
 	position: relative;
 	display: inline-block;
 	width: 100%;
+	border-radius: 4px;
+	color: #464646;
+}
+.o-Input input::-webkit-input-placeholder {
+	color: #999999;
+}
+.o-Input input:-ms-input-placeholder {
+	color: #999999;
+}
+.o-Input input::-ms-input-placeholder {
+	color: #999999;
+}
+.o-Input input::placeholder {
+	color: #999999;
+}
+.o-Input input {
+	display: block;
+	width: 100%;
+	height: 100%;
+	letter-spacing: 0;
+	border: none;
+	outline: none;
+	padding: 0 12px;
+	background: transparent;
 	border: 1px solid #E1E1E1;
 	border-radius: 4px;
 }
-.o-InputText {
-	height: 34px;
+.o-Input .iconfont {
+	color: #D8D8D8;
+	font-size: 12px;
 }
-.o-InputText input {
-	display: table-cell;
-	width: 100%;
-	height: 100%;
-	border: none;
-	outline: none;
-	background: transparent;
+.o-Input .iconfont:hover {
+	color: #666666;
 }
-.o-InputText.is-disabled {
-		background: #EEEEEE;
+.o-Input.is-disabled {
+		background: #F6F6F6;
 		color: #999999;
 }
-.o-InputText.is-disabled input {
+.o-Input.is-disabled input {
 	cursor: not-allowed;
 }
-.o-InputText__wrappper {
-		display: table;
+.o-Input.is-readonly {
+		color: #666666;
+		background: #F5FAF9;
+}
+.o-Input__wrapper {
+		position: relative;
+		display: block;
+		overflow: hidden;
 		table-layout: fixed;
 		width: 100%;
 		height: 100%;
-		padding: 0 12px;
+		padding: 0;
 }
-.o-InputText__openList {
-		display: table-cell;
-		height: 8px;
+.o-Input__openList {
+		position: absolute;
+		top: 0;
 		right: 0;
-		width: 16px;
-		vertical-align: middle;
+		display: block;
+		right: 0;
+		width: 24px;
+		text-align: center;
 		cursor: pointer;
 }
-.o-InputText__openList:after {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
-	position: relative;
-	margin-top: 50%;
-	display: inline-block;
-	content: '';
-	border: 8px solid transparent;
-	border-bottom-width: 0;
-	border-top: 10px solid #E1E1E1;
-	-webkit-transition: ease all 0.2s;
-	transition: ease all 0.2s;
-}
-.o-InputText__openList:hover:after {
-	border-top-color: #666666;
-}
-.o-InputText__options {
+.o-Input__options {
 		position: absolute;
-		z-index: 9;
+		z-index: 1000;
 		top: 100%;
 		right: 0;
 		padding: 0;
@@ -374,8 +387,8 @@
 		list-style: none;
 		background: #fff;
 		border-radius: 4px;
-		-webkit-box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .24);
-		        box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .24);
+		-webkit-box-shadow: 1px 2px 8px 0px rgba(0, 0, 0, .24);
+		        box-shadow: 1px 2px 8px 0px rgba(0, 0, 0, .24);
 
 		li {
 			margin: 0;
@@ -390,6 +403,69 @@
 		li:hover {
 				background: #F6F6F6;
 	}
+}
+.o-Input--sm {
+		line-height: 30px;
+		height: 30px;
+}
+.o-Input--md {
+		line-height: 34px;
+		height: 34px;
+}
+.o-Input--lg {
+		line-height: 40px;
+		height: 40px;
+}
+.o-InputText input {
+	padding-right: 24px;
+}
+.o-InputNumber {.o-InputNumber__add.is-disabled:hover *, .o-InputNumber__sub.is-disabled:hover * {
+			color: #D8D8D8;
+			cursor: not-allowed;
+	}
+}
+.o-InputNumber input {
+	padding-right: 24px;
+}
+.o-InputNumber .iconfont {
+	font-size: 12px;
+}
+.o-InputNumber {.o-InputNumber__add, .o-InputNumber__sub {
+		position: absolute;
+		right: 0;
+		width: 24px;
+		text-align: center;
+		line-height: 1;
+		cursor: pointer;
+	}.o-InputNumber__add:after, .o-InputNumber__sub:after {
+			display: inline-block;
+			content: '';
+	}
+}
+.o-InputNumber__actions {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 24px;
+		height: 100%;
+}
+.o-InputNumber__actions {
+		z-index: 2;
+}
+.o-InputNumber__suffix {
+		color: #999999;
+}
+.o-InputNumber__input {
+		z-index: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+}
+.o-InputNumber__add {
+		top: 2px;
+}
+.o-InputNumber__sub {
+		bottom: 2px;
 }
 
 

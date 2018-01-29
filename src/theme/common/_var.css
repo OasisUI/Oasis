@@ -30,7 +30,6 @@
 	/* font */
 	--fontColor-default: #333333;
 	--fontSize-default: var(--fontSize-14);
-
 	--fontSize-12: 12px;
 	--fontSize-14: 14px;
 	--fontSize-16: 16px;
@@ -51,12 +50,15 @@
 	--Button-lg-padding: 36px;
 
 	/*input*/
-	--Input-sm-height: 40px;
+	--Input-lg-height: 40px;
 	--Input-md-height: 34px;
-	--Input-lg-height: 24px;
+	--Input-sm-height: 30px;
 	--Input-borderRadius: 4px;
 	--Input-padding: 12px;
 	--Input-borderColor: #E1E1E1;
+	--Input-toggleOptionsColor: #D8D8D8;
+	--Input-disabled-bg: #F6F6F6;
+	--Input-readonly-bg: #F5FAF9;
 
 
 	/*transition*/
@@ -64,5 +66,16 @@
 	--transition-btn-default: var(--transition-default);
 
 	/*shadow*/
-	--shadow-dropBox: 0 1px 8px 0 rgba(0,0,0,0.24);
+	--shadw-dropdown: 1px 2px 8px 0px rgba(0,0,0,0.24);
+	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);
+
+	/*z-index*/
+	/*from bootstrap*/
+	--zindex-dropdown:          1000;
+	--zindex-sticky:            1020;
+	--zindex-fixed:             1030;
+	--zindex-modal-backdrop:    1040;
+	--zindex-modal:             1050;
+	--zindex-popover:           1060;
+	--zindex-tooltip:           1070;
 }

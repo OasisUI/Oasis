@@ -1,23 +1,31 @@
 <template>
-	<div class="o-InputWrapper o-InputText"
- 		:class="{'is-disabled': disabled}"
+	<div class="o-Input o-InputText"
+ 		:class="[
+ 			disabled ? 'is-disabled' : '',
+ 			readonly ? 'is-readonly' : '',
+			'o-Input--' + size
+		]"
 	>
-		<div class="o-InputText__wrappper">
+		<div class="o-Input__wrapper">
 			<input
 				v-model="currentVal"
 				:disabled="disabled"
+				:readonly="readonly"
+				:placeholder="placeholder"
 				type="text"
 			/>
 			<span
-				v-if="options"
+				v-if="options && !disabled && !readonly"
 				@click="displayList"
-				class="o-InputText__openList"
-			></span>
+				class="o-Input__openList"
+			>
+				<i class="iconfont icon-arrow-down"></i>
+			</span>
 		</div>
 		<ul
 			v-show="showList"
 			@click="setVal"
-			class="o-InputText__options"
+			class="o-Input__options"
 			ref="list"
 		>
 			<li v-for="val in options">{{ val }}</li>
@@ -36,7 +44,16 @@
 		disabled: {
 			type: Boolean,
 			default: false
-		}
+		},
+		readonly: {
+			type: Boolean,
+			default: false
+		},
+		size: {
+			type: String,
+			default: 'md'
+		},
+		placeholder: String
 	}
 
 	export default {
