@@ -318,6 +318,9 @@
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
 }
+.o-Input input:hover {
+	border-color: #BBBBBB;
+}
 .o-Input {
 	position: relative;
 	display: inline-block;
@@ -351,6 +354,11 @@
 	background: transparent;
 	border: 1px solid #E1E1E1;
 	border-radius: 4px;
+	-webkit-transition: all ease 0.24s;
+	transition: all ease 0.24s;
+}
+.o-Input input:focus {
+	border-color: #34B697;
 }
 .o-Input .iconfont {
 	color: #D8D8D8;
@@ -360,7 +368,7 @@
 	color: #666666;
 }
 .o-Input.is-disabled {
-		background: #F6F6F6;
+		background: #F2F2F2;
 		color: #999999;
 }
 .o-Input.is-disabled input {
@@ -507,6 +515,7 @@
 	display: none;
 }
 .o-InputCheckbox input[type="checkbox"]:checked + .o-InputCheckbox__inner {
+	border-color: #34B697;
 	background: #34B697;
 }
 .o-InputCheckbox input[type="checkbox"]:checked + .o-InputCheckbox__inner:after {
@@ -519,7 +528,7 @@
 .o-InputCheckbox.is-disabled .o-InputCheckbox__inner {
 	cursor: not-allowed;
 	border-color: #CECECE !important;
-	background: #F6F6F6 !important;
+	background: #F2F2F2 !important;
 }
 .o-InputCheckbox.is-disabled .o-InputCheckbox__inner:after {
 	border-color: #CECECE;
@@ -530,7 +539,7 @@
 		width: 14px;
 		height: 14px;
 		vertical-align: middle;
-		border: 1px solid #34B697;
+		border: 1px solid #E1E1E1;
 		border-radius: 3px;
 		cursor: pointer;
 		-webkit-transition: all ease-in-out 140ms;
@@ -542,15 +551,15 @@
 	content: '';
 	top: 0;
 	left: 0;
-	width: 8px;
-	height: 4px;
+	width: 7px;
+	height: 3px;
 	border: 2px solid white;
 	border-top-width: 0;
 	border-right-width: 0;
 	-webkit-transform: scale(0) rotate(-45deg);
 	        transform: scale(0) rotate(-45deg);
-	-webkit-transform-origin: 7px 2px;
-	        transform-origin: 7px 2px;
+	-webkit-transform-origin: 8px 2px;
+	        transform-origin: 8px 2px;
 	background: transparent;
 	-webkit-transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
 	transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
@@ -575,7 +584,7 @@
 .o-InputRadio.is-disabled .o-InputRadio__inner {
 	cursor: not-allowed;
 	border-color: #CECECE !important;
-	background: #F6F6F6 !important;
+	background: #F2F2F2 !important;
 }
 .o-InputRadio.is-disabled .o-InputRadio__inner:after {
 	background: #CECECE;
@@ -586,7 +595,7 @@
 		width: 14px;
 		height: 14px;
 		vertical-align: middle;
-		border: 1px solid #34B697;
+		border: 1px solid #E1E1E1;
 		border-radius: 50%;
 		cursor: pointer;
 		-webkit-transition: all ease-in-out 140ms;
@@ -596,10 +605,10 @@
 	display: block;
 	position: absolute;
 	content: '';
-	top: 3px;
-	left: 3px;
-	width: 6px;
-	height: 6px;
+	top: 4px;
+	left: 4px;
+	width: 4px;
+	height: 4px;
 	-webkit-transform: scale(0);
 	        transform: scale(0);
 	border-radius: 50%;

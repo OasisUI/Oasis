@@ -3,13 +3,15 @@ import InputNumber from './src/number'
 import InputSelect from './src/select'
 import InputCheckbox from './src/checkbox'
 import InputRadio from './src/radio'
+import RadioGroup from './src/radioGroup'
 
 const components = [
 	InputText,
 	InputNumber,
 	InputSelect,
 	InputCheckbox,
-	InputRadio
+	InputRadio,
+	RadioGroup
 ]
 
 export default {

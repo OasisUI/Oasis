@@ -57,8 +57,9 @@
 	--Input-padding: 12px;
 	--Input-checkbox-size: 14px;
 	--Input-borderColor: #E1E1E1;
+	--Input-hoverColor: #BBBBBB;
 	--Input-toggleOptionsColor: #D8D8D8;
-	--Input-disabled-bg: #F6F6F6;
+	--Input-disabled-bg: #F2F2F2;
 	--Input-readonly-bg: #F5FAF9;
 
 	/*transition*/

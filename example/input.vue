@@ -121,32 +121,41 @@
 		<li>
 			<h1>InputRadio</h1>
 		</li>
+		<li>
+			<h2>Base</h2>
+		</li>
 		<li class="input-list radio-list">
-			<label>
-				<InputRadio
-					label="A"
-					name="radio"
-					v-model="inputRadio"
-				>A</InputRadio>
-				<span>{{inputRadio}}</span>
-			</label>
-			<label>
-				<InputRadio
-					label="B"
-					name="radio"
-					v-model="inputRadio"
-					disabled
-				>B</InputRadio>
-				<span>{{inputRadio}}</span>
-			</label>
-			<label>
-				<InputRadio
-					label="C"
-					name="radio"
-					v-model="inputRadio"
-				>C</InputRadio>
-				<span>{{inputRadio}}</span>
-			</label>
+			<InputRadio
+				:label="{key: 'A'}"
+				v-model="inputRadio"
+			>A</InputRadio>
+			<InputRadio
+				label="B"
+				v-model="inputRadio"
+				disabled
+			>B</InputRadio>
+			<InputRadio
+				label="C"
+				v-model="inputRadio"
+			>C</InputRadio>
+			<p>
+				value: {{inputRadio}}
+			</p>
+		</li>
+		<li>
+			<h2>RadioGroup</h2>
+		</li>
+		<li class="input-list radio-list">
+			<RadioGroup
+				v-model="inputRadio2"
+			>
+				<InputRadio label="GroupItem1"></InputRadio>
+				<InputRadio label="GroupItem2"></InputRadio>
+				<InputRadio label="GroupItem3"></InputRadio>
+			</RadioGroup>
+			<p>
+				radio group value: {{inputRadio2}}
+			</p>
 		</li>
 	</ul>
 </template>
@@ -174,7 +183,9 @@
 					}
 				],
 				inputCheckbox: true,
-				inputRadio: 'B'
+				inputRadio: 'B',
+				inputRadio2: 'GroupItem1',
+				inputRadio3: ''
 			}
 		}
 	}

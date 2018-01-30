@@ -1,13 +1,13 @@
 <template>
 	<label
 		:class="{
-			'is-disabled': disabled
+			'is-disabled': isDisabled
 		}"
 		class="o-Input o-InputRadio">
 		<input
 			v-model="currentVal"
 			:value="label"
-			:disabled="disabled"
+			:disabled="isDisabled"
 			:name="name"
 			type="radio"
 		/>
@@ -19,7 +19,7 @@
 <script>
 	const props = {
 		value: {},
-		label: String,
+		label: {},
 		name: String,
 		readonly: Boolean,
 		disabled: Boolean
@@ -27,14 +27,31 @@
 	export default {
 		name: 'InputRadio',
 		props,
+		data () {
+			return {
+				group: {}
+			}
+		},
 		computed: {
 			currentVal: {
-				set (val) {
-					this.$emit('input', val ? this.label : '')
+				set () {
+					(this.useGroup ? this.group : this).$emit('input', this.label)
 				},
 				get () {
-					return this.value
+					return this.useGroup ? this.groupVal : this.value
 				}
+			},
+			useGroup () {
+				this.group = this.$parent
+				return this.group.$options.type === 'radioGroup'
+			},
+			groupVal () {
+				return this.group.value
+			},
+			isDisabled () {
+				return this.useGroup ?
+					this.group.disabled || this.disabled
+					: this.disabled
 			}
 		}
 	}

@@ -109,10 +109,13 @@
 			}
 		},
 		watch: {
-			currentVal (value) {
-				// TODO
-			},
 			value: {
+				handler () {
+					this.initVal()
+				},
+				immediate: true
+			},
+			options: {
 				handler () {
 					this.initVal()
 				},
