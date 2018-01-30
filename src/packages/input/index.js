@@ -4,6 +4,7 @@ import InputSelect from './src/select'
 import InputCheckbox from './src/checkbox'
 import InputRadio from './src/radio'
 import RadioGroup from './src/radioGroup'
+import CheckboxGroup from './src/checkboxGroup'
 
 const components = [
 	InputText,
@@ -11,7 +12,8 @@ const components = [
 	InputSelect,
 	InputCheckbox,
 	InputRadio,
-	RadioGroup
+	RadioGroup,
+	CheckboxGroup
 ]
 
 export default {

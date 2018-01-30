@@ -3,6 +3,7 @@
 		<slot></slot>
 	</div>
 </template>
+
 <script>
 	const props = {
 		value: {},
@@ -10,8 +11,8 @@
 	}
 
 	export default {
-		name: 'RadioGroup',
-		type: 'radioGroup',
-		props,
+		name: 'CheckboxGroup',
+		type: 'checkboxGroup',
+		props
 	}
 </script>

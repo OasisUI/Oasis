@@ -27,11 +27,6 @@
 	export default {
 		name: 'InputRadio',
 		props,
-		data () {
-			return {
-				group: {}
-			}
-		},
 		computed: {
 			currentVal: {
 				set () {
@@ -41,8 +36,10 @@
 					return this.useGroup ? this.groupVal : this.value
 				}
 			},
+			group () {
+				return this.$parent
+			},
 			useGroup () {
-				this.group = this.$parent
 				return this.group.$options.type === 'radioGroup'
 			},
 			groupVal () {

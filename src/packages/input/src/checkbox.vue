@@ -6,6 +6,7 @@
 		class="o-Input o-InputCheckbox">
 		<input
 			v-model="currentVal"
+			:value="label"
 			:disabled="disabled"
 			type="checkbox"
 		/>
@@ -17,26 +18,29 @@
 <script>
 	const props = {
 		value: {},
+		label: {},
 		readonly: Boolean,
 		disabled: Boolean
 	}
 	export default {
 		name: 'InputCheckbox',
 		props,
-		data () {
-			return {
-
-			}
-		},
 		computed: {
 			currentVal: {
 				set (val) {
-					this.$emit('input', !!val)
+					(this.useGroup ? this.group : this).$emit('input', val)
 				},
 				get () {
-					return !!this.value
+					return this.useGroup ? this.group.value : this.value
 				}
-			}
+			},
+			group () {
+				return this.$parent
+			},
+			useGroup () {
+				return this.group.$options.type === 'checkboxGroup'
+			},
+
 		}
 	}
 </script>

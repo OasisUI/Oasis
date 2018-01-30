@@ -101,22 +101,50 @@
 		<li>
 			<h1>InputCheckbox</h1>
 		</li>
+		<li>
+			<h2>Base</h2>
+		</li>
 		<li class="input-list">
 			<label>
 				<InputCheckbox
 					v-model="inputCheckbox"
-				>
-					checkbox {{inputCheckbox}}
+				>A
 				</InputCheckbox>
 			</label>
 			<label>
 				<InputCheckbox
 					v-model="inputCheckbox"
 					disabled
-				>
-					checkbox {{inputCheckbox}}
+				>B
 				</InputCheckbox>
 			</label>
+			<p>
+				value: {{inputCheckbox}}
+			</p>
+		</li>
+		<li>
+			<h2>CheckboxGroup</h2>
+		</li>
+		<li class="input-list">
+			<CheckboxGroup
+				v-model="inputCheckboxGroup"
+			>
+				<label>
+					<InputCheckbox
+						label="inputCheckbox"
+					>A
+					</InputCheckbox>
+				</label>
+				<label>
+					<InputCheckbox
+						:label="{group: 'checkbox'}"
+					>B
+					</InputCheckbox>
+				</label>
+			</CheckboxGroup>
+			<p>
+				value: {{inputCheckboxGroup}}
+			</p>
 		</li>
 		<li>
 			<h1>InputRadio</h1>
@@ -147,14 +175,14 @@
 		</li>
 		<li class="input-list radio-list">
 			<RadioGroup
-				v-model="inputRadio2"
+				v-model="inputRadioGroup"
 			>
 				<InputRadio label="GroupItem1"></InputRadio>
 				<InputRadio label="GroupItem2"></InputRadio>
 				<InputRadio label="GroupItem3"></InputRadio>
 			</RadioGroup>
 			<p>
-				radio group value: {{inputRadio2}}
+				radio group value: {{inputRadioGroup}}
 			</p>
 		</li>
 	</ul>
@@ -182,10 +210,10 @@
 						value: 3
 					}
 				],
-				inputCheckbox: true,
+				inputCheckbox: false,
 				inputRadio: 'B',
-				inputRadio2: 'GroupItem1',
-				inputRadio3: ''
+				inputRadioGroup: 'GroupItem1',
+				inputCheckboxGroup: []
 			}
 		}
 	}
@@ -195,11 +223,6 @@
 	.input-list {
 		& .o-Input:not(label) {
 			width: 200px;
-		}
-	}
-	.radio-list {
-		* {
-			vertical-align: middle;
 		}
 	}
 </style>
