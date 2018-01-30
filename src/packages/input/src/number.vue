@@ -8,11 +8,10 @@
 		class="o-Input o-InputNumber"
 	>
 		<div class="o-Input__wrapper">
-			<input
-				class="o-InputNumber__suffix"
-				:value="`${currentVal} ${suffix}`"
-				type="text"
-			/>
+			<div class="o-InputNumber__suffixWrapper">
+				{{currentVal}}
+				<span class="o-InputNumber__suffix">&nbsp{{suffix}}</span>
+			</div>
 			<input
 				class="o-InputNumber__input"
 				type="text"

@@ -35,6 +35,7 @@ input {
 	border: none;
 	outline: none;
 	color: inherit;
-	font-size: inherit;
+	font-size: 100%;
+	font-family: sans-serif;
 }
 

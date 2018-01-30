@@ -24,7 +24,8 @@
 	border: none;
 	outline: none;
 	color: inherit;
-	font-size: inherit;
+	font-size: 100%;
+	font-family: sans-serif;
 }
 @-webkit-keyframes loading-spin {
 	0% {
@@ -455,6 +456,13 @@
 }
 .o-InputNumber__actions {
 		z-index: 2;
+}
+.o-InputNumber__suffixWrapper {
+		padding: 0 24px 0 12px;
+		white-space: nowrap;
+		overflow: hidden;
+		color: transparent;
+		font-family: sans-serif;
 }
 .o-InputNumber__suffix {
 		color: #999999;

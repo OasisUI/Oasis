@@ -159,6 +159,14 @@
 		z-index: 2;
 	}
 
+	@d suffixWrapper {
+		padding: 0 24px 0 var(--Input-padding);
+		white-space: nowrap;
+		overflow: hidden;
+		color: transparent;
+		font-family: sans-serif;
+	}
+
 	@d suffix {
 		color: var(--color-gray-1);
 	}
