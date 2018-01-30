@@ -14,7 +14,7 @@
 	font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	/*you should read: https://davidwalsh.name/font-smoothing*/
+	/*https://davidwalsh.name/font-smoothing*/
 }button {
 	outline: none;
 	border: none;
@@ -31,40 +31,48 @@
 	0% {
 		stroke-dasharray: 100, 40;
 		stroke-dashoffset: 0;
-		-webkit-transform: rotate3d(0,0,0);
-		        transform: rotate3d(0,0,0);
 	}
 	50% {
 		stroke-dasharray: 100, 140;
 		stroke-dashoffset: -100;
-		-webkit-transform: rotate3d(0,0,1,180deg);
-		        transform: rotate3d(0,0,1,180deg);
 	}
 	100% {
 		stroke-dasharray: 100, 40;
 		stroke-dashoffset: -140;
-		-webkit-transform: rotate3d(0,0,1,360deg);
-		        transform: rotate3d(0,0,1,360deg);		
 	}
 }
 @keyframes loading-spin {
 	0% {
 		stroke-dasharray: 100, 40;
 		stroke-dashoffset: 0;
-		-webkit-transform: rotate3d(0,0,0);
-		        transform: rotate3d(0,0,0);
 	}
 	50% {
 		stroke-dasharray: 100, 140;
 		stroke-dashoffset: -100;
-		-webkit-transform: rotate3d(0,0,1,180deg);
-		        transform: rotate3d(0,0,1,180deg);
 	}
 	100% {
 		stroke-dasharray: 100, 40;
 		stroke-dashoffset: -140;
-		-webkit-transform: rotate3d(0,0,1,360deg);
-		        transform: rotate3d(0,0,1,360deg);		
+	}
+}
+@-webkit-keyframes loading-rotate {
+	0% {
+		-webkit-transform: rotate(0);
+		        transform: rotate(0);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+	}
+}
+@keyframes loading-rotate {
+	0% {
+		-webkit-transform: rotate(0);
+		        transform: rotate(0);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
 	}
 }
 
@@ -101,20 +109,22 @@
 	background: rgba(222, 222, 222, .78);
 }
 .o-Loading .path {
-	// stroke-dasharray: 100, 40;
-	// stroke-dashoffset: 0;
 	stroke-dasharray: 100, 140;
 	stroke-dashoffset: 0;
 	stroke-width: 4;
 	stroke: #34B697;
 	-webkit-transform-origin: 50% 50%;
 	        transform-origin: 50% 50%;
-	-webkit-animation: loading-spin infinite 2s 0s linear;
-	        animation: loading-spin infinite 2s 0s linear;
+	-webkit-animation: loading-spin 2s linear infinite;
+	        animation: loading-spin 2s linear infinite;
 }
 .o-Loading__spin {
 		width: 42px;
 		height: 42px;
+}
+.o-Loading__spin svg {
+	-webkit-animation: loading-rotate 2s linear infinite;
+	        animation: loading-rotate 2s linear infinite;
 }
 .o-Form {
 	position: relative;
@@ -127,26 +137,28 @@
 @keyframes loading-spin {0% {
 		stroke-dasharray: 100, 40;
 		stroke-dashoffset: 0;
-		-webkit-transform: rotate3d(0,0,0);
-		        transform: rotate3d(0,0,0);
 	}50% {
 		stroke-dasharray: 100, 140;
 		stroke-dashoffset: -100;
-		-webkit-transform: rotate3d(0,0,1,180deg);
-		        transform: rotate3d(0,0,1,180deg);
 	}100% {
 		stroke-dasharray: 100, 40;
 		stroke-dashoffset: -140;
-		-webkit-transform: rotate3d(0,0,1,360deg);
-		        transform: rotate3d(0,0,1,360deg);
+	}
+}
+@keyframes loading-rotate {0% {
+		-webkit-transform: rotate(0);
+		        transform: rotate(0);
+	}100% {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
 	}
 }
 .o-Btn {
 	display: inline-block;
 	border-radius: 4px;
 	font-size: 14px;
-	-webkit-transition: all ease-in-out 150ms;
-	transition: all ease-in-out 150ms;
+	-webkit-transition: all ease-in-out 140ms;
+	transition: all ease-in-out 140ms;
 }
 .o-Btn:not(.disabled) {
 	cursor: pointer;
@@ -310,8 +322,11 @@
 	position: relative;
 	display: inline-block;
 	width: 100%;
+	vertical-align: middle;
 	border-radius: 4px;
 	color: #464646;
+	-webkit-transition: all ease 0.24s;
+	transition: all ease 0.24s;
 }
 .o-Input input::-webkit-input-placeholder {
 	color: #999999;
@@ -484,6 +499,113 @@
 		position: relative;
 		z-index: 1;
 		cursor: pointer;
+}
+.o-InputCheckbox {
+	width: auto;
+}
+.o-InputCheckbox input[type="checkbox"] {
+	display: none;
+}
+.o-InputCheckbox input[type="checkbox"]:checked + .o-InputCheckbox__inner {
+	background: #34B697;
+}
+.o-InputCheckbox input[type="checkbox"]:checked + .o-InputCheckbox__inner:after {
+	-webkit-transform: scale(1) rotate(-45deg);
+	        transform: scale(1) rotate(-45deg);
+}
+.o-InputCheckbox.is-disabled {
+		background: inherit;
+}
+.o-InputCheckbox.is-disabled .o-InputCheckbox__inner {
+	cursor: not-allowed;
+	border-color: #CECECE !important;
+	background: #F6F6F6 !important;
+}
+.o-InputCheckbox.is-disabled .o-InputCheckbox__inner:after {
+	border-color: #CECECE;
+}
+.o-InputCheckbox__inner {
+		position: relative;
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		vertical-align: middle;
+		border: 1px solid #34B697;
+		border-radius: 3px;
+		cursor: pointer;
+		-webkit-transition: all ease-in-out 140ms;
+		transition: all ease-in-out 140ms;
+}
+.o-InputCheckbox__inner:after {
+	display: block;
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 8px;
+	height: 4px;
+	border: 2px solid white;
+	border-top-width: 0;
+	border-right-width: 0;
+	-webkit-transform: scale(0) rotate(-45deg);
+	        transform: scale(0) rotate(-45deg);
+	-webkit-transform-origin: 7px 2px;
+	        transform-origin: 7px 2px;
+	background: transparent;
+	-webkit-transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
+	transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
+}
+.o-InputRadio {
+	width: auto;
+}
+.o-InputRadio input[type="radio"] {
+	display: none;
+}
+.o-InputRadio input[type="radio"]:checked + .o-InputRadio__inner {
+	border-color: #34B697;
+	background: #34B697;
+}
+.o-InputRadio input[type="radio"]:checked + .o-InputRadio__inner:after {
+	-webkit-transform: scale(1);
+	        transform: scale(1);
+}
+.o-InputRadio.is-disabled {
+		background: inherit;
+}
+.o-InputRadio.is-disabled .o-InputRadio__inner {
+	cursor: not-allowed;
+	border-color: #CECECE !important;
+	background: #F6F6F6 !important;
+}
+.o-InputRadio.is-disabled .o-InputRadio__inner:after {
+	background: #CECECE;
+}
+.o-InputRadio__inner {
+		position: relative;
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		vertical-align: middle;
+		border: 1px solid #34B697;
+		border-radius: 50%;
+		cursor: pointer;
+		-webkit-transition: all ease-in-out 140ms;
+		transition: all ease-in-out 140ms;
+}
+.o-InputRadio__inner:after {
+	display: block;
+	position: absolute;
+	content: '';
+	top: 3px;
+	left: 3px;
+	width: 6px;
+	height: 6px;
+	-webkit-transform: scale(0);
+	        transform: scale(0);
+	border-radius: 50%;
+	background: white;
+	-webkit-transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
+	transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
 }
 
 

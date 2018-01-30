@@ -55,16 +55,17 @@
 	--Input-sm-height: 30px;
 	--Input-borderRadius: 4px;
 	--Input-padding: 12px;
+	--Input-checkbox-size: 14px;
 	--Input-borderColor: #E1E1E1;
 	--Input-toggleOptionsColor: #D8D8D8;
 	--Input-disabled-bg: #F6F6F6;
 	--Input-readonly-bg: #F5FAF9;
 
-
 	/*transition*/
-	--transition-default: all ease-in-out 150ms;
+	--transition-default: all ease-in-out 140ms;
+	--transition-slide: all ease-in-out 240ms;
 	--transition-btn-default: var(--transition-default);
-
+	--transition-checkbox: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
 	/*shadow*/
 	--shadw-dropdown: 1px 2px 8px 0px rgba(0,0,0,0.24);
 	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);

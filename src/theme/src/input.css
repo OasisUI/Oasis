@@ -4,8 +4,10 @@
 	position: relative;
 	display: inline-block;
 	width: 100%;
+	vertical-align: middle;
 	border-radius: var(--Input-borderRadius);
 	color: #464646;
+	transition: all ease 0.24s;
 
 	& input::placeholder {
 		color: #999999;
@@ -193,5 +195,115 @@
 		position: relative;
 		z-index: 1;
 		cursor: pointer;
+	}
+}
+
+@component InputCheckbox {
+	width: auto;
+
+	@d inner {
+		position: relative;
+		display: inline-block;
+		width: var(--Input-checkbox-size);
+		height: var(--Input-checkbox-size);
+		vertical-align: middle;
+		border: 1px solid var(--color-primary);
+		border-radius: 3px;
+		cursor: pointer;
+		transition: var(--transition-default);
+
+		&:after {
+			display: block;
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			width: 8px;
+			height: 4px;
+			border: 2px solid white;
+			border-top-width: 0;
+			border-right-width: 0;
+			transform: scale(0) rotate(-45deg);
+			transform-origin: 7px 2px;
+			background: transparent;
+			transition: var(--transition-checkbox);
+		}
+	}
+
+	@when disabled {
+		background: inherit;
+		& .o-InputCheckbox__inner {
+			cursor: not-allowed;
+			border-color: var(--color-gray-2) !important;
+			background: var(--Input-disabled-bg) !important;
+			&:after {
+				border-color: var(--color-gray-2);
+			}
+		}
+	}
+
+	& input[type="checkbox"] {
+		display: none;
+		&:checked + .o-InputCheckbox__inner {
+			background: var(--color-primary);
+			&:after {
+				 transform: scale(1) rotate(-45deg);
+			}
+		}
+	}
+}
+
+
+@component InputRadio {
+	width: auto;
+
+	@d inner {
+		position: relative;
+		display: inline-block;
+		width: var(--Input-checkbox-size);
+		height: var(--Input-checkbox-size);
+		vertical-align: middle;
+		border: 1px solid var(--color-primary);
+		border-radius: 50%;
+		cursor: pointer;
+		transition: var(--transition-default);
+
+		&:after {
+			display: block;
+			position: absolute;
+			content: '';
+			top: 3px;
+			left: 3px;
+			width: 6px;
+			height: 6px;
+			transform: scale(0);
+			border-radius: 50%;
+			background: white;
+			transition: var(--transition-checkbox);
+		}
+	}
+
+	@when disabled {
+		background: inherit;
+		& .o-InputRadio__inner {
+			cursor: not-allowed;
+			border-color: var(--color-gray-2) !important;
+			background: var(--Input-disabled-bg) !important;
+			&:after {
+				background: var(--color-gray-2);
+			}
+		}
+	}
+
+	& input[type="radio"] {
+		display: none;
+		&:checked + .o-InputRadio__inner {
+			border-color: var(--color-primary);
+		  	background: var(--color-primary);
+
+			&:after {
+				 transform: scale(1);
+			}
+		}
 	}
 }

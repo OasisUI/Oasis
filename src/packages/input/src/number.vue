@@ -8,7 +8,10 @@
 		class="o-Input o-InputNumber"
 	>
 		<div class="o-Input__wrapper">
-			<div class="o-InputNumber__suffixWrapper">
+			<div
+				v-if="suffix"
+				class="o-InputNumber__suffixWrapper"
+			>
 				{{currentVal}}
 				<span class="o-InputNumber__suffix">&nbsp{{suffix}}</span>
 			</div>
@@ -45,9 +48,7 @@
 
 <script>
 	const props = {
-		value: {
-			required: true
-		},
+		value: {},
 		size: {
 			type: String,
 			default: 'md'
@@ -111,116 +112,3 @@
 		}
 	}
 </script>
-
-<!--<style lang="scss" scoped>-->
-
-	<!--$btn-size: 36px;-->
-	<!--$btn-color: #E1E1E1;-->
-	<!--.input-number {-->
-		<!--display: inline-block;-->
-		<!--width: 100%;-->
-		<!--border: 1px solid #E1E1E1;-->
-		<!--border-radius: 4px;-->
-
-		<!--&.disabled {-->
-			<!--background: #EEE;-->
-			<!--color: #989898;-->
-			<!--input {-->
-				<!--cursor: not-allowed;-->
-			<!--}-->
-		<!--}-->
-
-		<!--.input-suffix {-->
-			<!--color: #9d9d9d;-->
-			<!--/*display: inline-block;*/-->
-			<!--/*float: left;*/-->
-		<!--}-->
-
-		<!--.current-val {-->
-			<!--position: relative;-->
-			<!--height: 100%;-->
-			<!--padding-right: 38px;-->
-
-			<!--.add,-->
-			<!--.sub {-->
-				<!--position: absolute;-->
-				<!--display: block;-->
-				<!--width: $btn-size * 0.66;-->
-				<!--height: $btn-size/2;-->
-				<!--right: 0;-->
-				<!--cursor: pointer;-->
-
-				<!--&:after {-->
-					<!--position: relative;-->
-					<!--margin: 3px auto 0 auto;-->
-					<!--display: block;-->
-					<!--content: '';-->
-					<!--width: 10px;-->
-					<!--height: 10px;-->
-					<!--border: 8px solid transparent;-->
-					<!--border-top: 0px solid transparent;-->
-					<!--border-bottom: 10px solid $btn-color;-->
-					<!--transition: ease all 0.2s;-->
-				<!--}-->
-
-				<!--&:hover {-->
-					<!--&:after {-->
-						<!--border-top-color: #9d9d9d;-->
-						<!--border-bottom-color: #9d9d9d;-->
-					<!--}-->
-				<!--}-->
-
-				<!--&.disable {-->
-					<!--cursor: not-allowed;-->
-					<!--&:after {-->
-						<!--border-top-color: #E1E1E1;-->
-						<!--border-bottom-color: #E1E1E1;-->
-					<!--}-->
-				<!--}-->
-			<!--}-->
-			<!--.add {-->
-				<!--top: 0;-->
-
-				<!--&:after {-->
-					<!--border: 6px solid transparent;-->
-					<!--border-top: 0px solid transparent;-->
-					<!--border-bottom: 10px solid $btn-color;-->
-				<!--}-->
-			<!--}-->
-			<!--.sub {-->
-				<!--bottom: 0;-->
-
-				<!--&:after {-->
-					<!--border: 6px solid transparent;-->
-					<!--border-bottom: 0px solid transparent;-->
-					<!--border-top: 10px solid $btn-color;-->
-				<!--}-->
-			<!--}-->
-
-			<!--.val {-->
-				<!--display: block;-->
-				<!--width: 100%;-->
-				<!--height: 100%;-->
-				<!--padding: 0 15px;-->
-				<!--font-size: 14px;-->
-				<!--color: transparent;-->
-				<!--outline: none;-->
-			<!--}-->
-			<!--input {-->
-				<!--position: absolute;-->
-				<!--top: 0;-->
-				<!--left: 0;-->
-				<!--display: block;-->
-				<!--width: 100%;-->
-				<!--height: 100%;-->
-				<!--padding: 0 15px;-->
-				<!--border: none;-->
-				<!--outline: none;-->
-				<!--font-size: 14px;-->
-				<!--/*color: transparent;*/-->
-				<!--background: transparent;-->
-			<!--}-->
-		<!--}-->
-	<!--}-->
-
-<!--</style>-->

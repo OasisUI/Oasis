@@ -21,7 +21,7 @@ body {
 	font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	/*you should read: https://davidwalsh.name/font-smoothing*/
+	/*https://davidwalsh.name/font-smoothing*/
 }
 
 button {

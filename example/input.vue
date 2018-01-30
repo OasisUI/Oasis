@@ -29,6 +29,7 @@
 			<InputText
 				v-model="inputText"
 				size="lg"
+				name="radio"
 				:options="inputTextOptions"
 				placeholder="placeholder"
 				readonly
@@ -97,6 +98,56 @@
 				readonly
 			></InputSelect>
 		</li>
+		<li>
+			<h1>InputCheckbox</h1>
+		</li>
+		<li class="input-list">
+			<label>
+				<InputCheckbox
+					v-model="inputCheckbox"
+				>
+					checkbox {{inputCheckbox}}
+				</InputCheckbox>
+			</label>
+			<label>
+				<InputCheckbox
+					v-model="inputCheckbox"
+					disabled
+				>
+					checkbox {{inputCheckbox}}
+				</InputCheckbox>
+			</label>
+		</li>
+		<li>
+			<h1>InputRadio</h1>
+		</li>
+		<li class="input-list radio-list">
+			<label>
+				<InputRadio
+					label="A"
+					name="radio"
+					v-model="inputRadio"
+				>A</InputRadio>
+				<span>{{inputRadio}}</span>
+			</label>
+			<label>
+				<InputRadio
+					label="B"
+					name="radio"
+					v-model="inputRadio"
+					disabled
+				>B</InputRadio>
+				<span>{{inputRadio}}</span>
+			</label>
+			<label>
+				<InputRadio
+					label="C"
+					name="radio"
+					v-model="inputRadio"
+				>C</InputRadio>
+				<span>{{inputRadio}}</span>
+			</label>
+		</li>
 	</ul>
 </template>
 
@@ -121,7 +172,9 @@
 						key: '维修',
 						value: 3
 					}
-				]
+				],
+				inputCheckbox: true,
+				inputRadio: 'B'
 			}
 		}
 	}
@@ -129,8 +182,13 @@
 
 <style lang="postcss">
 	.input-list {
-		& .o-Input {
+		& .o-Input:not(label) {
 			width: 200px;
+		}
+	}
+	.radio-list {
+		* {
+			vertical-align: middle;
 		}
 	}
 </style>

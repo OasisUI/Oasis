@@ -35,9 +35,7 @@
 
 <script>
 	const props = {
-		value: {
-			required: true
-		},
+		value: {},
 		options: {
 			type: Array
 		},
