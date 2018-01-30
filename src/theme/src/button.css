@@ -134,7 +134,7 @@
 			border-radius: 50%;
 			border: 2px solid var(--color-white);
 			border-bottom-color: transparent !important;
-			animation: loading-spin infinite 1.4s 0s linear;
+			animation: loading-rotate infinite 1.4s 0s linear;
 		}
 	}
 }
