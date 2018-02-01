@@ -2,7 +2,9 @@ module.exports = {
 	// parser: 'sugarss',
 	plugins: [
 		// require('postcss-mixins'),
-		require('precss')(),
+		require('precss'),
+		// require('postcss-import'),
+		require('postcss-for'),
 		require('saladcss-bem')({
 			defaultNamespace: 'o',
 			style: 'suit',
@@ -19,7 +21,7 @@ module.exports = {
 			}
 		}),
 		require('postcss-cssnext')({
-			browsers: ['ie > 9', 'last 2 versions'],
+			browsers: ['ie > 8', 'last 2 versions'],
 			cascade: false
 		}),
 		require('postcss-bem-linter')('suit'),

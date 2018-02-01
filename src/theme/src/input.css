@@ -63,7 +63,7 @@
 		border-radius: var(--Input-borderRadius);
 		box-shadow: var(--shadw-dropdown);
 
-		li {
+		& li {
 			margin: 0;
 			padding: 0 var(--Input-padding);
 			height: var(--Input-md-height);

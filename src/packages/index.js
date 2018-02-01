@@ -5,14 +5,17 @@ import Loading from './loading'
 import Form from './form'
 import Button from './button'
 import Input from './input'
+import Grid from './grid'
 // tools
+// TODO
 
 const components = [
 	Img,
 	Loading,
 	Form,
 	Button,
-	Input
+	Input,
+	Grid
 ];
 
 const Oasis = {
