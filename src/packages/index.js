@@ -4,7 +4,6 @@ import Img from './img'
 import Loading from './loading'
 import Form from './form'
 import Button from './button'
-import Input from './input'
 import Grid from './grid'
 import Checkbox from './checkbox'
 import InputNumber from './inputNumber'
@@ -20,7 +19,6 @@ const components = [
 	Loading,
 	Form,
 	Button,
-	Input,
 	Grid,
 	Checkbox,
 	InputNumber,

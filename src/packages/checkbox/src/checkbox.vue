@@ -1,13 +1,13 @@
 <template>
 	<label
 		:class="{
-			'is-disabled': disabled
+			'is-disabled': isDisabled
 		}"
 		class="o-Input o-InputCheckbox">
 		<input
 			v-model="currentVal"
 			:value="label"
-			:disabled="disabled"
+			:disabled="isDisabled"
 			type="checkbox"
 		/>
 		<span class="o-InputCheckbox__inner"></span>
@@ -40,7 +40,11 @@
 			useGroup () {
 				return this.group.$options.type === 'checkboxGroup'
 			},
-
+			isDisabled () {
+				return this.useGroup ?
+					this.group.disabled || this.disabled
+					: this.disabled
+			},
 		}
 	}
 </script>

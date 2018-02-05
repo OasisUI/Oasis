@@ -61,6 +61,7 @@
 	--Input-toggleOptionsColor: #D8D8D8;
 	--Input-disabled-bg: #F2F2F2;
 	--Input-readonly-bg: #F5FAF9;
+	--Input-disabled-checked-bg: #D8D8D8;
 
 	/*transition*/
 	--transition-default: all ease-in-out 140ms;

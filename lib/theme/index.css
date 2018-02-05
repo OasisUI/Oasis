@@ -26,6 +26,11 @@
 	color: inherit;
 	font-size: 100%;
 	font-family: sans-serif;
+}.clearfix {
+}.clearfix:before, .clearfix:after {
+		display: table;
+		content: " ";
+		clear: both;
 }
 @-webkit-keyframes loading-spin {
 	0% {
@@ -132,7 +137,8 @@
 .o-Form {
 	position: relative;
 }
-.o-Form__group {}
+.o-Form__group {
+}
 .o-Form__item {
 		position: relative;
 		display: block;
@@ -361,6 +367,7 @@
 	vertical-align: middle;
 	border-radius: 4px;
 	color: #464646;
+	font-size: 14px;
 	-webkit-transition: all ease 0.24s;
 	transition: all ease 0.24s;
 }
@@ -533,7 +540,8 @@
 .o-InputNumber__sub {
 		bottom: 2px;
 }
-.o-InputSelect {}
+.o-InputSelect {
+}
 .o-InputSelect__input {
 		position: relative;
 		z-index: 1;
@@ -657,6 +665,47 @@
 	background: white;
 	-webkit-transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
 	transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
+}
+.o-InputRadioBtn {
+	border: 1px solid #34B697;
+	padding: 0 20px;
+	width: auto;
+	color: #34B697;
+	cursor: pointer;
+}
+.o-InputRadioBtn input[type="radio"] {
+	display: none;
+}
+.o-InputRadioBtn.is-disabled {
+		border-color: #CECECE !important;
+		color: #CECECE;
+		cursor: not-allowed;
+}
+.o-InputRadioBtn.is-disabled.is-checked {
+	background: #D8D8D8;
+	color: white;
+}
+.o-InputRadioBtn.is-checked {
+		background: #34B697;
+		color: white;
+}
+.o-InputRadioGroup {
+	display: inline-block;
+}
+.o-InputRadioGroup .o-InputRadio, .o-InputRadioGroup .o-InputRadioBtn {
+	float: left;
+}
+.o-InputRadioGroup .o-InputRadioBtn:not(:first-of-type):not(:last-of-type) {
+	border-radius: 0;
+}
+.o-InputRadioGroup .o-InputRadioBtn:first-of-type {
+	border-radius: 4px 0 0 4px;
+}
+.o-InputRadioGroup .o-InputRadioBtn:last-of-type {
+	border-radius: 0 4px 4px 0;
+}
+.o-InputRadioGroup .o-InputRadioBtn:not(:first-of-type) {
+	margin-left: -1px;
 }
 /*grid layout*/
 .o-Row {

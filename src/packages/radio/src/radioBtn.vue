@@ -1,10 +1,13 @@
 <template>
 	<label
-		:class="{
-			'is-disabled': isDisabled
-		}"
-		class="o-Input o-InputRadio"
+		class="o-Input o-InputRadioBtn"
+		:class="[
+ 			isDisabled ? 'is-disabled' : '',
+			'o-Input--' + currentSize,
+			isChecked ? 'is-checked' : ''
+		]"
 	>
+		<slot></slot>
 		<input
 			v-model="currentVal"
 			:value="label"
@@ -12,8 +15,6 @@
 			:name="name"
 			type="radio"
 		/>
-		<span class="o-InputRadio__inner"></span>
-		<slot></slot>
 	</label>
 </template>
 
@@ -23,10 +24,15 @@
 		label: {},
 		name: String,
 		readonly: Boolean,
-		disabled: Boolean
+		disabled: Boolean,
+		size: {
+			type: String,
+			default: 'md'
+		},
 	}
+
 	export default {
-		name: 'InputRadio',
+		name: 'InputRadioBtn',
 		props,
 		computed: {
 			currentVal: {
@@ -50,6 +56,14 @@
 				return this.useGroup ?
 					this.group.disabled || this.disabled
 					: this.disabled
+			},
+			isChecked () {
+				return this.currentVal === this.label
+			},
+			currentSize () {
+				return this.useGroup ?
+					this.group.size || this.size
+					: this.size
 			}
 		}
 	}

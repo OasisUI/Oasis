@@ -1,11 +1,12 @@
 <template>
-	<div class="o-InputGroup">
+	<div class="o-InputRadioGroup clearfix">
 		<slot></slot>
 	</div>
 </template>
 <script>
 	const props = {
 		value: {},
+		size: String,
 		disabled: Boolean
 	}
 

@@ -185,6 +185,30 @@
 				radio group value: {{inputRadioGroup}}
 			</p>
 		</li>
+		<li>
+			<h3>RadioBtnGroup</h3>
+		</li>
+		<li class="input-list radio-list">
+			<RadioGroup
+				v-model="inputRadioGroup"
+			>
+				<InputRadioBtn label="GroupItem1">GroupItem1</InputRadioBtn>
+				<InputRadioBtn label="GroupItem2">GroupItem2</InputRadioBtn>
+				<InputRadioBtn label="GroupItem3">GroupItem3</InputRadioBtn>
+			</RadioGroup>
+			<RadioGroup
+				v-model="inputRadioGroup"
+				disabled
+				size="lg"
+			>
+				<InputRadioBtn label="GroupItem1">GroupItem1</InputRadioBtn>
+				<InputRadioBtn label="GroupItem2">GroupItem2</InputRadioBtn>
+				<InputRadioBtn label="GroupItem3">GroupItem3</InputRadioBtn>
+			</RadioGroup>
+			<p>
+				radio group value: {{inputRadioGroup}}
+			</p>
+		</li>
 	</ul>
 </template>
 

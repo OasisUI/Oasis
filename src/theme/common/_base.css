@@ -39,3 +39,11 @@ input {
 	font-family: sans-serif;
 }
 
+.clearfix {
+	&:before,
+	&:after {
+		display: table;
+		content: " ";
+		clear: both;
+	}
+}
