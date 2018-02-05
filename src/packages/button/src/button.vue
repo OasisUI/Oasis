@@ -4,9 +4,10 @@
 		:class="[
 			'o-Btn--' + type,
 			'o-Btn--' + size,
-			round ? 'round' : '',
-			outline ? 'outline' : '',
-			disabled ? 'is-disabled' : ''
+			round ? 'o-Btn--round' : '',
+			outline ? 'o-Btn--outline' : '',
+			disabled ? 'is-disabled' : '',
+			gradient ? 'o-Btn--gradient' : ''
 		]"
 		type="button"
 	>
@@ -29,6 +30,7 @@
 		loading: Boolean,
 		disabled: Boolean,
 		outline: Boolean,
+		gradient: Boolean
 	}
 
 	export default {

@@ -25,6 +25,10 @@
 			<Button type="default" size="md">{{text}}</Button>
 		</li>
 		<li>
+			<h2>Linear gradient</h2>
+			<Button type="primary" gradient>{{text}}</Button>
+		</li>
+		<li>
 			<h2>Outline</h2>
 			<Button type="primary" size="sm" outline round>{{text}}</Button>
 			<Button type="danger" size="sm" outline round>{{text}}</Button>

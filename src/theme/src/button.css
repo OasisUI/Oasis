@@ -12,9 +12,8 @@
 	/*type*/
 	@m primary {
 		background: var(--color-primary);
-		background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light) 60%);
 		color: var(--color-white);
-		&.outline {
+		&.o-Btn--outline {
 			border: 1px solid var(--color-primary);
 			background: transparent;
 			color: var(--color-primary);
@@ -25,13 +24,12 @@
 		}
 		&:hover {
 			background: var(--color-primary-dark);
-			background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-dark) 100%);
 		 }
 	}
 	@m danger {
 		background: var(--color-danger);
 		color: var(--color-white);
-		&.outline {
+		&.o-Btn--outline {
 			border: 1px solid var(--color-danger);
 			background: transparent;
 			color: var(--color-danger);
@@ -47,7 +45,7 @@
 	@m warning {
 		background: var(--color-warning);
 		color: var(--color-white);
-		&.outline {
+		&.o-Btn--outline {
 			border: 1px solid var(--color-warning);
 			background: transparent;
 			color: var(--color-warning);
@@ -63,7 +61,7 @@
 	@m default {
 		background: var(--color-gray-4);
 		color: var(--color-black-4);
-		&.outline {
+		&.o-Btn--outline {
 			border: 1px solid var(--color-black-4);
 			background: transparent;
 			color: var(--color-black-4);
@@ -84,7 +82,7 @@
 		height: var(--Button-sm-height);
 		padding: 0 var(--Button-sm-padding);
 		font-size: var(--fontSize-14);
-		&.round {
+		&.o-Btn--round {
 			border-radius: calc(var(--Button-sm-height) / 2);
 		}
 	}
@@ -92,7 +90,7 @@
 		height: var(--Button-md-height);
 		padding: 0 var(--Button-md-padding);
 		font-size: var(--fontSize-16);
-		&.round {
+		&.o-Btn--round {
 			border-radius: calc(var(--Button-md-height) / 2);
 		}
 	}
@@ -100,8 +98,14 @@
 		height: var(--Button-lg-height);
 		padding: 0 var(--Button-lg-padding);
 		font-size: var(--fontSize-16);
-		&.round {
+		&.o-Btn--round {
 			border-radius: calc(var(--Button-lg-height) / 2);
+		}
+	}
+	@m gradient {
+		background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light) 90%);
+		&:hover {
+			 background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-dark) 100%);
 		}
 	}
 
@@ -143,14 +147,14 @@
 @component BtnGroup {
 	font-size: 0;
 
-	& .o-Btn:not(:first-of-type).outline {
+	& .o-Btn:not(:first-of-type).o-Btn--outline {
 		margin-left: -1px;
 	}
 	& .o-Btn:not(:first-of-type):not(:last-of-type) {
 		margin-left: -1px;
 		border-radius: 0;
 	}
-	& .o-Btn:not(:first-of-type):not(:last-of-type):not(.outline) {
+	& .o-Btn:not(:first-of-type):not(:last-of-type):not(.o-Btn--outline) {
 		border-right: 1px solid rgba(255,255,255,0.2);
 		border-left: 1px solid rgba(255,255,255,0.2);
 	}
@@ -162,8 +166,8 @@
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
-	& .o-Btn--primary:not(:hover):not(.outline) {
+	& .o-Btn--primary:not(:hover):not(.o-Btn--outline) {
 		background: var(--color-primary);
-		background: linear-gradient(90deg, var(--color-primary), var(--color-primary) 100%);
+		/*background: linear-gradient(90deg, var(--color-primary), var(--color-primary) 100%);*/
 	}
 }
