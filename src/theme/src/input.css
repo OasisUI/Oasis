@@ -207,6 +207,7 @@
 
 @component InputCheckbox {
 	width: auto;
+	cursor: pointer;
 
 	@d inner {
 		position: relative;
@@ -216,7 +217,6 @@
 		vertical-align: middle;
 		border: 1px solid var(--Input-borderColor);
 		border-radius: 3px;
-		cursor: pointer;
 		transition: var(--transition-default);
 
 		&:after {
@@ -264,6 +264,7 @@
 
 @component InputRadio {
 	width: auto;
+	cursor: pointer;
 
 	@d inner {
 		position: relative;
@@ -273,7 +274,6 @@
 		vertical-align: middle;
 		border: 1px solid var(--Input-borderColor);
 		border-radius: 50%;
-		cursor: pointer;
 		transition: var(--transition-default);
 
 		&:after {

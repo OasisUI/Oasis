@@ -541,6 +541,7 @@
 }
 .o-InputCheckbox {
 	width: auto;
+	cursor: pointer;
 }
 .o-InputCheckbox input[type="checkbox"] {
 	display: none;
@@ -573,7 +574,6 @@
 		vertical-align: middle;
 		border: 1px solid #E1E1E1;
 		border-radius: 3px;
-		cursor: pointer;
 		-webkit-transition: all ease-in-out 140ms;
 		transition: all ease-in-out 140ms;
 }
@@ -600,6 +600,7 @@
 }
 .o-InputRadio {
 	width: auto;
+	cursor: pointer;
 }
 .o-InputRadio input[type="radio"] {
 	display: none;
@@ -632,7 +633,6 @@
 		vertical-align: middle;
 		border: 1px solid #E1E1E1;
 		border-radius: 50%;
-		cursor: pointer;
 		-webkit-transition: all ease-in-out 140ms;
 		transition: all ease-in-out 140ms;
 }

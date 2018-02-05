@@ -7,7 +7,7 @@
 			}"
 		>
 			<FormItem
-				label="name"
+				label="Name"
 			>
 				<InputText
 					v-model="name"
@@ -21,7 +21,7 @@
 				></InputText>
 			</FormItem>
 			<FormItem
-				label="gender"
+				label="Gender"
 			>
 				<RadioGroup
 					v-model="gender"
