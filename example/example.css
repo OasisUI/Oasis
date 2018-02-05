@@ -1,5 +1,17 @@
+li {
+	margin: 2rem 0;
+}
+
+h1 {
+	margin: 4rem 0 0 0;
+}
+
 .container {
 	width: 700px;
 	padding: 15px;
 	margin: auto;
+}
+
+.doc {
+	list-style: none;
 }
