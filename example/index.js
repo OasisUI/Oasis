@@ -3,12 +3,21 @@ import Oasis from '../src/packages/index'
 import router from './router'
 
 import '../lib/theme/index.css'
+import './example.css'
 
 Vue.use(Oasis)
 
 const app = new Vue({
 	router,
 	render (createElement) {
-		return createElement('router-view')
+		return createElement(
+			'div',
+			{
+				class: 'container'
+			},
+			[
+				createElement('router-view')
+			]
+		)
 	}
 }).$mount('#app')

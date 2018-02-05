@@ -36,7 +36,7 @@
 					<div class="block">col-8</div>
 				</Col>
 			</Row>
-			<Row>
+			<Row gutter="15">
 				<Col span="8">
 					<div class="block">col-8</div>
 				</Col>
@@ -66,5 +66,8 @@
 		font-size: 16px;
 		border-radius: 4px;
 		overflow: hidden;
+	}
+	[class^=o-Col-]:nth-of-type(odd) .block {
+		background: #61CC8F;
 	}
 </style>

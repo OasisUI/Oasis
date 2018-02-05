@@ -3,8 +3,9 @@ import VueRouter from 'vue-router'
 
 import Component from './components'
 import Button from './button'
-import Input from './Input'
-import Grid from './Grid'
+import Input from './input'
+import Grid from './grid'
+import Form from './form'
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,10 @@ const routes = [
 	{
 		path: '/grid',
 		component: Grid
+	},
+	{
+		path: '/form',
+		component: Form
 	}
 ]
 

@@ -127,11 +127,41 @@
 	-webkit-animation: loading-rotate 2s linear infinite;
 	        animation: loading-rotate 2s linear infinite;
 }
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
+}
 .o-Form {
 	position: relative;
 }
-.o-Form__Item {
+.o-Form__group {}
+.o-Form__item {
 		position: relative;
+		display: block;
+		margin-bottom: 20px;
+}
+.o-Form__label > label:after {
+	content: ':';
+	display: inline;
+}
+.o-Form__label {
+	display: inline-block;
+	padding-right: 14px;
+	line-height: 40px;
+}
+.o-Form__label > label {
+	display: block;
+	text-align: right;
+}
+.o-Form__label > label:before {
+	content: '*';
+	display: inline;
+	color: #F06868;
+}
+.o-Form__wrapper {
+		display: inline-block;
+}
+.o-Form__wrapper .o-Input {
+	height: 40px;
+	line-height: 40px;
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
 }

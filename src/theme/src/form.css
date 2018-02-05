@@ -1,8 +1,40 @@
+@import '../common/_var.css';
+
 @c Form {
 	position: relative;
+	@d group {
 
-	@d Item {
+	}
+	@d item {
 		position: relative;
+		display: block;
+		margin-bottom: 20px;
+	}
+	@d label {
+		display: inline-block;
+		padding-right: 14px;
+		line-height: var(--Input-lg-height);
+
+		& > label {
+			display: block;
+			text-align: right;
+			&:before {
+				content: '*';
+				display: inline;
+				color: var(--color-danger);
+			 }
+			&:after {
+				content: ':';
+				display: inline;
+			 }
+		}
+	}
+	@d wrapper {
+		display: inline-block;
+		& .o-Input {
+			height: var(--Input-lg-height);
+			line-height: var(--Input-lg-height);
+		}
 	}
 
 }

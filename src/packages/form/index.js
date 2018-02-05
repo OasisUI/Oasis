@@ -1,7 +1,9 @@
-import Form from './src/form.vue'
+import FormGroup from './src/formGroup'
+import FormItem from './src/formItem'
 
-Form.install = function (Vue) {
-	Vue.component(Form.name, Form)
+export default {
+	install (Vue) {
+		Vue.component(FormGroup.name, FormGroup)
+		Vue.component(FormItem.name, FormItem)
+	}
 }
-
-export default Form
