@@ -34,6 +34,9 @@
 					>famale</InputRadio>
 				</RadioGroup>
 			</FormItem>
+			<FormItem>
+				<Button type="primary">submit</Button>
+			</FormItem>
 		</FormGroup>
 	</div>
 </template>

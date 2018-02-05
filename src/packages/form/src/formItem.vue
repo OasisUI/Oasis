@@ -1,6 +1,7 @@
 <template>
 	<div class="o-Form__item o-Row">
 		<div
+			v-if="label"
 			class="o-Form__label"
 			:class="[
 				`o-Col-${layout.labelCol}`
@@ -11,7 +12,9 @@
 		<div
 			class="o-Form__wrapper"
 			:class="[
-				`o-Col-${layout.wrapperCol}`
+				`o-Col-${layout.wrapperCol}`,
+				!label ?
+					`o-Col-offset-${layout.labelCol}` : '',
 			]"
 		>
 			<slot></slot>
@@ -20,28 +23,23 @@
 </template>
 
 <script>
-	import formItemLayoutDescription from './formItemLayoutDescription'
+	import formItemLayoutValidator from './formItemLayoutValidator'
 
 	const props = {
 		label: String,
-		formItemLayout: formItemLayoutDescription
+		formItemLayout: {
+			validator: formItemLayoutValidator
+		}
 	}
 
 	export default {
 		name: 'FormItem',
 		props,
-		render (createElement) {
-			return createElement (
-				'div', {
-					class: []
-				},
-				this.$slots.default
-			)
-		},
 		computed: {
 			layout () {
-				return this.$parent.formItemLayout || this.formItemLayout
+				return this.formItemLayout || this.$parent.formItemLayout
 			}
-		}
+		},
+		// https://github.com/vuejs/vue/issues/3690
 	}
 </script>

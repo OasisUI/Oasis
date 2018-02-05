@@ -5,15 +5,20 @@
 </template>
 
 <script>
-	import formItemLayoutDescription from './formItemLayoutDescription'
+	import formItemLayoutValidator from './formItemLayoutValidator'
 
 	const props = {
-		formItemLayout: formItemLayoutDescription
+		formItemLayout: {
+			default: {
+				labelCol: 4,
+				wrapperCol: 20
+			},
+			validator: formItemLayoutValidator
+		}
 	}
 	export default {
 		name: 'FormGroup',
 		props,
-
-
+		// TODO: validate form
 	}
 </script>

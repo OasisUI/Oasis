@@ -1,5 +1,5 @@
 <template>
-	<div class="o-Input">
+	<div class="o-InputGroup">
 		<slot></slot>
 	</div>
 </template>

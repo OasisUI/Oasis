@@ -35,6 +35,7 @@
 
 	export default {
 		name: 'Button',
+		type: 'button',
 		props,
 		data () {
 			return {}

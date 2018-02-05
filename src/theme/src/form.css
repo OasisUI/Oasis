@@ -19,7 +19,7 @@
 			display: block;
 			text-align: right;
 			&:before {
-				content: '*';
+				content: '* ';
 				display: inline;
 				color: var(--color-danger);
 			 }

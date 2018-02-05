@@ -259,6 +259,10 @@
 			}
 		}
 	}
+
+	& + .o-InputCheckbox {
+		margin-left: 20px;
+	}
 }
 
 
@@ -312,5 +316,9 @@
 				transform: scale(1);
 			}
 		}
+	}
+
+	& + .o-InputRadio {
+		margin-left: 20px;
 	}
 }

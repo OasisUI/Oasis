@@ -11,7 +11,7 @@
 }/*reset style*/body {
 	color: #333333;
 	font-size: 14px;
-	font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	/*https://davidwalsh.name/font-smoothing*/
@@ -152,7 +152,7 @@
 	text-align: right;
 }
 .o-Form__label > label:before {
-	content: '*';
+	content: '* ';
 	display: inline;
 	color: #F06868;
 }
@@ -555,6 +555,9 @@
 	    -ms-transform: scale(1) rotate(-45deg);
 	        transform: scale(1) rotate(-45deg);
 }
+.o-InputCheckbox + .o-InputCheckbox {
+	margin-left: 20px;
+}
 .o-InputCheckbox.is-disabled {
 		background: inherit;
 }
@@ -613,6 +616,9 @@
 	-webkit-transform: scale(1);
 	    -ms-transform: scale(1);
 	        transform: scale(1);
+}
+.o-InputRadio + .o-InputRadio {
+	margin-left: 20px;
 }
 .o-InputRadio.is-disabled {
 		background: inherit;
