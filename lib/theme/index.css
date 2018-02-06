@@ -357,7 +357,7 @@
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
 }
-.o-Input input:hover {
+.o-Input:not(.is-disabled):not(.is-readonly) input:hover {
 	border-color: #BBBBBB;
 }
 .o-Input {
@@ -383,6 +383,16 @@
 .o-Input input::placeholder {
 	color: #999999;
 }
+.o-Input.is-disabled input, .o-Input.is-readonly input {
+	cursor: not-allowed;
+}
+.o-Input:not(.is-disabled):not(.is-readonly) input {
+}
+.o-Input:not(.is-disabled):not(.is-readonly) input:focus {
+	border-color: #34B697;
+	-webkit-box-shadow: 0 0 0 2px rgba(52, 182, 151, .3);
+	        box-shadow: 0 0 0 2px rgba(52, 182, 151, .3);
+}
 .o-Input input {
 	display: block;
 	width: 100%;
@@ -397,9 +407,6 @@
 	-webkit-transition: all ease 0.24s;
 	transition: all ease 0.24s;
 }
-.o-Input input:focus {
-	border-color: #34B697;
-}
 .o-Input .iconfont {
 	color: #D8D8D8;
 	font-size: 12px;
@@ -411,20 +418,14 @@
 		background: #F2F2F2;
 		color: #999999;
 }
-.o-Input.is-disabled input {
-	cursor: not-allowed;
-}
 .o-Input.is-readonly {
 		color: #999999;
 		background: #F5FAF9;
 }
-.o-Input.is-readonly input {
-	cursor: not-allowed;
-}
 .o-Input__wrapper {
 		position: relative;
 		display: block;
-		overflow: hidden;
+		/*overflow: hidden;*/
 		table-layout: fixed;
 		width: 100%;
 		height: 100%;

@@ -14,23 +14,17 @@
 	@when readonly {
 		color: var(--color-gray-1);
 		background: var(--Input-readonly-bg);
-		& input {
-		  cursor: not-allowed;
-		}
 	}
 
 	@when disabled {
 		background: var(--Input-disabled-bg);
 		color: var(--color-gray-1);
-		& input {
-			cursor: not-allowed;
-		}
 	}
 
 	@d wrapper {
 		position: relative;
 		display: block;
-		overflow: hidden;
+		/*overflow: hidden;*/
 		table-layout: fixed;
 		width: 100%;
 		height: 100%;
@@ -96,6 +90,21 @@
 		color: #999999;
 	}
 
+	&.is-disabled input,
+	&.is-readonly input {
+		cursor: not-allowed;
+	}
+
+	&:not(.is-disabled, .is-readonly) input {
+		&:focus {
+			border-color: var(--color-primary);
+			box-shadow: 0 0 0 2px color(var(--color-primary) alpha(30%));
+		}
+		&:hover {
+			border-color: var(--Input-hoverColor);
+		}
+	}
+
 	& input {
 		display: block;
 		width: 100%;
@@ -108,12 +117,6 @@
 		border: 1px solid var(--Input-borderColor);
 		border-radius: var(--Input-borderRadius);
 		transition: all ease 0.24s;
-		&:focus {
-			 border-color: var(--color-primary);
-		}
-		&:hover {
-			border-color: var(--Input-hoverColor);
-		}
 	}
 
 	& .iconfont {
