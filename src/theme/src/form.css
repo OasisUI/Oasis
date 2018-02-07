@@ -1,15 +1,10 @@
 @import '../common/_var.css';
 
-@c Form {
+@c FormItem {
 	position: relative;
-	@d group {
+	display: block;
+	margin-bottom: 20px;
 
-	}
-	@d item {
-		position: relative;
-		display: block;
-		margin-bottom: 20px;
-	}
 	@d label {
 		display: inline-block;
 		padding-right: 14px;
@@ -20,7 +15,7 @@
 			text-align: right;
 			&:before {
 				content: '* ';
-				display: inline;
+				display: none;
 				color: var(--color-danger);
 			 }
 			&:after {
@@ -37,4 +32,9 @@
 		}
 	}
 
+	@when required {
+		& .o-FormItem__label label:before {
+			display: inline;
+		}
+	}
 }

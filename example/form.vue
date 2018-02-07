@@ -19,6 +19,7 @@
 				</FormItem>
 				<FormItem
 					label="E-mail"
+					required
 				>
 					<InputText
 						v-model="email"
@@ -35,8 +36,15 @@
 						>male</InputRadio>
 						<InputRadio
 							label="famale"
-						>famale</InputRadio>
+						>female</InputRadio>
 					</RadioGroup>
+				</FormItem>
+				<FormItem>
+					<InputCheckbox
+						v-model="agree"
+					>
+						Terms of Use
+					</InputCheckbox>
 				</FormItem>
 				<FormItem>
 					<Button type="primary">submit</Button>
@@ -52,7 +60,8 @@
 			return {
 				name: '',
 				email: '',
-				gender: 'famale'
+				gender: 'famale',
+				agree: false
 			}
 		}
 	}

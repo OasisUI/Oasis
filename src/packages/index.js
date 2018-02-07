@@ -6,6 +6,7 @@ import Form from './form'
 import Button from './button'
 import Grid from './grid'
 import Checkbox from './checkbox'
+import Input from './input'
 import InputNumber from './inputNumber'
 import InputText from './inputText'
 import Select from './select'
@@ -21,6 +22,7 @@ const components = [
 	Button,
 	Grid,
 	Checkbox,
+	Input,
 	InputNumber,
 	InputText,
 	Select,

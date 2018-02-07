@@ -1,5 +1,5 @@
 <template>
-	<form class="o-Form__group">
+	<form class="o-FormGroup">
 		<slot></slot>
 	</form>
 </template>

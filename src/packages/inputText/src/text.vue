@@ -7,11 +7,17 @@
 		]"
 	>
 		<div class="o-Input__wrapper">
+			<span
+				class="o-InputText__addon "
+			>
+				<slot name="addonBefore"></slot>
+			</span>
 			<input
 				v-model="currentVal"
 				:disabled="disabled"
 				:readonly="readonly"
 				:placeholder="placeholder"
+				class="o-Input__native"
 				type="text"
 			/>
 			<span
@@ -20,6 +26,11 @@
 				class="o-Input__openList"
 			>
 				<i class="iconfont icon-arrow-down"></i>
+			</span>
+			<span
+				class="o-InputText__addon"
+			>
+				<slot name="addonAfter"></slot>
 			</span>
 		</div>
 		<ul

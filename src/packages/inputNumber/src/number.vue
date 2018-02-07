@@ -16,7 +16,7 @@
 				<span class="o-InputNumber__suffix">&nbsp{{suffix}}</span>
 			</div>
 			<input
-				class="o-InputNumber__input"
+				class="o-Input__native"
 				type="text"
 				v-model="currentVal"
 				@change="onChange"

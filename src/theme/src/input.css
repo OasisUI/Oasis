@@ -25,13 +25,14 @@
 		position: relative;
 		display: block;
 		/*overflow: hidden;*/
-		table-layout: fixed;
+		/*table-layout: fixed;*/
 		width: 100%;
 		height: 100%;
 		padding: 0;
 	}
 
 	@d openList {
+		z-index: 2;
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -41,11 +42,20 @@
 		height: 100%;
 		text-align: center;
 		cursor: pointer;
+
+		& .iconfont {
+			color: var(--Input-toggleOptionsColor);
+			font-size: 12px;
+
+			&:hover {
+				color: var(--color-black-4);
+			}
+		}
 	}
 
 	@d options {
-		position: absolute;
 		z-index: var(--zindex-dropdown);
+		position: absolute;
 		top: 100%;
 		right: 0;
 		padding: 0;
@@ -73,39 +83,73 @@
 		}
 	}
 
+	@d addonWrapper {
+		display: table;
+		border-collapse: separate;
+		line-height: normal;
+		/*https://www.w3.org/TR/CSS2/tables.html 17.6.2 The collapsing border model*/
+		& input {
+			display: table-cell;
+	  	}
+		& .o-Input__addon:not(:first-child),
+		& .o-Input__native:not(:first-child) {
+			border-top-left-radius: 0 !important;
+			border-bottom-left-radius: 0 !important;
+		}
+
+		& .o-Input__addon:not(:last-child),
+		& .o-Input__native:not(:last-child) {
+			border-top-right-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
+		}
+		& .o-Input__addon:last-child {
+			border-left-width: 0;
+		}
+		& .o-Input__addon:first-child {
+			border-right-width: 0;
+		}
+
+		& .o-Btn {
+			margin: 0 -var(--Input-padding);
+			/*border-radius: 0;*/
+		}
+	}
+
+	@d addon {
+		display: table-cell;
+		width: 1px;
+		padding: 0 var(--Input-padding);
+		vertical-align: middle;
+		text-align: center;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: var(--Input-borderRadius);
+	}
+
+	@d prefixWrapper {
+
+	}
+
 	@m sm {
 		line-height: var(--Input-sm-height);
-		height: var(--Input-sm-height);
+		&, & input {
+			height: var(--Input-sm-height);
+		}
 	}
 	@m md {
 		line-height: var(--Input-md-height);
-		height: var(--Input-md-height);
+		&, & input {
+			height: var(--Input-md-height);
+		}
 	}
 	@m lg {
 		line-height: var(--Input-lg-height);
-		height: var(--Input-lg-height);
-	}
-
-	& input::placeholder {
-		color: #999999;
-	}
-
-	&.is-disabled input,
-	&.is-readonly input {
-		cursor: not-allowed;
-	}
-
-	&:not(.is-disabled, .is-readonly) input {
-		&:focus {
-			border-color: var(--color-primary);
-			box-shadow: 0 0 0 2px color(var(--color-primary) alpha(30%));
-		}
-		&:hover {
-			border-color: var(--Input-hoverColor);
+		&, & input {
+			height: var(--Input-lg-height);
 		}
 	}
 
 	& input {
+		position: relative;
 		display: block;
 		width: 100%;
 		height: 100%;
@@ -119,12 +163,23 @@
 		transition: all ease 0.24s;
 	}
 
-	& .iconfont {
-		color: var(--Input-toggleOptionsColor);
-		font-size: 12px;
+	& input::placeholder {
+		color: #999999;
+	}
 
+	&.is-disabled input,
+	&.is-readonly input {
+		cursor: not-allowed;
+	}
+
+	&:not(.is-disabled, .is-readonly) input {
+		&:focus {
+			z-index: 1;
+			border-color: var(--color-primary);
+			box-shadow: 0 0 0 2px color(var(--color-primary) alpha(30%));
+		}
 		&:hover {
-			color: var(--color-black-4);
+			border-color: var(--Input-hoverColor);
 		}
 	}
 }
@@ -132,6 +187,7 @@
 @component InputText {
 	& input {
 		padding-right: 24px;
+		width: 100%;
 	}
 }
 
@@ -142,13 +198,25 @@
 		right: 0;
 		width: 24px;
 		height: 100%;
+
+		& .iconfont {
+			color: var(--Input-toggleOptionsColor);
+			font-size: 12px;
+
+			&:hover {
+				color: var(--color-black-4);
+			}
+		}
 	}
+
 	& input {
 		padding-right: 24px;
 	}
+
 	& .iconfont {
 		font-size: 12px
 	}
+
 	.o-InputNumber__add,
 	.o-InputNumber__sub {
 		position: absolute;
@@ -169,6 +237,13 @@
 		}
 	}
 
+	.o-Input__native {
+		z-index: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
 	@d actions {
 		z-index: 2;
 	}
@@ -183,13 +258,6 @@
 
 	@d suffix {
 		color: var(--color-gray-1);
-	}
-
-	@d input {
-		z-index: 1;
-		position: absolute;
-		left: 0;
-		top: 0;
 	}
 
 	@d add {
@@ -236,7 +304,7 @@
 			border-top-width: 0;
 			border-right-width: 0;
 			transform: scale(0) rotate(-45deg);
-			transform-origin: 8px 2px;
+			transform-origin: 10px 1px;
 			background: transparent;
 			transition: var(--transition-checkbox);
 		}
@@ -291,8 +359,8 @@
 			content: '';
 			top: 4px;
 			left: 4px;
-			width: 4px;
-			height: 4px;
+			width: 6px;
+			height: 6px;
 			transform: scale(0);
 			border-radius: 50%;
 			background: white;

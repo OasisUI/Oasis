@@ -1,6 +1,21 @@
 <template>
 	<ul class="doc">
 		<li>
+			<h1>Input</h1>
+		</li>
+		<li class="input-list">
+			<Input
+				v-model="inputText"
+			/>
+			<Input
+				v-model="inputText"
+			>
+				<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
+				<Button slot="addonAfter">Go!</Button>
+			</Input>
+
+		</li>
+		<li>
 			<h1>InputText</h1>
 		</li>
 		<li class="input-list">
@@ -216,7 +231,7 @@
 	export default {
 		data () {
 			return {
-				inputText: 'input text',
+				inputText: 'hello ~',
 				inputTextOptions: ['Alice', 'Bob', 'Eve'],
 				inputNumber: 2,
 				inputSelect: 2,
