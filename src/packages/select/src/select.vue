@@ -9,7 +9,7 @@
 		]"
 	>
 		<input
-			class="o-InputSelect__input"
+			class="o-Input__native"
 			v-model="currentVal"
 			@click.stop="displayList"
 			:disabled="disabled"

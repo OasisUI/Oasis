@@ -4,12 +4,34 @@
 			<h1>Message</h1>
 		</li>
 		<li>
-			<Button
-				@click="showMessage"
-				type="primary"
+			<FormGroup
+				:form-item-layout="{
+					labelCol: 4,
+					wrapperCol: 20
+				}"
 			>
-				show message
-			</Button>
+				<FormItem
+					label="type"
+				>
+					<InputSelect
+						v-model="type"
+						:options="['info', 'danger', 'warning', 'success']"
+					></InputSelect>
+				</FormItem>
+				<FormItem
+					label="text"
+				>
+					<Input v-model="text"/>
+				</FormItem>
+				<FormItem>
+					<Button
+						@click="showMessage"
+						type="primary"
+					>
+						show message
+					</Button>
+				</FormItem>
+			</FormGroup>
 		</li>
 	</ul>
 </template>
@@ -18,14 +40,17 @@
 	export default {
 		data () {
 			return {
-				n: 1
+				n: 1,
+				type: 'info',
+				text: 'message'
 			}
 		},
 		methods: {
 			showMessage () {
 				this.$message({
-					text: 'message: ' + this.n++,
+					text: `${this.text}`,
 					duration: 5000,
+					type: this.type
 				})
 			}
 		}

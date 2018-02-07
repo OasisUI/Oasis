@@ -97,11 +97,11 @@
 	--shadw-message: 0 0 0 1px rgba(0,0,0,0.12);
 
 	/*z-index*/
-	--zindex-dropdown:          1000;
-	--zindex-sticky:            1020;
-	--zindex-fixed:             1030;
-	--zindex-modal-backdrop:    1040;
-	--zindex-modal:             1050;
-	--zindex-popover:           1060;
-	--zindex-tooltip:           1070;
+	--zIndex-dropdown:          1000;
+	--zIndex-sticky:            1020;
+	--zIndex-fixed:             1030;
+	--zIndex-modal-backdrop:    1040;
+	--zIndex-modal:             1050;
+	--zIndex-popover:           1060;
+	--zIndex-tooltip:           1070;
 }

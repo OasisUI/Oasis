@@ -54,7 +54,7 @@
 	}
 
 	@d options {
-		z-index: var(--zindex-dropdown);
+		z-index: var(--zIndex-dropdown);
 		position: absolute;
 		top: 100%;
 		right: 0;
@@ -271,7 +271,7 @@
 
 
 @component InputSelect {
-	@d input {
+	.o-Input__native {
 		position: relative;
 		z-index: 1;
 		cursor: pointer;

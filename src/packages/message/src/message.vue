@@ -1,5 +1,5 @@
 <template>
-	<transition appear name="message">
+	<transition appear name="o-Message">
 		<div
 			v-show="show"
 			class="o-Message"

@@ -6,7 +6,7 @@
 		},
 		offset: {
 			type: String,
-			default: 0
+			default: '0'
 		}
 	}
 	export default {
@@ -28,7 +28,10 @@
 				this.$slots.default
 			)
 		},
-		computed: {
+		mounted () {
+			console.log(this.$slots)
+		},
+ 		computed: {
 			padding () {
 				return `${this.gutter}px`
 			}

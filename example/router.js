@@ -7,6 +7,7 @@ import Input from './input'
 import Grid from './grid'
 import Form from './form'
 import Message from './message'
+import Modal from './modal'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,10 @@ const routes = [
 	{
 		path: '/message',
 		component: Message
+	},
+	{
+		path: '/modal',
+		component: Modal
 	}
 ]
 

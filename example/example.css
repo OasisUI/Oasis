@@ -5,7 +5,9 @@ li {
 h1 {
 	margin: 4rem 0 0 0;
 }
-
+body {
+	padding-left: calc(100vw - 100%);
+}
 .container {
 	width: 700px;
 	padding: 15px;
