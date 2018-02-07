@@ -11,6 +11,7 @@ import InputNumber from './inputNumber'
 import InputText from './inputText'
 import Select from './select'
 import Radio from './radio'
+import Message from './message'
 
 // tools
 // TODO
@@ -26,7 +27,8 @@ const components = [
 	InputNumber,
 	InputText,
 	Select,
-	Radio
+	Radio,
+	Message
 ];
 
 const Oasis = {

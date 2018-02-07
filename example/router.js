@@ -6,6 +6,7 @@ import Button from './button'
 import Input from './input'
 import Grid from './grid'
 import Form from './form'
+import Message from './message'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,10 @@ const routes = [
 	{
 		path: '/form',
 		component: Form
+	},
+	{
+		path: '/message',
+		component: Message
 	}
 ]
 

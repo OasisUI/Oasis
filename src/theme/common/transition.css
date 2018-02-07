@@ -1,0 +1,12 @@
+@import './_var.css';
+
+.message-enter-active,
+.message-leave-active {
+	transition: all ease-in-out 0.24s;
+}
+.message-enter,
+.message-leave-to {
+	opacity: 0;
+	height: 0 !important;
+	transform: translateY(calc(var(--Message-height) / -4));
+}

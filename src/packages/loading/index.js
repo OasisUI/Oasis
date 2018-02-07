@@ -7,7 +7,7 @@ Loading.install = function (Vue) {
 	Vue.component(Loading.name, Loading)
 	Vue.directive('loading', {
 		bind (el, binding, vnode) {
-			console.log()
+			console.log(Vue)
 			const loading = new L({
 				el: document.createElement('div')
 			})

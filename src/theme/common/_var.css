@@ -25,7 +25,8 @@
 	--color-gray-2: #CECECE ;
 	--color-gray-3: #F1F1F1;
 	--color-gray-4: #F6F6F6;
-	--color-gray-5: #FDFDFD;
+	--color-gray-5: #F0F1F1;
+	--color-gray-6: #FDFDFD;
 
 	/* font */
 	--fontColor-default: #333333;
@@ -63,17 +64,39 @@
 	--Input-readonly-bg: #F5FAF9;
 	--Input-disabled-checked-bg: #D8D8D8;
 
+	/*message*/
+	--Message-borderRadius: 4px;
+	--Message-height: 50px;
+	--Message-minWidth: 360px;
+
+	--Message-info-bg: #E7F3FF;
+	--Message-info-color: #105196;
+	--Message-info-border: 1px solid #C1DEFD;
+
+	--Message-danger-bg: #F8D7DA;
+	--Message-danger-color: var(--color-danger);
+	--Message-danger-border: 1px solid #F5C6CB;
+
+	--Message-success-bg: #D4EDDA;
+	--Message-success-color: #155724;
+	--Message-success-border: 1px solid #C3E6CB;
+
+	--Message-warning-bg: #FFF4D6;
+	--Message-warning-color: var(--color-warning);
+	--Message-warning-border: 1px solid #FFCE8F;
+
 	/*transition*/
 	--transition-default: all ease-in-out 140ms;
 	--transition-slide: all ease-in-out 240ms;
 	--transition-btn-default: var(--transition-default);
 	--transition-checkbox: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
+
 	/*shadow*/
 	--shadw-dropdown: 1px 2px 8px 0px rgba(0,0,0,0.24);
 	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);
+	--shadw-message: 0 0 0 1px rgba(0,0,0,0.12);
 
 	/*z-index*/
-	/*from bootstrap*/
 	--zindex-dropdown:          1000;
 	--zindex-sticky:            1020;
 	--zindex-fixed:             1030;

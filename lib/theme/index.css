@@ -81,7 +81,23 @@
 	}
 }
 
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+}
+
+.message-enter-active, .message-leave-active {
+	-webkit-transition: all ease-in-out 0.24s;
+	transition: all ease-in-out 0.24s;
+}
+
+.message-enter, .message-leave-to {
+	opacity: 0;
+	height: 0 !important;
+	-webkit-transform: translateY(-12.5px);
+	    -ms-transform: translateY(-12.5px);
+	        transform: translateY(-12.5px);
+}
+
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
 }
 
 .o-Img {
@@ -103,7 +119,7 @@
 .o-Img__loading, .o-Img__backup {
 		font-size: 14px;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
 }
 .o-Loading {
 	position: absolute;
@@ -132,7 +148,7 @@
 	-webkit-animation: loading-rotate 2s linear infinite;
 	        animation: loading-rotate 2s linear infinite;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
 }
 .o-FormItem {
 	position: relative;
@@ -167,7 +183,7 @@
 	height: 40px;
 	line-height: 40px;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
 }
 @keyframes loading-spin {0% {
 		stroke-dasharray: 100, 40;
@@ -353,7 +369,7 @@
 .o-BtnGroup .o-Btn--primary:not(:hover):not(.o-Btn--outline) {
 	background: #34B697;/*background: linear-gradient(90deg, var(--color-primary), var(--color-primary) 100%);*/
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*transition*//*shadow*//*z-index*//*from bootstrap*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
 }
 .o-Input:not(.is-disabled):not(.is-readonly) input:hover {
 	border-color: #BBBBBB;
@@ -914,6 +930,54 @@
 	}
 .o-Col-1, .o-Col-2, .o-Col-3, .o-Col-4, .o-Col-5, .o-Col-6, .o-Col-7, .o-Col-8, .o-Col-9, .o-Col-10, .o-Col-11, .o-Col-12, .o-Col-13, .o-Col-14, .o-Col-15, .o-Col-16, .o-Col-17, .o-Col-18, .o-Col-19, .o-Col-20, .o-Col-21, .o-Col-22, .o-Col-23, .o-Col-24 {
 	float: left;
+}
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+}
+.o-MessageBox {
+	z-index: 1060;
+	position: fixed;
+	top: 0;
+	height: 0;
+	width: 100%;
+	overflow: visible;
+}
+.o-Message {
+	pointer-events: none;
+	position: relative;
+	margin-top: 8px;
+	height: 50px;
+	text-align: center;
+}
+.o-Message__text {
+		overflow: hidden;
+		pointer-events: all;
+		display: inline-block;
+		height: 100%;
+		min-width: 360px;
+		padding: 0 25px;
+		line-height: 50px;
+		white-space: nowrap;
+		border-radius: 4px;
+}
+.o-Message--info {
+		color: #105196;
+		background: #E7F3FF;
+		border: 1px solid #C1DEFD;
+}
+.o-Message--danger {
+		color: #F06868;
+		background: #F8D7DA;
+		border: 1px solid #F5C6CB;
+}
+.o-Message--success {
+		color: #155724;
+		background: #D4EDDA;
+		border: 1px solid #C3E6CB;
+}
+.o-Message--warning {
+		color: #F08200;
+		background: #FFF4D6;
+		border: 1px solid #FFCE8F;
 }
 
 
