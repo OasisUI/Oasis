@@ -103,9 +103,11 @@
 		}
 	}
 	@m gradient {
-		background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light) 90%);
-		&:hover {
-			 background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-dark) 100%);
+		&.o-Btn--primary {
+			background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light) 90%);
+			&:hover {
+				background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-dark) 100%);
+			}
 		}
 	}
 

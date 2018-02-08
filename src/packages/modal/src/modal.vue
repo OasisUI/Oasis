@@ -10,6 +10,7 @@
 				<div class="o-Modal__header">
 					<slot name="header"></slot>
 					<button
+						v-if="showCloseBtn"
 						@click="close"
 						class="o-Modal__close"
 					>
@@ -28,10 +29,12 @@
 </template>
 
 <script>
-	import Button from '../../button'
-
 	const props = {
-		value: Boolean
+		value: Boolean,
+		showCloseBtn: {
+			type: Boolean,
+			default: true
+		}
 	}
 
 	export default {
@@ -51,9 +54,6 @@
 			close () {
 				this.show = false
 			}
-		},
-		components: {
-			Button
 		}
 	}
 </script>

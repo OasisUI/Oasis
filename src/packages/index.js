@@ -13,6 +13,7 @@ import Select from './select'
 import Radio from './radio'
 import Message from './message'
 import Modal from './modal'
+import ModalBox from './modalBox'
 
 // tools
 // TODO
@@ -30,7 +31,8 @@ const components = [
 	Select,
 	Radio,
 	Message,
-	Modal
+	Modal,
+	ModalBox
 ];
 
 const Oasis = {

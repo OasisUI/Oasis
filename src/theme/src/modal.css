@@ -1,7 +1,5 @@
 @import '../common/_var.css';
 
-@component ModalBox {}
-
 @component Modal {
 	z-index: var(--zIndex-modal);
 	position: fixed;
@@ -24,13 +22,12 @@
 		display: inline-block;
 		position: relative;
 		vertical-align: middle;
-		text-align: left;
 		min-width: 420px;
 		min-height: 230px;
 		border-radius: var(--Input-borderRadius);
 		background: white;
 		overflow: hidden;
-		box-shadow: 2px 2px 16px 2px rgba(0,0,0,0.24);
+		/*box-shadow: 2px 2px 16px 2px rgba(0,0,0,0.24);*/
 	}
 
 	@d close {
@@ -48,7 +45,11 @@
 	}
 
 	@d header {
-		padding: var(--Modal-padding);
+		padding: var(--Modal-padding) var(--Modal-padding) 20px var(--Modal-padding);
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		text-align: cente;
 	}
 
 	@d body {
@@ -56,7 +57,55 @@
 	}
 
 	@d footer {
+		width: 100%;
 		padding: var(--Modal-padding);
 		text-align: right;
+	}
+}
+
+
+@component ModalBox {
+	& .o-Modal__body,
+	& .o-Modal__footer {
+		text-align: center;
+	}
+
+	@d alert {
+		text-align: center;
+	}
+
+	@when success {
+		& .o-ModalBox__icon {
+			color: var(--color-primary);
+		}
+	}
+
+	@when info {
+
+	}
+
+	@when danger {
+		& .o-ModalBox__icon {
+			color: var(--color-danger);
+		}
+	}
+
+	@when warning {
+		& .o-ModalBox__icon {
+			color: var(--color-warning);
+		}
+	}
+
+	@d confirmBtn {
+		min-width: 138px;
+		height: var(--Button-md-height);
+	}
+
+	@d icon {
+		margin: 0 auto 14px auto;
+		width: 40px;
+		height: 40px;
+		font-size: 40px;
+		display: block;
 	}
 }

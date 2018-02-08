@@ -33,6 +33,50 @@
 				</template>
 			</Modal>
 		</li>
+		<li>
+			<h1>ModalBox</h1>
+		</li>
+		<li>
+			<p>
+				<Button
+					@click="messageBox('alert', 'info')"
+				>
+					$alert:info
+				</Button>
+				<Button
+					@click="messageBox('alert', 'success')"
+					type="primary"
+				>
+					$alert:success
+				</Button>
+				<Button
+					@click="messageBox('alert', 'danger')"
+					type="danger"
+				>
+					$alert:danger
+				</Button>
+				<Button
+					@click="messageBox('alert', 'warning')"
+					type="warning"
+				>
+					$alert:warning
+				</Button>
+			</p>
+			<p>
+				<Button
+					@click="messageBox('confirm')"
+					outline
+				>
+					$confirm
+				</Button>
+				<Button
+					@click="messageBox('prompt')"
+					outline
+				>
+					$prompt
+				</Button>
+			</p>
+		</li>
 	</ul>
 </template>
 
@@ -55,6 +99,19 @@
 					type: 'success',
 					text: 'confirmed ！',
 					duration: 2000
+				})
+			},
+			messageBox (modelName, type = 'info') {
+				this['$' + modelName]({
+					type: type,
+					title: type,
+					content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p><p>Curabitur aliquet quam id dui posuere blandit.</p>',
+					confirmText: 'OK',
+					onConfirm: () => {
+						this.$message({
+							text: 'confirm'
+						})
+					}
 				})
 			}
 		}

@@ -26,6 +26,8 @@
 	color: inherit;
 	font-size: 100%;
 	font-family: sans-serif;
+}.iconfont {
+	font-size: inherit;
 }.clearfix {
 }.clearfix:before, .clearfix:after {
 		display: table;
@@ -343,11 +345,11 @@
 .o-Btn--lg.o-Btn--round {
 	border-radius: 19px;
 }
-.o-Btn--gradient {
-		background: -webkit-gradient(linear, left top, right top, from(#34B697), color-stop(90%, #64DC9C));
-		background: linear-gradient(90deg, #34B697, #64DC9C 90%);
+.o-Btn--gradient.o-Btn--primary {
+	background: -webkit-gradient(linear, left top, right top, from(#34B697), color-stop(90%, #64DC9C));
+	background: linear-gradient(90deg, #34B697, #64DC9C 90%);
 }
-.o-Btn--gradient:hover {
+.o-Btn--gradient.o-Btn--primary:hover {
 	background: -webkit-gradient(linear, left top, right top, from(#1F9D7F), to(#1F9D7F));
 	background: linear-gradient(90deg, #1F9D7F, #1F9D7F 100%);
 }
@@ -1007,8 +1009,6 @@
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*shadow*//*z-index*/
 }
-.o-ModalBox {
-}
 .o-Modal {
 	z-index: 1050;
 	position: fixed;
@@ -1030,14 +1030,12 @@
 		display: inline-block;
 		position: relative;
 		vertical-align: middle;
-		text-align: left;
 		min-width: 420px;
 		min-height: 230px;
 		border-radius: 4px;
 		background: white;
 		overflow: hidden;
-		-webkit-box-shadow: 2px 2px 16px 2px rgba(0, 0, 0, .24);
-		        box-shadow: 2px 2px 16px 2px rgba(0, 0, 0, .24);
+		/*box-shadow: 2px 2px 16px 2px rgba(0,0,0,0.24);*/
 }
 .o-Modal__close {
 		position: absolute;
@@ -1053,14 +1051,47 @@
 	color: #4C4C4C;
 }
 .o-Modal__header {
-		padding: 34px;
+		padding: 34px 34px 20px 34px;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		text-align: cente;
 }
 .o-Modal__body {
 		padding: 0 34px;
 }
 .o-Modal__footer {
+		width: 100%;
 		padding: 34px;
 		text-align: right;
+}
+.o-ModalBox .o-Modal__body, .o-ModalBox .o-Modal__footer {
+	text-align: center;
+}
+.o-ModalBox.is-warning .o-ModalBox__icon {
+	color: #F08200;
+}
+.o-ModalBox.is-danger .o-ModalBox__icon {
+	color: #F06868;
+}
+.o-ModalBox.is-info {
+}
+.o-ModalBox.is-success .o-ModalBox__icon {
+	color: #34B697;
+}
+.o-ModalBox__alert {
+		text-align: center;
+}
+.o-ModalBox__confirmBtn {
+		min-width: 138px;
+		height: 32px;
+}
+.o-ModalBox__icon {
+		margin: 0 auto 14px auto;
+		width: 40px;
+		height: 40px;
+		font-size: 40px;
+		display: block;
 }
 
 
