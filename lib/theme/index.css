@@ -81,7 +81,7 @@
 	}
 }
 
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*shadow*//*z-index*/
 }
 
 .o-Message-enter-active, .o-Message-leave-active {
@@ -123,7 +123,7 @@
 		        transform: scale(0.8);
 }
 
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*shadow*//*z-index*/
 }
 
 .o-Img {
@@ -145,7 +145,7 @@
 .o-Img__loading, .o-Img__backup {
 		font-size: 14px;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*shadow*//*z-index*/
 }
 .o-Loading {
 	position: absolute;
@@ -174,7 +174,7 @@
 	-webkit-animation: loading-rotate 2s linear infinite;
 	        animation: loading-rotate 2s linear infinite;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*shadow*//*z-index*/
 }
 .o-FormItem {
 	position: relative;
@@ -209,7 +209,7 @@
 	height: 40px;
 	line-height: 40px;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*shadow*//*z-index*/
 }
 @keyframes loading-spin {0% {
 		stroke-dasharray: 100, 40;
@@ -395,7 +395,7 @@
 .o-BtnGroup .o-Btn--primary:not(:hover):not(.o-Btn--outline) {
 	background: #34B697;/*background: linear-gradient(90deg, var(--color-primary), var(--color-primary) 100%);*/
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*shadow*//*z-index*/
 }
 .o-Input:not(.is-disabled):not(.is-readonly) input:hover {
 	border-color: #BBBBBB;
@@ -957,7 +957,7 @@
 .o-Col-1, .o-Col-2, .o-Col-3, .o-Col-4, .o-Col-5, .o-Col-6, .o-Col-7, .o-Col-8, .o-Col-9, .o-Col-10, .o-Col-11, .o-Col-12, .o-Col-13, .o-Col-14, .o-Col-15, .o-Col-16, .o-Col-17, .o-Col-18, .o-Col-19, .o-Col-20, .o-Col-21, .o-Col-22, .o-Col-23, .o-Col-24 {
 	float: left;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*shadow*//*z-index*/
 }
 .o-MessageBox {
 	z-index: 1060;
@@ -998,14 +998,14 @@
 .o-Message--success {
 		color: #155724;
 		background: #D4EDDA;
-		border: 1px solid #C3E6CB;
+		border: 1px solid #ADCEB4;
 }
 .o-Message--warning {
 		color: #F08200;
 		background: #FFF4D6;
 		border: 1px solid #FFCE8F;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*shadow*//*z-index*/
 }
 .o-ModalBox {
 }
@@ -1031,7 +1031,6 @@
 		position: relative;
 		vertical-align: middle;
 		text-align: left;
-		padding: 34px;
 		min-width: 420px;
 		min-height: 230px;
 		border-radius: 4px;
@@ -1052,6 +1051,16 @@
 }
 .o-Modal__close:hover {
 	color: #4C4C4C;
+}
+.o-Modal__header {
+		padding: 34px;
+}
+.o-Modal__body {
+		padding: 0 34px;
+}
+.o-Modal__footer {
+		padding: 34px;
+		text-align: right;
 }
 
 

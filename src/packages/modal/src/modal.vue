@@ -16,7 +16,7 @@
 						<i class="iconfont icon-close"></i>
 					</button>
 				</div>
-				<div class="o-Modal__body">
+				<div class="o-Modal__body clearfix">
 					<slot></slot>
 				</div>
 				<div class="o-Modal__footer">

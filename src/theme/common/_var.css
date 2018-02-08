@@ -79,7 +79,7 @@
 
 	--Message-success-bg: #D4EDDA;
 	--Message-success-color: #155724;
-	--Message-success-border: 1px solid #C3E6CB;
+	--Message-success-border: 1px solid #ADCEB4;
 
 	--Message-warning-bg: #FFF4D6;
 	--Message-warning-color: var(--color-warning);
@@ -90,6 +90,9 @@
 	--transition-slide: all ease-in-out 240ms;
 	--transition-btn-default: var(--transition-default);
 	--transition-checkbox: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
+
+	/*modal*/
+	--Modal-padding: 34px;
 
 	/*shadow*/
 	--shadw-dropdown: 1px 2px 8px 0px rgba(0,0,0,0.24);

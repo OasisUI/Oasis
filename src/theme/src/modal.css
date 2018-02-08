@@ -25,7 +25,6 @@
 		position: relative;
 		vertical-align: middle;
 		text-align: left;
-		padding: 34px;
 		min-width: 420px;
 		min-height: 230px;
 		border-radius: var(--Input-borderRadius);
@@ -46,5 +45,18 @@
 		&:hover {
 			color: #4C4C4C;
 		}
+	}
+
+	@d header {
+		padding: var(--Modal-padding);
+	}
+
+	@d body {
+		padding: 0 var(--Modal-padding);
+	}
+
+	@d footer {
+		padding: var(--Modal-padding);
+		text-align: right;
 	}
 }

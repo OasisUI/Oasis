@@ -11,7 +11,26 @@
 				Toggle modal box
 			</Button>
 			<Modal v-model="show">
-				<h1>Hello world!</h1>
+				<h2 slot="header">Hello world!</h2>
+				<template>
+					<p>Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. </p>
+					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.</p>
+				</template>
+				<template slot="footer">
+					<Button
+						@click="show = false"
+						type="primary"
+						outline
+					>
+						取消
+					</Button>
+					<Button
+						@click="confirm"
+						type="primary"
+					>
+						确定
+					</Button>
+				</template>
 			</Modal>
 		</li>
 	</ul>
@@ -28,7 +47,16 @@
 			return {
 				show: false
 			}
+		},
+		methods: {
+			confirm () {
+				this.show = false
+				this.$message({
+					type: 'success',
+					text: 'confirmed ！',
+					duration: 2000
+				})
+			}
 		}
-
 	}
 </script>
