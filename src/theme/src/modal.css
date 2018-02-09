@@ -60,6 +60,7 @@
 		width: 100%;
 		padding: var(--Modal-padding);
 		text-align: right;
+		letter-spacing: 20px;
 	}
 }
 
@@ -97,8 +98,11 @@
 	}
 
 	@d confirmBtn {
-		min-width: 138px;
-		height: var(--Button-md-height);
+		min-width: var(--ModalBox-btn-minWidth);
+	}
+
+	@d cancelBtn {
+		min-width: var(--ModalBox-btn-minWidth);
 	}
 
 	@d icon {

@@ -53,6 +53,7 @@
 		methods: {
 			close () {
 				this.show = false
+				this.$emit('close')
 			}
 		}
 	}

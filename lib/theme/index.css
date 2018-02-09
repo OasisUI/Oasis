@@ -1064,6 +1064,7 @@
 		width: 100%;
 		padding: 34px;
 		text-align: right;
+		letter-spacing: 20px;
 }
 .o-ModalBox .o-Modal__body, .o-ModalBox .o-Modal__footer {
 	text-align: center;
@@ -1084,7 +1085,9 @@
 }
 .o-ModalBox__confirmBtn {
 		min-width: 138px;
-		height: 32px;
+}
+.o-ModalBox__cancelBtn {
+		min-width: 138px;
 }
 .o-ModalBox__icon {
 		margin: 0 auto 14px auto;

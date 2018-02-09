@@ -27,6 +27,7 @@
 				:outline="btnType === 'default'"
 				round
 				gradient
+				size="lg"
 				class="o-ModalBox__confirmBtn"
 			>
 				{{confirmText}}

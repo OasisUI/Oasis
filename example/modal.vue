@@ -25,7 +25,7 @@
 						取消
 					</Button>
 					<Button
-						@click="confirm"
+						@click="onConfirm"
 						type="primary"
 					>
 						确定
@@ -39,24 +39,24 @@
 		<li>
 			<p>
 				<Button
-					@click="messageBox('alert', 'info')"
+					@click="alert('info')"
 				>
 					$alert:info
 				</Button>
 				<Button
-					@click="messageBox('alert', 'success')"
+					@click="alert('success')"
 					type="primary"
 				>
 					$alert:success
 				</Button>
 				<Button
-					@click="messageBox('alert', 'danger')"
+					@click="alert('danger')"
 					type="danger"
 				>
 					$alert:danger
 				</Button>
 				<Button
-					@click="messageBox('alert', 'warning')"
+					@click="alert('warning')"
 					type="warning"
 				>
 					$alert:warning
@@ -64,13 +64,13 @@
 			</p>
 			<p>
 				<Button
-					@click="messageBox('confirm')"
+					@click="confirm"
 					outline
 				>
 					$confirm
 				</Button>
 				<Button
-					@click="messageBox('prompt')"
+					@click="prompt"
 					outline
 				>
 					$prompt
@@ -93,7 +93,7 @@
 			}
 		},
 		methods: {
-			confirm () {
+			onConfirm () {
 				this.show = false
 				this.$message({
 					type: 'success',
@@ -101,8 +101,8 @@
 					duration: 2000
 				})
 			},
-			messageBox (modelName, type = 'info') {
-				this['$' + modelName]({
+			alert (type = 'info') {
+				this.$alert({
 					type: type,
 					title: type,
 					content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p><p>Curabitur aliquet quam id dui posuere blandit.</p>',
@@ -110,6 +110,43 @@
 					onConfirm: () => {
 						this.$message({
 							text: 'confirm'
+						})
+					}
+				})
+			},
+			confirm () {
+				this.$confirm({
+					title: '《Jane Eyre》',
+					content: '你以为，因为我穷、低微、不美、矮小，我就没有灵魂，也没有心吗？',
+					confirmText: 'Yes',
+					cancelText: 'No',
+					onConfirm: () => {
+						this.$message({
+							type: 'danger',
+							text: 'Yes'
+						})
+					},
+					onCancel: () => {
+						this.$message({
+							type: 'success',
+							text: 'No'
+						})
+					}
+				})
+			},
+			prompt () {
+				this.$prompt({
+					title: 'Your name:',
+					// TODO: required: true,
+					onConfirm: (value) => {
+						this.$message({
+							type: 'success',
+							text: `Hello ${value}`
+						})
+					},
+					onCancel: () => {
+						this.$message({
+							text: 'canceled'
 						})
 					}
 				})
