@@ -8,6 +8,7 @@ import Grid from './grid'
 import Form from './form'
 import Message from './message'
 import Modal from './modal'
+import DateTime from './datetimepicker'
 
 Vue.use(VueRouter)
 
@@ -43,6 +44,10 @@ const routes = [
 	{
 		path: '/modal',
 		component: Modal
+	},
+	{
+		path: '/datetimepicker',
+		component: DateTime
 	}
 ]
 

@@ -1,0 +1,47 @@
+@import '../common/_var.css';
+
+@component DatePicker {
+	width: calc(var(--DatePicker--dayWidth) * 8);
+	padding: calc(var(--DatePicker--dayWidth) / 2);
+	background: white;
+	cursor: pointer;
+
+	& ::selection {
+		background: transparent;
+	}
+
+	& .o-DatePicker__weekDay,
+	& .o-DatePicker__day {
+		display: inline-block;
+		width: var(--DatePicker--dayWidth);
+		height: var(--DatePicker--dayHeight);
+		line-height: var(--DatePicker--dayHeight);
+		text-align: center;
+		vertical-align: middle;
+  		font-size: 16px;
+	}
+	@d days {
+		display: block;
+	}
+
+	@d weekDay {
+		font-weight: 700;
+		color: var(--color-black-4);
+	}
+
+	@d day {
+		border-radius: 50%;
+		cursor: pointer;
+		transition: background ease 0.44s;
+
+		&:hover:not(.is-disabled, .is-selected) {
+			background: var(--color-gray-3);
+			color: var(--color-primary-light);
+		}
+
+		&.is-selected {
+			color: white;
+			background: var(--color-primary) !important;
+		}
+	}
+}

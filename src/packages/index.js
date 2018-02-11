@@ -14,6 +14,7 @@ import Radio from './radio'
 import Message from './message'
 import Modal from './modal'
 import ModalBox from './modalBox'
+import DatePicker from './datePicker'
 
 // tools
 // TODO
@@ -32,7 +33,8 @@ const components = [
 	Radio,
 	Message,
 	Modal,
-	ModalBox
+	ModalBox,
+	DatePicker
 ];
 
 const Oasis = {
