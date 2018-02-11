@@ -6,8 +6,8 @@ export function getWeekDays () {
 export function getDaysOfMonth (year, month) {
 	const d = dateWrapper(new Date(year, month - 1))
 	return new Array(countDaysOfMonth(year, month) + d.weekday).fill(null).map((day, index) => {
-		const date = index - d.weekday
-		return date >= 0 ? dateWrapper(new Date(year, month - 1	, date + 1)) : {}
+		day = index - d.weekday
+		return day >= 0 ? new D(year, month, day + 1) : {}
 	})
 }
 
@@ -25,11 +25,50 @@ export function isLeapYear (year) {
 
 export function dateWrapper (date) {
 	date = date instanceof Date ? date : new Date(date)
-	return {
-		year: date.getFullYear(),
-		month: date.getMonth() + 1,
-		date: date.getDate(),
-		weekday: date.getDay(),
-		_: date
+	return new D(
+		date.getFullYear(),
+		date.getMonth() + 1,
+		date.getDate(),
+		date.getHours(),
+		date.getMinutes(),
+		date.getSeconds(),
+	)
+}
+
+export class D {
+	constructor (year, month = 1, day = 1, hour = 0, minute = 0, second = 0) {
+		this._ = new Date(year, month - 1, day)
+	}
+
+	get year () {
+		return this._.getFullYear()
+	}
+
+	get month () {
+		return this._.getMonth() + 1
+	}
+
+	get day () {
+		return this._.getDate()
+	}
+
+	get hours () {
+		return this._.getHours()
+	}
+
+	get minutes () {
+		return this._.getMinutes()
+	}
+
+	get seconds () {
+		return this._.getSeconds()
+	}
+
+	get time () {
+		return this._.getTime()
+	}
+
+	get weekday () {
+		return this._.getDay()
 	}
 }

@@ -1,30 +1,37 @@
 <template>
 	<div class="o-DatePicker">
-		<div
-			class="o-DatePicker__days"
-		>
-			<div
-				v-for="weekDay in weekDays"
-				class="o-DatePicker__weekDay"
-			>{{weekDay}}</div>
-			<div
-				@click="pickDate(day)"
-				v-for="day in days"
-				class="o-DatePicker__day"
-				:class="{
-					'is-selected': day.date === date.date,
-					'is-disabled': !day._
-				}"
-			>{{day.date || ''}}</div>
+		<div>
+			<button
+				@click.stop="status = 'year'"
+			>年</button>
+			<button
+				@click.stop="status = 'month'"
+			>月</button>
+			<button
+				@click.stop="status = 'day'"
+			>日</button>
 		</div>
+		<YearPicker
+			v-model="date"
+			v-if="status === 'year'"
+		></YearPicker>
+		<MonthPicker
+			v-model="date"
+			v-if="status === 'month'"
+		></MonthPicker>
+		<DayPicker
+			v-model="date"
+			v-if="status === 'day'"
+		></DayPicker>
 	</div>
 </template>
 
 <script>
+	import YearPicker from './yearPicker'
+	import MonthPicker from './monthPicker'
+	import DayPicker from './dayPicker'
 	import {
-		dateWrapper,
-		getDaysOfMonth,
-		getWeekDays
+		dateWrapper
 	} from "../../../utils/date";
 
 	const props = {
@@ -34,28 +41,28 @@
 			}
 		}
 	}
-
 	export default {
 		name: 'DatePicker',
 		props,
 		data () {
 			return {
-				weekDays: getWeekDays()
-			}
-		},
-		methods: {
-			pickDate (day) {
-				this.$emit('input', day._.getTime())
+				status: 'year'
 			}
 		},
 		computed: {
-			date () {
-				return dateWrapper(parseInt(this.value))
-			},
-			days () {
-				const { date } = this
-				return getDaysOfMonth(date.year, date.month)
+			date: {
+				set (val) {
+					this.$emit('input', val.time)
+				},
+				get () {
+					return this.value
+				}
 			}
+		},
+		components: {
+			[YearPicker.name]: YearPicker,
+			[MonthPicker.name]: MonthPicker,
+			[DayPicker.name]: DayPicker
 		}
 	}
 </script>

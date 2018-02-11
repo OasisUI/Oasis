@@ -1098,11 +1098,20 @@
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
 }
+.o-DatePicker .o-YearPicker__year:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-MonthPicker__month:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-DayPicker__day:hover:not(.is-disabled):not(.is-selected) span {
+	color: #64DC9C;
+	background: #F1F1F1;
+	border-radius: 20px;
+}
 .o-DatePicker {
 	width: 320px;
 	padding: 20px;
 	background: white;
 	cursor: pointer;
+}
+.o-DatePicker * {
+	-webkit-transition: all ease 0.34s;
+	transition: all ease 0.34s;
 }
 .o-DatePicker ::-moz-selection {
 	background: transparent;
@@ -1110,7 +1119,44 @@
 .o-DatePicker ::selection {
 	background: transparent;
 }
-.o-DatePicker .o-DatePicker__weekDay, .o-DatePicker .o-DatePicker__day {
+.o-DatePicker .o-YearPicker__year, .o-DatePicker .o-MonthPicker__month, .o-DatePicker .o-DayPicker__day {/*padding: 0 8px;*/
+}
+.o-DatePicker .o-YearPicker__year span, .o-DatePicker .o-MonthPicker__month span, .o-DatePicker .o-DayPicker__day span {
+	display: block;
+}
+.o-DatePicker .is-selected span {
+	color: white;
+	border-radius: 20px;
+	background: #34B697 !important;
+}
+.o-YearPicker {
+	display: block;
+}
+.o-YearPicker__year {
+		display: inline-block;
+		width: 70px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 16px;
+}
+.o-MonthPicker {
+	display: block;
+}
+.o-MonthPicker__month {
+		display: inline-block;
+		width: 70px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 16px;
+}
+.o-DayPicker {
+	display: block;
+}
+.o-DayPicker .o-DayPicker__weekDay, .o-DayPicker .o-DayPicker__day {
 	display: inline-block;
 	width: 40px;
 	height: 40px;
@@ -1119,26 +1165,12 @@
 	vertical-align: middle;
 	font-size: 16px;
 }
-.o-DatePicker__days {
-		display: block;
-}
-.o-DatePicker__weekDay {
+.o-DayPicker__weekDay {
 		font-weight: 700;
 		color: #666666;
 }
-.o-DatePicker__day {
-		border-radius: 50%;
+.o-DayPicker__day {
 		cursor: pointer;
-		-webkit-transition: background ease 0.44s;
-		transition: background ease 0.44s;
-}
-.o-DatePicker__day:hover:not(.is-disabled):not(.is-selected) {
-	background: #F1F1F1;
-	color: #64DC9C;
-}
-.o-DatePicker__day.is-selected {
-	color: white;
-	background: #34B697 !important;
 }
 
 
