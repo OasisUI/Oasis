@@ -92,7 +92,7 @@
 					this.$emit('input', val.time)
 				},
 				get () {
-					return this.value
+					return parseInt(this.value)
 				}
 			}
 		},
