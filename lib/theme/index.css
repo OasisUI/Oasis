@@ -20,6 +20,8 @@
 	border: none;
 	margin: 0;
 	white-space: nowrap;
+	background: inherit;
+	cursor: pointer;
 }input {
 	border: none;
 	outline: none;
@@ -1101,12 +1103,11 @@
 .o-DatePicker .o-YearPicker__year:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-MonthPicker__month:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-DayPicker__day:hover:not(.is-disabled):not(.is-selected) span {
 	color: #64DC9C;
 	background: #F1F1F1;
-	border-radius: 20px;
 }
 .o-DatePicker {
 	width: 320px;
 	padding: 20px;
-	background: white;
+	background: rgba(0, 0, 0, .1);
 	cursor: pointer;
 }
 .o-DatePicker * {
@@ -1119,15 +1120,47 @@
 .o-DatePicker ::selection {
 	background: transparent;
 }
-.o-DatePicker .o-YearPicker__year, .o-DatePicker .o-MonthPicker__month, .o-DatePicker .o-DayPicker__day {/*padding: 0 8px;*/
+.o-DatePicker .o-YearPicker__year, .o-DatePicker .o-MonthPicker__month, .o-DatePicker .o-DayPicker__day {
+	padding: 4px;
 }
 .o-DatePicker .o-YearPicker__year span, .o-DatePicker .o-MonthPicker__month span, .o-DatePicker .o-DayPicker__day span {
-	display: block;
+	display: inline-block;
+	height: 32px;
+	width: 100%;
+	line-height: 32px;
+	border-radius: 20px;
 }
 .o-DatePicker .is-selected span {
 	color: white;
 	border-radius: 20px;
 	background: #34B697 !important;
+}
+.o-DatePicker .is-currentEdit {
+	color: #34B697;
+}
+.o-DatePicker__statusGroup {
+		display: inline-block;
+}
+.o-DatePicker__statusGroup button {
+	padding: 0;
+}
+.o-DatePicker__actions {
+		text-align: center;
+		margin-bottom: 10px;
+}
+.o-DatePicker__actions button {
+	font-size: 16px;
+	height: 32px;
+	border-radius: 20px;
+}
+.o-DatePicker__actions button:hover {
+	color: #34B697;
+}
+.o-DatePicker__prevBtn {
+		float: left;
+}
+.o-DatePicker__nextBtn {
+		float: right;
 }
 .o-YearPicker {
 	display: block;
@@ -1136,7 +1169,6 @@
 		display: inline-block;
 		width: 70px;
 		height: 40px;
-		line-height: 40px;
 		text-align: center;
 		vertical-align: middle;
 		font-size: 16px;
@@ -1148,7 +1180,6 @@
 		display: inline-block;
 		width: 70px;
 		height: 40px;
-		line-height: 40px;
 		text-align: center;
 		vertical-align: middle;
 		font-size: 16px;
@@ -1160,7 +1191,6 @@
 	display: inline-block;
 	width: 40px;
 	height: 40px;
-	line-height: 40px;
 	text-align: center;
 	vertical-align: middle;
 	font-size: 16px;

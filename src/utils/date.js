@@ -44,12 +44,24 @@ export class D {
 		return this._.getFullYear()
 	}
 
+	set year (val) {
+		this._.setFullYear(val)
+	}
+
 	get month () {
 		return this._.getMonth() + 1
 	}
 
+	set month (val) {
+		this._.setMonth(val - 1)
+	}
+
 	get day () {
 		return this._.getDate()
+	}
+
+	set day (val) {
+		this._.setDate(val)
 	}
 
 	get hours () {

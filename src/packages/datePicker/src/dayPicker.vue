@@ -11,7 +11,9 @@
 			v-for="day in days"
 			class="o-DayPicker__day"
 			:class="{
-				'is-selected': day.day === date.day,
+				'is-selected': 	day.day === date.day &&
+								day.month === date.month &&
+								day.year === date.year,
 				'is-disabled': !day._
 			}"
 		>
@@ -33,6 +35,11 @@
 			validator (val) {
 				return !isNaN(val)
 			}
+		},
+		currentPage: {
+			validator (val) {
+				return !isNaN(val)
+			}
 		}
 	}
 
@@ -44,19 +51,34 @@
 				weekDays: getWeekDays()
 			}
 		},
+		beforeDestroy () {
+			this.$parent.$off('updatePage', this.updatePage)
+		},
+		mounted () {
+			this.$parent.$on('updatePage', this.updatePage)			
+		},
 		methods: {
 			pickDate (day) {
 				const { date } = this
-				this.$emit('input', new D(date.year, date.month, day.day, date.hours, date.minutes, date.seconds))
+				// this.$emit('input', new D(date.year, date.month, day.day, date.hours, date.minutes, date.seconds))
+				date.day = day.day
+				this.$emit('input', day)
+			},
+			updatePage (n) {
+				this.page.month += n
+				this.$parent.$emit('updateCurrentPage', this.page)
 			}
 		},
 		computed: {
 			date () {
-				return dateWrapper(parseInt(this.value))
+				return dateWrapper(this.value)
+			},
+			page () {
+				return dateWrapper(this.currentPage)
 			},
 			days () {
-				const { date } = this
-				return getDaysOfMonth(date.year, date.month)
+				const { page } = this
+				return getDaysOfMonth(page.year, page.month)
 			}
 		}
 	}

@@ -5,7 +5,8 @@
 			@click="pickMonth(month)"
 			class="o-MonthPicker__month"
 			:class="{
-				'is-selected': month.month === date.month
+				'is-selected': month.month === date.month &&
+								month.year === date.year
 			}"
 		>
 			<span>{{month.month}}</span>
@@ -16,9 +17,7 @@
 <script>
 	import {
 		D,
-		dateWrapper,
-		getDaysOfMonth,
-		getWeekDays
+		dateWrapper
 	} from "../../../utils/date"
 
 	const props = {
@@ -34,23 +33,38 @@
 		props,
 		data () {
 			return {
-				months: []
+				months: [],
+				currentPage: 0
 			}
 		},
+		beforeDestroy () {
+			this.$parent.$off('nextPage', this.updatePage)
+		},
+		
 		mounted () {
-			this.months = new Array(12).fill(null).map((item, index) => {
-				return new D(this.date.year, index + 1)
-			})
+			this.$parent.$on('updatePage', this.updatePage)
+			this.updateList()
 		},
 		methods: {
 			pickMonth (month) {
 				const { date } = this
-				let newDate = new D(date.year, month.month, date.day,  date.hours, date.minutes, date.seconds)
-				console.log(newDate.month, newDate.day)
-				if (newDate.month !== month.month) {
-					newDate = new D(newDate.year, month.month, 1,  newDate.hours, newDate.minutes, newDate.seconds)
+				date.month = month.month
+				if (date.month !== month.month) {
+					date.month = month.month
 				}
-				this.$emit('input', newDate)
+				this.$emit('input', this.date.time)
+				this.$parent.$emit('updateCurrentPage')				
+			},
+			updateList (year) {
+				year = year || this.date.year
+				this.months = new Array(12).fill(null).map((item, index) => {
+					return new D(year, index + 1)
+				})
+			},
+			updatePage (n) {
+				this.date.year += n
+				this.$emit('input', this.date.time)
+				this.updateList()
 			}
 		},
 		computed: {

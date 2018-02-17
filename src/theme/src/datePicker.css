@@ -3,7 +3,7 @@
 @component DatePicker {
 	width: calc(var(--DatePicker--dayWidth) * 8);
 	padding: calc(var(--DatePicker--dayWidth) / 2);
-	background: white;
+	background: rgba(0,0,0,0.1);
 	cursor: pointer;
 
 	& * {
@@ -17,14 +17,17 @@
 	& .o-YearPicker__year,
 	& .o-MonthPicker__month,
 	& .o-DayPicker__day {
-		/*padding: 0 8px;*/
+		padding: calc((var(--DatePicker--dayHeight) - var(--Button-md-height)) / 2);
 		& span {
-			display: block;
+			display: inline-block;
+			height: var(--Button-md-height);
+			width: 100%;
+			line-height: var(--Button-md-height);
+			border-radius: calc(var(--DatePicker--dayHeight) / 2);
 		}
 	  	&:hover:not(.is-disabled, .is-selected) span {
 			color: var(--color-primary-light);
 			background: var(--color-gray-3);
-			border-radius: calc(var(--DatePicker--dayHeight) / 2);
 		}
 	}
 
@@ -33,16 +36,48 @@
 		border-radius: calc(var(--DatePicker--dayHeight) / 2);
 		background: var(--color-primary) !important;
 	}
+
+	& .is-currentEdit {
+		color: var(--color-primary);
+	}
+
+	@d statusGroup {
+		display: inline-block;
+		& button {
+			padding: 0;
+		}
+	}
+
+	@d actions {
+		text-align: center;
+		margin-bottom: calc(var(--DatePicker--dayHeight) / 4);
+		& button {
+			font-size: 16px;
+			height: var(--Button-md-height);
+			border-radius: calc(var(--DatePicker--dayHeight) / 2);
+			&:hover {
+				color: var(--color-primary);				
+			}
+		}
+	}
+
+	@d prevBtn {
+		float: left;
+	}
+
+	@d nextBtn {
+		float: right;
+	}
+
+
 }
 
 @component YearPicker {
 	display: block;
-
 	@d year {
 		display: inline-block;
 		width: calc(var(--DatePicker--dayWidth) * 7 / 4);
 		height: var(--DatePicker--dayHeight);
-		line-height: var(--DatePicker--dayHeight);
 		text-align: center;
 		vertical-align: middle;
 		font-size: 16px;
@@ -51,12 +86,10 @@
 
 @component MonthPicker {
 	display: block;
-
 	@d month {
 		display: inline-block;
 		width: calc(var(--DatePicker--dayWidth) * 7 / 4);
 		height: var(--DatePicker--dayHeight);
-		line-height: var(--DatePicker--dayHeight);
 		text-align: center;
 		vertical-align: middle;
 		font-size: 16px;
@@ -65,7 +98,6 @@
 
 @component DayPicker {
 	display: block;
-
 	@d weekDay {
 		font-weight: 700;
 		color: var(--color-black-4);
@@ -80,7 +112,6 @@
 		display: inline-block;
 		width: var(--DatePicker--dayWidth);
 		height: var(--DatePicker--dayHeight);
-		line-height: var(--DatePicker--dayHeight);
 		text-align: center;
 		vertical-align: middle;
   		font-size: 16px;

@@ -29,6 +29,8 @@ button {
 	border: none;
 	margin: 0;
 	white-space: nowrap;
+	background: inherit;
+	cursor: pointer;
 }
 
 input {

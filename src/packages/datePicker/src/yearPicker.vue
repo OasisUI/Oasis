@@ -16,9 +16,7 @@
 <script>
 	import {
 		D,
-		dateWrapper,
-		getDaysOfMonth,
-		getWeekDays
+		dateWrapper
 	} from "../../../utils/date"
 
 	const props = {
@@ -35,29 +33,45 @@
 		data () {
 			return {
 				years: [],
-				listLength: 20
+				listLength: 20,
+				currentPage: 0
 			}
 		},
+		beforeDestroy () {
+			this.$parent.$off('updatePage', this.updatePage)
+		},
 		mounted () {
-			this.updataList()
+			this.$parent.$on('updatePage', this.updatePage)
+			this.updateList()
 		},
 		methods: {
 			pickYear (year) {
-				const { date } = this
-				this.$emit('input', new D(year.year, date.month, date.day, date.hours, date.minutes, date.seconds))
+				this.date.year = year.year
+				this.$emit('input', this.date.time)
+				this.$parent.$emit('updateCurrentPage')
 			},
-			updataList (year) {
+			updateList (year) {
 				const { listLength } = this
 				year = year || this.date.year
 				this.years = new Array(listLength).fill(null).map((item, index) => {
-					return new D(this.date.year + index - listLength / 2)
+					return new D(year + index - listLength / 2)
 				})
+			},
+			updatePage (n) {
+				this.currentPage += n
 			}
 		},
 		computed: {
 			date () {
 				return dateWrapper(this.value)
 			}
+		},
+		watch: {
+			currentPage: {
+				handler (val) {
+					this.updateList(this.date.year + val * this.listLength)
+				}
+			},
 		}
 	}
 </script>
