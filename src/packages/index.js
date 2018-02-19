@@ -15,7 +15,7 @@ import Message from './message'
 import Modal from './modal'
 import ModalBox from './modalBox'
 import DatePicker from './datePicker'
-
+import TimePicker from './timePicker'
 // tools
 // TODO
 
@@ -34,7 +34,8 @@ const components = [
 	Message,
 	Modal,
 	ModalBox,
-	DatePicker
+	DatePicker,
+	TimePicker
 ];
 
 const Oasis = {

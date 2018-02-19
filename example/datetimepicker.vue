@@ -11,6 +11,14 @@
 				v-model="date"
 			></DatePicker>
 		</li>
+		<li>
+			<Input
+				v-model="time"
+			/>
+			<TimePicker
+				v-model="time"
+			></TimePicker>
+		</li>
 	</ul>
 </template>
 
@@ -18,7 +26,8 @@
 	export default {
 		data () {
 			return {
-				date: + new Date()
+				date: + new Date(),
+				time: '12:00'
 			}
 		}
 	}
