@@ -85,7 +85,7 @@
 	}
 }
 
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 
 .o-Message-enter-active, .o-Message-leave-active {
@@ -127,7 +127,7 @@
 		        transform: scale(0.8);
 }
 
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 
 .o-Img {
@@ -149,7 +149,7 @@
 .o-Img__loading, .o-Img__backup {
 		font-size: 14px;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 .o-Loading {
 	position: absolute;
@@ -178,7 +178,7 @@
 	-webkit-animation: loading-rotate 2s linear infinite;
 	        animation: loading-rotate 2s linear infinite;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 .o-FormItem {
 	position: relative;
@@ -213,7 +213,7 @@
 	height: 40px;
 	line-height: 40px;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 @keyframes loading-spin {0% {
 		stroke-dasharray: 100, 40;
@@ -399,7 +399,7 @@
 .o-BtnGroup .o-Btn--primary:not(:hover):not(.o-Btn--outline) {
 	background: #34B697;/*background: linear-gradient(90deg, var(--color-primary), var(--color-primary) 100%);*/
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 .o-Input:not(.is-disabled):not(.is-readonly) input:hover {
 	border-color: #BBBBBB;
@@ -961,7 +961,7 @@
 .o-Col-1, .o-Col-2, .o-Col-3, .o-Col-4, .o-Col-5, .o-Col-6, .o-Col-7, .o-Col-8, .o-Col-9, .o-Col-10, .o-Col-11, .o-Col-12, .o-Col-13, .o-Col-14, .o-Col-15, .o-Col-16, .o-Col-17, .o-Col-18, .o-Col-19, .o-Col-20, .o-Col-21, .o-Col-22, .o-Col-23, .o-Col-24 {
 	float: left;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 .o-MessageBox {
 	z-index: 1060;
@@ -1017,7 +1017,7 @@
 		background: #FFF4D6;
 		border: 1px solid #FFCE8F;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 .o-Modal {
 	z-index: 1050;
@@ -1106,7 +1106,7 @@
 		font-size: 40px;
 		display: block;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 .o-DatePicker .o-YearPicker__year:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-MonthPicker__month:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-DayPicker__day:hover:not(.is-disabled):not(.is-selected) span {
 	color: #64DC9C;
@@ -1210,14 +1210,15 @@
 .o-DayPicker__day {
 		cursor: pointer;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
 }
 .o-TimePicker {
 	background: rgba(0, 0, 0, .1);
-	width: 200px;
-	height: 200px;
+	width: 240px;
+	height: 238px;
 	text-align: center;
 	overflow: hidden;
+	font-size: 0;	
 	color: #999999;
 }
 .o-TimePicker:after {
@@ -1236,10 +1237,9 @@
 		display: inline-block;
 		text-align: center;
 		vertical-align: middle;
-		width: 60px;		
+		width: 80px;		
 		height: 100%;
 		/* padding-top: calc(50% - 15px); */
-		/* overflow: visible; */
 }
 .o-TimePicker__spinnerList {
 		display: inline-block;		
@@ -1261,6 +1261,40 @@
 		cursor: pointer;
 }
 .o-TimePicker__spinnerItem:hover:not(.is-selected) {
+	color: #666666;
+	font-weight: 700;
+}
+.o-TimeSpinner {
+	height: 100%;
+	width: 80px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+.o-TimeSpinner:hover {
+	overflow-y: auto;
+}
+.o-TimeSpinner:before, .o-TimeSpinner:after {
+	display: block;
+	content: '';
+	height: 102px;
+}
+.o-TimeSpinner__Item {
+		display: block;
+		margin: 0;
+		padding: 0;
+		width: 80px;		
+		height: 34px;
+		line-height: 34px;
+		text-align: center;
+		font-size: 16px;
+		cursor: pointer;
+		-webkit-transition: all ease 0.2s;
+		transition: all ease 0.2s;
+}
+.o-TimeSpinner__Item:hover:not(.is-selected) {
 	color: #666666;
 	font-weight: 700;
 }

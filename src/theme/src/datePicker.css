@@ -1,8 +1,8 @@
 @import '../common/_var.css';
 
 @component DatePicker {
-	width: calc(var(--DatePicker--dayWidth) * 8);
-	padding: calc(var(--DatePicker--dayWidth) / 2);
+	width: calc(var(--DatePicker-dayWidth) * 8);
+	padding: calc(var(--DatePicker-dayWidth) / 2);
 	background: rgba(0,0,0,0.1);
 	cursor: pointer;
 
@@ -17,13 +17,13 @@
 	& .o-YearPicker__year,
 	& .o-MonthPicker__month,
 	& .o-DayPicker__day {
-		padding: calc((var(--DatePicker--dayHeight) - var(--Button-md-height)) / 2);
+		padding: calc((var(--DatePicker-dayHeight) - var(--Button-md-height)) / 2);
 		& span {
 			display: inline-block;
 			height: var(--Button-md-height);
 			width: 100%;
 			line-height: var(--Button-md-height);
-			border-radius: calc(var(--DatePicker--dayHeight) / 2);
+			border-radius: calc(var(--DatePicker-dayHeight) / 2);
 		}
 	  	&:hover:not(.is-disabled, .is-selected) span {
 			color: var(--color-primary-light);
@@ -33,7 +33,7 @@
 
 	& .is-selected span {
 		color: white;
-		border-radius: calc(var(--DatePicker--dayHeight) / 2);
+		border-radius: calc(var(--DatePicker-dayHeight) / 2);
 		background: var(--color-primary) !important;
 	}
 
@@ -50,11 +50,11 @@
 
 	@d actions {
 		text-align: center;
-		margin-bottom: calc(var(--DatePicker--dayHeight) / 4);
+		margin-bottom: calc(var(--DatePicker-dayHeight) / 4);
 		& button {
 			font-size: 16px;
 			height: var(--Button-md-height);
-			border-radius: calc(var(--DatePicker--dayHeight) / 2);
+			border-radius: calc(var(--DatePicker-dayHeight) / 2);
 			&:hover {
 				color: var(--color-primary);				
 			}
@@ -76,8 +76,8 @@
 	display: block;
 	@d year {
 		display: inline-block;
-		width: calc(var(--DatePicker--dayWidth) * 7 / 4);
-		height: var(--DatePicker--dayHeight);
+		width: calc(var(--DatePicker-dayWidth) * 7 / 4);
+		height: var(--DatePicker-dayHeight);
 		text-align: center;
 		vertical-align: middle;
 		font-size: 16px;
@@ -88,8 +88,8 @@
 	display: block;
 	@d month {
 		display: inline-block;
-		width: calc(var(--DatePicker--dayWidth) * 7 / 4);
-		height: var(--DatePicker--dayHeight);
+		width: calc(var(--DatePicker-dayWidth) * 7 / 4);
+		height: var(--DatePicker-dayHeight);
 		text-align: center;
 		vertical-align: middle;
 		font-size: 16px;
@@ -110,8 +110,8 @@
 	& .o-DayPicker__weekDay,
 	& .o-DayPicker__day {
 		display: inline-block;
-		width: var(--DatePicker--dayWidth);
-		height: var(--DatePicker--dayHeight);
+		width: var(--DatePicker-dayWidth);
+		height: var(--DatePicker-dayHeight);
 		text-align: center;
 		vertical-align: middle;
   		font-size: 16px;

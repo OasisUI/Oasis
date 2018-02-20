@@ -1,10 +1,16 @@
 export function throttle (fn, delay = 10) {
-	let last = 0
+	let result,
+		last = 0,
+		count = 0
 	return function (...arg) {
 		const time = Date.now()
+		count++
 		if (time - last > delay) {
 			last = time
-			return fn.apply(this, arg)
+			arg.push(count)
+			result = fn.apply(this, arg)
+			count = 0
+			return result
 		}
 	}
 }
@@ -20,4 +26,8 @@ export function debounce (fn, delay = 10) {
 		last = time
 		return result
 	}
+}
+
+export function formatNumber (num, len = 1) {
+	return ('0'.repeat(len) + num).slice(-len)
 }

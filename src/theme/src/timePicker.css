@@ -2,10 +2,11 @@
 
 @component TimePicker {
 	background: rgba(0,0,0,0.1);
-	width: 200px;
-	height: 200px;
+	width: calc(var(--TimeSpinner-width) * 3);
+	height: calc(var(--TimeSpinnerItem-height) * 7);
 	text-align: center;
 	overflow: hidden;
+	font-size: 0;	
 	color: var(--color-gray-1);
 
 	&:after {
@@ -21,10 +22,9 @@
 		display: inline-block;
 		text-align: center;
 		vertical-align: middle;
-		width: 60px;		
+		width: var(--TimeSpinner-width);		
 		height: 100%;
 		/* padding-top: calc(50% - 15px); */
-		/* overflow: visible; */
 	}
 
 	@d spinnerList {
@@ -55,5 +55,45 @@
 	& .is-selected {
 		color: var(--color-primary);
 		font-weight: 700;
+	}
+}
+
+
+@component TimeSpinner {
+	height: 100%;
+	width: var(--TimeSpinner-width);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+	overflow-x: hidden;
+
+	&:hover {
+		overflow-y: auto;		
+	}
+
+	&:before,
+	&:after {
+		display: block;
+		content: '';
+		height: calc(var(--TimeSpinnerItem-height) * 3);
+	}
+
+	@d Item {
+		display: block;
+		margin: 0;
+		padding: 0;
+		width: var(--TimeSpinner-width);		
+		height: var(--TimeSpinnerItem-height);
+		line-height: var(--TimeSpinnerItem-height);
+		text-align: center;
+		font-size: 16px;
+		cursor: pointer;
+		transition: all ease 0.2s;
+
+		&:hover:not(.is-selected) {
+			color: var(--color-black-4);
+			font-weight: 700;
+		}
 	}
 }

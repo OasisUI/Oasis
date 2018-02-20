@@ -96,9 +96,12 @@
 	--ModalBox-btn-minWidth: 138px;
 
 	/*datePicker*/
-	--DatePicker--dayWidth: 40px;
-	--DatePicker--dayHeight: 40px;
+	--DatePicker-dayWidth: 40px;
+	--DatePicker-dayHeight: 40px;
 
+	/* timePicker */
+	--TimeSpinnerItem-height: 34px;
+	--TimeSpinner-width: 80px;
 	/*shadow*/
 	--shadw-dropdown: 1px 2px 8px 0px rgba(0,0,0,0.24);
 	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);

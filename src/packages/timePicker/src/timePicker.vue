@@ -1,76 +1,48 @@
 <template>
 	<div class="o-TimePicker">
-		<div
-			@wheel.stop.prevent="updateHour"			
+		<div			
 			class="o-TimePicker__currentValue"
 		>
-			<div
-				:style="{
-					top: hour * -30 + 'px'
-				}"
-				class="o-TimePicker__spinnerList"
-			>
-				<span
-					v-for="h in 24"
-					:class="{
-						'is-selected': hour + 1 === h
-					}"
-					class="o-TimePicker__spinnerItem"					
-				>
-					{{h - 1}}
-				</span>
-			</div>
+			<TimeSpinner
+				:list="24"
+				v-model="hour"
+			></TimeSpinner>
 		</div>
-		<div
-			@wheel.stop.prevent="updateMinute"			
+		<div			
 			class="o-TimePicker__currentValue"
 		>
-			<div
-				:style="{
-					top: minute * -30 + 'px'
-				}"
-				class="o-TimePicker__spinnerList"
-			>
-				<span
-					v-for="m in 60"
-					:class="{
-						'is-selected':  minute + 1 === m
-					}"
-					class="o-TimePicker__spinnerItem"					
-				>
-					{{m - 1}}
-				</span>
-			</div>
+			<TimeSpinner
+				:list="60"
+				v-model="minute"
+			></TimeSpinner>
 		</div>
-		<div
-			@wheel.stop.prevent="updateSecond"			
+		<div			
 			class="o-TimePicker__currentValue"
-		>			
-			<div
-				:style="{
-					top: second * -30 + 'px'
-				}"
-				class="o-TimePicker__spinnerList"
-			>
-				<span
-					v-for="s in 60"
-					:class="{
-						'is-selected':  second + 1 === s
-					}"
-					class="o-TimePicker__spinnerItem"
-				>
-					{{s - 1}}
-				</span>
-			</div>
+		>
+			<TimeSpinner
+				:list="60"
+				v-model="second"
+			></TimeSpinner>
 		</div>
 	</div>
 </template>
 <script>
 	import {
-		throttle
+		formatNumber
 	} from '../../../utils'
+	import Spinner from './spinner'
+	
+	const props = {
+		value: {},
+		split: {
+			type: String,
+			default: ':'
+		}
+	}
+
 	export default {
 		name: 'TimePicker',
+		props,
 		data () {
 			return {
 				hour: 10,
@@ -78,44 +50,41 @@
 				second: 30
 			}
 		},
+		components: {
+			[Spinner.name]: Spinner
+		},
 		methods: {
-			updateHour: throttle(function (e) {
-				const deltaY = e.deltaY
-				const step = Math.ceil(Math.abs(deltaY / 10))
-				// const next = this.hour + step
-				console.log(step)
-				if (deltaY > 0 && this.hour < 23) {
-					if (deltaY > 10 && this.hour + step < 23) {
-						this.hour += step
-					} else {
-						this.hour++
-					}
-				} else if (deltaY < 0 && this.hour > 0) {
-					if (deltaY < -10 && this.hour - step > 0) {
-						this.hour -= step
-					} else {
-						this.hour--
-					}
+			updateValue () {
+				const { split } = this
+				const value = `${formatNumber(this.hour, 2)}${split}${formatNumber(this.minute, 2)}${split}${formatNumber(this.second, 2)}`
+				this.$emit('input', value)
+			}
+		},
+		watch: {
+			value: {
+				handler (val) {
+					const [hour, minute, second] = val.split(':')
+					this.hour = parseInt(hour) || 0
+					this.minute = parseInt(minute) || 0
+					this.second = parseInt(second) || 0
+				},
+				immediate: true
+			},
+			hour: {
+				handler (val) {
+					this.updateValue()
 				}
-			}, 200),
-			updateMinute: throttle(function (e) {
-				const deltaY = e.deltaY
-				if (deltaY > 0 && this.minute < 59) {
-					this.minute++
-				} else if (deltaY < 0 && this.minute > 0) {
-					this.minute--
+			},
+			minute: {
+				handler (val) {
+					this.updateValue()
 				}
-			}, 120),
-			updateSecond: throttle(function (e) {
-				const deltaY = e.deltaY
-				console.log(deltaY)
-				const second = this.second + deltaY / 10
-				if (deltaY > 0 && this.second < 59) {
-					this.second += deltaY / 10
-				} else if (deltaY < 0 && this.second > 0) {
-					this.second += deltaY / 10	
+			},
+			second: {
+				handler (val) {
+					this.updateValue()
 				}
-			}, 120)
+			}
 		}
 	}
 </script>
