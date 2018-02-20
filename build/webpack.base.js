@@ -22,7 +22,18 @@ module.exports = {
 			{
 				test: /\.vue$/i,
 				use: 'vue-loader'
-			}
+			},
+			{
+				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 10000
+						}
+					}
+				]
+			},
 		]
 	},
 	plugins: [

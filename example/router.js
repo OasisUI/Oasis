@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import Home from './Home'
 import Component from './components'
 import Button from './button'
 import Input from './input'
@@ -15,7 +16,7 @@ Vue.use(VueRouter)
 const routes = [
 	{
 		path: '/',
-		component: Component
+		component: Home
 	},
 	{
 		path: '/components',

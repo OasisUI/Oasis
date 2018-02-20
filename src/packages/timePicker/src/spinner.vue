@@ -66,7 +66,6 @@
 		watch: {
 			value: {
 				handler (val) {
-					console.log(val)
 					this.updateScrollTop()
 				},
 				immediate: true
