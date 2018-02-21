@@ -1,0 +1,32 @@
+@import './../common/_var.css';
+
+@component Progress {
+	@d circle {
+	}
+}
+
+@component CircleProgress {
+	width: 120px;
+	height: 120px;
+
+	@d backup {
+		stroke: var(--color-gray-2);
+	}
+	@d value {
+		/*stroke: var(--color-primary);*/
+		transition: stroke-dashoffset ease-out 0.64s;
+	}
+}
+
+@component LineProgress {
+	width: 120px;
+	height: 24px;
+
+	@d backup {
+		stroke: var(--color-gray-2);
+	}
+	@d value {
+		/*stroke: var(--color-primary);*/
+		transition: stroke-dashoffset ease-out 0.64s;
+	}
+}

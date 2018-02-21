@@ -32,7 +32,7 @@ export default {
 			}
 			config.duration !== 0 && setTimeout(() => {
 				instance.close()
-			}, config.duration || 4000)
+			}, config.duration || 3000)
 
 			return instance
 		}

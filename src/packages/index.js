@@ -16,6 +16,9 @@ import Modal from './modal'
 import ModalBox from './modalBox'
 import DatePicker from './datePicker'
 import TimePicker from './timePicker'
+import Upload from './upload'
+import Progress from './progress'
+
 // tools
 // TODO
 
@@ -35,7 +38,9 @@ const components = [
 	Modal,
 	ModalBox,
 	DatePicker,
-	TimePicker
+	TimePicker,
+	Upload,
+	Progress
 ];
 
 const Oasis = {

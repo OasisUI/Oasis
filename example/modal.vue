@@ -12,10 +12,10 @@
 			</Button>
 			<Modal v-model="show">
 				<h2 slot="header">Hello world!</h2>
-				<template>
+				<div style="height: 20px; overflow: scroll">
 					<p>Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. </p>
 					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit.</p>
-				</template>
+				</div>
 				<template slot="footer">
 					<Button
 						@click="show = false"

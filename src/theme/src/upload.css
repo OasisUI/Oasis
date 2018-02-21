@@ -1,0 +1,7 @@
+@import '../common/_var.css';
+
+@component Upload {
+	@d input {
+		display: none;
+	}
+}

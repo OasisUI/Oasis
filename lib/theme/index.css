@@ -95,6 +95,7 @@
 
 .o-Message-enter, .o-Message-leave-to {
 	opacity: 0;
+	font-size: 0;
 	height: 0 !important;
 	-webkit-transform: translateY(-12.5px);
 	    -ms-transform: translateY(-12.5px);
@@ -1297,6 +1298,43 @@
 .o-TimeSpinner__Item:hover:not(.is-selected) {
 	color: #666666;
 	font-weight: 700;
+}
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
+}
+.o-Upload {
+}
+.o-Upload__input {
+		display: none;
+}
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*shadow*//*z-index*/
+}
+.o-Progress {
+}
+.o-Progress__circle {
+}
+.o-CircleProgress {
+	width: 120px;
+	height: 120px;
+}
+.o-CircleProgress__backup {
+		stroke: #CECECE;
+}
+.o-CircleProgress__value {
+		/*stroke: var(--color-primary);*/
+		-webkit-transition: stroke-dashoffset ease-out 0.64s;
+		transition: stroke-dashoffset ease-out 0.64s;
+}
+.o-LineProgress {
+	width: 120px;
+	height: 24px;
+}
+.o-LineProgress__backup {
+		stroke: #CECECE;
+}
+.o-LineProgress__value {
+		/*stroke: var(--color-primary);*/
+		-webkit-transition: stroke-dashoffset ease-out 0.64s;
+		transition: stroke-dashoffset ease-out 0.64s;
 }
 
 

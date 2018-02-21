@@ -1,5 +1,5 @@
 <template>
-	<button class="o-Btn"
+	<button
 		@click="onClick"
 		:class="[
 			'o-Btn--' + type,
@@ -9,6 +9,7 @@
 			disabled ? 'is-disabled' : '',
 			gradient ? 'o-Btn--gradient' : ''
 		]"
+		class="o-Btn"
 		type="button"
 	>
 		<span v-if="loading" class="o-Btn__loading"></span>
@@ -45,7 +46,6 @@
 				if (!this.disabled) {
 					this.$emit('click', e)
 				}
-				e.stopPropagation()
 			}
 		}
 	}

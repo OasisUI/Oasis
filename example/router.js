@@ -10,6 +10,7 @@ import Form from './form'
 import Message from './message'
 import Modal from './modal'
 import DateTime from './datetimepicker'
+import Upload from './upload'
 
 Vue.use(VueRouter)
 
@@ -49,6 +50,10 @@ const routes = [
 	{
 		path: '/datetimepicker',
 		component: DateTime
+	},
+	{
+		path: '/upload',
+		component: Upload
 	}
 ]
 
