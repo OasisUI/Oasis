@@ -10,10 +10,16 @@
 			>
 				<Button>upload file</Button>
 			</Upload>
-			<Progress
-				type="line"
-				:progress="progress"
-			></Progress>
+			<div class="progressBox">
+				<Progress
+					type="line"
+					:progress="progress"
+				></Progress>
+				<Progress
+					type="circle"
+					:progress="progress"
+				></Progress>
+			</div>
 		</li>
 	</ul>
 </template>
@@ -24,7 +30,7 @@
 	export default {
 		data () {
 			return {
-				progress: 0
+				progress: 30
 			}
 		},
 		methods: {
@@ -52,3 +58,9 @@
 		}
 	}
 </script>
+
+<style>
+	.progressBox {
+		width: 120px;
+	}
+</style>

@@ -2,11 +2,11 @@
 	<div class="o-Progress">
 		<LineProgress
 			v-if="type === 'line'"
-			:percent="percent"
+			:progress="percent"
 		></LineProgress>
 		<CircleProgress
 			v-else
-			:percent="percent"
+			:progress="percent"
 		></CircleProgress>
 	</div>
 </template>

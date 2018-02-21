@@ -13,20 +13,52 @@
 		stroke: var(--color-gray-2);
 	}
 	@d value {
-		/*stroke: var(--color-primary);*/
 		transition: stroke-dashoffset ease-out 0.64s;
 	}
 }
 
 @component LineProgress {
+	position: relative;
 	width: 120px;
-	height: 24px;
+	height: var(--LineProgress-height);
+	font-size: 0;
+
+	@d bar {
+		display: inline-block;
+		width: 100%;
+		vertical-align: middle;
+	}
 
 	@d backup {
-		stroke: var(--color-gray-2);
+		height: 6px;
+		width: 100%;
+		border-radius: 3px;
+		overflow: hidden;
+		background: var(--color-gray-2);
 	}
+
 	@d value {
-		/*stroke: var(--color-primary);*/
-		transition: stroke-dashoffset ease-out 0.64s;
+		width: 100%;
+		height: 100%;
+		border-radius: 3px;
+		transition: width ease-out 0.64s;
+		background: linear-gradient(90deg, var(--color-primary-dark) 60px, var(--color-primary-light) 100px);
+	}
+
+	@d info {
+		width: 40px;
+		display: inline-block;
+		padding-left: 6px;
+		vertical-align: middle;
+		text-align: right;
+		font-size: 14px;
+		color: var(--color-black-2);
+	}
+
+	@when showInfo {
+		& .o-LineProgress__bar {
+			margin-right: -40px;
+			padding-right: 40px;
+		}
 	}
 }

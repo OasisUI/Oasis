@@ -102,6 +102,10 @@
 	/* timePicker */
 	--TimeSpinnerItem-height: 34px;
 	--TimeSpinner-width: 80px;
+
+	/*progress*/
+	--LineProgress-height: 24px;
+
 	/*shadow*/
 	--shadw-dropdown: 1px 2px 8px 0px rgba(0,0,0,0.24);
 	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);

@@ -1,16 +1,21 @@
 <template>
-	<div class="o-CircleProgress">
+	<div
+		:class="{
+			'is-showInfo': showInfo
+		}"
+		class="o-CircleProgress"
+	>
 		<svg viewBox="0 0 100 100">
 			<path
 				d="M 50 3, a 47 47 0 1 1 0, 94, a 47 47 0 1 1 0, -94"
-				stroke-width="3"
+				stroke-width="6"
 				fill="none"
 				class="o-CircleProgress__backup"
 			></path>
 			<path
 				ref="circle"
 				d="M 50 3, a 47 47 0 1 1 0, 94, a 47 47 0 1 1 0, -94"
-				stroke-width="3"
+				stroke-width="6"
 				fill="none"
 				stroke="#34B697"
 				:stroke-dasharray="len"
@@ -24,11 +29,15 @@
 
 <script>
 	const props = {
-		percent: {
+		progress: {
 			default: 0,
 			validator (val) {
 				return !isNaN(val)
 			}
+		},
+		showInfo: {
+			default: true,
+			type: Boolean
 		}
 	}
 
@@ -45,7 +54,7 @@
 		},
 		computed: {
 			fill () {
-				return this.len * (1 - this.percent)
+				return this.len * (1 - this.progress)
 			}
 		}
 	}

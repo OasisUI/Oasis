@@ -8,6 +8,7 @@
 .o-Message-leave-to {
 	opacity: 0;
 	font-size: 0;
+	line-height: 0;
 	height: 0 !important;
 	transform: translateY(calc(var(--Message-height) / -4));
 }
