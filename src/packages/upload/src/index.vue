@@ -10,6 +10,7 @@
 			:on-success="_onSuccess"
 			:on-error="_onError"
 			:on-progress="_onProgress"
+			:on-timeout="_onTimeout"
 			:disabled="disabled"
 			auto-upload
 		>
@@ -34,6 +35,10 @@
 			default: true,
 			type: Boolean
 		},
+		files: {
+			default: [],
+			type: Array
+		},
 		url: String,
 		uploader: Function,
 		multiple: Boolean,
@@ -50,7 +55,6 @@
 		props,
 		data () {
 			return {
-				files: []
 			}
 		},
 		methods: {

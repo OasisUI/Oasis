@@ -32,6 +32,10 @@
 				return !isNaN(val)
 			}
 		},
+		showInfo: {
+			default: true,
+			type: Boolean
+		},
 		type: {
 			default: 'line'
 		},
@@ -50,7 +54,8 @@
 					props: {
 						progress: this.percent,
 						info: this.info,
-						status: this.computedStatus
+						status: this.computedStatus,
+						showInfo: this.showInfo
 					}
 				}
 			)

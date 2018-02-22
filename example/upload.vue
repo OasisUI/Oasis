@@ -1,9 +1,10 @@
 <template>
 	<ul class="doc">
-		<li>
+		<li class="upload-demo">
 			<Upload
 				url="https://jsonplaceholder.typicode.com/posts/"
 				multiple
+				:files="files"
 				:on-success="onSuccess"
 				:on-error="onError"
 				:on-progress="onProgress"
@@ -19,6 +20,20 @@
 	import axios from 'axios'
 
 	export default {
+		data () {
+			return {
+				files: [
+					{
+						filename: 'test.pdf',
+						percent: 20
+					},
+					{
+						filename: 'test2.mp3',
+						percent: 88
+					}
+				]
+			}
+		},
 		methods: {
 			uploader ({url, file, onProgress, onSuccess, onError}) {
 				let formData = new FormData()
@@ -57,7 +72,7 @@
 </script>
 
 <style>
-	.progressBox {
-		width: 120px;
+	.upload-demo {
+		width: 420px;
 	}
 </style>

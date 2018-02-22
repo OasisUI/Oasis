@@ -5,3 +5,24 @@
 		display: none;
 	}
 }
+
+@component UploadFiles {
+	list-style: none;
+
+	@d item {
+		margin: 0.6rem 0 0 0;
+	}
+	@d info {
+		overflow: hidden;
+		position: relative;
+		padding-right: 56px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 14px;
+	}
+	@d progress {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}

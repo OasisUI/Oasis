@@ -50,9 +50,10 @@
 				if (this.disabled) return
 				const files = Array.prototype.slice.call(this.$refs.input.files).map(file => {
 					return {
-						status: 'pending',
+						status: '',
 						percent: 0,
-						file: file
+						file: file,
+						filename: file.name
 					}
 				})
 				this.files && this.files.push(...files)
@@ -77,12 +78,15 @@
 							this.onProgress && this.onProgress(e, file)
 						},
 						onSuccess: e => {
+							file.status = 'success'
 							this.onSuccess && this.onSuccess(e)
 						},
 						onError: e => {
+							file.status = 'danger'
 							this.onError && this.onError(e)
 						},
 						onTimeout: e => {
+							file.status = 'danger'
 							this.onTimeout && this.onTimeout(e)
 						}
 					})

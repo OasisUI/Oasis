@@ -1307,10 +1307,31 @@
 .o-Upload__input {
 		display: none;
 }
+.o-UploadFiles {
+	list-style: none;
+}
+.o-UploadFiles__item {
+		margin: 0.6rem 0 0 0;
+}
+.o-UploadFiles__info {
+		overflow: hidden;
+		position: relative;
+		padding-right: 56px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 14px;
+}
+.o-UploadFiles__progress {
+		position: absolute;
+		top: 0;
+		right: 0;
+}
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
 }
 .o-Progress {
 	display: inline-block;
+	-webkit-transition: all ease-out 0.24s;
+	transition: all ease-out 0.24s;
 }
 .o-Progress__circle {
 }
@@ -1357,26 +1378,22 @@
 		stroke: #CECECE;
 }
 .o-CircleProgress__value {
-		-webkit-transition: stroke-dashoffset ease-out 0.64s;
-		transition: stroke-dashoffset ease-out 0.64s;
-		-webkit-transition: all ease-out 0.64s;
-		transition: all ease-out 0.64s;
+		-webkit-transition: stroke-dashoffset ease-out 0.34s;
+		transition: stroke-dashoffset ease-out 0.34s;
 }
 .o-CircleProgress__info {
 		display: inline-block;
 		vertical-align: middle;
 		color: #4C4C4C;
 		font-weight: 700;
-		-webkit-transition: all ease-out 0.64s;
-		transition: all ease-out 0.64s;
 }
 .o-LineProgress {
 	position: relative;
-	height: 24px;
+	/*height: var(--LineProgress-height);*/
 	font-size: 0;
 }
 .o-LineProgress.is-success .o-LineProgress__value {
-	background: #F08200 !important;
+	background: #34B697 !important;
 }
 .o-LineProgress.is-success .o-LineProgress__info {
 	color: #34B697 !important;
@@ -1416,8 +1433,8 @@
 		width: 100%;
 		height: 100%;
 		border-radius: 3px;
-		-webkit-transition: all ease-out 0.64s;
-		transition: all ease-out 0.64s;
+		-webkit-transition: width ease-out 0.34s;
+		transition: width ease-out 0.34s;
 }
 .o-LineProgress__info {
 		width: 40px;
@@ -1426,10 +1443,7 @@
 		vertical-align: middle;
 		text-align: right;
 		font-size: 14px;
-		font-weight: 700;
 		color: #4C4C4C;
-		-webkit-transition: all ease-out 0.64s;
-		transition: all ease-out 0.64s;
 }
 
 

@@ -2,6 +2,7 @@
 
 @component Progress {
 	display: inline-block;
+	transition: all ease-out 0.24s;
 
 	@d circle {
 	}
@@ -32,8 +33,7 @@
 	}
 
 	@d value {
-		transition: stroke-dashoffset ease-out 0.64s;
-		transition: all ease-out 0.64s;
+		transition: stroke-dashoffset ease-out 0.34s;
 	}
 
 	@d info {
@@ -41,7 +41,6 @@
 		vertical-align: middle;
 		color: var(--color-black-2);
 		font-weight: 700;
-		transition: all ease-out 0.64s;
 	}
 
 	@when primary {
@@ -80,7 +79,7 @@
 
 @component LineProgress {
 	position: relative;
-	height: var(--LineProgress-height);
+	/*height: var(--LineProgress-height);*/
 	font-size: 0;
 
 	@d bar {
@@ -101,7 +100,7 @@
 		width: 100%;
 		height: 100%;
 		border-radius: 3px;
-		transition: all ease-out 0.64s;
+		transition: width ease-out 0.34s;
 	}
 
 	@d info {
@@ -111,9 +110,7 @@
 		vertical-align: middle;
 		text-align: right;
 		font-size: 14px;
-		font-weight: 700;
 		color: var(--color-black-2);
-		transition: all ease-out 0.64s;
 	}
 
 	@when showInfo {
@@ -149,7 +146,7 @@
 
 	@when success {
 		& .o-LineProgress__value {
-			background: var(--color-warning) !important;
+			background: var(--color-primary) !important;
 		}
 		& .o-LineProgress__info {
 			color: var(--color-primary) !important;
