@@ -13,12 +13,9 @@ export default function uploader (options) {
 
 	xhr.open('POST', url, true)
 
-	for(let key in headers) {
-		headers.hasOwnProperty(key) && headers[key] !== null && xhr.setRequestHeader(key, headers[key])
-	}
-
-	xhr.onerror = function (err) {
-		options.onError(err)
+	xhr.upload.onprogress = function (e) {
+		e.percent = parseInt(e.loaded / e.total * 100) || 0
+		options.onProgress(e)
 	}
 
 	xhr.onload = function (e) {
@@ -28,12 +25,16 @@ export default function uploader (options) {
 		return options.onSuccess(e)
 	}
 
+	xhr.onerror = function (err) {
+		options.onError(err)
+	}
+
 	xhr.ontimeout = function (e) {
 		options.onTimeout(e)
 	}
 
-	xhr.onprogress = function (e) {
-		options.onProgress(e)
+	for(let key in headers) {
+		headers.hasOwnProperty(key) && headers[key] !== null && xhr.setRequestHeader(key, headers[key])
 	}
 
 	xhr.send(data)

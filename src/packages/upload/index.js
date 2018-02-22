@@ -1,7 +1,17 @@
-import Upload from './src/upload'
+import Upload from './src/index'
+import UploadFile from './src/upload'
+import InputImage from './src/inputImage'
+
+const components = [
+	Upload,
+	UploadFile,
+	InputImage
+]
 
 export default {
 	install (Vue) {
-		Vue.component(Upload.name, Upload)
+		components.map(component => {
+			Vue.component(component.name, component)
+		})
 	}
 }

@@ -1310,6 +1310,7 @@
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
 }
 .o-Progress {
+	display: inline-block;
 }
 .o-Progress__circle {
 }
@@ -1326,6 +1327,12 @@
 	height: 100%;
 	vertical-align: middle;
 }
+.o-CircleProgress.is-success .o-CircleProgress__value {
+	stroke: #34B697 !important;
+}
+.o-CircleProgress.is-success .o-CircleProgress__info {
+	color: #34B697 !important;
+}
 .o-CircleProgress.is-danger .o-CircleProgress__value {
 	stroke: #F06868 !important;
 }
@@ -1341,9 +1348,6 @@
 .o-CircleProgress.is-primary .o-CircleProgress__value {
 	stroke: #34B697 !important;
 }
-.o-CircleProgress.is-primary .o-CircleProgress__info {
-	color: #34B697 !important;
-}
 .o-CircleProgress__bar {
 		position: absolute;
 		top: 0;
@@ -1353,39 +1357,44 @@
 		stroke: #CECECE;
 }
 .o-CircleProgress__value {
-		stroke: #34B697;
 		-webkit-transition: stroke-dashoffset ease-out 0.64s;
 		transition: stroke-dashoffset ease-out 0.64s;
+		-webkit-transition: all ease-out 0.64s;
+		transition: all ease-out 0.64s;
 }
 .o-CircleProgress__info {
 		display: inline-block;
 		vertical-align: middle;
 		color: #4C4C4C;
 		font-weight: 700;
+		-webkit-transition: all ease-out 0.64s;
+		transition: all ease-out 0.64s;
 }
 .o-LineProgress {
 	position: relative;
-	width: 120px;
 	height: 24px;
 	font-size: 0;
 }
-.o-LineProgress.is-danger .o-LineProgress {
+.o-LineProgress.is-success .o-LineProgress__value {
+	background: #F08200 !important;
+}
+.o-LineProgress.is-success .o-LineProgress__info {
+	color: #34B697 !important;
+}
+.o-LineProgress.is-danger .o-LineProgress__value {
 	background: #F06868 !important;
 }
 .o-LineProgress.is-danger .o-LineProgress__info {
 	color: #F06868 !important;
 }
-.o-LineProgress.is-warning .o-LineProgress {
+.o-LineProgress.is-warning .o-LineProgress__value {
 	background: #F08200 !important;
 }
 .o-LineProgress.is-warning .o-LineProgress__info {
 	color: #F08200 !important;
 }
-.o-LineProgress.is-primary .o-LineProgress {
+.o-LineProgress.is-primary .o-LineProgress__value {
 	background: #34B697 !important;
-}
-.o-LineProgress.is-primary .o-LineProgress__info {
-	color: #34B697 !important;
 }
 .o-LineProgress.is-showInfo .o-LineProgress__bar {
 	margin-right: -40px;
@@ -1407,10 +1416,8 @@
 		width: 100%;
 		height: 100%;
 		border-radius: 3px;
-		-webkit-transition: width ease-out 0.64s;
-		transition: width ease-out 0.64s;
-		background: #34B697;
-		/*background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-light) 100%);*/
+		-webkit-transition: all ease-out 0.64s;
+		transition: all ease-out 0.64s;
 }
 .o-LineProgress__info {
 		width: 40px;
@@ -1421,6 +1428,8 @@
 		font-size: 14px;
 		font-weight: 700;
 		color: #4C4C4C;
+		-webkit-transition: all ease-out 0.64s;
+		transition: all ease-out 0.64s;
 }
 
 

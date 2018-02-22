@@ -2,9 +2,8 @@
 	<ul class="doc">
 		<li>
 			<Upload
+				url="https://jsonplaceholder.typicode.com/posts/"
 				multiple
-				url="https://jsonplaceholder.typicode.com/posts"
-				:uploader="uploader"
 				:on-success="onSuccess"
 				:on-error="onError"
 				:on-progress="onProgress"
@@ -12,16 +11,6 @@
 			>
 				<Button>upload file</Button>
 			</Upload>
-			<div class="progressBox">
-				<Progress
-					type="line"
-					:progress="progress"
-				></Progress>
-				<Progress
-					type="circle"
-					:progress="progress"
-				></Progress>
-			</div>
 		</li>
 	</ul>
 </template>
@@ -30,11 +19,6 @@
 	import axios from 'axios'
 
 	export default {
-		data () {
-			return {
-				progress: 30
-			}
-		},
 		methods: {
 			uploader ({url, file, onProgress, onSuccess, onError}) {
 				let formData = new FormData()
@@ -48,6 +32,7 @@
 				})
 			},
 			beforeUpload (files) {
+				// check files
 				return true
 			},
 			onCancel () {
@@ -56,15 +41,12 @@
 					text: 'cancel'
 				})
 			},
-			onProgress (p, e) {
-				console.log(this, p)
-				this.progress = p
+			onProgress (e) {
 			},
 			onError (e) {
-				// this.progress = 0
+				this.status = 'danger'
 			},
 			onSuccess (e) {
-				// this.progress = 0
 				this.$message({
 					type: 'success',
 					text: 'success'

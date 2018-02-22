@@ -1,6 +1,8 @@
 @import './../common/_var.css';
 
 @component Progress {
+	display: inline-block;
+
 	@d circle {
 	}
 }
@@ -30,8 +32,8 @@
 	}
 
 	@d value {
-		stroke: var(--color-primary);
 		transition: stroke-dashoffset ease-out 0.64s;
+		transition: all ease-out 0.64s;
 	}
 
 	@d info {
@@ -39,14 +41,12 @@
 		vertical-align: middle;
 		color: var(--color-black-2);
 		font-weight: 700;
+		transition: all ease-out 0.64s;
 	}
 
 	@when primary {
 		& .o-CircleProgress__value {
 			stroke: var(--color-primary) !important;
-		}
-		& .o-CircleProgress__info {
-			color: var(--color-primary) !important;
 		}
 	}
 
@@ -67,11 +67,19 @@
 			color: var(--color-danger) !important;
 		}
 	}
+
+	@when success {
+		& .o-CircleProgress__value {
+			stroke: var(--color-primary) !important;
+		}
+		& .o-CircleProgress__info {
+			color: var(--color-primary) !important;
+		}
+	}
 }
 
 @component LineProgress {
 	position: relative;
-	width: 120px;
 	height: var(--LineProgress-height);
 	font-size: 0;
 
@@ -93,9 +101,7 @@
 		width: 100%;
 		height: 100%;
 		border-radius: 3px;
-		transition: width ease-out 0.64s;
-		background: var(--color-primary);
-		/*background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-light) 100%);*/
+		transition: all ease-out 0.64s;
 	}
 
 	@d info {
@@ -107,6 +113,7 @@
 		font-size: 14px;
 		font-weight: 700;
 		color: var(--color-black-2);
+		transition: all ease-out 0.64s;
 	}
 
 	@when showInfo {
@@ -117,16 +124,13 @@
 	}
 
 	@when primary {
-		& .o-LineProgress {
+		& .o-LineProgress__value {
 			background: var(--color-primary) !important;
-		}
-		& .o-LineProgress__info {
-			color: var(--color-primary) !important;
 		}
 	}
 
 	@when warning {
-		& .o-LineProgress {
+		& .o-LineProgress__value {
 			background: var(--color-warning) !important;
 		}
 		& .o-LineProgress__info {
@@ -135,11 +139,20 @@
 	}
 
 	@when danger {
-		& .o-LineProgress {
+		& .o-LineProgress__value {
 			background: var(--color-danger) !important;
 		}
 		& .o-LineProgress__info {
 			color: var(--color-danger) !important;
+		}
+	}
+
+	@when success {
+		& .o-LineProgress__value {
+			background: var(--color-warning) !important;
+		}
+		& .o-LineProgress__info {
+			color: var(--color-primary) !important;
 		}
 	}
 }

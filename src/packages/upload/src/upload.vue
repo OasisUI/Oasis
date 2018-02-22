@@ -9,7 +9,7 @@
 			type="file"
 			@change="onChange"
 			:accept="accept"
-			:multiple="multiple"
+			:multiple="multiple ? 'multiple' : ''"
 			class="o-Upload__input"
 		/>
 	</div>
@@ -23,6 +23,11 @@
 			type: String,
 			default: 'file'
 		},
+		autoUpload: {
+			default: true,
+			type: Boolean
+		},
+		files: Array,
 		url: String,
 		uploader: Function,
 		multiple: Boolean,
@@ -35,60 +40,50 @@
 	}
 
 	export default {
-		name: 'Upload',
+		name: 'UploadFile',
 		props,
-		data () {
-			return {
-				files: []
-			}
-		},
 		methods: {
 			onClick () {
 				this.$refs.input.click()
 			},
 			onChange () {
 				if (this.disabled) return
-				this.files = Array.prototype.slice.call(this.$refs.input.files)
-				// autoupload
-				const check = this._beforeUpload(this.files)
+				const files = Array.prototype.slice.call(this.$refs.input.files).map(file => {
+					return {
+						status: 'pending',
+						percent: 0,
+						file: file
+					}
+				})
+				this.files && this.files.push(...files)
+				if (!this.autoUpload) return
+				const check = this._beforeUpload(files)
 				if (check !== false) {
-					this.upload(this.files)
-				} else {
-					this._onCancel(check)
+					this.upload(files)
 				}
 			},
 			_beforeUpload (files) {
 				return this.beforeUpload && this.beforeUpload(files)
 			},
-			_onCancel (e) {
-				this.onCancel && this.onCancel(e)
-			},
-			_onProgress (e) {
-				const percent = parseInt(e.loaded / e.total * 100)
-				this.onProgress && this.onProgress(percent || 0, e)
-			},
-			_onSuccess (e) {
-
-			},
-			_onError (e) {
-
-			},
-			_onTimeout (e) {
-				// TODO
-			},
 			upload (files) {
+				files = files || this.files
 				const upload = this.uploader || uploader
 				files.map(file => {
 					upload({
 						url: this.url,
 						filename: this.filename,
-						file: file,
-						onProgress: this._onProgress,
-						onSuccess: this._onSuccess,
-						onError: this._onError,
-						onTimeout: this._onTimeout,
-						headers: {
-							'Access-Control-Allow-Origin': '*'
+						file: file.file,
+						onProgress: e => {
+							this.onProgress && this.onProgress(e, file)
+						},
+						onSuccess: e => {
+							this.onSuccess && this.onSuccess(e)
+						},
+						onError: e => {
+							this.onError && this.onError(e)
+						},
+						onTimeout: e => {
+							this.onTimeout && this.onTimeout(e)
 						}
 					})
 				})
