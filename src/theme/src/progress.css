@@ -6,14 +6,66 @@
 }
 
 @component CircleProgress {
+	position:relative;
 	width: 120px;
 	height: 120px;
+	text-align: center;
+
+	&:after {
+		display: inline-block;
+		content: '';
+		width: 0;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	@d bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 
 	@d backup {
 		stroke: var(--color-gray-2);
 	}
+
 	@d value {
+		stroke: var(--color-primary);
 		transition: stroke-dashoffset ease-out 0.64s;
+	}
+
+	@d info {
+		display: inline-block;
+		vertical-align: middle;
+		color: var(--color-black-2);
+		font-weight: 700;
+	}
+
+	@when primary {
+		& .o-CircleProgress__value {
+			stroke: var(--color-primary) !important;
+		}
+		& .o-CircleProgress__info {
+			color: var(--color-primary) !important;
+		}
+	}
+
+	@when warning {
+		& .o-CircleProgress__value {
+			stroke: var(--color-warning) !important;
+		}
+		& .o-CircleProgress__info {
+			color: var(--color-warning) !important;
+		}
+	}
+
+	@when danger {
+		& .o-CircleProgress__value {
+			stroke: var(--color-danger) !important;
+		}
+		& .o-CircleProgress__info {
+			color: var(--color-danger) !important;
+		}
 	}
 }
 
@@ -42,7 +94,8 @@
 		height: 100%;
 		border-radius: 3px;
 		transition: width ease-out 0.64s;
-		background: linear-gradient(90deg, var(--color-primary-dark) 60px, var(--color-primary-light) 100px);
+		background: var(--color-primary);
+		/*background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-light) 100%);*/
 	}
 
 	@d info {
@@ -52,6 +105,7 @@
 		vertical-align: middle;
 		text-align: right;
 		font-size: 14px;
+		font-weight: 700;
 		color: var(--color-black-2);
 	}
 
@@ -59,6 +113,33 @@
 		& .o-LineProgress__bar {
 			margin-right: -40px;
 			padding-right: 40px;
+		}
+	}
+
+	@when primary {
+		& .o-LineProgress {
+			background: var(--color-primary) !important;
+		}
+		& .o-LineProgress__info {
+			color: var(--color-primary) !important;
+		}
+	}
+
+	@when warning {
+		& .o-LineProgress {
+			background: var(--color-warning) !important;
+		}
+		& .o-LineProgress__info {
+			color: var(--color-warning) !important;
+		}
+	}
+
+	@when danger {
+		& .o-LineProgress {
+			background: var(--color-danger) !important;
+		}
+		& .o-LineProgress__info {
+			color: var(--color-danger) !important;
 		}
 	}
 }

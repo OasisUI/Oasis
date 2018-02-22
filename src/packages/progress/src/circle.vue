@@ -1,11 +1,17 @@
 <template>
 	<div
-		:class="{
-			'is-showInfo': showInfo
-		}"
+		:class="[
+			`is-${status}`,
+			{
+				'is-showInfo': showInfo
+			}
+		]"
 		class="o-CircleProgress"
 	>
-		<svg viewBox="0 0 100 100">
+		<svg
+			class="o-CircleProgress__bar"
+			viewBox="0 0 100 100"
+		>
 			<path
 				d="M 50 3, a 47 47 0 1 1 0, 94, a 47 47 0 1 1 0, -94"
 				stroke-width="6"
@@ -17,13 +23,17 @@
 				d="M 50 3, a 47 47 0 1 1 0, 94, a 47 47 0 1 1 0, -94"
 				stroke-width="6"
 				fill="none"
-				stroke="#34B697"
 				:stroke-dasharray="len"
 				:stroke-dashoffset="fill"
 				stroke-linecap="round"
 				class="o-CircleProgress__value"
 			></path>
 		</svg>
+		<span
+			class="o-CircleProgress__info"
+		>
+			{{info || percent}}
+		</span>
 	</div>
 </template>
 
@@ -38,6 +48,11 @@
 		showInfo: {
 			default: true,
 			type: Boolean
+		},
+		info: String,
+		status: {
+			type: String,
+			default: 'primary'
 		}
 	}
 
@@ -49,12 +64,12 @@
 				len: 296
 			}
 		},
-		mounted () {
-			this.len = Math.ceil(this.$refs.circle.getTotalLength())
-		},
 		computed: {
 			fill () {
 				return this.len * (1 - this.progress)
+			},
+			percent () {
+				return parseInt(this.progress * 100) + '%'
 			}
 		}
 	}

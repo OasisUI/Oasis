@@ -3,10 +3,12 @@
 		<LineProgress
 			v-if="type === 'line'"
 			:progress="percent"
+			:info="info"
 		></LineProgress>
 		<CircleProgress
 			v-else
 			:progress="percent"
+			:info="info"
 		></CircleProgress>
 	</div>
 </template>
@@ -25,7 +27,8 @@
 		},
 		type: {
 			default: 'line'
-		}
+		},
+		info: String
 	}
 
 	export default {

@@ -1314,21 +1314,78 @@
 .o-Progress__circle {
 }
 .o-CircleProgress {
+	position:relative;
 	width: 120px;
 	height: 120px;
+	text-align: center;
+}
+.o-CircleProgress:after {
+	display: inline-block;
+	content: '';
+	width: 0;
+	height: 100%;
+	vertical-align: middle;
+}
+.o-CircleProgress.is-danger .o-CircleProgress__value {
+	stroke: #F06868 !important;
+}
+.o-CircleProgress.is-danger .o-CircleProgress__info {
+	color: #F06868 !important;
+}
+.o-CircleProgress.is-warning .o-CircleProgress__value {
+	stroke: #F08200 !important;
+}
+.o-CircleProgress.is-warning .o-CircleProgress__info {
+	color: #F08200 !important;
+}
+.o-CircleProgress.is-primary .o-CircleProgress__value {
+	stroke: #34B697 !important;
+}
+.o-CircleProgress.is-primary .o-CircleProgress__info {
+	color: #34B697 !important;
+}
+.o-CircleProgress__bar {
+		position: absolute;
+		top: 0;
+		left: 0;
 }
 .o-CircleProgress__backup {
 		stroke: #CECECE;
 }
 .o-CircleProgress__value {
+		stroke: #34B697;
 		-webkit-transition: stroke-dashoffset ease-out 0.64s;
 		transition: stroke-dashoffset ease-out 0.64s;
+}
+.o-CircleProgress__info {
+		display: inline-block;
+		vertical-align: middle;
+		color: #4C4C4C;
+		font-weight: 700;
 }
 .o-LineProgress {
 	position: relative;
 	width: 120px;
 	height: 24px;
 	font-size: 0;
+}
+.o-LineProgress.is-danger .o-LineProgress {
+	background: #F06868 !important;
+}
+.o-LineProgress.is-danger .o-LineProgress__info {
+	color: #F06868 !important;
+}
+.o-LineProgress.is-warning .o-LineProgress {
+	background: #F08200 !important;
+}
+.o-LineProgress.is-warning .o-LineProgress__info {
+	color: #F08200 !important;
+}
+.o-LineProgress.is-primary .o-LineProgress {
+	background: #34B697 !important;
+}
+.o-LineProgress.is-primary .o-LineProgress__info {
+	color: #34B697 !important;
 }
 .o-LineProgress.is-showInfo .o-LineProgress__bar {
 	margin-right: -40px;
@@ -1352,7 +1409,8 @@
 		border-radius: 3px;
 		-webkit-transition: width ease-out 0.64s;
 		transition: width ease-out 0.64s;
-		background: linear-gradient(90deg, #1F9D7F 60px, #64DC9C 100px);
+		background: #34B697;
+		/*background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary-light) 100%);*/
 }
 .o-LineProgress__info {
 		width: 40px;
@@ -1361,6 +1419,7 @@
 		vertical-align: middle;
 		text-align: right;
 		font-size: 14px;
+		font-weight: 700;
 		color: #4C4C4C;
 }
 

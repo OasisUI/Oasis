@@ -3,10 +3,12 @@
 		<li>
 			<Upload
 				multiple
+				url="https://jsonplaceholder.typicode.com/posts"
 				:uploader="uploader"
 				:on-success="onSuccess"
 				:on-error="onError"
 				:on-progress="onProgress"
+				:on-cancel="onCancel"
 			>
 				<Button>upload file</Button>
 			</Upload>
@@ -34,11 +36,24 @@
 			}
 		},
 		methods: {
-			uploader (files, onProgress) {
+			uploader ({url, file, onProgress, onSuccess, onError}) {
 				let formData = new FormData()
-				formData.append('file', files[1])
-				return axios.post('https://jsonplaceholder.typicode.com/posts', formData, {
+				formData.append('file', file)
+				return axios.post(url, formData, {
 					onUploadProgress: onProgress
+				}).then(res => {
+					onSuccess(res)
+				}).catch(err => {
+					onError(err)
+				})
+			},
+			beforeUpload (files) {
+				return true
+			},
+			onCancel () {
+				this.$message({
+					type: 'error',
+					text: 'cancel'
 				})
 			},
 			onProgress (p, e) {
