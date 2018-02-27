@@ -31,3 +31,15 @@ export function debounce (fn, delay = 10) {
 export function formatNumber (num, len = 1) {
 	return ('0'.repeat(len) + num).slice(-len)
 }
+
+export function elOffset (el, p = {x: 0, y: 0}) {
+	p = {
+		x: p.x + el.offsetLeft,
+		y: p.y + el.offsetTop
+	}
+	if (el.offsetParent) {
+		return elOffset(el.offsetParent, p)
+	} else {
+		return p
+	}
+}

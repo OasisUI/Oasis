@@ -11,6 +11,7 @@ import Message from './message'
 import Modal from './modal'
 import DateTime from './datetimepicker'
 import Upload from './upload'
+import Popup from './popup'
 
 Vue.use(VueRouter)
 
@@ -54,6 +55,10 @@ const routes = [
 	{
 		path: '/upload',
 		component: Upload
+	},
+	{
+		path: '/popup',
+		component: Popup
 	}
 ]
 

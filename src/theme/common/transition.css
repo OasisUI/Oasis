@@ -31,3 +31,15 @@
 		transform: scale(0.8);
 	}
 }
+
+.o-Popup-enter-active,
+.o-Popup-leave-active {
+	transition: all ease-in-out 0.18s;
+}
+
+.o-Popup-enter,
+.o-Popup-leave-to {
+	opacity: 0;
+	transform: translateY(-10px);
+}
+

@@ -1,0 +1,62 @@
+@import '../common/_var.css';
+
+@component Popup {
+	z-index: var(--zIndex-popover);
+	position: absolute;
+	top: 0;
+	margin-top: calc(var(--Popup-arrow-height) + 2px);
+	min-width: 100px;
+	min-height: 100px;
+	background: white;
+	box-shadow: var(--shadow-popup);
+	border-radius: var(--Popup-borderRadius);
+
+	@d title {
+		display: block;
+		width: 100%;
+	}
+
+	@d content {
+
+	}
+
+	@d arrow {
+		position: absolute;
+		left: 50%;
+		top: -var(--Popup-arrow-height);
+		width: var(--Popup-arrow-width);
+		height: var(--Popup-arrow-height);
+
+		&:before,
+		&:after {
+			display: block;
+			content: '';
+			position: absolute;
+			left: 1px;
+			bottom: 0;
+			margin-left: -50%;
+			width: 0;
+			height: 0;
+			border-width: 0;
+			border: calc(var(--Popup-arrow-width) / 2 - 1px) solid transparent;
+			border-top-width: 0;
+			border-bottom: var(--Popup-arrow-height) solid white;
+		}
+
+		&:before {
+			left: 0;
+			border: calc(var(--Popup-arrow-width) / 2)  solid transparent;
+			border-top-width: 0;
+			border-bottom: calc(var(--Popup-arrow-height) + 1px) dashed rgba(0,0,0,0.06);
+		}
+
+	}
+}
+
+@component PopupList {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+}

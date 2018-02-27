@@ -129,6 +129,18 @@
 		        transform: scale(0.8);
 }
 
+.o-Popup-enter-active, .o-Popup-leave-active {
+	-webkit-transition: all ease-in-out 0.18s;
+	transition: all ease-in-out 0.18s;
+}
+
+.o-Popup-enter, .o-Popup-leave-to {
+	opacity: 0;
+	-webkit-transform: translateY(-10px);
+	    -ms-transform: translateY(-10px);
+	        transform: translateY(-10px);
+}
+
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
 }
 
@@ -1312,6 +1324,10 @@
 }
 .o-UploadFiles__item {
 		margin: 0.6rem 0 0 0;
+		border-radius: 3px;
+}
+.o-UploadFiles__item:hover {
+	background: #FDFDFD;
 }
 .o-UploadFiles__info {
 		overflow: hidden;
@@ -1320,6 +1336,7 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		font-size: 14px;
+		color: #666666;
 }
 .o-UploadFiles__progress {
 		position: absolute;
@@ -1444,6 +1461,60 @@
 		text-align: right;
 		font-size: 14px;
 		color: #4C4C4C;
+}
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+}
+.o-Popup {
+	z-index: 1060;
+	position: absolute;
+	top: 0;
+	margin-top: 10px;
+	min-width: 100px;
+	min-height: 100px;
+	background: white;
+	-webkit-box-shadow: 1px 2px 8px 0px rgba(0, 0, 0, .24);
+	        box-shadow: 1px 2px 8px 0px rgba(0, 0, 0, .24);
+	border-radius: 3px;
+}
+.o-Popup__title {
+		display: block;
+		width: 100%;
+}
+.o-Popup__content {
+}
+.o-Popup__arrow {
+		position: absolute;
+		left: 50%;
+		top: -8px;
+		width: 18px;
+		height: 8px;
+}
+.o-Popup__arrow:before, .o-Popup__arrow:after {
+	display: block;
+	content: '';
+	position: absolute;
+	left: 1px;
+	bottom: 0;
+	margin-left: -50%;
+	width: 0;
+	height: 0;
+	border-width: 0;
+	border: 8px solid transparent;
+	border-top-width: 0;
+	border-bottom: 8px solid white;
+}
+.o-Popup__arrow:before {
+	left: 0;
+	border: 9px  solid transparent;
+	border-top-width: 0;
+	border-bottom: 9px dashed rgba(0, 0, 0, .06);
+}
+.o-PopupList {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
 }
 
 

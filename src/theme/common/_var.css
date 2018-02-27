@@ -106,10 +106,15 @@
 	/*progress*/
 	--LineProgress-height: 24px;
 
+	--Popup-borderRadius: 3px;
+	--Popup-arrow-height: 8px;
+	--Popup-arrow-width: 18px;
+
 	/*shadow*/
 	--shadw-dropdown: 1px 2px 8px 0px rgba(0,0,0,0.24);
 	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);
-	--shadw-message: 0 0 0 1px rgba(0,0,0,0.12);
+	--shadow-message: 0 0 0 1px rgba(0,0,0,0.12);
+	--shadow-popup: 1px 2px 8px 0px rgba(0,0,0,0.24);
 
 	/*z-index*/
 	--zIndex-dropdown:          1000;
