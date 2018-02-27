@@ -1,13 +1,15 @@
 <script>
-	import PopupBox from './popupBox'
-	import Vue from 'vue'
 	import { elOffset } from '../../../utils'
 
 	const props = {
 		title: String,
 		content: String,
 		action: String,
-		fuse: Object
+		fuse: Object,
+		position: {
+			type: String,
+			default: 'bottom'
+		}
 	}
 	export default {
 		name: 'Popup',
@@ -25,23 +27,17 @@
 			const fuse = this.$refs.fuse
 			if (fuse) {
 				fuse.removeEventListener(this.action, this.togglePopup)
+				document.removeEventListener('click', this.hidePopup)
 			}
+			this.remove()
 		},
 		mounted () {
 			const fuse = this.$refs.fuse
 			if (fuse) {
 				fuse.addEventListener(this.action, this.togglePopup)
+				document.addEventListener('click', this.hidePopup)
 			}
-			if (!this.$isServer) {
-				const body = document.body
-				let popupList = body.querySelector('o-PopupList')
-				if (!popupList) {
-					popupList = document.createElement('div')
-					popupList.setAttribute('class', 'o-PopupList')
-					body.appendChild(popupList)
-				}
-				popupList.appendChild(this.$el)
-			}
+			this.mount()
 		},
 		render () {
 			const slot = this.$slots.default
@@ -72,26 +68,36 @@
 			togglePopup () {
 				this.show = !this.show
 				const fuse = this.$refs.fuse
-				if (this.show && !this.$isServer) {
+				if (!this.show && this.$isServer) return
+				this.$nextTick(() => {
 					const p = elOffset(fuse)
-					const size = fuse.getBoundingClientRect()
-					this.style.top = `${p.y + size.y}px`
-					this.style.left = `${p.x + size.x / 2}px`
+					const fuseSize = fuse.getBoundingClientRect()
+					const elSize = this.$el.getBoundingClientRect()
+					this.style.top = `${p.y + fuseSize.height}px`
+					this.style.left = `${p.x + fuseSize.width / 2 - elSize.width / 2}px`
+				})
+			},
+			hidePopup (e) {
+				if (this.$el.contains(e.target) || this.$refs.fuse.contains(e.target)) return
+				this.show = false
+			},
+			remove () {
+				if (this.$isServer) return
+				const body = document.body
+				let popupList = body.querySelector('.o-PopupList')
+				popupList.removeChild(this.$el)
+			},
+			mount () {
+				if (this.$isServer) return
+				const body = document.body
+				let popupList = body.querySelector('.o-PopupList')
+				if (!popupList) {
+					popupList = document.createElement('div')
+					popupList.setAttribute('class', 'o-PopupList')
+					body.appendChild(popupList)
 				}
+				popupList.appendChild(this.$el)
 			}
-		},
-		watch: {
-			fuse: {
-				handler (val) {
-					if (val instanceof Vue) {
-						val.$on('click', this.togglePopup)
-					}
-				},
-				immediate: true
-			}
-		},
-		components: {
-			PopupBox
 		}
 	}
 </script>

@@ -33,14 +33,16 @@
 				<slot name="addonAfter"></slot>
 			</span>
 		</div>
-		<ul
-			v-show="showList"
-			@click="setVal"
-			class="o-Input__options"
-			ref="list"
-		>
-			<li v-for="val in options">{{ val }}</li>
-		</ul>
+		<transition name="o-InputOptions">
+			<ul
+				v-show="showList"
+				@click="setVal"
+				class="o-Input__options"
+				ref="list"
+			>
+				<li v-for="val in options">{{ val }}</li>
+			</ul>
+		</transition>
 	</div>
 </template>
 

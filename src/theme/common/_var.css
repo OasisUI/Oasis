@@ -111,10 +111,10 @@
 	--Popup-arrow-width: 18px;
 
 	/*shadow*/
-	--shadw-dropdown: 1px 2px 8px 0px rgba(0,0,0,0.24);
+	--shadw-dropdown: 1px 1px 8px 0px rgba(0,0,0,0.24);
 	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);
 	--shadow-message: 0 0 0 1px rgba(0,0,0,0.12);
-	--shadow-popup: 1px 2px 8px 0px rgba(0,0,0,0.24);
+	--shadow-popup: 1px 1px 8px 0px rgba(0,0,0,0.24);
 
 	/*z-index*/
 	--zIndex-dropdown:          1000;

@@ -7,11 +7,12 @@
 				content="world ！！！"
 				ref="popup"
 			>
+				<p>Hello </p>
 			</Popup>
 			<Button
 				v-popup:popup.click
 			>
-				show Popup! 2
+				show Popup!
 			</Button>
 		</li>
 	</ul>

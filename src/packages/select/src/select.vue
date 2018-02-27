@@ -21,14 +21,16 @@
 		>
 			<i class="iconfont icon-arrow-down"></i>
 		</span>
-		<ul
-			@click="setVal"
-			v-show="showList"
-			ref="list"
-			class="o-Input__options"
-		>
-			<li v-for="opt in currentOpts">{{opt.key ? opt.key : opt}}</li>
-		</ul>
+		<transition name="o-InputOptions">
+			<ul
+				@click="setVal"
+				v-show="showList"
+				ref="list"
+				class="o-Input__options"
+			>
+				<li v-for="opt in currentOpts">{{opt.key ? opt.key : opt}}</li>
+			</ul>
+		</transition>
 	</div>
 </template>
 
