@@ -85,7 +85,7 @@
 	}
 }
 
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 
 .o-Message-enter-active, .o-Message-leave-active {
@@ -150,7 +150,7 @@
 	        transform: translateY(-4px);
 }
 
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 
 .o-Img {
@@ -172,7 +172,7 @@
 .o-Img__loading, .o-Img__backup {
 		font-size: 14px;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-Loading {
 	position: absolute;
@@ -201,7 +201,7 @@
 	-webkit-animation: loading-rotate 2s linear infinite;
 	        animation: loading-rotate 2s linear infinite;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-FormItem {
 	position: relative;
@@ -236,7 +236,7 @@
 	height: 40px;
 	line-height: 40px;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 @keyframes loading-spin {0% {
 		stroke-dasharray: 100, 40;
@@ -422,7 +422,7 @@
 .o-BtnGroup .o-Btn--primary:not(:hover):not(.o-Btn--outline) {
 	background: #34B697;/*background: linear-gradient(90deg, var(--color-primary), var(--color-primary) 100%);*/
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-Input:not(.is-disabled):not(.is-readonly) input:hover {
 	border-color: #BBBBBB;
@@ -565,9 +565,11 @@
 	border-right-width: 0;
 }
 .o-Input__addonWrapper .o-Btn {
-	margin: 0 -12px;/*border-radius: 0;*/
+	margin: 0 -13px;/*chrome bug*/
+	border-radius: 0;
 }
 .o-Input__addon {
+		overflow: hidden;
 		display: table-cell;
 		width: 1px;
 		padding: 0 12px;
@@ -984,7 +986,7 @@
 .o-Col-1, .o-Col-2, .o-Col-3, .o-Col-4, .o-Col-5, .o-Col-6, .o-Col-7, .o-Col-8, .o-Col-9, .o-Col-10, .o-Col-11, .o-Col-12, .o-Col-13, .o-Col-14, .o-Col-15, .o-Col-16, .o-Col-17, .o-Col-18, .o-Col-19, .o-Col-20, .o-Col-21, .o-Col-22, .o-Col-23, .o-Col-24 {
 	float: left;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-MessageBox {
 	z-index: 1060;
@@ -1040,7 +1042,7 @@
 		background: #FFF4D6;
 		border: 1px solid #FFCE8F;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-Modal {
 	z-index: 1050;
@@ -1129,7 +1131,7 @@
 		font-size: 40px;
 		display: block;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-DatePicker .o-YearPicker__year:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-MonthPicker__month:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-DayPicker__day:hover:not(.is-disabled):not(.is-selected) span {
 	color: #64DC9C;
@@ -1233,7 +1235,7 @@
 .o-DayPicker__day {
 		cursor: pointer;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-TimePicker {
 	background: rgba(0, 0, 0, .1);
@@ -1321,7 +1323,7 @@
 	color: #666666;
 	font-weight: 700;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-Upload {
 }
@@ -1352,7 +1354,7 @@
 		top: 0;
 		right: 0;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-Progress {
 	display: inline-block;
@@ -1471,7 +1473,7 @@
 		font-size: 14px;
 		color: #4C4C4C;
 }
-:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*shadow*//*z-index*/
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 .o-Popup {
 	z-index: 1060;
@@ -1525,6 +1527,66 @@
 	left: 0;
 	width: 100%;
 	height: 0;
+}
+:root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
+}
+.o-Scroll {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #eee;
+}
+.o-Scroll__box {
+		position: relative;
+		-webkit-box-sizing: content-box;
+		        box-sizing: content-box;
+		width: 100%;
+		height: 100%;
+		padding-right: 20px;
+		padding-bottom: 20px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+}
+.o-Scroll__content {
+		-webkit-box-sizing: content-box;
+		        box-sizing: content-box;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		min-height: 100%;
+}
+.o-ScrollBar {
+	position: absolute;
+	cursor: pointer;
+}
+.o-ScrollBar.is-vertical {
+		top: 0;
+		right: 0;
+		height: calc(100% - 8px);
+		width: 8px;
+}
+.o-ScrollBar.is-horizontal {
+		left: 0;
+		bottom: 0;
+		width: calc(100% - 8px);
+		height: 8px;
+}
+.o-ScrollBar__thumb {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 8px;
+		height: 8px;
+		border-radius: 4px;
+		background: #DDDDDD;
+		-webkit-transition: background ease-in-out 0.2s;
+		transition: background ease-in-out 0.2s;
+}
+.o-ScrollBar__thumb:hover {
+	background: #8d8d8d;
+}
+.o-ScrollBar__thumb.is-active {
+	background: #8d8d8d;
 }
 
 

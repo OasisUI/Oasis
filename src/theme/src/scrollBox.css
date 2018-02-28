@@ -1,0 +1,63 @@
+@import './../common/_var.css';
+
+@component Scroll{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #eee;
+
+	@d box {
+		position: relative;
+		box-sizing: content-box;
+		width: 100%;
+		height: 100%;
+		padding-right: 20px;
+		padding-bottom: 20px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+
+	@d content {
+		box-sizing: content-box;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		min-height: 100%;
+	}
+}
+
+@component ScrollBar {
+	position: absolute;
+	cursor: pointer;
+
+	@d thumb {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: var(--ScrollBox-scrollbar-width);
+		height: var(--ScrollBox-scrollbar-width);
+		border-radius: calc(var(--ScrollBox-scrollbar-width) / 2);
+		background: #DDDDDD;
+		transition: background ease-in-out 0.2s;
+		&:hover {
+			background: #8d8d8d;
+		}
+		&.is-active {
+			background: #8d8d8d;
+		}
+	}
+
+	@when horizontal {
+		left: 0;
+		bottom: 0;
+		width: calc(100% - var(--ScrollBox-scrollbar-width));
+		height: var(--ScrollBox-scrollbar-width);
+	}
+
+	@when vertical {
+		top: 0;
+		right: 0;
+		height: calc(100% - var(--ScrollBox-scrollbar-width));
+		width: var(--ScrollBox-scrollbar-width);
+	}
+}

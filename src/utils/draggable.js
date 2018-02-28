@@ -1,72 +1,14 @@
-export function throttle (fn, delay = 10) {
-	let result,
-		last = 0,
-		count = 0
-	return function (...arg) {
-		const time = Date.now()
-		count++
-		if (time - last > delay) {
-			last = time
-			arg.push(count)
-			result = fn.apply(this, arg)
-			count = 0
-			return result
-		}
-	}
-}
-
-export function debounce (fn, delay = 10) {
-	let result,
-		last = 0
-	return function (...arg) {
-		const time = Date.now()
-		if (time - last > delay) {
-			result = fn.apply(this, arg)
-		}
-		last = time
-		return result
-	}
-}
-
-export function formatNumber (num, len = 1) {
-	return ('0'.repeat(len) + num).slice(-len)
-}
-
-export function elOffset (el, p = {x: 0, y: 0}) {
-	p = {
-		x: p.x + el.offsetLeft,
-		y: p.y + el.offsetTop
-	}
-	if (el.offsetParent) {
-		return elOffset(el.offsetParent, p)
-	} else {
-		return p
-	}
-}
-
-export function getDomSize (el) {
-	const size = el.getBoundingClientRect()
-	return {
-		x: size.width,
-		y: size.height
-	}
-}
-
-export function getScrollSize (el) {
-	return {
-		x: el.scrollWidth,
-		y: el.scrollHeight
-	}
-}
+import { throttle } from './index.js'
 
 export default class ElDraggable {
 	constructor(el, config) {
 		this.conf = {
 			el: el,
-			bubble: true,
+			updateStyle: true,
+			bubble: false,
 			throttle: 0,
 			containment: document.body,
-			overflow: true,
+			overflow: false,
 			updatePosition(e, p) {
 				el.style.left = p.left + 'px'
 				el.style.top = p.top + 'px'
@@ -112,9 +54,12 @@ export default class ElDraggable {
 				style.left = left
 				style.top = top
 			}
-			conf.updatePosition(e, style)
+			conf.updateStyle && conf.updatePosition(e, style)
 			!conf.bubble && e.stopPropagation()
-			conf.onDrag && conf.onDrag(e, style)
+			conf.onDrag && conf.onDrag(e, style, {
+				x: offsetX,
+				y: offsetY
+			})
 		}, conf.throttle)
 
 		this.containment = conf.containment

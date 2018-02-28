@@ -19,6 +19,7 @@ import TimePicker from './timePicker'
 import Upload from './upload'
 import Progress from './progress'
 import Popup from './popup'
+import ScrollBox from './scrollBox'
 
 // tools
 // TODO
@@ -42,7 +43,8 @@ const components = [
 	TimePicker,
 	Upload,
 	Progress,
-	Popup
+	Popup,
+	ScrollBox
 ];
 
 const Oasis = {

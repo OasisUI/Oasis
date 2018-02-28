@@ -12,6 +12,7 @@ import Modal from './modal'
 import DateTime from './datetimepicker'
 import Upload from './upload'
 import Popup from './popup'
+import ScrollBox from './scrollBox'
 
 Vue.use(VueRouter)
 
@@ -59,6 +60,10 @@ const routes = [
 	{
 		path: '/popup',
 		component: Popup
+	},
+	{
+		path: '/scrollbox',
+		component: ScrollBox
 	}
 ]
 

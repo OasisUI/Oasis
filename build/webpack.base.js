@@ -6,6 +6,9 @@ module.exports = {
 	resolve: {
 		modules: ['node_modules'],	
 		extensions: ['.vue', '.js', '.json'],
+		alias: {
+			utils: path.resolve(__dirname, '../src/utils')
+		}
 	},
 	module: {
 		rules: [

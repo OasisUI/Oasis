@@ -110,12 +110,13 @@
 		}
 
 		& .o-Btn {
-			margin: 0 -var(--Input-padding);
-			/*border-radius: 0;*/
+			margin: 0 calc(-1px - var(--Input-padding));	/*chrome bug*/
+			border-radius: 0;
 		}
 	}
 
 	@d addon {
+		overflow: hidden;
 		display: table-cell;
 		width: 1px;
 		padding: 0 var(--Input-padding);

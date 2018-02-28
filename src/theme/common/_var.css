@@ -106,9 +106,13 @@
 	/*progress*/
 	--LineProgress-height: 24px;
 
+	/*Popup*/
 	--Popup-borderRadius: 3px;
 	--Popup-arrow-height: 8px;
 	--Popup-arrow-width: 18px;
+
+	/*scrollBox*/
+	--ScrollBox-scrollbar-width: 8px;
 
 	/*shadow*/
 	--shadw-dropdown: 1px 1px 8px 0px rgba(0,0,0,0.24);
