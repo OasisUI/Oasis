@@ -17,14 +17,14 @@
 			</div>
 		</div>
 		<ScrollBar
-			v-if="hover"
+			v-if="hover || isDragging"
 			v-model="scroll.y"
 			:inner="scrollSize.y"
 			:outer="size.y"
 			type="vertical"
 		></ScrollBar>
 		<ScrollBar
-			v-if="hover"
+			v-if="hover || isDragging"
 			v-model="scroll.x"
 			:inner="scrollSize.x"
 			:outer="size.x"
@@ -67,6 +67,7 @@
 				},
 				hover: false,
 				resizing: null,
+				isDragging: false,
 				scrollbarWidth: 17
 			}
 		},

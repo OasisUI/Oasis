@@ -38,7 +38,7 @@
 		height: var(--ScrollBox-scrollbar-width);
 		border-radius: calc(var(--ScrollBox-scrollbar-width) / 2);
 		background: #DDDDDD;
-		transition: background ease-in-out 0.2s;
+		transition: all linear 0.1s;
 		&:hover {
 			background: #8d8d8d;
 		}

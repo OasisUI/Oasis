@@ -35,9 +35,11 @@
 					onDrag: this.onDrag,
 					onStart: () => {
 						thumb.classList.add('is-active')
+						this.$parent.isDragging = true
 					},
 					onEnd: () => {
 						thumb.classList.remove('is-active')
+						this.$parent.isDragging = false
 					}
 				})
 				const elSize = getDomSize(this.$el)

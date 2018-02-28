@@ -1593,8 +1593,8 @@
 		height: 8px;
 		border-radius: 4px;
 		background: #DDDDDD;
-		-webkit-transition: background ease-in-out 0.2s;
-		transition: background ease-in-out 0.2s;
+		-webkit-transition: all linear 0.1s;
+		transition: all linear 0.1s;
 }
 .o-ScrollBar__thumb:hover {
 	background: #8d8d8d;
