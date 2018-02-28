@@ -150,6 +150,20 @@
 	        transform: translateY(-4px);
 }
 
+.o-ScrollBar-enter-active {
+	-webkit-transition: all ease-in-out 0.1s 0.1s;
+	transition: all ease-in-out 0.1s 0.1s;
+}
+
+.o-ScrollBar-leave-active {
+	-webkit-transition: all ease-in-out 0.08s;
+	transition: all ease-in-out 0.08s;
+}
+
+.o-ScrollBar-enter, .o-ScrollBar-leave-to {
+	opacity: 0;
+}
+
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
 

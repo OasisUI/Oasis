@@ -1,5 +1,6 @@
 <script>
 	import ElDraggable from 'utils/draggable'
+	import { getDomSize } from "utils"
 
 	const props = {
 		type: String,
@@ -19,10 +20,12 @@
 		props,
 		data () {
 			return {
-				visible: false
+				visible: false,
+				mile: 0
 			}
 		},
 		mounted () {
+			const { type } = this
 			const { thumb } = this.$refs
 			if (thumb) {
 				new ElDraggable(thumb, {
@@ -37,23 +40,26 @@
 						thumb.classList.remove('is-active')
 					}
 				})
+				const elSize = getDomSize(this.$el)
+				const thumbSize = getDomSize(thumb)
+				this.mile = type === 'vertical' ?
+					elSize.y - thumbSize.y : elSize.x - thumbSize.x
 			}
 		},
 		computed: {
 			style () {
 				const style = {}
 				const {
-					inner,
-					outer,
+					mile,
 					value,
 					width
 				} = this
 				if (this.type === 'vertical') {
 					style.height = `${width * 100}%`
-					style.transform = `translateY(${(inner - outer) * value}px)`
+					style.transform = `translateY(${mile * value}px)`
 				} else {
 					style.width = `${width * 100}%`
-					style.transform = `translateX(${(inner - outer) * value}px)`
+					style.transform = `translateX(${mile * value}px)`
 				}
 				return style
 			},
@@ -68,19 +74,21 @@
 				visible
 			} = this
 			return visible ? (
-				<div
-					class={[
-						type === 'vertical' ? 'is-vertical' : 'is-horizontal',
-						"o-ScrollBar"
-					]}
-				>
+				<transition name="o-ScrollBar">
 					<div
-						ref="thumb"
-						style={style}
-						class="o-ScrollBar__thumb"
-					></div>
-				</div>
-			) : ''
+						class={[
+							type === 'vertical' ? 'is-vertical' : 'is-horizontal',
+							"o-ScrollBar"
+						]}
+					>
+						<div
+							ref="thumb"
+							style={style}
+							class="o-ScrollBar__thumb"
+						></div>
+					</div>
+				</transition>
+		) : ''
 		},
 		watch: {
 			inner:{
@@ -103,8 +111,8 @@
 				}
 			},
 			onDrag (e, position, offset) {
-				let { inner, outer, value, type } = this
-				value -= (type === 'vertical' ? offset.y : offset.x) / (outer - inner)
+				let { mile, value, type } = this
+				value += (type === 'vertical' ? offset.y : offset.x) / mile
 				if (value >= 0 && value <= 1) {
 					this.$emit('input', value)
 				}

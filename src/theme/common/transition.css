@@ -53,3 +53,15 @@
 	transform: translateY(-4px);
 }
 
+.o-ScrollBar-enter-active {
+	transition: all ease-in-out 0.1s 0.1s;
+}
+.o-ScrollBar-leave-active {
+	transition: all ease-in-out 0.08s;
+}
+
+.o-ScrollBar-enter,
+.o-ScrollBar-leave-to {
+	opacity: 0;
+}
+
