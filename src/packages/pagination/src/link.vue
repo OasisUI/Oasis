@@ -7,7 +7,7 @@
 	>
 		<a
 			@click="go"
-			:href="!disabled ? formatter(page) : ''"
+			:href="nativeLink ? formatter(page) : ''"
 			:target="target"
 			class="o-Page__link"
 		>
@@ -31,8 +31,10 @@
 		},
 		methods: {
 			go (e) {
-				!this.disabled && this.$parent.updatePage(this.page)
-				!this.nativeLink && e.preventDefault()
+				if (!this.nativeLink) {
+					!this.disabled && this.$parent.updatePage(this.page)
+					e.preventDefault()
+				}
 			}
 		}
 	}

@@ -1,14 +1,14 @@
 <template>
 	<ul class="o-Pagination">
 		<PageLink
-			:page="currentPage - step"
-			:disabled="currentPage - step < 1"
+			:page="currentVal - step"
+			:disabled="currentVal - step < 1"
 		>
 			{{prevDecade}}
 		</PageLink>
 		<PageLink
-			:page="currentPage - 1"
-			:disabled="currentPage - 1 < 1"
+			:page="currentVal - 1"
+			:disabled="currentVal - 1 < 1"
 		>
 			{{prevText}}
 		</PageLink>
@@ -17,20 +17,20 @@
 			:key="index"
 			:page="page"
 			:class="{
-				'is-active': page === currentPage
+				'is-active': page === currentVal
 			}"
 		>
 			{{page}}
 		</PageLink>
 		<PageLink
-			:page="currentPage + 1"
-			:disabled="currentPage + 1 > totalPage"
+			:page="currentVal + 1"
+			:disabled="currentVal + 1 > totalPage"
 		>
 			{{nextText}}
 		</PageLink>
 		<PageLink
-			:page="currentPage + step"
-			:disabled="currentPage + step > totalPage"
+			:page="currentVal + step"
+			:disabled="currentVal + step > totalPage"
 		>
 			{{nextDecade}}
 		</PageLink>
@@ -81,15 +81,20 @@
 	export default {
 		props,
 		name: 'pagination',
+		data () {
+			return {
+				currentVal: 1
+			}
+		},
 		computed: {
 			pages () {
 				const limit = 7
-				const { currentPage, totalPage } = this
+				const { currentVal, totalPage } = this
 				const arr = []
 
 				if (totalPage > limit) {
-					let start = currentPage - (limit - 1) / 2
-					let end = currentPage + (limit - 1) / 2
+					let start = currentVal - (limit - 1) / 2
+					let end = currentVal + (limit - 1) / 2
 					let offset = start < 1 ? 1 - start : 0
 					offset -= end > totalPage ? end - totalPage : 0
 					start += offset
@@ -106,13 +111,23 @@
 			},
 			totalPage () {
 				return Math.ceil(this.total / this.pageSize)
-			}
+			},
 		},
 		methods: {
 			updatePage (page) {
-				if (page !== this.currentPage) {
+				if (page !== this.currentVal) {
+					this.currentVal = page
 					this.$emit('current-change', page)
 				}
+			}
+		},
+		watch: {
+			currentPage: {
+				handler (val) {
+					const { totalPage } = this
+					this.currentVal = val > totalPage ? totalPage : val < 1 ? 1 : val
+				},
+				immediate: true
 			}
 		},
 		provide () {

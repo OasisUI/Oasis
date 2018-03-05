@@ -30,8 +30,8 @@
 		},
 		methods: {
 			onPageChange (page) {
-				console.log(page)
 				this.currentPage = page
+				console.log(page)
 			},
 			linkFormatter (page) {
 				return `/baike/${page}`
