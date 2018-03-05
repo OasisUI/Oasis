@@ -2,7 +2,7 @@
 	<div class="home">
 		<nav>
 			<router-link to="/">
-				<img src="../icon/o.svg" alt="">
+				<img src="../../icon/o.svg" alt="">
 			</router-link>	
 			<router-link to="/button">Document</router-link>
 			<a href="https://github.com/joe223/Oasis">Github</a>
@@ -13,7 +13,7 @@
 <style lang="postcss">
 	.home {
 		height: 100%;
-		background: no-repeat center center/100% auto url('../icon/bg.svg');
+		background: no-repeat center center/100% auto url('../../icon/bg.svg');
 		
 		&:after {
 			display: inline-block;

@@ -1,18 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from './Home'
-import Component from './components'
-import Button from './button'
-import Input from './input'
-import Grid from './grid'
-import Form from './form'
-import Message from './message'
-import Modal from './modal'
-import DateTime from './datetimepicker'
-import Upload from './upload'
-import Popup from './popup'
-import ScrollBox from './scrollBox'
+import Home from './components/home'
+import Component from './components/components'
+import Button from './components/button'
+import Input from './components/input'
+import Grid from './components/grid'
+import Form from './components/form'
+import Message from './components/message'
+import Modal from './components/modal'
+import DateTime from './components/datetimepicker'
+import Upload from './components/upload'
+import Popup from './components/popup'
+import ScrollBox from './components/scrollBox'
+import Pagination from './components/pagination'
 
 Vue.use(VueRouter)
 
@@ -64,6 +65,10 @@ const routes = [
 	{
 		path: '/scrollbox',
 		component: ScrollBox
+	},
+	{
+		path: '/pagination',
+		component: Pagination
 	}
 ]
 

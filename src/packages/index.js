@@ -20,6 +20,7 @@ import Upload from './upload'
 import Progress from './progress'
 import Popup from './popup'
 import ScrollBox from './scrollBox'
+import Pagination from './pagination'
 
 // tools
 // TODO
@@ -44,7 +45,8 @@ const components = [
 	Upload,
 	Progress,
 	Popup,
-	ScrollBox
+	ScrollBox,
+	Pagination
 ];
 
 const Oasis = {
