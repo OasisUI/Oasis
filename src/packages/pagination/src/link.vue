@@ -7,7 +7,7 @@
 	>
 		<a
 			@click="go"
-			:href="nativeLink ? formatter(page) : ''"
+			:href="nativeLink && !disabled ? formatter(page) : null"
 			:target="target"
 			class="o-Page__link"
 		>
@@ -18,11 +18,11 @@
 
 <script>
 	const props = {
-		page: Number,
+		page: Number,·
 		disabled: Boolean
 	}
 
-	export default {
+	export default {·
 		props,
 		inject: {
 			nativeLink: 'nativeLink',
