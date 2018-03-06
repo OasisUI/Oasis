@@ -18,11 +18,11 @@
 
 <script>
 	const props = {
-		page: Number,·
+		page: Number,
 		disabled: Boolean
 	}
 
-	export default {·
+	export default {
 		props,
 		inject: {
 			nativeLink: 'nativeLink',

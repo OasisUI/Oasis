@@ -1,6 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
+const vueLoaderConfig = require('./vueLoaderConfig')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+
+console.log(vueLoaderConfig)
 
 module.exports = {
 	resolve: {
@@ -24,7 +27,12 @@ module.exports = {
 			},
 			{
 				test: /\.vue$/i,
-				use: 'vue-loader'
+				use: [
+					{
+						loader: 'vue-loader',
+						options: vueLoaderConfig
+					}
+				],
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

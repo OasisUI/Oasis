@@ -68,7 +68,7 @@
 			type: Number,
 			default: 10
 		},
-		nativeLink: Boolean,         // 如果这个参数是 true， 则会渲染原生 链接？或者参数名：ssr？
+		nativeLink: Boolean, // render native link or not
 		formatter: {
 			type: Function,
 			default: function (page) {
