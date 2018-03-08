@@ -1,14 +1,30 @@
 <template>
-	<div class="o-Input o-InputText"
+	<div class="o-Input o-Input"
  		:class="[
  			disabled ? 'is-disabled' : '',
  			readonly ? 'is-readonly' : '',
 			'o-Input--' + size
 		]"
+		@mouseleave="onMouseleave"
+		@mouseover="onMouseover"
 	>
-		<div class="o-Input__wrapper">
+		<span
+			v-if="options && !disabled && !readonly"
+			@click="displayList"
+			:style="style"
+			class="o-Input__openList"
+		>
+			<i class="iconfont icon-arrow-down"></i>
+		</span>
+		<div
+			class="o-Input__wrapper"
+			:class="{
+				'o-Input__addonWrapper': $slots.addonBefore || $slots.addonAfter
+			}"
+		>
 			<span
-				class="o-InputText__addon "
+				v-if="$slots.addonBefore"
+				class="o-Input__addon"
 			>
 				<slot name="addonBefore"></slot>
 			</span>
@@ -17,18 +33,16 @@
 				:disabled="disabled"
 				:readonly="readonly"
 				:placeholder="placeholder"
+				@focus="onFocus"
+				@blur="onBlur"
+				@change="onChange"
 				class="o-Input__native"
 				type="text"
 			/>
 			<span
-				v-if="options && !disabled && !readonly"
-				@click="displayList"
-				class="o-Input__openList"
-			>
-				<i class="iconfont icon-arrow-down"></i>
-			</span>
-			<span
-				class="o-InputText__addon"
+				v-if="$slots.addonAfter"
+				ref="addonAfter"
+				class="o-Input__addon"
 			>
 				<slot name="addonAfter"></slot>
 			</span>
@@ -47,6 +61,8 @@
 </template>
 
 <script>
+	import { getDomSize } from "utils";
+
 	const props = {
 		value: {},
 		options: {
@@ -68,12 +84,15 @@
 	}
 
 	export default {
-		name: 'InputText',
+		name: 'Input',
 		props,
 		data () {
 			return {
 				currentVal: this.value || '',
 				showList: false,
+				style: {
+					display: 'none'
+				}
 			}
 		},
 		mounted () {
@@ -105,6 +124,24 @@
 				const index = Array.prototype.indexOf.call(list, e.target)
 				this.$emit('input', this.options[index])
 				this.showList = false
+			},
+			onFocus (e) {
+				this.$emit('focus', e)
+			},
+			onBlur (e) {
+				this.$emit('blur', e)
+			},
+			onChange (e) {
+				this.$emit('change', e)
+			},
+			onMouseover () {
+				this.style = {
+					right: `${getDomSize(this.$refs.addonAfter).x}px`,
+					display: 'block'
+				}
+			},
+			onMouseleave () {
+				this.style.display = 'none'
 			}
 		}
 	}

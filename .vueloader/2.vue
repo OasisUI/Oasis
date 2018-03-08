@@ -10,32 +10,32 @@
 		</Input>
 <pre><code>&lt;/li&gt;
 &lt;li&gt;
-	&lt;h1&gt;InputText&lt;/h1&gt;
+	&lt;h1&gt;Input&lt;/h1&gt;
 &lt;/li&gt;
 &lt;li class=&quot;input-list&quot;&gt;
 	&lt;h2&gt;Size: lg / md / sm&lt;/h2&gt;
-	&lt;InputText
+	&lt;Input
 		v-model=&quot;inputText&quot;
 		size=&quot;lg&quot;
 		placeholder=&quot;placeholder&quot;
 	&gt;
-	&lt;/InputText&gt;
-	&lt;InputText
+	&lt;/Input&gt;
+	&lt;Input
 		v-model=&quot;inputText&quot;
 		size=&quot;md&quot;
 		placeholder=&quot;placeholder&quot;
 	&gt;
-	&lt;/InputText&gt;
-	&lt;InputText
+	&lt;/Input&gt;
+	&lt;Input
 		v-model=&quot;inputText&quot;
 		size=&quot;sm&quot;
 		placeholder=&quot;placeholder&quot;
 	&gt;
-	&lt;/InputText&gt;
+	&lt;/Input&gt;
 &lt;/li&gt;
 &lt;li class=&quot;input-list&quot;&gt;
 	&lt;h2&gt;Readonly / Disabled&lt;/h2&gt;
-	&lt;InputText
+	&lt;Input
 		v-model=&quot;inputText&quot;
 		size=&quot;lg&quot;
 		name=&quot;radio&quot;
@@ -43,25 +43,25 @@
 		placeholder=&quot;placeholder&quot;
 		readonly
 	&gt;
-	&lt;/InputText&gt;
-	&lt;InputText
+	&lt;/Input&gt;
+	&lt;Input
 		v-model=&quot;inputText&quot;
 		size=&quot;lg&quot;
 		:options=&quot;inputTextOptions&quot;
 		placeholder=&quot;placeholder&quot;
 		disabled
 	&gt;
-	&lt;/InputText&gt;
+	&lt;/Input&gt;
 &lt;/li&gt;
 &lt;li class=&quot;input-list&quot;&gt;
 	&lt;h2&gt;Options&lt;/h2&gt;
-	&lt;InputText
+	&lt;Input
 		v-model=&quot;inputText&quot;
 		size=&quot;lg&quot;
 		:options=&quot;inputTextOptions&quot;
 		placeholder=&quot;placeholder&quot;
 	&gt;
-	&lt;/InputText&gt;
+	&lt;/Input&gt;
 &lt;/li&gt;
 &lt;li&gt;
 	&lt;h1&gt;InputNumber&lt;/h1&gt;

@@ -45,7 +45,7 @@ export function elOffset (el, p = {x: 0, y: 0}) {
 }
 
 export function getDomSize (el) {
-	const size = el.getBoundingClientRect()
+	const size = el ? el.getBoundingClientRect() : {x: 0, y: 0}
 	return {
 		x: size.width,
 		y: size.height

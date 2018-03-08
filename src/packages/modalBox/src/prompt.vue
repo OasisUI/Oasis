@@ -43,8 +43,8 @@
 
 <script>
 	import Modal from '../../modal/src/modal'
-	import Button from '../../button/src/button'
-	import Input from '../../input/src/input'
+	import Button from '../../button/src'
+	import Input from '../../input/src'
 
 	const props = {
 		confirmText: {

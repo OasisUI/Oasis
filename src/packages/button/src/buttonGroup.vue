@@ -5,7 +5,25 @@
 </template>
 
 <script>
+	const props = {
+		type: {
+			type: String,
+			default: 'default'
+		},
+		size: {
+			type: String,
+			default: 'md'
+		},
+		round: Boolean,
+		loading: Boolean,
+		disabled: Boolean,
+		ghost: Boolean,
+		gradient: Boolean
+	}
+
 	export default {
-		name: 'ButtonGroup'
+		props,
+		name: 'ButtonGroup',
+		type: 'buttonGroup'
 	}
 </script>

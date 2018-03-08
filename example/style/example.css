@@ -1,19 +1,43 @@
-li {
-	margin: 2rem 0;
+body {
+	padding-top: 60px;
+	padding-left: calc(100vw - 100%);
+	color: #39464e;
+}
+.container {
+	max-width: 620px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+.document {
+	padding: 0 10px;
 }
 
 h1 {
-	margin: 4rem 0 0 0;
+	margin: 0 0 1.2rem 0;
 }
-body {
-	padding-left: calc(100vw - 100%);
+h2 {
+	padding-top: 1.2rem;
 }
-.container {
-	width: 100%;
-	padding: 0 15px;
-	margin: auto;
+h3 {
+	padding-top: 0.8rem;
+}
+pre, code {
+	font-family: "Roboto Mono", Monaco, courier, monospace;
+	font-size: 0.8rem;
+	line-height: 1.4rem;
+	background: #f8f8f8;
+	border-radius: 3px;
+	overflow: hidden;
 }
 
-.doc {
-	list-style: none;
+code {
+	padding: 0 0.4rem;
 }
+
+@media screen and (max-width: 1140px) {
+	.container {
+		margin-left: 260px;
+	}
+}
+

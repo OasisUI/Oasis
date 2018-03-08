@@ -13,17 +13,17 @@
 				<FormItem
 					label="Name"
 				>
-					<InputText
+					<Input
 						v-model="name"
-					></InputText>
+					></Input>
 				</FormItem>
 				<FormItem
 					label="E-mail"
 					required
 				>
-					<InputText
+					<Input
 						v-model="email"
-					></InputText>
+					></Input>
 				</FormItem>
 				<FormItem
 					label="Gender"

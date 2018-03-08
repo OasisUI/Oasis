@@ -38,7 +38,7 @@
 
 <script>
 	import Modal from '../../modal/src/modal'
-	import Button from '../../button/src/button'
+	import Button from '../../button/src/index'
 
 	const props = {
 		title: {

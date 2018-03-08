@@ -13,7 +13,7 @@
 	@m primary {
 		background: var(--color-primary);
 		color: var(--color-white);
-		&.o-Btn--outline {
+		&.o-Btn--ghost {
 			border: 1px solid var(--color-primary);
 			background: transparent;
 			color: var(--color-primary);
@@ -29,7 +29,7 @@
 	@m danger {
 		background: var(--color-danger);
 		color: var(--color-white);
-		&.o-Btn--outline {
+		&.o-Btn--ghost {
 			border: 1px solid var(--color-danger);
 			background: transparent;
 			color: var(--color-danger);
@@ -45,7 +45,7 @@
 	@m warning {
 		background: var(--color-warning);
 		color: var(--color-white);
-		&.o-Btn--outline {
+		&.o-Btn--ghost {
 			border: 1px solid var(--color-warning);
 			background: transparent;
 			color: var(--color-warning);
@@ -61,7 +61,7 @@
 	@m default {
 		background: var(--color-gray-4);
 		color: var(--color-black-4);
-		&.o-Btn--outline {
+		&.o-Btn--ghost {
 			border: 1px solid var(--color-black-4);
 			background: transparent;
 			color: var(--color-black-4);
@@ -149,14 +149,14 @@
 @component BtnGroup {
 	font-size: 0;
 
-	& .o-Btn:not(:first-of-type).o-Btn--outline {
+	& .o-Btn:not(:first-of-type).o-Btn--ghost {
 		margin-left: -1px;
 	}
 	& .o-Btn:not(:first-of-type):not(:last-of-type) {
 		margin-left: -1px;
 		border-radius: 0;
 	}
-	& .o-Btn:not(:first-of-type):not(:last-of-type):not(.o-Btn--outline) {
+	& .o-Btn:not(:first-of-type):not(:last-of-type):not(.o-Btn--ghost) {
 		border-right: 1px solid rgba(255,255,255,0.2);
 		border-left: 1px solid rgba(255,255,255,0.2);
 	}
@@ -168,7 +168,7 @@
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
-	& .o-Btn--primary:not(:hover):not(.o-Btn--outline) {
+	& .o-Btn--primary:not(:hover):not(.o-Btn--ghost) {
 		background: var(--color-primary);
 		/*background: linear-gradient(90deg, var(--color-primary), var(--color-primary) 100%);*/
 	}

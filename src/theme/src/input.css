@@ -185,7 +185,7 @@
 	}
 }
 
-@component InputText {
+@component Input {
 	& input {
 		padding-right: 24px;
 		width: 100%;

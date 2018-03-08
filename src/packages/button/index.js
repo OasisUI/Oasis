@@ -1,4 +1,4 @@
-import Button from './src/button.vue'
+import Button from './src/index.vue'
 import ButtonGroup from './src/buttonGroup.vue'
 
 Button.install = function (Vue) {

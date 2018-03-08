@@ -8,7 +8,6 @@ import Grid from './grid'
 import Checkbox from './checkbox'
 import Input from './input'
 import InputNumber from './inputNumber'
-import InputText from './inputText'
 import Select from './select'
 import Radio from './radio'
 import Message from './message'
@@ -34,7 +33,6 @@ const components = [
 	Checkbox,
 	Input,
 	InputNumber,
-	InputText,
 	Select,
 	Radio,
 	Message,

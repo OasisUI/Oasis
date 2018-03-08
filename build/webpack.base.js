@@ -3,8 +3,6 @@ const webpack = require('webpack')
 const vueLoaderConfig = require('./vueLoaderConfig')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
-console.log(vueLoaderConfig)
-
 module.exports = {
 	resolve: {
 		modules: ['node_modules'],	

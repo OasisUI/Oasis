@@ -38,6 +38,7 @@
     "gulp-util": "^3.0.8",
     "gulp-watch": "^5.0.0",
     "html-webpack-plugin": "^2.30.1",
+    "lerna": "^2.9.0",
     "postcss": "^6.0.16",
     "postcss-bem": "^0.4.1",
     "postcss-bem-linter": "^3.1.0",
@@ -60,7 +61,7 @@
     "vue-loader": "^13.7.0",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.13",
-    "vue2-doc-loader": "0.0.3",
+    "vue2-doc-loader": "0.0.5",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0",
     "webpack-merge": "^4.1.1"

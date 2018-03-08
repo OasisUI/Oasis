@@ -28,9 +28,6 @@
 				this.$slots.default
 			)
 		},
-		mounted () {
-			console.log(this.$slots)
-		},
  		computed: {
 			padding () {
 				return `${this.gutter}px`
