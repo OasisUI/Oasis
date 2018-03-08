@@ -1,21 +1,31 @@
 <template lang="docs">
-	# Input
+	# Input 文本输入框
 
 	## 基本用法
+
+	最常用的使用方式。
+
 	:::html
-		<Input
+		<Input v-model="inputText"/>
+	:::
+
+	## 插件
+
+	可在 `Input` 前后添加额外的控件。必须声明 `slot` 为 `addonBefore` 或者 `addonAfter`。
+
+	<!-- <Input
+		v-model="inputText"
+		:options="inputTextOptions"
+	>
+		<InputSelect
 			v-model="inputText"
+			slot="addonBefore"
+			:options="inputTextOptions"
 		/>
-	:::
+		<Button slot="addonAfter">Go!</Button>
+	</Input> -->
 
-	## Addon
 	:::html
-		<Input
-			v-model="inputText"
-		>
-			<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
-			<Button slot="addonAfter">Go!</Button>
-		</Input>
 		<Input
 			v-model="inputText"
 			:options="inputTextOptions"
@@ -25,58 +35,59 @@
 		</Input>
 	:::
 
-	## 大小
+	## 设置 `Input` 组件大小
+
 	:::html
-		<Input
-			v-model="inputText"
-			size="lg"
-			placeholder="placeholder"
-		>
-		</Input>
-		<Input
-			v-model="inputText"
-			size="md"
-			placeholder="placeholder"
-		>
-		</Input>
-		<Input
-			v-model="inputText"
-			size="sm"
-			placeholder="placeholder"
-		>
-		</Input>
+		<div>
+			<Input
+				v-model="inputText"
+				size="lg"
+				placeholder="大"
+			></Input>
+			<Input
+				v-model="inputText"
+				size="md"
+				placeholder="中"
+			></Input>
+			<Input
+				v-model="inputText"
+				size="sm"
+				placeholder="小"
+			></Input>
+		</div>
 	:::
 
-	## 只读、禁用
+	## 只读
+
+	`Input` 元素不可输入，但仍然能获取焦点。
+
 	:::html
 		<Input
 			v-model="inputText"
-			size="lg"
-			name="radio"
-			:options="inputTextOptions"
-			placeholder="placeholder"
 			readonly
-		>
-		</Input>
-		<Input
-			v-model="inputText"
-			size="lg"
-			:options="inputTextOptions"
-			placeholder="placeholder"
-			disabled
-		>
-		</Input>
+		></Input>
 	:::
 
-	## 具有候选项的 Input
+	## 禁用
+
+	`Input` 控件不可使用。也不会被 `form` 表单提交。
+
 	:::html
 		<Input
 			v-model="inputText"
-			size="lg"
+			disabled
+		></Input>
+	:::
+
+	## 候选项
+
+	通过 `options` 参数提供输入候选项。交互与 `InputSelect` 相同。
+
+	:::html
+		<Input
+			v-model="inputText"
 			:options="inputTextOptions"
-			placeholder="placeholder"
-		>
-		</Input>
+		></Input>
 	:::
 </template>
 
@@ -84,7 +95,7 @@
 	export default {
 		data () {
 			return {
-				inputText: 'hello ~',
+				inputText: '',
 				inputTextOptions: ['Alice', 'Bob', 'Eve'],
 				inputNumber: 2,
 				inputSelect: 2,
@@ -114,5 +125,9 @@
 <style>
 	.o-Input {
 		max-width: 300px;
+	}
+
+	.o-Input:not(:last-of-type) {
+		margin-bottom: 1rem;
 	}
 </style>

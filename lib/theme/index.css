@@ -444,7 +444,7 @@
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
-.o-Input:not(.is-disabled):not(.is-readonly) input:hover {
+.o-Input:not(.is-disabled) input:hover {
 	border-color: #BBBBBB;
 }
 .o-Input {
@@ -485,12 +485,12 @@
 .o-Input input::placeholder {
 	color: #999999;
 }
-.o-Input.is-disabled input, .o-Input.is-readonly input {
+.o-Input.is-disabled input {
 	cursor: not-allowed;
 }
-.o-Input:not(.is-disabled):not(.is-readonly) input {
+.o-Input:not(.is-disabled) input {
 }
-.o-Input:not(.is-disabled):not(.is-readonly) input:focus {
+.o-Input:not(.is-disabled) input:focus {
 	z-index: 1;
 	border-color: #34B697;
 	-webkit-box-shadow: 0 0 0 2px rgba(52, 182, 151, .3);

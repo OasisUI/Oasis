@@ -168,12 +168,11 @@
 		color: #999999;
 	}
 
-	&.is-disabled input,
-	&.is-readonly input {
+	&.is-disabled input {
 		cursor: not-allowed;
 	}
 
-	&:not(.is-disabled, .is-readonly) input {
+	&:not(.is-disabled) input {
 		&:focus {
 			z-index: 1;
 			border-color: var(--color-primary);
