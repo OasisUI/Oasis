@@ -62,6 +62,7 @@
 				return this.beforeUpload && this.beforeUpload(files)
 			},
 			_onProgress (e, file) {
+				console.log(file)
 				file.percent = e.percent
 				this.onProgress && this.onProgress(e)
 			},

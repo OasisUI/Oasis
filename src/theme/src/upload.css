@@ -8,6 +8,7 @@
 
 @component UploadFiles {
 	list-style: none;
+	padding: 0;
 
 	@d item {
 		margin: 0.6rem 0 0 0;

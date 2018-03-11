@@ -1366,6 +1366,7 @@
 }
 .o-UploadFiles {
 	list-style: none;
+	padding: 0;
 }
 .o-UploadFiles__item {
 		margin: 0.6rem 0 0 0;
@@ -1655,6 +1656,7 @@
 		font-size: 14px;
 		text-decoration: none;
 		text-align: center;
+		cursor: pointer;
 }
 
 

@@ -14,7 +14,6 @@ export default function uploader (options) {
 	xhr.open('POST', url, true)
 
 	xhr.upload.onprogress = function (e) {
-		e.percent = parseInt(e.loaded / e.total * 100) || 0
 		options.onProgress(e)
 	}
 

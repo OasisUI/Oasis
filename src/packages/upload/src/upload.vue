@@ -75,6 +75,7 @@
 						filename: this.filename,
 						file: file.file,
 						onProgress: e => {
+							e.percent = parseInt(e.loaded / e.total * 100) || 0
 							this.onProgress && this.onProgress(e, file)
 						},
 						onSuccess: e => {

@@ -24,6 +24,7 @@
 		font-size: 14px;
 		text-decoration: none;
 		text-align: center;
+		cursor: pointer;
 	}
 
 	@when active {

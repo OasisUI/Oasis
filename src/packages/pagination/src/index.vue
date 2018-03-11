@@ -4,7 +4,7 @@
 			:page="currentVal - step"
 			:disabled="currentVal - step < 1"
 		>
-			{{prevDecade}}
+			{{prevStep}}
 		</PageLink>
 		<PageLink
 			:page="currentVal - 1"
@@ -32,7 +32,7 @@
 			:page="currentVal + step"
 			:disabled="currentVal + step > totalPage"
 		>
-			{{nextDecade}}
+			{{nextStep}}
 		</PageLink>
 	</ul>
 </template>
@@ -42,17 +42,21 @@
 
 	const props = {
 		pageSize: Number,
-		total: Number,
+		total: {
+			type: Number,
+			default: 0,
+			required: true
+		},
 		currentPage: Number,
 		layout: {
 			type: String,
 			default: 'prev, pager, next'
 		},
-		prevDecade: {
+		prevStep: {
 			type: String,
 			default: '«'
 		},
-		nextDecade: {
+		nextStep: {
 			type: String,
 			default: '»'
 		},
