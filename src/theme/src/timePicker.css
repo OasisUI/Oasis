@@ -1,7 +1,14 @@
 @import '../common/_var.css';
 
+@component InputTime {
+	text-align: center;
+
+	& .o-TimePicker {
+		display: inline-block;
+	}
+}
+
 @component TimePicker {
-	background: rgba(0,0,0,0.1);
 	width: calc(var(--TimeSpinner-width) * 3);
 	height: calc(var(--TimeSpinnerItem-height) * 7);
 	text-align: center;

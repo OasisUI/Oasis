@@ -3,6 +3,7 @@
 		<div
 			v-if="show !== false"
 			class="o-Modal"
+			@click.self.stop="close"
 		>
 			<div
 				class="o-Modal__content"

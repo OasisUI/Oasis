@@ -2,7 +2,7 @@
 	<Input
 		v-model="currentTime"
 		@focus="onFocus"
-		class="o-InputDatePicker"
+		class="o-InputTime"
 	>
 	<Modal
 		v-model="showPicker"

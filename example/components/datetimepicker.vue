@@ -16,6 +16,14 @@
 			v-model="time"
 		></InputTime>
 	:::
+
+	## API
+
+	|参数|说明|类型|默认值|
+	|---|---|---|---|
+	|size|输入框的大小|String|`'md'`|
+	|readonly|只读|Boolean|`false`|
+	|disabled|禁用|Boolean|`false`|
 </template>
 
 <script>
@@ -28,3 +36,9 @@
 		}
 	}
 </script>
+
+<style scoped>
+	.o-Input {
+		max-width: 300px;
+	}
+</style>

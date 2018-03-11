@@ -92,6 +92,15 @@
 			:options="inputTextOptions"
 		></Input>
 	:::
+
+	## API
+
+	|参数|说明|类型|默认值|
+	|---|---|---|---|
+	|size|输入框的大小|String|`'md'`|
+	|options|提供给用户的候选项|String|`undefined`|
+	|readonly|只读|Boolean|`false`|
+	|disabled|禁用|Boolean|`false`|
 </template>
 
 <script>

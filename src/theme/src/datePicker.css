@@ -1,6 +1,6 @@
 @import '../common/_var.css';
 
-@component InputDatePicker {
+@component InputDate {
 	text-align: center;
 
 	& .o-DatePicker {

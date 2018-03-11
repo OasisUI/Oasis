@@ -1157,10 +1157,10 @@
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
-.o-InputDatePicker {
+.o-InputDate {
 	text-align: center;
 }
-.o-InputDatePicker .o-DatePicker {
+.o-InputDate .o-DatePicker {
 	display: inline-block;
 }
 .o-DatePicker .o-YearPicker__year:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-MonthPicker__month:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-DayPicker__day:hover:not(.is-disabled):not(.is-selected) span {
@@ -1266,8 +1266,13 @@
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
+.o-InputTime {
+	text-align: center;
+}
+.o-InputTime .o-TimePicker {
+	display: inline-block;
+}
 .o-TimePicker {
-	background: rgba(0, 0, 0, .1);
 	width: 240px;
 	height: 238px;
 	text-align: center;

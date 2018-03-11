@@ -2,7 +2,10 @@
 	<Input
 		v-model="currentTime"
 		@focus="onFocus"
-		class="o-InputDatePicker"
+		class="o-InputDate"
+		:size="size"
+		:readonly="readonly"
+		:disabled="disabled"
 	>
 		<Modal
 			v-model="showPicker"
@@ -90,9 +93,6 @@
 				this.currentTime = this.time
 				this.showPicker = false
 			}
-			// onBlur () {
-            //
-			// }
 		}
 	}
 </script>
