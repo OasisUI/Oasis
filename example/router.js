@@ -148,10 +148,16 @@ const routes = [
 	{
 		path: '/components',
 		component: Component,
-		children: components.concat({
-			path: '*',
-			component: Button
-		})
+		children: components.concat([
+			{
+				path: '',
+				component: Button
+			},
+			{
+				path: '*',
+				component: Button
+			}
+		])
 	},
 ]
 

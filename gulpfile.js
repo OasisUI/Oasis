@@ -5,12 +5,20 @@ const watch = require('gulp-watch')
 const postcss = require('gulp-postcss')
 const WebpackDevServer = require('webpack-dev-server')
 const WebpackDevConfig = require('./build/webpack.dev')
+const WebpackDocConfig = require('./build/webpack.doc')
 const WebpackBuildConfig = require('./build/webpack.build')
 
 // console.log(WebpackDevConfig)
 
 gulp.task('build:module', () => {
 	const compiler = webpack(WebpackBuildConfig)
+	compiler.run((err, stats) => {
+		console.log(err)
+	})
+})
+
+gulp.task('build:doc', () => {
+	const compiler = webpack(WebpackDocConfig)
 	compiler.run((err, stats) => {
 		console.log(err)
 	})

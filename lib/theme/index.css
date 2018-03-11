@@ -283,6 +283,7 @@
 	font-size: 14px;
 	-webkit-transition: all ease-in-out 140ms;
 	transition: all ease-in-out 140ms;
+	text-decoration: none;
 }
 .o-Btn:not(.disabled) {
 	cursor: pointer;
@@ -368,6 +369,7 @@
 }
 .o-Btn--sm {
 		height: 28px;
+		line-height: 28px;
 		padding: 0 20px;
 		font-size: 14px;
 }
@@ -376,6 +378,7 @@
 }
 .o-Btn--md {
 		height: 32px;
+		line-height: 32px;
 		padding: 0 24px;
 		font-size: 16px;
 }
@@ -384,6 +387,7 @@
 }
 .o-Btn--lg {
 		height: 38px;
+		line-height: 38px;
 		padding: 0 36px;
 		font-size: 16px;
 }

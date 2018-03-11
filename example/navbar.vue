@@ -1,10 +1,9 @@
 <template>
 	<nav>
 		<router-link to="/">
-			<img class="logo" src="../icon/logo.svg" alt="">
+			<img class="logo" src="../icon/icon.svg" alt="">
 		</router-link>
-		<router-link to="/start">开始</router-link>
-		<router-link to="/components">组件</router-link>
+		<router-link to="/components">文档</router-link>
 		<a class="float-right" href="https://github.com/joe223/Oasis">Github</a>
 	</nav>
 </template>
@@ -23,6 +22,7 @@
 		height: 60px;
 		padding: 0 70px;
 		background: white;
+		text-align: left;
 		/*box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.08), 0 1px 2px 0px rgba(0, 0, 0, 0.1);*/
 
 		a {

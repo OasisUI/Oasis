@@ -6,6 +6,7 @@
 	border-radius: 4px;
 	font-size: var(--fontSize-default);
 	transition: var(--transition-btn-default);
+	text-decoration: none;
 	&:not(.disabled) {
 		cursor: pointer;
 	}
@@ -80,6 +81,7 @@
 	/*size*/
 	@m sm {
 		height: var(--Button-sm-height);
+		line-height: var(--Button-sm-height);
 		padding: 0 var(--Button-sm-padding);
 		font-size: var(--fontSize-14);
 		&.o-Btn--round {
@@ -88,6 +90,7 @@
 	}
 	@m md {
 		height: var(--Button-md-height);
+		line-height: var(--Button-md-height);
 		padding: 0 var(--Button-md-padding);
 		font-size: var(--fontSize-16);
 		&.o-Btn--round {
@@ -96,6 +99,7 @@
 	}
 	@m lg {
 		height: var(--Button-lg-height);
+		line-height: var(--Button-lg-height);
 		padding: 0 var(--Button-lg-padding);
 		font-size: var(--fontSize-16);
 		&.o-Btn--round {
