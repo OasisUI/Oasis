@@ -40,7 +40,7 @@ const components = [
 	},
 	{
 		path: 'input-number',
-		component: Input,
+		component: InputNumber,
 		title: {
 			zh: '数字输入',
 			en: 'InputNumber'
@@ -64,7 +64,7 @@ const components = [
 	},
 	{
 		path: 'checkbox',
-		component: Input,
+		component: Checkbox,
 		title: {
 			zh: '复选',
 			en: 'Checkbox'

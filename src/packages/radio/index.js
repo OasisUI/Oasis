@@ -1,4 +1,4 @@
-import Radio from './src/radio'
+import Radio from './src/index'
 import RadioBtn from './src/radioBtn'
 import RadioGroup from './src/radioGroup'
 

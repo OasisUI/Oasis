@@ -1,111 +1,61 @@
 <template lang="docs">
-	# Input
+	# Checkbox 复选框
 
-	## 基本用法
+	## 基本使用
+
+	`value` 值类型为 `Boolean`。`value1: {{value1}}`
 	:::html
-		<Input
-			v-model="inputText"
-		/>
+		<Checkbox
+			v-model="value1"
+		>A</Checkbox>
 	:::
 
-	## Addon
+	## 禁用
+
+	`Checkbox` 无法被选中，也不会被表单提交。
+
 	:::html
-		<Input
-			v-model="inputText"
-		>
-			<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
-			<Button slot="addonAfter">Go!</Button>
-		</Input>
-		<Input
-			v-model="inputText"
-			:options="inputTextOptions"
-		>
-			<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
-			<Button slot="addonAfter">Go!</Button>
-		</Input>
+		<Checkbox
+			v-model="value1"
+			disabled
+		>A</Checkbox>
 	:::
 
-	## 大小
+	## 复选框组
+
+	当在 `CheckboxGroup` 上绑定时，`value` 是一个数组。`value2: {{value2}}`。
+
 	:::html
-		<Input
-			v-model="inputText"
-			size="lg"
-			placeholder="placeholder"
+		<CheckboxGroup
+			v-model="value2"
 		>
-		</Input>
-		<Input
-			v-model="inputText"
-			size="md"
-			placeholder="placeholder"
-		>
-		</Input>
-		<Input
-			v-model="inputText"
-			size="sm"
-			placeholder="placeholder"
-		>
-		</Input>
+			<Checkbox label="A">A</Checkbox>
+			<Checkbox label="B">B</Checkbox>
+			<Checkbox label="C">C</Checkbox>
+		</CheckboxGroup>
 	:::
 
-	## 只读、禁用
+	### 禁用整个复选框组
+
 	:::html
-		<Input
-			v-model="inputText"
-			size="lg"
-			name="radio"
-			:options="inputTextOptions"
-			placeholder="placeholder"
-			readonly
-		>
-		</Input>
-		<Input
-			v-model="inputText"
-			size="lg"
-			:options="inputTextOptions"
-			placeholder="placeholder"
+		<CheckboxGroup
+			v-model="value2"
 			disabled
 		>
-		</Input>
+			<Checkbox label="A">A</Checkbox>
+			<Checkbox label="B">B</Checkbox>
+			<Checkbox label="C">C</Checkbox>
+		</CheckboxGroup>
 	:::
 
-	## 具有候选项的 Input
-	:::html
-		<Input
-			v-model="inputText"
-			size="lg"
-			:options="inputTextOptions"
-			placeholder="placeholder"
-		>
-		</Input>
-	:::
 </template>
 
 <script>
 	export default {
 		data () {
 			return {
-				inputText: 'hello ~',
-				inputTextOptions: ['Alice', 'Bob', 'Eve'],
-				inputNumber: 2,
-				inputSelect: 2,
-				inputSelectOptions: [
-					{
-						key: '二手',
-						value: 1
-					},
-					{
-						key: '家政',
-						value: 2
-					},
-					{
-						key: '维修',
-						value: 3
-					}
-				],
-				inputCheckbox: false,
-				inputRadio: 'B',
-				inputRadioGroup: 'GroupItem1',
-				inputCheckboxGroup: []
+				value1: false,
+				value2: []
 			}
 		}
 	}

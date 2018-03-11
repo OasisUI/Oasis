@@ -1,14 +1,17 @@
 <template>
 	<transition name="o-Modal">
 		<div
-			v-if="show"
+			v-if="show !== false"
 			class="o-Modal"
 		>
 			<div
 				class="o-Modal__content"
 			>
 				<div class="o-Modal__header">
-					<slot name="header"></slot>
+					<slot
+						v-if="showTitle"
+						name="header"
+					></slot>
 					<button
 						v-if="showCloseBtn"
 						@click="close"
@@ -30,8 +33,15 @@
 
 <script>
 	const props = {
-		value: Boolean,
+		value: {
+			type: Boolean,
+			default: true
+		},
 		showCloseBtn: {
+			type: Boolean,
+			default: true
+		},
+		showTitle: {
 			type: Boolean,
 			default: true
 		}

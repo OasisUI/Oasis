@@ -47,7 +47,14 @@
 				<slot name="addonAfter"></slot>
 			</span>
 		</div>
-		<transition name="o-InputOptions">
+		<slot
+			v-if="$slots.options"
+			name="options"
+		></slot>
+		<transition
+			v-else
+			name="o-InputOptions"
+		>
 			<ul
 				v-show="showList"
 				@click="setVal"
@@ -115,7 +122,7 @@
 			},
 			hideList (e) {
 				const list = this.$refs.list
-				if (e.target !== list && !list.contains(e.target) && !this.$el.contains(e.target)) {
+				if (e.target !== list && list && !list.contains(e.target) && !this.$el.contains(e.target)) {
 					this.showList = false
 				}
 			},

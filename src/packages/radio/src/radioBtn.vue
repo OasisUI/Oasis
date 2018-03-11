@@ -13,6 +13,7 @@
 			:value="label"
 			:disabled="isDisabled"
 			:name="name"
+			@change="onChange"
 			type="radio"
 		/>
 	</label>
@@ -32,7 +33,7 @@
 	}
 
 	export default {
-		name: 'InputRadioBtn',
+		name: 'RadioBtn',
 		props,
 		computed: {
 			currentVal: {
@@ -64,6 +65,11 @@
 				return this.useGroup ?
 					this.group.size || this.size
 					: this.size
+			}
+		},
+		methods: {
+			onChange () {
+				this.$emit('change', this.currentVal)
 			}
 		}
 	}

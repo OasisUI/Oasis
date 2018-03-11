@@ -1,4 +1,4 @@
-import InputSelect from './src/select'
+import InputSelect from './src/index'
 
 export default {
 	install (Vue) {

@@ -37,8 +37,8 @@
 </template>
 
 <script>
-	import Modal from '../../modal/src/modal'
-	import Button from '../../button/src/index'
+	import Modal from '../../modal/src'
+	import Button from '../../button/src'
 
 	const props = {
 		title: {

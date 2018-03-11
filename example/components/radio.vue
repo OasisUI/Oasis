@@ -1,111 +1,125 @@
 <template lang="docs">
-	# Input
+	# Radio 单选
 
 	## 基本用法
+
+	`Radio` 被选中后，会将 `label` 作为 `value` 的值。
+
+	<p>
+		value: {{value}}
+	</p>
 	:::html
-		<Input
-			v-model="inputText"
-		/>
+		<div>
+			<Radio
+				:label="{key: 'A'}"
+				v-model="value"
+			>A</Radio>
+			<Radio
+				label="B"
+				v-model="value"
+			>B</Radio>
+			<Radio
+				label="C"
+				v-model="value"
+			>C</Radio>
+		</div>
 	:::
 
-	## Addon
+	## 禁用状态
+
+	### 禁用单个 `Radio`
+
 	:::html
-		<Input
-			v-model="inputText"
-		>
-			<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
-			<Button slot="addonAfter">Go!</Button>
-		</Input>
-		<Input
-			v-model="inputText"
-			:options="inputTextOptions"
-		>
-			<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
-			<Button slot="addonAfter">Go!</Button>
-		</Input>
+		<div>
+			<Radio
+				label="B"
+				v-model="value"
+				disabled
+			>B</Radio>
+			<Radio
+				label="C"
+				v-model="value"
+				disabled
+			>C</Radio>
+		</div>
 	:::
 
-	## 大小
-	:::html
-		<Input
-			v-model="inputText"
-			size="lg"
-			placeholder="placeholder"
-		>
-		</Input>
-		<Input
-			v-model="inputText"
-			size="md"
-			placeholder="placeholder"
-		>
-		</Input>
-		<Input
-			v-model="inputText"
-			size="sm"
-			placeholder="placeholder"
-		>
-		</Input>
-	:::
+	### 禁用整个单选框组
 
-	## 只读、禁用
 	:::html
-		<Input
-			v-model="inputText"
-			size="lg"
-			name="radio"
-			:options="inputTextOptions"
-			placeholder="placeholder"
-			readonly
-		>
-		</Input>
-		<Input
-			v-model="inputText"
-			size="lg"
-			:options="inputTextOptions"
-			placeholder="placeholder"
+		<RadioGroup
+			v-model="value2"
 			disabled
 		>
-		</Input>
+			<Radio label="GroupItem1">1</Radio>
+			<Radio label="GroupItem2">2</Radio>
+			<Radio label="GroupItem3">3</Radio>
+		</RadioGroup>
 	:::
 
-	## 具有候选项的 Input
+	## 单选框组
+
 	:::html
-		<Input
-			v-model="inputText"
-			size="lg"
-			:options="inputTextOptions"
-			placeholder="placeholder"
+		<RadioGroup
+			v-model="value2"
 		>
-		</Input>
+			<Radio label="GroupItem1">1</Radio>
+			<Radio label="GroupItem2">2</Radio>
+			<Radio label="GroupItem3">3</Radio>
+		</RadioGroup>
 	:::
+
+	### 按钮样式的单选框组
+
+	:::html
+		<RadioGroup
+			v-model="value2"
+		>
+			<RadioBtn label="GroupItem1">GroupItem1</RadioBtn>
+			<RadioBtn label="GroupItem2">GroupItem2</RadioBtn>
+			<RadioBtn label="GroupItem3">GroupItem3</RadioBtn>
+		</RadioGroup>
+	:::
+
+	### 单选框组的大小
+
+	`size` 提供 3 种选项，`lg` `md` 和 `sm`，`default: md`。
+
+	:::html
+		<RadioGroup
+			v-model="value2"
+			size="lg"
+		>
+			<RadioBtn label="GroupItem1">GroupItem1</RadioBtn>
+			<RadioBtn label="GroupItem2">GroupItem2</RadioBtn>
+			<RadioBtn label="GroupItem3">GroupItem3</RadioBtn>
+		</RadioGroup>
+		<RadioGroup
+			v-model="value2"
+			size="md"
+		>
+			<RadioBtn label="GroupItem1">GroupItem1</RadioBtn>
+			<RadioBtn label="GroupItem2">GroupItem2</RadioBtn>
+			<RadioBtn label="GroupItem3">GroupItem3</RadioBtn>
+		</RadioGroup>
+		<RadioGroup
+			v-model="value2"
+			size="sm"
+		>
+			<RadioBtn label="GroupItem1">GroupItem1</RadioBtn>
+			<RadioBtn label="GroupItem2">GroupItem2</RadioBtn>
+			<RadioBtn label="GroupItem3">GroupItem3</RadioBtn>
+		</RadioGroup>
+	:::
+
 </template>
 
 <script>
 	export default {
 		data () {
 			return {
-				inputText: 'hello ~',
-				inputTextOptions: ['Alice', 'Bob', 'Eve'],
-				inputNumber: 2,
-				inputSelect: 2,
-				inputSelectOptions: [
-					{
-						key: '二手',
-						value: 1
-					},
-					{
-						key: '家政',
-						value: 2
-					},
-					{
-						key: '维修',
-						value: 3
-					}
-				],
-				inputCheckbox: false,
-				inputRadio: 'B',
-				inputRadioGroup: 'GroupItem1',
-				inputCheckboxGroup: []
+				value: 'B',
+				value2: 'GroupItem2'
 			}
 		}
 	}

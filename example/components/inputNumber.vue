@@ -1,198 +1,86 @@
-<template>
-	<ul class="doc">
-		<li>
-			<h1>InputNumber</h1>
-		</li>
-		<li class="input-list">
+<template lang="docs">
+	# InputNumber 数字输入框
+
+	## 基本用法
+
+	:::html
+		<InputNumber
+			v-model="value1"
+		></InputNumber>
+	:::
+
+	## 最大/最小值
+
+	`max` 和 `min` 类型为 `Number`
+
+	:::h
+		<InputNumber
+			v-model="value2"
+			:max="102"
+			:min="99"
+		></InputNumber>
+	:::
+
+	## 后缀
+
+	### 显示后缀
+
+	仅在输入框中显示后缀，并不会改变值。
+
+	:::html
+		<div>
+			<p>value1: {{value1}}</p>
 			<InputNumber
-				v-model="inputNumber"
+				v-model="value1"
 				suffix="px"
-				:min="0"
-				:max="10"
-				appendsuffix
-			>
-			</InputNumber>
-			<InputNumber
-				v-model="inputNumber"
-				suffix="px"
-				disabled
-			>
-			</InputNumber>
-			<InputNumber
-				v-model="inputNumber"
-				suffix="px"
-				readonly
-			>
-			</InputNumber>
-		</li>
-		<li>
-			<h1>InputSelect</h1>
-		</li>
-		<li class="input-list">
-			<InputSelect
-				v-model="inputSelect"
-				:options="inputSelectOptions"
-			></InputSelect>
-			<InputSelect
-				v-model="inputSelect"
-				:options="inputSelectOptions"
-				disabled
-			></InputSelect>
-			<InputSelect
-				v-model="inputSelect"
-				:options="inputSelectOptions"
-				readonly
-			></InputSelect>
-		</li>
-		<li>
-			<h1>InputCheckbox</h1>
-		</li>
-		<li>
-			<h2>Base</h2>
-		</li>
-		<li class="input-list">
-			<label>
-				<InputCheckbox
-					v-model="inputCheckbox"
-				>A
-				</InputCheckbox>
-			</label>
-			<label>
-				<InputCheckbox
-					v-model="inputCheckbox"
-					disabled
-				>B
-				</InputCheckbox>
-			</label>
-			<p>
-				value: {{inputCheckbox}}
-			</p>
-		</li>
-		<li>
-			<h2>CheckboxGroup</h2>
-		</li>
-		<li class="input-list">
-			<CheckboxGroup
-				v-model="inputCheckboxGroup"
-			>
-				<label>
-					<InputCheckbox
-						label="inputCheckbox"
-					>A
-					</InputCheckbox>
-				</label>
-				<label>
-					<InputCheckbox
-						:label="{group: 'checkbox'}"
-					>B
-					</InputCheckbox>
-				</label>
-			</CheckboxGroup>
-			<p>
-				value: {{inputCheckboxGroup}}
-			</p>
-		</li>
-		<li>
-			<h1>InputRadio</h1>
-		</li>
-		<li>
-			<h2>Base</h2>
-		</li>
-		<li class="input-list radio-list">
-			<InputRadio
-				:label="{key: 'A'}"
-				v-model="inputRadio"
-			>A</InputRadio>
-			<InputRadio
-				label="B"
-				v-model="inputRadio"
-				disabled
-			>B</InputRadio>
-			<InputRadio
-				label="C"
-				v-model="inputRadio"
-			>C</InputRadio>
-			<p>
-				value: {{inputRadio}}
-			</p>
-		</li>
-		<li>
-			<h2>RadioGroup</h2>
-		</li>
-		<li class="input-list radio-list">
-			<RadioGroup
-				v-model="inputRadioGroup"
-			>
-				<InputRadio label="GroupItem1"></InputRadio>
-				<InputRadio label="GroupItem2"></InputRadio>
-				<InputRadio label="GroupItem3"></InputRadio>
-			</RadioGroup>
-			<p>
-				radio group value: {{inputRadioGroup}}
-			</p>
-		</li>
-		<li>
-			<h3>RadioBtnGroup</h3>
-		</li>
-		<li class="input-list radio-list">
-			<RadioGroup
-				v-model="inputRadioGroup"
-			>
-				<InputRadioBtn label="GroupItem1">GroupItem1</InputRadioBtn>
-				<InputRadioBtn label="GroupItem2">GroupItem2</InputRadioBtn>
-				<InputRadioBtn label="GroupItem3">GroupItem3</InputRadioBtn>
-			</RadioGroup>
-			<RadioGroup
-				v-model="inputRadioGroup"
-				disabled
-				size="lg"
-			>
-				<InputRadioBtn label="GroupItem1">GroupItem1</InputRadioBtn>
-				<InputRadioBtn label="GroupItem2">GroupItem2</InputRadioBtn>
-				<InputRadioBtn label="GroupItem3">GroupItem3</InputRadioBtn>
-			</RadioGroup>
-			<p>
-				radio group value: {{inputRadioGroup}}
-			</p>
-		</li>
-	</ul>
+			></InputNumber>
+		</div>
+	:::
+
+	### 添加后缀
+
+	`InputNumber` 数值改变时，后缀会添加到数值后。`value2`: {{value3}}
+
+	:::html
+		<InputNumber
+			v-model="value3"
+			suffix="px"
+			appendsuffix
+		></InputNumber>
+	:::
+
+	## 步长
+
+	`InputNumber` 中的按钮被点击时，数值增减的步长。
+
+	:::html
+		<InputNumber
+			v-model="value2"
+			:step="10"
+		></InputNumber>
+	:::
+
 </template>
 
 <script>
 	export default {
 		data () {
 			return {
-				inputText: 'hello ~',
-				inputTextOptions: ['Alice', 'Bob', 'Eve'],
-				inputNumber: 2,
-				inputSelect: 2,
-				inputSelectOptions: [
-					{
-						key: '二手',
-						value: 1
-					},
-					{
-						key: '家政',
-						value: 2
-					},
-					{
-						key: '维修',
-						value: 3
-					}
-				],
-				inputCheckbox: false,
-				inputRadio: 'B',
-				inputRadioGroup: 'GroupItem1',
-				inputCheckboxGroup: []
+				value1: 0,
+				value2: 100,
+				value3: 100
 			}
 		}
 	}
 </script>
 
-<style lang="postcss">
-	.input-list {
-		& .o-Input:not(label) {
-			width: 200px;
-		}
+<style scoped>
+	.o-Input {
+		max-width: 200px;
+	}
+
+	.o-Input:not(:last-of-type) {
+		margin-bottom: 1rem;
 	}
 </style>
+

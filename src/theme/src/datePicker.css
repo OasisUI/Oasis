@@ -1,9 +1,16 @@
 @import '../common/_var.css';
 
+@component InputDatePicker {
+	text-align: center;
+
+	& .o-DatePicker {
+		display: inline-block;
+	}
+}
+
 @component DatePicker {
 	width: calc(var(--DatePicker-dayWidth) * 8);
 	padding: calc(var(--DatePicker-dayWidth) / 2);
-	background: rgba(0,0,0,0.1);
 	cursor: pointer;
 
 	& * {

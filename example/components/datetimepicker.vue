@@ -1,25 +1,21 @@
-<template>
-	<ul class="doc">
-		<li>
-			<h1>DatePicker</h1>
-		</li>
-		<li>
-			<Input
-				v-model="date"
-			/>
-			<DatePicker
-				v-model="date"
-			></DatePicker>
-		</li>
-		<li>
-			<Input
-				v-model="time"
-			/>
-			<TimePicker
-				v-model="time"
-			></TimePicker>
-		</li>
-	</ul>
+<template lang="docs">
+	# 日期与时间选择
+
+	## 日期选择
+
+	:::html
+		<InputDate
+			v-model="date"
+		></InputDate>
+	:::
+
+	## 时间选择
+
+	:::html
+		<InputTime
+			v-model="time"
+		></InputTime>
+	:::
 </template>
 
 <script>

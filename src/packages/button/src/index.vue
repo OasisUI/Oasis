@@ -41,9 +41,6 @@
 		data () {
 			return {}
 		},
-		mounted () {
-			console.log(this.group.type)
-		},
 		computed: {
 			group () {
 				return this.$parent

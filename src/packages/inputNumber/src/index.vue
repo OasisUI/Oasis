@@ -20,6 +20,8 @@
 				type="text"
 				v-model="currentVal"
 				@change="onChange"
+				@focus="onFocus"
+				@blur="onBlur"
 				:disabled="disabled"
 				:readonly="readonly"
 			/>
@@ -54,8 +56,8 @@
 			default: 'md'
 		},
 		step: {
-			type: Number,
-			default: 1
+			default: 1,
+			type: Number
 		},
 		suffix: {
 			type: String,
@@ -66,7 +68,6 @@
 		disabled: Boolean,
 		readonly: Boolean,
 		appendsuffix: Boolean,
-
 	}
 
 	export default {
@@ -74,18 +75,28 @@
 		props,
 		data () {
 			return {
-				currentVal: parseFloat('0' + this.value)
+				currentVal: void(0)
 			}
 		},
 		watch: {
-			value (val) {
-				this.currentVal = parseFloat(val)
+			value: {
+				handler (val) {
+					this.currentVal = parseFloat(val)
+					this.updateVal()
+				},
+				immediate: true
 			},
 		},
 		methods: {
 			onChange (e) {
-				this.currentVal = parseFloat('0' + e.target.value)
+				this.currentVal = parseFloat(0 + e.target.value)
 				this.updateVal()
+			},
+			onFocus (e) {
+				this.$emit('focus', e)
+			},
+			onBlur (e) {
+				this.$emit('blur', e)
 			},
 			add () {
 				this.currentVal += this.step

@@ -1,4 +1,4 @@
-import Checkbox from './src/checkbox'
+import Checkbox from './src/index'
 import CheckboxGroup from './src/checkboxGroup'
 
 export default {

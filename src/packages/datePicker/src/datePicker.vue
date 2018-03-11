@@ -1,6 +1,6 @@
 <template>
 	<div class="o-DatePicker">
-		<p>{{`${dateWrapper(date).year}/${dateWrapper(date).month}/${dateWrapper(date).day}`}}</p>
+		<!--<p>{{`${dateWrapper(date).year}/${dateWrapper(date).month}/${dateWrapper(date).day}`}}</p>-->
 		<div class="o-DatePicker__actions">
 			<button
 				class="o-DatePicker__prevBtn"
@@ -84,7 +84,10 @@
 			this.currentPage = new D(currentPage.year, currentPage.month).time
 		},
 		methods: {
-			dateWrapper: dateWrapper
+			dateWrapper: dateWrapper,
+			setTime () {
+				this.$emit('input', this.currentPage)
+			}
 		},
 		computed: {
 			date: {
@@ -96,6 +99,13 @@
 				}
 			}
 		},
+		// watch: {
+		// 	currentPage: {
+		// 		handler (val) {
+		// 			this.setTime()
+		// 		}
+		// 	}
+		// },
 		components: {
 			[YearPicker.name]: YearPicker,
 			[MonthPicker.name]: MonthPicker,

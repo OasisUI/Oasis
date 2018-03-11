@@ -6,7 +6,10 @@
 	最常用的使用方式。
 
 	:::html
-		<Input v-model="inputText"/>
+		<Input
+			placeholder="placeholder"
+			v-model="inputText"
+		/>
 	:::
 
 	## 插件
@@ -96,33 +99,13 @@
 		data () {
 			return {
 				inputText: '',
-				inputTextOptions: ['Alice', 'Bob', 'Eve'],
-				inputNumber: 2,
-				inputSelect: 2,
-				inputSelectOptions: [
-					{
-						key: '二手',
-						value: 1
-					},
-					{
-						key: '家政',
-						value: 2
-					},
-					{
-						key: '维修',
-						value: 3
-					}
-				],
-				inputCheckbox: false,
-				inputRadio: 'B',
-				inputRadioGroup: 'GroupItem1',
-				inputCheckboxGroup: []
+				inputTextOptions: ['Alice', 'Bob', 'Eve']
 			}
 		}
 	}
 </script>
 
-<style>
+<style scoped>
 	.o-Input {
 		max-width: 300px;
 	}

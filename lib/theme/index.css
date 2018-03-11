@@ -104,9 +104,9 @@
 	font-size: 0;
 	line-height: 0;
 	height: 0 !important;
-	-webkit-transform: translateY(-12.5px);
-	    -ms-transform: translateY(-12.5px);
-	        transform: translateY(-12.5px);
+	-webkit-transform: translateY(-8.5px);
+	    -ms-transform: translateY(-8.5px);
+	        transform: translateY(-8.5px);
 }
 
 .o-Modal-enter-active, .o-Modal-leave-active {
@@ -1020,7 +1020,7 @@
 	pointer-events: none;
 	position: relative;
 	margin-top: 8px;
-	height: 50px;
+	height: 34px;
 	text-align: center;
 }
 .o-Message__text {
@@ -1029,8 +1029,8 @@
 		display: inline-block;
 		height: 100%;
 		min-width: 360px;
-		padding: 0 25px;
-		line-height: 50px;
+		padding: 0 17px;
+		line-height: 34px;
 		white-space: nowrap;
 		border-radius: 4px;
 }
@@ -1039,28 +1039,32 @@
 		/* color: white; */
 		/* background: var(--color-info); */
 		background: #E7F3FF;
-		border: 1px solid #C1DEFD;
+		/*border: var(--Message-info-border);*/
+		/*box-shadow: var(--shadow-message);*/
 }
 .o-Message--danger {
 		color: #F06868;
 		/* color: white; */
 		/* background: var(--color-danger); */
 		background: #F8D7DA;
-		border: 1px solid #F5C6CB;
+		/*border: var(--Message-danger-border);*/
+		/*box-shadow: var(--shadow-message);*/
 }
 .o-Message--success {
 		color: #155724;
 		/* color: white; */
 		/* background: var(--color-primary); */
 		background: #D4EDDA;
-		border: 1px solid #ADCEB4;
+		/*border: var(--Message-success-border);*/
+		/*box-shadow: var(--shadow-message);*/
 }
 .o-Message--warning {
 		color: #F08200;
 		/* color: white; */
 		/* background: var(--color-warning); */
 		background: #FFF4D6;
-		border: 1px solid #FFCE8F;
+		/*border: var(--Message-warning-border);*/
+		/*box-shadow: var(--shadow-message);*/
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
@@ -1153,6 +1157,12 @@
 }
 :root {/* theme *//* font *//* components *//*loading*//*button*//*input*//*message*//*transition*//*modal*//*datePicker*//* timePicker *//*progress*//*Popup*//*scrollBox*//*shadow*//*z-index*/
 }
+.o-InputDatePicker {
+	text-align: center;
+}
+.o-InputDatePicker .o-DatePicker {
+	display: inline-block;
+}
 .o-DatePicker .o-YearPicker__year:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-MonthPicker__month:hover:not(.is-disabled):not(.is-selected) span, .o-DatePicker .o-DayPicker__day:hover:not(.is-disabled):not(.is-selected) span {
 	color: #64DC9C;
 	background: #F1F1F1;
@@ -1160,7 +1170,6 @@
 .o-DatePicker {
 	width: 320px;
 	padding: 20px;
-	background: rgba(0, 0, 0, .1);
 	cursor: pointer;
 }
 .o-DatePicker * {

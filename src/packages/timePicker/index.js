@@ -1,4 +1,4 @@
-import TimePicker from './src/timePicker'
+import TimePicker from './src'
 
 export default {
 	install (Vue) {

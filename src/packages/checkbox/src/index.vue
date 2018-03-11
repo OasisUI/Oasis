@@ -3,16 +3,14 @@
 		:class="{
 			'is-disabled': isDisabled
 		}"
-		class="o-Input o-InputRadio"
-	>
+		class="o-Input o-InputCheckbox">
 		<input
 			v-model="currentVal"
-			:value="label"
+				:value="label"
 			:disabled="isDisabled"
-			:name="name"
-			type="radio"
+			type="checkbox"
 		/>
-		<span class="o-InputRadio__inner"></span>
+		<span class="o-InputCheckbox__inner"></span>
 		<slot></slot>
 	</label>
 </template>
@@ -21,36 +19,32 @@
 	const props = {
 		value: {},
 		label: {},
-		name: String,
 		readonly: Boolean,
 		disabled: Boolean
 	}
 	export default {
-		name: 'InputRadio',
+		name: 'Checkbox',
 		props,
 		computed: {
 			currentVal: {
-				set () {
-					(this.useGroup ? this.group : this).$emit('input', this.label)
+				set (val) {
+					(this.useGroup ? this.group : this).$emit('input', val)
 				},
 				get () {
-					return this.useGroup ? this.groupVal : this.value
+					return this.useGroup ? this.group.value : this.value
 				}
 			},
 			group () {
 				return this.$parent
 			},
 			useGroup () {
-				return this.group.$options.type === 'radioGroup'
-			},
-			groupVal () {
-				return this.group.value
+				return this.group.$options.type === 'checkboxGroup'
 			},
 			isDisabled () {
 				return this.useGroup ?
 					this.group.disabled || this.disabled
 					: this.disabled
-			}
+			},
 		}
 	}
 </script>

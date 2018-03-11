@@ -1,7 +1,7 @@
-import DatePicker from './src/datePicker'
+import InputDatePicker from './src'
 
 export default {
 	install (Vue) {
-		Vue.component(DatePicker.name, DatePicker)
+		Vue.component(InputDatePicker.name, InputDatePicker)
 	}
 }

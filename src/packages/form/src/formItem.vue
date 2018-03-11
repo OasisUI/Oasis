@@ -80,7 +80,10 @@
 		},
 		computed: {
 			layout () {
-				return this.formItemLayout || this.$parent.formItemLayout
+				return this.formItemLayout || this.$parent.formItemLayout || {
+					labelCol: 4,
+					wrapperCol: 20
+				} // default
 			}
 		}
 		// https://github.com/vuejs/vue/issues/3690

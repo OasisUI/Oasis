@@ -19,7 +19,7 @@
 				@click="cancel"
 				type="primary"
 				round
-				outline
+				ghost
 				size="lg"
 				class="o-ModalBox__cancelBtn"
 			>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-	import Modal from '../../modal/src/modal'
+	import Modal from '../../modal/src/index'
 	import Button from '../../button/src/index'
 
 	const props = {

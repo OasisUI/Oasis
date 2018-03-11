@@ -1,4 +1,4 @@
-import InputNumber from './src/number'
+import InputNumber from './src/index'
 
 export default {
 	install (Vue) {

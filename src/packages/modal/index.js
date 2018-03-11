@@ -1,4 +1,4 @@
-import Modal from './src/modal'
+import Modal from './src/index'
 
 export default {
 	install (Vue) {

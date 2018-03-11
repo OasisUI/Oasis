@@ -1,20 +1,21 @@
 <!--select 组件-->
 <template>
 	<div
-		class="o-Input o-InputSelect"
+		@click.stop="displayList"
 		:class="[
 			disabled ? 'is-disabled' : '',
 			readonly ? 'is-readonly' : '',
 			'o-Input--' + size
 		]"
+		class="o-Input o-InputSelect"
 	>
 		<input
 			class="o-Input__native"
 			v-model="currentVal"
-			@click.stop="displayList"
 			:disabled="disabled"
 			readonly="readonly"
-			type="text">
+			type="text"
+		/>
 		<span
 			v-if="options"
 			class="o-Input__openList"
@@ -39,7 +40,6 @@
 		value: {
 			required: true
 		},
-
 		options: {
 			type: Array
 		},
@@ -56,7 +56,7 @@
 	}
 
 	export default {
-		name: 'InputSelect',
+		name: 'Select',
 		props,
 		data () {
 			return {
@@ -85,15 +85,21 @@
 					this.showList = false
 				}
 			},
-			displayList () {
-				if (!this.disabled && !this.readonly) {
+			displayList (e) {
+				if (!this.disabled && !this.readonly && !this.$refs.list.contains(e.target)) {
 					this.showList = true
 				}
 			},
 			initVal () {
 				const v = this.currentOpts.find(item => item.value === this.value)
 				this.currentVal = v ? v.key : '未选择'
-			}
+			},
+			onFocus (e) {
+				this.$emit('focus', e)
+			},
+			onBlur (e) {
+				this.$emit('blur', e)
+			},
 		},
 		computed: {
 			currentOpts () {
