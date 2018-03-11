@@ -13,7 +13,7 @@
 					class="o-Btn o-Btn--primary o-Btn--lg o-Btn--round o-Btn--gradient"
 				>Get Start</router-link>
 				<a
-					href="#"
+					href="https://github.com/joe223/Oasis"
 					class="o-Btn o-Btn--primary o-Btn--lg o-Btn--round o-Btn--ghost"
 				>Github</a>
 			</div>

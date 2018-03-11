@@ -6,12 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = merge(base, {
 	entry: path.join(__dirname, '../example/index.js'),
 	output: {
-		path: path.join(__dirname, '../lib'),
+		path: path.join(__dirname, '../docs'),
 		filename: 'index.js',
-	},
-	externals: {
-		vue: 'vue',
-		lodash: 'lodash'
 	},
 	devtool: '#source-map',
 	resolve: {
@@ -19,5 +15,8 @@ module.exports = merge(base, {
 		extensions: ['.vue', '.js', '.json']
 	},
 	plugins: [
-	]
+		new HtmlWebpackPlugin({
+			template: path.join(__dirname, '../example/index.html')
+		})
+	],
 })

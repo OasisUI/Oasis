@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Oasis from '../src/packages/index'
-import Tab from './tab.vue'
 import { router } from './router'
 
 import '../lib/theme/index.css'
