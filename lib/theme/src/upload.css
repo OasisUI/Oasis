@@ -1,4 +1,4 @@
-.o-UploadFiles__progress {}.o-UploadFiles__info {}:root {
+:root {
 	/* theme */
 
 	/* font */
@@ -34,9 +34,36 @@
 
 .o-Upload {}
 
-.o-Upload__input {}
-
-.o-UploadFiles {list-style: none;padding: 0
+.o-Upload__input {
+		display: none;
 }
 
-.o-UploadFiles__item {}
+.o-UploadFiles {
+	list-style: none;
+	padding: 0;
+}
+
+.o-UploadFiles__item {
+		margin: 0.6rem 0 0 0;
+		border-radius: 3px;
+}
+
+.o-UploadFiles__item:hover {
+	background: #FDFDFD;
+}
+
+.o-UploadFiles__info {
+		overflow: hidden;
+		position: relative;
+		padding-right: 56px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 14px;
+		color: #666666;
+}
+
+.o-UploadFiles__progress {
+		position: absolute;
+		top: 0;
+		right: 0;
+}
