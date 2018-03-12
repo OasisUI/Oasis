@@ -14429,7 +14429,7 @@ exports.clearImmediate = clearImmediate;
 /***/ (function(module, exports, __webpack_require__) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
-  if (true) module.exports = factory(__webpack_require__(4));else if (typeof define === 'function' && define.amd) define("oasis-ui", ["vue"], factory);else if (typeof exports === 'object') exports["oasis-ui"] = factory(require("vue"));else root["oasis-ui"] = factory(root["Vue"]);
+  if (true) module.exports = factory(__webpack_require__(4));else if (typeof define === 'function' && define.amd) define("oasis-ui", ["vue"], factory);else if (typeof exports === 'object') exports["oasis-ui"] = factory(require("vue"));else root["Oasis"] = factory(root["Vue"]);
 })(typeof self !== 'undefined' ? self : this, function (__WEBPACK_EXTERNAL_MODULE_3__) {
   return (/******/function (modules) {
       // webpackBootstrap
