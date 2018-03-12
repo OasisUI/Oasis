@@ -5,7 +5,7 @@ module.exports = {
 		require('precss'),
 		// require('postcss-import'),
 		require('postcss-for'),
-		require('saladcss-bem')({
+		require('postcss-bem')({
 			defaultNamespace: 'o',
 			style: 'suit',
 			separators: {

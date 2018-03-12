@@ -8,19 +8,17 @@ const WebpackDevConfig = require('./build/webpack.dev')
 const WebpackDocConfig = require('./build/webpack.doc')
 const WebpackBuildConfig = require('./build/webpack.build')
 
-// console.log(WebpackDevConfig)
-
 gulp.task('build:module', () => {
 	const compiler = webpack(WebpackBuildConfig)
 	compiler.run((err, stats) => {
-		console.log(err)
+		err && console.log(err)
 	})
 })
 
 gulp.task('build:doc', () => {
 	const compiler = webpack(WebpackDocConfig)
 	compiler.run((err, stats) => {
-		console.log(err)
+		err && console.log(err)
 	})
 })
 
@@ -64,4 +62,4 @@ gulp.task('build:theme', function() {
 
 gulp.task('dev', ['dev:theme', 'dev:server'])
 
-gulp.task('default', ['dev:build', 'dev:server'])
+gulp.task('build', ['build:module', 'build:theme', 'build:doc'])

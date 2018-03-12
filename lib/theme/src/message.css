@@ -1,0 +1,42 @@
+.o-Message--warning {}.o-Message--success {}.o-Message--danger {}.o-Message--info {}:root {
+	/* theme */
+
+	/* font */
+
+	/* components */
+
+	/*loading*/
+
+	/*button*/
+
+	/*input*/
+
+	/*message*/
+
+	/*transition*/
+
+	/*modal*/
+
+	/*datePicker*/
+
+	/* timePicker */
+
+	/*progress*/
+
+	/*Popup*/
+
+	/*scrollBox*/
+
+	/*shadow*/
+
+	/*z-index*/
+}
+
+.o-MessageBox {z-index: 1060;position: fixed;top: 0;height: 0;width: 100%;overflow: visible
+}
+
+.o-Message {pointer-events: none;position: relative;margin-top: 8px;height: 34px;text-align: center
+}
+
+.o-Message__text {}
+

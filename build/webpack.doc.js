@@ -4,7 +4,7 @@ const base = require('./webpack.base')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(base, {
-	entry: path.join(__dirname, '../example/index.js'),
+	entry: path.join(__dirname, '../example/index.docs.js'),
 	output: {
 		path: path.join(__dirname, '../docs'),
 		filename: 'index.js',
@@ -16,7 +16,7 @@ module.exports = merge(base, {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.join(__dirname, '../example/index.html')
+			template: path.join(__dirname, '../example/index.docs.html')
 		})
 	],
 })

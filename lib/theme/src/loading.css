@@ -9,33 +9,63 @@
 
 	/*button*/
 
+	/*input*/
+
+	/*message*/
 
 	/*transition*/
+
+	/*modal*/
+
+	/*datePicker*/
+
+	/* timePicker */
+
+	/*progress*/
+
+	/*Popup*/
+
+	/*scrollBox*/
+
+	/*shadow*/
+
+	/*z-index*/
 }
 
 .o-Loading {
+
 	position: absolute;
+
 	top: 0;
+
 	left: 0;
+
 	width: 100%;
+
 	height: 100%;
+
 	background: rgba(222, 222, 222, .78);
 }
 
 .o-Loading .path {
-	// stroke-dasharray: 100, 40;
-	// stroke-dashoffset: 0;
+
 	stroke-dasharray: 100, 140;
+
 	stroke-dashoffset: 0;
+
 	stroke-width: 4;
+
 	stroke: #34B697;
+
 	-webkit-transform-origin: 50% 50%;
+
+	    -ms-transform-origin: 50% 50%;
+
 	        transform-origin: 50% 50%;
-	-webkit-animation: loading-spin infinite 2s 0s linear;
-	        animation: loading-spin infinite 2s 0s linear;
+
+	-webkit-animation: loading-spin 2s linear infinite;
+
+	        animation: loading-spin 2s linear infinite;
 }
 
-.o-Loading__spin {
-		width: 42px;
-		height: 42px;
-}
+.o-Loading__spin {}

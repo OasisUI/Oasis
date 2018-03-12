@@ -1,4 +1,4 @@
-:root {
+.o-UploadFiles__progress {}.o-UploadFiles__info {}:root {
 	/* theme */
 
 	/* font */
@@ -31,3 +31,12 @@
 
 	/*z-index*/
 }
+
+.o-Upload {}
+
+.o-Upload__input {}
+
+.o-UploadFiles {list-style: none;padding: 0
+}
+
+.o-UploadFiles__item {}

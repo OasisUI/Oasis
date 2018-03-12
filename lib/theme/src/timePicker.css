@@ -1,0 +1,65 @@
+.o-TimePicker__spinnerItem {}.o-TimePicker__spinnerList {}:root {
+	/* theme */
+
+	/* font */
+
+	/* components */
+
+	/*loading*/
+
+	/*button*/
+
+	/*input*/
+
+	/*message*/
+
+	/*transition*/
+
+	/*modal*/
+
+	/*datePicker*/
+
+	/* timePicker */
+
+	/*progress*/
+
+	/*Popup*/
+
+	/*scrollBox*/
+
+	/*shadow*/
+
+	/*z-index*/
+}
+
+.o-InputTime {text-align: center;
+}
+
+.o-InputTime .o-TimePicker {display: inline-block;
+}
+
+.o-TimePicker {width: 240px;height: 238px;text-align: center;overflow: hidden;font-size: 0;color: #999999;
+}
+
+.o-TimePicker:after {width: 0;height: 100%;display: inline-block;vertical-align: middle;content: '';
+}
+
+.o-TimePicker .is-selected {color: #34B697;font-weight: 700;
+}
+
+.o-TimePicker__currentValue {}
+
+
+.o-TimeSpinner {height: 100%;width: 80px;list-style: none;margin: 0;padding: 0;overflow-y: hidden;overflow-x: hidden;
+}
+
+
+.o-TimeSpinner:hover {overflow-y: auto;
+}
+
+
+.o-TimeSpinner:before, .o-TimeSpinner:after {display: block;content: '';height: 102px;
+}
+
+
+.o-TimeSpinner__Item {}

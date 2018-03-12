@@ -1,7 +1,6 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const base = require('./webpack.base')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(base, {
 	entry: path.join(__dirname, '../src/packages/index.js'),
@@ -10,8 +9,7 @@ module.exports = merge(base, {
 		filename: 'index.js',
 	},
 	externals: {
-		vue: 'vue',
-		lodash: 'lodash'
+		vue: 'vue'
 	},
 	devtool: '#source-map',
 	resolve: {

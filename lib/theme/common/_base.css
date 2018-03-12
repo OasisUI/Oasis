@@ -1,3 +1,37 @@
+:root {
+	/* theme */
+
+	/* font */
+
+	/* components */
+
+	/*loading*/
+
+	/*button*/
+
+	/*input*/
+
+	/*message*/
+
+	/*transition*/
+
+	/*modal*/
+
+	/*datePicker*/
+
+	/* timePicker */
+
+	/*progress*/
+
+	/*Popup*/
+
+	/*scrollBox*/
+
+	/*shadow*/
+
+	/*z-index*/
+}
+
 /*default*/
 * {
 	-webkit-box-sizing: border-box;
@@ -17,14 +51,52 @@
 
 /*reset style*/
 body {
-	font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+	color: #333333;
+	font-size: 14px;
+	font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	/*https://davidwalsh.name/font-smoothing*/
 }
-/*button*/
+
 button {
 	outline: none;
 	border: none;
 	margin: 0;
 	white-space: nowrap;
+	background: inherit;
+	cursor: pointer;
+}
+
+input {
+	border: none;
+	outline: none;
+	color: inherit;
+	font-size: 100%;
+	font-family: sans-serif;
+}
+
+.iconfont {
+	font-size: inherit;
+}
+
+.clearfix {
+}
+
+.clearfix:before, .clearfix:after {
+		display: table;
+		content: " ";
+		clear: both;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.block {
+	display: block;
 }

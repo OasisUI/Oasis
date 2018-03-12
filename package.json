@@ -1,5 +1,5 @@
 {
-  "name": "Oasis",
+  "name": "oasis-ui",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -9,20 +9,22 @@
     "build:module": "gulp build:module",
     "build:doc": "gulp build:doc",
     "build:theme": "gulp build:theme",
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joe223/nana.git"
+    "url": "git+https://github.com/joe223/oasis.git"
   },
   "author": "joe223",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joe223/nana/issues"
+    "url": "https://github.com/joe223/oasis/issues"
   },
-  "homepage": "https://github.com/joe223/nana#readme",
+  "homepage": "https://github.com/joe223/oasis#readme",
   "devDependencies": {
     "autoprefixer": "^7.2.5",
+    "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^7.1.2",
@@ -39,7 +41,6 @@
     "gulp-util": "^3.0.8",
     "gulp-watch": "^5.0.0",
     "html-webpack-plugin": "^2.30.1",
-    "lerna": "^2.9.0",
     "postcss": "^6.0.16",
     "postcss-bem": "^0.4.1",
     "postcss-bem-linter": "^3.1.0",
@@ -57,7 +58,6 @@
     "precss": "^1.4.0",
     "saladcss-bem": "0.0.2",
     "style-loader": "^0.19.1",
-    "sugarss": "^1.0.1",
     "url-loader": "^0.6.2",
     "vue-loader": "^13.7.0",
     "vue-router": "^3.0.1",
@@ -68,7 +68,6 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "vue": "^2.5.13"
   }
 }

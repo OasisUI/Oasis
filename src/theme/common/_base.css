@@ -1,3 +1,5 @@
+@import './_var.css';
+
 /*default*/
 * {
 	box-sizing: border-box;

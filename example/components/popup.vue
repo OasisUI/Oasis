@@ -34,9 +34,5 @@
 </template>
 
 <script>
-	export default {
-		mounted () {
-			console.log(this)
-		},
-	}
+	export default {}
 </script>
