@@ -1,6 +1,7 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const base = require('./webpack.base')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(base, {
@@ -17,6 +18,11 @@ module.exports = merge(base, {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: path.join(__dirname, '../example/index.docs.html')
+		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: '"production"'
+			}
 		})
 	],
 })
