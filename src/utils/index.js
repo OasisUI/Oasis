@@ -194,3 +194,7 @@ export default class ElDraggable {
 		this.margin = this.getMargin(this.conf.el)
 	}
 }
+
+export function number (val) {
+	return parseFloat('0' + val)
+}

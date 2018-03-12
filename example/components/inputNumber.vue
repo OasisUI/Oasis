@@ -55,7 +55,7 @@
 
 	:::html
 		<InputNumber
-			v-model="value2"
+			v-model="value3"
 			:step="10"
 		></InputNumber>
 	:::

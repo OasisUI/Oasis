@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --open --config ./build/webpack.dev.js",
     "dev": "gulp dev",
-	"build:module": "gulp build:module",
-	"build:doc": "gulp build:doc",
+    "build:module": "gulp build:module",
+    "build:doc": "gulp build:doc",
     "build:theme": "gulp build:theme",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

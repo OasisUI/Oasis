@@ -18,7 +18,7 @@
 			<input
 				class="o-Input__native"
 				type="text"
-				v-model="currentVal"
+				:value="currentVal"
 				@change="onChange"
 				@focus="onFocus"
 				@blur="onBlur"
@@ -31,14 +31,14 @@
 			>
 				<span
 					@click="add"
-					:class="{'is-disabled': !isNaN(max) && currentVal >= max}"
+					:class="{'is-disabled': disableAdd}"
 					class="o-InputNumber__add"
 				>
 					<i class="iconfont icon-arrow-up"></i>
 				</span>
 				<span
 					@click="sub"
-					:class="{'is-disabled': !isNaN(min) && currentVal <= min}"
+					:class="{'is-disabled': disableSub}"
 					class="o-InputNumber__sub"
 				>
 					<i class="iconfont icon-arrow-down"></i>
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+	import { number } from 'utils'
+
 	const props = {
 		value: {},
 		size: {
@@ -73,24 +75,38 @@
 	export default {
 		name: 'InputNumber',
 		props,
-		data () {
-			return {
-				currentVal: void(0)
+		computed: {
+			currentVal: {
+				get () {
+					return isNaN(parseFloat(this.value)) ? this.value : number(this.value)
+				},
+				set (val) {
+					this.updateVal(val)
+				}
+			},
+			disableAdd () {
+				const { max, currentVal } = this
+				return !isNaN(max) && currentVal >= max
+			},
+			disableSub () {
+				const { min, currentVal } = this
+				return !isNaN(min) && currentVal <= min
 			}
 		},
 		watch: {
 			value: {
 				handler (val) {
-					this.currentVal = parseFloat(val)
-					this.updateVal()
+					const newVal = this.formatVal(this.checkVal(number(val)))
+					if (newVal !== val) {
+						this.$emit('input', newVal)
+					}
 				},
 				immediate: true
-			},
+			}
 		},
 		methods: {
 			onChange (e) {
-				this.currentVal = parseFloat(0 + e.target.value)
-				this.updateVal()
+				this.currentVal = number(e.target.value)
 			},
 			onFocus (e) {
 				this.$emit('focus', e)
@@ -99,26 +115,29 @@
 				this.$emit('blur', e)
 			},
 			add () {
+				if (this.disableAdd) return
 				this.currentVal += this.step
-				this.updateVal()
 			},
 			sub () {
+				if (this.disableSub) return
 				this.currentVal -= this.step
-				this.updateVal()
 			},
-			updateVal () {
-				this.checkVal()
-				const { suffix, currentVal, appendsuffix } = this
-				this.$emit('input', suffix && appendsuffix ? currentVal + suffix : currentVal)
+			updateVal (val) {
+				this.$emit('input', this.formatVal(this.checkVal(val)))
 			},
-			checkVal () {
-				const { max, min, currentVal } = this
-				if (!isNaN(max) && currentVal > max) {
-					this.currentVal = max
+			formatVal (val) {
+				const { suffix, appendsuffix } = this
+				return suffix && appendsuffix ? val + suffix : val
+			},
+			checkVal (val) {
+				const { max, min } = this
+				if (!isNaN(max) && val > max) {
+					val = max
 				}
-				if (!isNaN(min) && currentVal < min) {
-					this.currentVal = min
+				if (!isNaN(min) && val < min) {
+					val = min
 				}
+				return val
 			}
 		}
 	}
