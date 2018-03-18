@@ -4,13 +4,17 @@
 	z-index: var(--zIndex-popover);
 	position: absolute;
 	top: 0;
-	margin-top: calc(var(--Popup-arrow-height) + 2px);
-	min-width: 100px;
-	min-height: 100px;
-	background: white;
-	box-shadow: var(--shadow-popup);
-	border-radius: var(--Popup-borderRadius);
-	padding: 10px;
+	
+	@d inner {
+		position: relative;
+		margin-top: calc(var(--Popup-arrow-height) + 2px);
+		min-width: 100px;
+		padding: 10px;
+		background: white;
+		box-shadow: var(--shadow-popup);
+		border-radius: var(--Popup-borderRadius);
+	}
+
 	@d title {
 		display: block;
 		width: 100%;

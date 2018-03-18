@@ -34,11 +34,13 @@
 
 .o-Popup-enter-active,
 .o-Popup-leave-active {
-	transition: opacity ease-in-out 0.18s;
+	transition: all cubic-bezier(0.38, 0.63, 0.71, 1.29) 0.18s;
+	transform-origin: 50% -10px;
 }
 
 .o-Popup-enter,
 .o-Popup-leave-to {
+	transform: scale(0) !important;
 	opacity: 0;
 }
 
