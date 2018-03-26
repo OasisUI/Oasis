@@ -1,2 +1,7 @@
-<img src="https://user-images.githubusercontent.com/10026019/37255276-ee8026d6-2584-11e8-9a7d-68f94acdf1e7.png" style="width: 200px;"/>
+<p>
+  <img src="https://cdn.rawgit.com/joe223/Oasis/dev/icon/icon.svg?sanitize=true" width="200"/>
+</p>
 
+# Oasis
+
+An elegant UI framework for building prototype.

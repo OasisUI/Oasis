@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joe223/oasis.git"
+    "url": "git+https://github.com/oasisui/oasis.git"
   },
-  "author": "joe223",
+  "author": "oasisui",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joe223/oasis/issues"
+    "url": "https://github.com/oasisui/oasis/issues"
   },
-  "homepage": "https://github.com/joe223/oasis#readme",
+  "homepage": "http://www.oasisui.org/",
   "devDependencies": {
     "autoprefixer": "^7.2.5",
     "axios": "^0.18.0",

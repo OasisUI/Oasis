@@ -46,29 +46,32 @@
 					<div>{this.content}</div>
 				)
 			return (
-				<transition name="o-Popup">
 					<div
-						v-show={this.show}
 						class="o-Popup"
-						style={this.style}
+						style={this.style}	
 					>
-						<span class="o-Popup__title">
-							{this.title}
-						</span>
-						<section class="o-Popup__content">
-							{content}
-						</section>
-						<span class="o-Popup__arrow"></span>
-					</div>
-				</transition>
+						<transition name="o-Popup">
+							<div
+								v-show={this.show}
+								class="o-Popup__inner"
+							>
+								<span class="o-Popup__title">
+									{this.title}
+								</span>
+								<section class="o-Popup__content">
+									{content}
+								</section>
+								<span class="o-Popup__arrow"></span>
+							</div>
+						</transition>		
+				</div>
 			)
-
 		},
 		methods: {
 			togglePopup () {
 				this.show = !this.show
 				const fuse = this.$refs.fuse
-				if (!this.show && this.$isServer) return
+				if (!this.show || this.$isServer) return
 				this.$nextTick(() => {
 					const p = elOffset(fuse)
 					const fuseSize = fuse.getBoundingClientRect()
