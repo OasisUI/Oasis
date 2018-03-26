@@ -17953,7 +17953,10 @@ exports.clearImmediate = clearImmediate;
 
           const slot = this.$slots.default;
           const content = slot ? slot : h('div', null, [this.content]);
-          return h('transition', {
+          return h('div', {
+            'class': 'o-Popup',
+            style: this.style
+          }, [h('transition', {
             attrs: { name: 'o-Popup' }
           }, [h('div', {
             directives: [{
@@ -17961,15 +17964,14 @@ exports.clearImmediate = clearImmediate;
               value: this.show
             }],
 
-            'class': 'o-Popup',
-            style: this.style
-          }, [h('span', { 'class': 'o-Popup__title' }, [this.title]), h('section', { 'class': 'o-Popup__content' }, [content]), h('span', { 'class': 'o-Popup__arrow' })])]);
+            'class': 'o-Popup__inner'
+          }, [h('span', { 'class': 'o-Popup__title' }, [this.title]), h('section', { 'class': 'o-Popup__content' }, [content]), h('span', { 'class': 'o-Popup__arrow' })])])]);
         },
         methods: {
           togglePopup() {
             this.show = !this.show;
             const fuse = this.$refs.fuse;
-            if (!this.show && this.$isServer) return;
+            if (!this.show || this.$isServer) return;
             this.$nextTick(() => {
               const p = Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* elOffset */])(fuse);
               const fuseSize = fuse.getBoundingClientRect();
