@@ -36,14 +36,17 @@
 	z-index: 1060;
 	position: absolute;
 	top: 0;
-	margin-top: 10px;
-	min-width: 100px;
-	min-height: 100px;
-	background: white;
-	-webkit-box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, .24);
-	        box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, .24);
-	border-radius: 3px;
-	padding: 10px;
+}
+
+.o-Popup__inner {
+		position: relative;
+		margin-top: 10px;
+		min-width: 100px;
+		padding: 10px;
+		background: white;
+		-webkit-box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, .24);
+		        box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, .24);
+		border-radius: 3px;
 }
 
 .o-Popup__title {
