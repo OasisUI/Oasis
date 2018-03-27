@@ -7,13 +7,18 @@
 			_round ? 'o-Btn--round' : '',
 			_ghost ? 'o-Btn--ghost' : '',
 			_disabled ? 'is-disabled' : '',
-			_gradient ? 'o-Btn--gradient' : ''
+			_gradient ? 'o-Btn--gradient' : '',
+			_loading ? 'is-loading' : '',
 		]"
 		class="o-Btn"
 		type="button"
 	>
-		<span v-if="_loading" class="o-Btn__loading"></span>
-		<slot></slot>
+		<div
+			class="o-Btn__wrapper"
+		>
+			<span v-if="_loading" class="o-Btn__loading"></span>
+			<slot></slot>
+		</div>
 	</button>
 </template>
 

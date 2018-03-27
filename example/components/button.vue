@@ -109,7 +109,6 @@
 			onClick (e) {
 				this.disabled = !this.disabled
 				this.loading = !this.loading
-				alert('click!')
 			}
 		}
 	}

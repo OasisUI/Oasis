@@ -2,12 +2,16 @@
 @import '../common/_animation.css';
 
 @component Btn {
-	display: inline-block;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
 	border-radius: 4px;
 	font-size: var(--fontSize-default);
 	transition: var(--transition-btn-default);
 	text-decoration: none;
 	box-shadow: 0 0 0 0 transparent;
+	overflow: hidden;
+	text-overflow: ellipse;
 
 	&:not(.disabled) {
 		cursor: pointer;
@@ -96,8 +100,16 @@
 	@m sm {
 		height: var(--Button-sm-height);
 		line-height: var(--Button-sm-height);
-		padding: 0 var(--Button-sm-padding);
 		font-size: var(--fontSize-14);
+		& .o-Btn__wrapper {
+			padding: 0 var(--Button-sm-padding);
+		}
+		& .o-Btn__loading {
+			left: calc(var(--Button-sm-padding) - 9px);
+		}
+		&.is-loading .o-Btn__wrapper {
+			padding: 0 calc(var(--Button-sm-padding) - 9px) 0 calc(var(--Button-sm-padding) + 9px);
+		}
 		&.o-Btn--round {
 			border-radius: calc(var(--Button-sm-height) / 2);
 		}
@@ -105,8 +117,16 @@
 	@m md {
 		height: var(--Button-md-height);
 		line-height: var(--Button-md-height);
-		padding: 0 var(--Button-md-padding);
 		font-size: var(--fontSize-16);
+		& .o-Btn__wrapper {
+			padding: 0 var(--Button-md-padding);
+		}
+		& .o-Btn__loading {
+			left: calc(var(--Button-md-padding) - 9px);
+		}
+		&.is-loading .o-Btn__wrapper {
+			padding: 0 calc(var(--Button-md-padding) - 9px) 0 calc(var(--Button-md-padding) + 9px);
+		}
 		&.o-Btn--round {
 			border-radius: calc(var(--Button-md-height) / 2);
 		}
@@ -114,12 +134,21 @@
 	@m lg {
 		height: var(--Button-lg-height);
 		line-height: var(--Button-lg-height);
-		padding: 0 var(--Button-lg-padding);
 		font-size: var(--fontSize-16);
+		& .o-Btn__wrapper {
+			padding: 0 var(--Button-lg-padding);
+		}
+		& .o-Btn__loading {
+			left: calc(var(--Button-lg-padding) - 9px);
+		}
+		&.is-loading .o-Btn__wrapper {
+			padding: 0 calc(var(--Button-lg-padding) - 9px) 0 calc(var(--Button-lg-padding) + 9px);
+		}
 		&.o-Btn--round {
 			border-radius: calc(var(--Button-lg-height) / 2);
 		}
 	}
+
 	@m gradient {
 		&.o-Btn--primary {
 			background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light) 90%);
@@ -144,6 +173,9 @@
 
 	/*loading*/
 	@d loading {
+		position: absolute;
+		top: 50%;
+		margin-top: calc(var(--fontSize-12) / -2);
 		display: inline-block;
 		width: var(--fontSize-12);
 		height: var(--fontSize-12);
@@ -160,6 +192,13 @@
 			border-bottom-color: transparent !important;
 			animation: loading-rotate infinite 1.4s 0s linear;
 		}
+	}
+
+	@d wrapper {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		transition: all ease-in-out 220ms;
 	}
 }
 

@@ -88,7 +88,7 @@
 	/*transition*/
 	--transition-default: all ease-in-out 140ms;
 	--transition-slide: all ease-in-out 240ms;
-	--transition-btn-default: var(--transition-default);
+	--transition-btn-default: color ease-in-out 80ms, background-color ease-in-out 160ms, box-shadow ease-in-out 100ms;
 	--transition-checkbox: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
 
 	/*modal*/

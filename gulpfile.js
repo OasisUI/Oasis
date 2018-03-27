@@ -62,6 +62,4 @@ gulp.task('build:theme', function() {
 
 gulp.task('dev', ['dev:theme', 'dev:server'])
 
-gulp.task('build', ['build:module', 'build:theme'])
-
-gulp.task('doc', ['build:doc'])
+gulp.task('build', ['build:module', 'build:theme', 'build:doc'])
