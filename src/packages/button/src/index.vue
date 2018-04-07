@@ -16,7 +16,9 @@
 		<div
 			class="o-Btn__wrapper"
 		>
-			<span v-if="_loading" class="o-Btn__loading"></span>
+			<transition name="o-Btn__loading">
+				<span v-if="_loading" class="o-Btn__loading"></span>
+			</transition>
 			<slot></slot>
 		</div>
 	</button>

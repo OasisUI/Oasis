@@ -5,8 +5,9 @@ module.exports = {
 				require("stylelint")({})
 			]
 		}),
+		require('precss'),
 		require('postcss-for'),
-		require('postcss-bem')({
+		require('saladcss-bem')({
 			defaultNamespace: 'o',
 			style: 'suit',
 			separators: {

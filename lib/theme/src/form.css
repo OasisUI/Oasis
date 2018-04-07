@@ -1,0 +1,42 @@
+.o-FormItem__wrapper {}:root {
+
+	/* theme */
+
+	/* font */
+
+	/* components */
+
+	/*loading*/
+
+	/*button*/
+
+	/*input*/
+
+	/*message*/
+
+	/*transition*/
+
+	/*modal*/
+
+	/*datePicker*/
+
+	/* timePicker */
+
+	/*progress*/
+
+	/*Popup*/
+
+	/*scrollBox*/
+
+	/*shadow*/
+
+	/*z-index*/
+}
+
+.o-FormItem {position: relative;display: block;margin-bottom: 20px;
+}
+
+.o-FormItem.is-required .o-FormItem__label label:before {display: inline;
+}
+
+.o-FormItem__label {}

@@ -11,10 +11,10 @@
 	text-decoration: none;
 	box-shadow: 0 0 0 0 transparent;
 	overflow: hidden;
-	text-overflow: ellipse;
+	text-overflow: ellipsis;
 
 	&:not(.disabled) {
-		cursor: pointer ;
+		cursor: pointer;
 	}
 
 	/*type*/
@@ -38,7 +38,7 @@
 		}
 
 		&:active:not(.is-disabled) {
-			box-shadow: 0 0 0 3px color(var(--color-primary-dark) alpha(40%));
+			box-shadow: 0 0 0 2px color(var(--color-primary-dark) alpha(30%));
 		}
 	}
 	@m danger {
@@ -61,7 +61,7 @@
 		}
 
 		&:active:not(.is-disabled) {
-			box-shadow: 0 0 0 3px color(var(--color-danger-dark) alpha(40%));
+			box-shadow: 0 0 0 2px color(var(--color-danger-dark) alpha(30%));
 		}
 	}
 
@@ -85,7 +85,7 @@
 		}
 
 		&:active:not(.is-disabled) {
-			box-shadow: 0 0 0 3px color(var(--color-warning-dark) alpha(40%));
+			box-shadow: 0 0 0 2px color(var(--color-warning-dark) alpha(30%));
 		}
 	}
 	@m default {
@@ -111,7 +111,7 @@
 		}
 
 		&:active:not(.is-disabled) {
-			box-shadow: 0 0 0 3px color(var(--color-black-4) alpha(40%));
+			box-shadow: 0 0 0 2px color(var(--color-black-4) alpha(40%));
 		}
 	}
 

@@ -42,6 +42,7 @@
 		color: #34B697;
 		text-align: center;
 		background: no-repeat url("../icon/bg.svg") center 100%/ 100% auto;
+
 		&:after {
 			display: inline-block;
 			vertical-align: middle;
@@ -49,19 +50,20 @@
 			height: 100%;
 			width: 0;
 		}
-		 .content {
-			 display: inline-block;
-			 vertical-align: middle;
-			 width: 500px;
+		.content {
+			display: inline-block;
+			vertical-align: middle;
+			width: 500px;
 
-			 .name {
-				 width: 168px;
-				 margin-bottom: 30px;
-			 }
-		 }
+			.name {
+				width: 168px;
+				margin-bottom: 30px;
+			}
+		}
 	}
 	.links {
 		margin-top: 30px;
+
 		.o-Btn {
 			&:not(:last-of-type) {
 				margin-right: 44px;

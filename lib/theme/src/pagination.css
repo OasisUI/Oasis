@@ -1,0 +1,83 @@
+:root {
+
+	/* theme */
+
+	/* font */
+
+	/* components */
+
+	/*loading*/
+
+	/*button*/
+
+	/*input*/
+
+	/*message*/
+
+	/*transition*/
+
+	/*modal*/
+
+	/*datePicker*/
+
+	/* timePicker */
+
+	/*progress*/
+
+	/*Popup*/
+
+	/*scrollBox*/
+
+	/*shadow*/
+
+	/*z-index*/
+}
+
+.o-Pagination {}
+
+.o-Pagination__action {}
+
+.o-Page {
+
+	display: inline-block;
+
+	padding: 0;
+
+	margin: 0 2px;
+
+	border-radius: 3px;
+}
+
+.o-Page:hover {
+
+	background: #F6F6F6;
+
+	background: #F6F6F6;
+}
+
+.o-Page.is-disabled {
+
+	color: #CECECE;
+
+	color: #CECECE;
+}
+
+.o-Page.is-disabled a {
+
+	cursor: not-allowed;
+}
+
+.o-Page.is-active {
+
+	color: white;
+
+	font-weight: 700;
+
+	background: #34B697;
+
+	background: #34B697;
+}
+
+.o-Page__link {}
+
+

@@ -1,0 +1,60 @@
+.o-ModalBox__icon {}.o-ModalBox__cancelBtn {}.o-ModalBox__confirmBtn {}.o-Modal__footer {}.o-Modal__body {}.o-Modal__header {}.o-Modal__close {}:root {
+
+	/* theme */
+
+	/* font */
+
+	/* components */
+
+	/*loading*/
+
+	/*button*/
+
+	/*input*/
+
+	/*message*/
+
+	/*transition*/
+
+	/*modal*/
+
+	/*datePicker*/
+
+	/* timePicker */
+
+	/*progress*/
+
+	/*Popup*/
+
+	/*scrollBox*/
+
+	/*shadow*/
+
+	/*z-index*/
+}
+
+.o-Modal {z-index: 1050;z-index: 1050;position: fixed;text-align: center;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, .32);
+}
+
+.o-Modal:after {display: inline-block;width: 0;height: 100%;content: '';vertical-align: middle;
+}
+
+.o-Modal__content {}
+
+.o-ModalBox .o-Modal__body,
+
+	.o-ModalBox .o-Modal__footer {text-align: center;
+}
+
+.o-ModalBox.is-warning .o-ModalBox__icon {color: #F08200;color: #F08200;
+}
+
+.o-ModalBox.is-danger .o-ModalBox__icon {color: #F06868;color: #F06868;
+}
+
+.o-ModalBox.is-info {}
+
+.o-ModalBox.is-success .o-ModalBox__icon {color: #34B697;color: #34B697;
+}
+
+.o-ModalBox__alert {}

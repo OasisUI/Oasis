@@ -1,0 +1,42 @@
+.o-Popup__arrow {}.o-Popup__content {}.o-Popup__title {}:root {
+
+	/* theme */
+
+	/* font */
+
+	/* components */
+
+	/*loading*/
+
+	/*button*/
+
+	/*input*/
+
+	/*message*/
+
+	/*transition*/
+
+	/*modal*/
+
+	/*datePicker*/
+
+	/* timePicker */
+
+	/*progress*/
+
+	/*Popup*/
+
+	/*scrollBox*/
+
+	/*shadow*/
+
+	/*z-index*/
+}
+
+.o-Popup {z-index: 1060;z-index: 1060;position: absolute;top: 0
+}
+
+.o-Popup__inner {}
+
+.o-PopupList {position: absolute;top: 0;left: 0;width: 100%;height: 0
+}

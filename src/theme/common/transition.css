@@ -73,3 +73,13 @@
 	opacity: 0;
 }
 
+/*button loading*/
+.o-Btn__loading-enter-active,
+.o-Btn__loading-leave-active {
+	transition: all ease-in-out 0.16s;
+}
+
+.o-Btn__loading-enter,
+.o-Btn__loading-leave-to {
+	opacity: 0;
+}

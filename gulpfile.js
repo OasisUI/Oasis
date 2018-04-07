@@ -46,10 +46,9 @@ gulp.task('dev:theme', function () {
 		gulp.src('./src/theme/index.css')
 			.pipe(postcss())
 			.on('error', err => {
-				console.log(err.name, err.reason, err.file, err.line + '/' + err.column)
+				err && console.log(err.name, err.reason, err.file, err.line + '/' + err.column)
 			})
 			.pipe(gulp.dest('./lib/theme'))
-
 	})
 })
 
