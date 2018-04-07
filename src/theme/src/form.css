@@ -13,19 +13,23 @@
 		& > label {
 			display: block;
 			text-align: right;
+
 			&:before {
 				content: '* ';
 				display: none;
 				color: var(--color-danger);
-			 }
+			}
+
 			&:after {
 				content: ':';
 				display: inline;
-			 }
+			}
 		}
 	}
+
 	@d wrapper {
 		display: inline-block;
+
 		& .o-Input {
 			height: var(--Input-lg-height);
 			line-height: var(--Input-lg-height);

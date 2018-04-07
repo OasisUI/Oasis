@@ -13,7 +13,7 @@
 	border-radius: 3px;
 
 	&:hover {
-		 background: var(--color-gray-4);
+		background: var(--color-gray-4);
 	}
 
 	@d link {
@@ -35,6 +35,7 @@
 
 	@when disabled {
 		color: var(--color-gray-2);
+
 		& a {
 			cursor: not-allowed;
 		}

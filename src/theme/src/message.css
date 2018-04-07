@@ -30,35 +30,22 @@
 
 	@m info {
 		color: var(--Message-info-color);
-		/* color: white; */
-		/* background: var(--color-info); */
 		background: var(--Message-info-bg);
-		/*border: var(--Message-info-border);*/
-		/*box-shadow: var(--shadow-message);*/
 	}
+
 	@m danger {
 		color: var(--Message-danger-color);
-		/* color: white; */
-		/* background: var(--color-danger); */
 		background: var(--Message-danger-bg);
-		/*border: var(--Message-danger-border);*/
-		/*box-shadow: var(--shadow-message);*/
 	}
+
 	@m success {
 		color: var(--Message-success-color);
-		/* color: white; */
-		/* background: var(--color-primary); */
 		background: var(--Message-success-bg);
-		/*border: var(--Message-success-border);*/
-		/*box-shadow: var(--shadow-message);*/
 	}
+
 	@m warning {
 		color: var(--Message-warning-color);
-		/* color: white; */
-		/* background: var(--color-warning); */
 		background: var(--Message-warning-bg);
-		/*border: var(--Message-warning-border);*/
-		/*box-shadow: var(--shadow-message);*/
 	}
 }
 

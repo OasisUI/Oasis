@@ -16,6 +16,7 @@ $d: '';
 	.o-Col-$i {
 		width: calc($i / 0.24)%;
 	}
+
 	.o-Col-offset-$i {
 		margin-left: calc($i / 0.24)%;
 	}

@@ -3,10 +3,12 @@
 		stroke-dasharray: 100, 40;
 		stroke-dashoffset: 0;
 	}
+
 	50% {
 		stroke-dasharray: 100, 140;
 		stroke-dashoffset: -100;
 	}
+
 	100% {
 		stroke-dasharray: 100, 40;
 		stroke-dashoffset: -140;
@@ -18,6 +20,7 @@
 	0% {
 		transform: rotate(0);
 	}
+
 	100% {
 		transform: rotate(360deg);
 	}

@@ -38,9 +38,11 @@
 		border-radius: calc(var(--ScrollBox-scrollbar-width) / 2);
 		background: #DDDDDD;
 		transition: all linear 0.1s;
+
 		&:hover {
 			background: #8d8d8d;
 		}
+
 		&.is-active {
 			background: #8d8d8d;
 		}

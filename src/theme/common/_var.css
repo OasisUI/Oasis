@@ -1,4 +1,5 @@
 :root {
+
 	/* theme */
 	--color-primary: #34B697;
 	--color-primary-light: #64DC9C;
@@ -121,11 +122,11 @@
 	--shadow-popup: 1px 1px 8px 0px rgba(0,0,0,0.24);
 
 	/*z-index*/
-	--zIndex-dropdown:          1000;
-	--zIndex-sticky:            1020;
-	--zIndex-fixed:             1030;
-	--zIndex-modal-backdrop:    1040;
-	--zIndex-modal:             1050;
-	--zIndex-popover:           1060;
-	--zIndex-tooltip:           1070;
+	--zIndex-dropdown: 1000;
+	--zIndex-sticky: 1020;
+	--zIndex-fixed: 1030;
+	--zIndex-modal-backdrop: 1040;
+	--zIndex-modal: 1050;
+	--zIndex-popover: 1060;
+	--zIndex-tooltip: 1070;
 }

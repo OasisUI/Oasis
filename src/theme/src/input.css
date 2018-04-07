@@ -24,8 +24,6 @@
 	@d wrapper {
 		position: relative;
 		display: block;
-		/*overflow: hidden;*/
-		/*table-layout: fixed;*/
 		width: 100%;
 		height: 100%;
 		padding: 0;
@@ -87,10 +85,13 @@
 		display: table;
 		border-collapse: separate;
 		line-height: normal;
+
 		/*https://www.w3.org/TR/CSS2/tables.html 17.6.2 The collapsing border model*/
+
 		& input {
 			display: table-cell;
-	  	}
+		}
+
 		& .o-Input__addon:not(:first-child),
 		& .o-Input__native:not(:first-child) {
 			border-top-left-radius: 0 !important;
@@ -102,9 +103,11 @@
 			border-top-right-radius: 0 !important;
 			border-bottom-right-radius: 0 !important;
 		}
+
 		& .o-Input__addon:last-child {
 			border-left-width: 0;
 		}
+
 		& .o-Input__addon:first-child {
 			border-right-width: 0;
 		}
@@ -132,18 +135,21 @@
 
 	@m sm {
 		line-height: var(--Input-sm-height);
+
 		&, & input {
 			height: var(--Input-sm-height);
 		}
 	}
 	@m md {
 		line-height: var(--Input-md-height);
+
 		&, & input {
 			height: var(--Input-md-height);
 		}
 	}
 	@m lg {
 		line-height: var(--Input-lg-height);
+
 		&, & input {
 			height: var(--Input-lg-height);
 		}
@@ -178,6 +184,7 @@
 			border-color: var(--color-primary);
 			box-shadow: 0 0 0 2px color(var(--color-primary) alpha(30%));
 		}
+
 		&:hover {
 			border-color: var(--Input-hoverColor);
 		}
@@ -312,10 +319,12 @@
 
 	@when disabled {
 		background: inherit;
+
 		& .o-InputCheckbox__inner {
 			cursor: not-allowed;
 			border-color: var(--color-gray-2) !important;
 			background: var(--Input-disabled-bg) !important;
+
 			&:after {
 				border-color: var(--color-gray-2);
 			}
@@ -324,11 +333,13 @@
 
 	& input[type="checkbox"] {
 		display: none;
+
 		&:checked + .o-InputCheckbox__inner {
 			border-color: var(--color-primary);
 			background: var(--color-primary);
+
 			&:after {
-				 transform: scale(1) rotate(-45deg);
+				transform: scale(1) rotate(-45deg);
 			}
 		}
 	}
@@ -370,10 +381,12 @@
 
 	@when disabled {
 		background: inherit;
+
 		& .o-InputRadio__inner {
 			cursor: not-allowed;
 			border-color: var(--color-gray-2) !important;
 			background: var(--Input-disabled-bg) !important;
+
 			&:after {
 				background: var(--color-gray-2);
 			}
@@ -382,9 +395,11 @@
 
 	& input[type="radio"] {
 		display: none;
+
 		&:checked + .o-InputRadio__inner {
 			border-color: var(--color-primary);
-		  	background: var(--color-primary);
+			background: var(--color-primary);
+
 			&:after {
 				transform: scale(1);
 			}
@@ -435,12 +450,15 @@
 	& .o-InputRadioBtn:not(:first-of-type):not(:last-of-type) {
 		border-radius: 0;
 	}
+
 	& .o-InputRadioBtn:first-of-type {
-		  border-radius: var(--Input-borderRadius) 0 0 var(--Input-borderRadius);
+		border-radius: var(--Input-borderRadius) 0 0 var(--Input-borderRadius);
 	}
+
 	& .o-InputRadioBtn:last-of-type {
-		  border-radius: 0 var(--Input-borderRadius) var(--Input-borderRadius) 0;
+		border-radius: 0 var(--Input-borderRadius) var(--Input-borderRadius) 0;
 	}
+
 	& .o-InputRadioBtn:not(:first-of-type) {
 		margin-left: -1px;
 	}

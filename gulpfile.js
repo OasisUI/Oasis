@@ -37,7 +37,7 @@ gulp.task('dev:server', () => {
 		},
 		contentBase: 'dist/'
 	}).listen(2333, '127.0.0.1', err => {
-		util.log(err)
+		err && util.log(err)
 	})
 })
 
@@ -60,6 +60,16 @@ gulp.task('build:theme', function() {
 		.pipe(gulp.dest('./lib/theme'))
 })
 
-gulp.task('dev', ['dev:theme', 'dev:server'])
+gulp.task('lint:theme', function() {
+	return gulp.src('./src/theme/**/*.css')
+		.pipe(require('gulp-stylelint')({
+			debug: true,
+			reporters: [
+				{formatter: 'string', console: true}
+			]
+		}))
+})
+
+gulp.task('dev', ['dev:server', 'dev:theme'])
 
 gulp.task('build', ['build:module', 'build:theme', 'build:doc'])

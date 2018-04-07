@@ -1,11 +1,12 @@
 module.exports = {
-	// parser: 'sugarss',
 	plugins: [
-		// require('postcss-mixins'),
-		require('precss'),
-		// require('postcss-import'),
+		require('postcss-import')({
+			plugins: [
+				require("stylelint")({})
+			]
+		}),
 		require('postcss-for'),
-		require('saladcss-bem')({
+		require('postcss-bem')({
 			defaultNamespace: 'o',
 			style: 'suit',
 			separators: {
@@ -24,7 +25,7 @@ module.exports = {
 			browsers: ['ie > 8', 'last 2 versions'],
 			cascade: false
 		}),
-		require('postcss-bem-linter')('suit'),
+		require("postcss-reporter")({ clearReportedMessages: true })
 		// require('cssnano')
 	]
 }

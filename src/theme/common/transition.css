@@ -4,6 +4,7 @@
 .o-Message-leave-active {
 	transition: all ease-in-out 0.24s;
 }
+
 .o-Message-enter,
 .o-Message-leave-to {
 	opacity: 0;
@@ -17,15 +18,19 @@
 .o-Modal-leave-active {
 	transition: all ease-in-out 0.3s;
 }
+
 .o-Modal-enter-active .o-Modal__content {
 	transition: all ease-in-out 0.2s 0.1s;
 }
+
 .o-Modal-leave-active .o-Modal__content {
 	transition: all ease-in-out .2s 0s;
 }
+
 .o-Modal-enter,
 .o-Modal-leave-to {
 	opacity: 0;
+
 	& .o-Modal__content {
 		opacity: 0;
 		transform: scale(0.8);
@@ -58,6 +63,7 @@
 .o-ScrollBar-enter-active {
 	transition: all ease-in-out 0.1s 0.1s;
 }
+
 .o-ScrollBar-leave-active {
 	transition: all ease-in-out 0.08s;
 }
