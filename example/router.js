@@ -128,7 +128,7 @@ const components = [
 	},
 	{
 		path: 'scrollbox',
-		component: ScrollBox,
+		component: ScrollBox
 	},
 	{
 		path: 'pagination',
@@ -158,7 +158,7 @@ const routes = [
 				component: Button
 			}
 		])
-	},
+	}
 ]
 
 export const router = new VueRouter({

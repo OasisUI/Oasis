@@ -20,7 +20,7 @@ export function countDaysOfMonth (year, month) {
 }
 
 export function isLeapYear (year) {
-	return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0
+	return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)
 }
 
 export function dateWrapper (date) {
@@ -31,7 +31,7 @@ export function dateWrapper (date) {
 		date.getDate(),
 		date.getHours(),
 		date.getMinutes(),
-		date.getSeconds(),
+		date.getSeconds()
 	)
 }
 

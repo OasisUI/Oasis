@@ -1,3 +1,4 @@
+/*eslint-disable */
 /*! scrollbarWidth.js v0.1.3 | felixexter | MIT | https://github.com/felixexter/scrollbarWidth */
 
 export default function scrollbarWidth() {

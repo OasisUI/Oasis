@@ -17,7 +17,7 @@ export default class Resizing {
 	}
 	bindListener () {
 		const len = this.listeners.length
-		for(let i = 0; i < len; i++) {
+		for (let i = 0; i < len; i++) {
 			this.box.contentDocument.defaultView.addEventListener('resize', this.listeners.shift())
 		}
 	}

@@ -32,7 +32,7 @@ export default function uploader (options) {
 		options.onTimeout(e)
 	}
 
-	for(let key in headers) {
+	for (let key in headers) {
 		headers.hasOwnProperty(key) && headers[key] !== null && xhr.setRequestHeader(key, headers[key])
 	}
 

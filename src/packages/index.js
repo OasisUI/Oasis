@@ -45,14 +45,14 @@ const components = [
 	Popup,
 	ScrollBox,
 	Pagination
-];
+]
 
 const Oasis = {
-    install (Vue) {
-        components.map(component => {
+	install (Vue) {
+		components.map(component => {
 			Vue.use(component)
-        });
+		})
 	}
 }
 
-export default Oasis;
+export default Oasis

@@ -1,7 +1,7 @@
 import { throttle } from './index.js'
 
 export default class ElDraggable {
-	constructor(el, config) {
+	constructor (el, config) {
 		this.conf = {
 			el: el,
 			updateStyle: true,
@@ -9,7 +9,7 @@ export default class ElDraggable {
 			throttle: 0,
 			containment: document.body,
 			overflow: false,
-			updatePosition(e, p) {
+			updatePosition (e, p) {
 				el.style.left = p.left + 'px'
 				el.style.top = p.top + 'px'
 			}
@@ -66,7 +66,7 @@ export default class ElDraggable {
 
 		let style = {
 			left: 0,
-			top: 0,
+			top: 0
 		}
 
 		let status = {
@@ -119,7 +119,7 @@ export default class ElDraggable {
 			top: parseInt(getComputedStyle(el)['marginTop']),
 			right: parseInt(getComputedStyle(el)['marginRight']),
 			bottom: parseInt(getComputedStyle(el)['marginBottom']),
-			left: parseInt(getComputedStyle(el)['marginLeft']),
+			left: parseInt(getComputedStyle(el)['marginLeft'])
 		}
 	}
 
