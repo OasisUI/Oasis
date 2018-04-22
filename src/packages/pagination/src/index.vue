@@ -84,7 +84,7 @@
 
 	export default {
 		props,
-		name: 'pagination',
+		name: 'Pagination',
 		data () {
 			return {
 				currentVal: 1

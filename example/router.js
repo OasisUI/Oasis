@@ -18,6 +18,7 @@ import Upload from './components/upload'
 import Popup from './components/popup'
 import ScrollBox from './components/scrollBox'
 import Pagination from './components/pagination'
+import Navbar from './components/navbar'
 
 Vue.use(VueRouter)
 
@@ -136,6 +137,14 @@ const components = [
 		title: {
 			zh: '分页',
 			en: 'Pagination'
+		}
+	},
+	{
+		path: 'navbar',
+		component: Navbar,
+		title: {
+			zh: '导航',
+			en: 'Navbar'
 		}
 	}
 ]

@@ -91,6 +91,7 @@
 	--transition-slide: all ease-in-out 240ms;
 	--transition-btn-default: color ease-in-out 20ms, background-color ease-in-out 160ms, box-shadow ease-in-out 100ms;
 	--transition-checkbox: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
+	--transition-navbar: all ease-in-out 140ms;
 
 	/*modal*/
 	--Modal-padding: 34px;
@@ -114,6 +115,10 @@
 
 	/*scrollBox*/
 	--ScrollBox-scrollbar-width: 8px;
+
+	/*navbar*/
+	--Navbar-height: 50px;
+	--Navbar-padding: 20px;
 
 	/*shadow*/
 	--shadw-dropdown: 1px 1px 8px 0px rgba(0,0,0,0.24);

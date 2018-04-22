@@ -1,12 +1,12 @@
 /*grid layout*/
 .o-Row {
-		display: block;
+	display: block;
 }
 .o-Row:after,
 	.o-Row:before {
-		display: table;
-		content: ' ';
-		clear: both;
+	display: table;
+	content: ' ';
+	clear: both;
 }
 .o-Col-1 {
 		width: 4.16667%;

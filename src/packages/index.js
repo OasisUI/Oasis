@@ -20,6 +20,7 @@ import Progress from './progress'
 import Popup from './popup'
 import ScrollBox from './scrollBox'
 import Pagination from './pagination'
+import Nav from './nav'
 
 // tools
 // TODO
@@ -44,7 +45,8 @@ const components = [
 	Progress,
 	Popup,
 	ScrollBox,
-	Pagination
+	Pagination,
+	Nav
 ]
 
 const Oasis = {

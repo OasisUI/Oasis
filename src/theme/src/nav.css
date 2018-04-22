@@ -1,0 +1,76 @@
+@import '../common/_var.css';
+
+@component Navbar {
+	display: block;
+	width: 280px;
+	height: auto;
+	padding: 0 var(--Navbar-padding) 0 0;
+	list-style: none;
+	border-right: 1px solid #E1E1E1;
+}
+
+
+@component SubNav {
+	overflow: hidden;
+	list-style: none;
+
+	@d title {
+		position: relative;
+		height: var(--Navbar-height);
+		width: 100%;
+		padding: 0 var(--Navbar-padding);
+		line-height: var(--Navbar-height);
+		cursor: pointer;
+	}
+
+	@d arrow {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-size: 12px;
+		transition: var(--transition-navbar);
+	}
+
+	@d group {
+		height: 0;
+		padding-left: var(--Navbar-padding);
+		transition: var(--transition-navbar);
+
+	  	& .o-NavItem.is-selected {
+	  		background: color(var(--color-primary) alpha(10%));
+		}
+	}
+
+	@when open {
+		& > .o-SubNav__title .o-SubNav__arrow {
+			transform: rotateZ(90deg);
+		}
+
+		& > .o-SubNav__group {
+			height: auto;
+		}
+	}
+}
+
+@component NavItem {
+	display: block;
+	height: var(--Navbar-height);
+	padding: 0 var(--Navbar-padding);
+	line-height: var(--Navbar-height);
+	border-radius: 4px;
+	cursor: pointer;
+	transition: var(--transition-navbar);
+
+	@when selected {
+		color: var(--color-primary);
+	}
+
+	@d contentWrapper {
+
+	}
+
+	&:hover {
+		 color: var(--color-primary);
+	}
+}

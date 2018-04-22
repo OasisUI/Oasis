@@ -199,3 +199,12 @@ export default class ElDraggable {
 export function number (val) {
 	return parseFloat('0' + val)
 }
+
+export function getParentComponent (co, name = '') {
+	if (co.$parent === void (0)) return
+	if (co.$parent.$options.name === name) {
+		return co.$parent
+	} else {
+		return getParentComponent(co.$parent, name)
+	}
+}
