@@ -37,8 +37,8 @@
 		padding-left: var(--Navbar-padding);
 		transition: var(--transition-navbar);
 
-	  	& .o-NavItem.is-selected {
-	  		background: color(var(--color-primary) alpha(10%));
+		& .o-NavItem.is-selected {
+			background: color(var(--color-primary) alpha(10%));
 		}
 	}
 
@@ -71,6 +71,6 @@
 	}
 
 	&:hover {
-		 color: var(--color-primary);
+		color: var(--color-primary);
 	}
 }

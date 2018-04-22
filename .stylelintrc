@@ -18,5 +18,8 @@
 			"ignore": ["after-comment"]
 		} ],
 		"unit-whitelist": ["em", "rem", "%", "px", "ms", "s", "deg"]
-	}
+	},
+	"ignoreFiles": [
+		"./src/theme/iconfont/iconfont.css"
+	],
 }
