@@ -1,6 +1,6 @@
 <template lang="docs">
 
-	# Navbar 导航
+	# Rahmen 相框
 
 	## 基本使用
 
