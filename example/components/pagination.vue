@@ -6,6 +6,19 @@
 
 	<InputNumber v-model="currentPage"/>
 
+	:::html
+		<Pagination
+			@current-change="onPageChange"
+			:current-page="currentPage"
+			:page-size="listing.limit"
+			:total="listing.total"
+			layout="prev, pager, next"
+			:formatter="linkFormatter"
+			target="_blank"
+		></Pagination>
+	:::
+
+
 	```javascript
 		export default {
 			data () {
@@ -28,18 +41,6 @@
 			}
 		}
 	```
-
-	:::html
-		<Pagination
-			@current-change="onPageChange"
-			:current-page="currentPage"
-			:page-size="listing.limit"
-			:total="listing.total"
-			layout="prev, pager, next"
-			:formatter="linkFormatter"
-			target="_blank"
-		></Pagination>
-	:::
 
 	## API
 

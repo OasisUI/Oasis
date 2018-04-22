@@ -21,7 +21,7 @@ import Popup from './popup'
 import ScrollBox from './scrollBox'
 import Pagination from './pagination'
 import Nav from './nav'
-
+import Rahmen from './rahmen'
 // tools
 // TODO
 
@@ -46,7 +46,8 @@ const components = [
 	Popup,
 	ScrollBox,
 	Pagination,
-	Nav
+	Nav,
+	Rahmen
 ]
 
 const Oasis = {

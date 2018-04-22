@@ -19,6 +19,7 @@ import Popup from './components/popup'
 import ScrollBox from './components/scrollBox'
 import Pagination from './components/pagination'
 import Navbar from './components/navbar'
+import Rahmen from './components/rahmen'
 
 Vue.use(VueRouter)
 
@@ -145,6 +146,14 @@ const components = [
 		title: {
 			zh: '导航',
 			en: 'Navbar'
+		}
+	},
+	{
+		path: 'rahmen',
+		component: Rahmen,
+		title: {
+			zh: '相框',
+			en: 'Rahmen'
 		}
 	}
 ]
