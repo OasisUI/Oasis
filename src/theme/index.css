@@ -1,6 +1,6 @@
 @import './common/_base.css';
 @import './common/_animation.css';
-
+@import './iconfont/iconfont.css';
 @import './common/transition.css';
 
 @import './src/img.css';
