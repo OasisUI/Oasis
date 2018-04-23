@@ -5,12 +5,12 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 module.exports = {
 	resolve: {
-		modules: ['node_modules'],	
+		modules: ['node_modules'],
 		extensions: ['.vue', '.js', '.json'],
 		alias: {
 			utils: path.resolve(__dirname, '../src/utils'),
 			// vue: 'vue'
-			vue: 'vue/dist/vue.esm.js',
+			vue: 'vue/dist/vue.esm.js'
 		}
 	},
 	module: {
@@ -51,7 +51,7 @@ module.exports = {
 					{
 						loader: 'url-loader',
 						options: {
-							limit: 10000,
+							limit: 20000,
 						}
 					}
 				]
