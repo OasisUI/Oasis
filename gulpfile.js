@@ -52,14 +52,19 @@ gulp.task('dev:theme', function () {
 	})
 })
 
-gulp.task('build:theme', function() {
+gulp.task('build:theme', function () {
 	return gulp.src('./src/theme/**/*.css')
 		.pipe(postcss())
 		// minify
 		.pipe(gulp.dest('./lib/theme'))
 })
 
-gulp.task('lint:theme', function() {
+gulp.task('copy', function () {
+	return gulp.src('./src/theme/font/*')
+		.pipe(gulp.dest('./lib/theme/font'))
+})
+
+gulp.task('lint:theme', function () {
 	return gulp.src('./src/theme/**/*.css')
 		.pipe(require('gulp-stylelint')({
 			debug: true,
@@ -71,4 +76,4 @@ gulp.task('lint:theme', function() {
 
 gulp.task('dev', ['dev:server', 'dev:theme'])
 
-gulp.task('build', ['build:module', 'build:theme', 'build:doc'])
+gulp.task('build', ['copy', 'build:module', 'build:theme', 'build:doc'])

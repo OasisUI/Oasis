@@ -32,7 +32,7 @@ module.exports = {
 						loader: 'vue-loader',
 						options: vueLoaderConfig
 					}
-				],
+				]
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -51,7 +51,7 @@ module.exports = {
 					{
 						loader: 'url-loader',
 						options: {
-							limit: 20000,
+							limit: 6000
 						}
 					}
 				]
