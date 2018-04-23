@@ -35921,7 +35921,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { "data-type": "doc-component" } }, [
-    _c("h1", [_vm._v("Navbar 导航")]),
+    _c("h1", [_vm._v("Rahmen 相框")]),
     _vm._v(" "),
     _c("h2", [_vm._v("基本使用")]),
     _vm._v(" "),
