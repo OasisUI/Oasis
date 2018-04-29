@@ -1,10 +1,2 @@
-.o-Rahmen {
-	height: 100%
-}
-.o-Rahmen__image {
-		display: block;
-		-webkit-box-sizing: content-box;
-		        box-sizing: content-box;
-		height: 0;
-		background-color: #F7FBF9
-}
+.o-Rahmen{height:100%}
+.o-Rahmen__image{display:block;-webkit-box-sizing:content-box;box-sizing:content-box;height:0;background-color:#F7FBF9}

@@ -3,6 +3,7 @@ const merge = require('webpack-merge')
 const base = require('./webpack.base')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = merge(base, {
 	entry: path.join(__dirname, '../example/index.docs.js'),
@@ -23,6 +24,7 @@ module.exports = merge(base, {
 			'process.env': {
 				NODE_ENV: '"production"'
 			}
-		})
-	],
+		}),
+		new UglifyJSPlugin()
+	]
 })

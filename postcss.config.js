@@ -2,17 +2,17 @@ module.exports = {
 	plugins: [
 		require('postcss-import')({
 			plugins: [
-				require("stylelint")({})
+				require('stylelint')({})
 			]
 		}),
-		require('precss'),
+		require('postcss-nested'),
 		require('postcss-for'),
 		require('saladcss-bem')({
 			defaultNamespace: 'o',
 			style: 'suit',
 			separators: {
 				descendent: '__',
-				modifier: '--',
+				modifier: '--'
 			},
 			shortcuts: {
 				utility: 'u',
@@ -26,7 +26,10 @@ module.exports = {
 			browsers: ['ie > 8', 'last 2 versions'],
 			cascade: false
 		}),
-		require("postcss-reporter")({ clearReportedMessages: true })
+		require('postcss-discard-empty'),
+		require('postcss-normalize-whitespace'),
+		require('postcss-svgo'),
+		require('postcss-reporter')({ clearReportedMessages: true })
 		// require('cssnano')
 	]
 }

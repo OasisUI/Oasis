@@ -37,7 +37,7 @@
 				@blur="onBlur"
 				@change="onChange"
 				class="o-Input__native"
-				type="text"
+				:type="_type"
 			/>
 			<span
 				v-if="$slots.addonAfter"
@@ -86,6 +86,10 @@
 		size: {
 			type: String,
 			default: 'md'
+		},
+		type: {
+			type: String,
+			default: 'text'
 		},
 		placeholder: String
 	}
@@ -149,6 +153,11 @@
 			},
 			onMouseleave () {
 				this.style.display = 'none'
+			}
+		},
+		computed: {
+			_type () {
+				return ['text', 'password', 'textarea'].findIndex(type => type === this.type) > -1 ? this.type : 'text'
 			}
 		}
 	}

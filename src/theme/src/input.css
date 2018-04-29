@@ -179,14 +179,14 @@
 	}
 
 	&:not(.is-disabled) input {
+		&:hover {
+			border-color: var(--Input-hoverColor);
+		}
+
 		&:focus {
 			z-index: 1;
 			border-color: var(--color-primary);
 			box-shadow: 0 0 0 2px color(var(--color-primary) alpha(30%));
-		}
-
-		&:hover {
-			border-color: var(--Input-hoverColor);
 		}
 	}
 }

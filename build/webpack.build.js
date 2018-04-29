@@ -1,6 +1,7 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const base = require('./webpack.base')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = merge(base, {
 	entry: path.join(__dirname, '../src/packages/index.js'),
@@ -26,9 +27,10 @@ module.exports = merge(base, {
 	},
 	devtool: '#source-map',
 	resolve: {
-		modules: ['node_modules'],	
+		modules: ['node_modules'],
 		extensions: ['.vue', '.js', '.json']
 	},
 	plugins: [
+		new UglifyJSPlugin()
 	]
 })

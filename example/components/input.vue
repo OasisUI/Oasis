@@ -9,6 +9,7 @@
 		<Input
 			placeholder="placeholder"
 			v-model="inputText"
+			type="password"
 		/>
 	:::
 
