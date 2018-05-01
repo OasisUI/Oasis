@@ -4,7 +4,7 @@ const base = require('./webpack.base')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = merge(base, {
-	entry: path.join(__dirname, '../src/packages/index.js'),
+	entry: path.join(__dirname, '../packages/index.js'),
 	output: {
 		path: path.join(__dirname, '../lib'),
 		filename: 'index.js',

@@ -20,6 +20,7 @@ import ScrollBox from './components/scrollBox'
 import Pagination from './components/pagination'
 import Navbar from './components/navbar'
 import Rahmen from './components/rahmen'
+import Avatar from './components/avatar'
 
 Vue.use(VueRouter)
 
@@ -154,6 +155,14 @@ const components = [
 		title: {
 			zh: '相框',
 			en: 'Rahmen'
+		}
+	},
+	{
+		path: 'avatar',
+		component: Avatar,
+		title: {
+			zh: '头像',
+			en: 'Avatar'
 		}
 	}
 ]

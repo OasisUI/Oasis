@@ -21,4 +21,3 @@ module.exports = merge(base, {
 		stats: 'errors-only'
 	}
 })
-

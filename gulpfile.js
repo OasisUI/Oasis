@@ -33,7 +33,7 @@ gulp.task('dev:server', () => {
 			chunks: false,
 			chunkModules: false,
 			errorDetails: true,
-			hash: true,
+			hash: true
 		},
 		contentBase: 'dist/'
 	}).listen(2333, '127.0.0.1', err => {
@@ -42,8 +42,8 @@ gulp.task('dev:server', () => {
 })
 
 gulp.task('dev:theme', function () {
-	return watch('./src/theme/**/*.css', function () {
-		gulp.src('./src/theme/index.css')
+	return watch('./theme/**/*.css', function () {
+		gulp.src('./theme/index.css')
 			.pipe(postcss())
 			.on('error', err => {
 				err && console.log(err.name, err.reason, err.file, err.line + '/' + err.column)
@@ -53,19 +53,19 @@ gulp.task('dev:theme', function () {
 })
 
 gulp.task('build:theme', function () {
-	return gulp.src('./src/theme/**/*.css')
+	return gulp.src('./theme/**/*.css')
 		.pipe(postcss())
 		// minify
 		.pipe(gulp.dest('./lib/theme'))
 })
 
 gulp.task('copy', function () {
-	return gulp.src('./src/theme/font/*')
+	return gulp.src('./theme/font/*')
 		.pipe(gulp.dest('./lib/theme/font'))
 })
 
 gulp.task('lint:theme', function () {
-	return gulp.src('./src/theme/**/*.css')
+	return gulp.src('./theme/**/*.css')
 		.pipe(require('gulp-stylelint')({
 			debug: true,
 			reporters: [

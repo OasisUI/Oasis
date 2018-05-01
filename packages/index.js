@@ -21,6 +21,8 @@ import ScrollBox from './scrollBox'
 import Pagination from './pagination'
 import Nav from './nav'
 import Rahmen from './rahmen'
+import Avatar from './avatar'
+
 // tools
 // TODO
 
@@ -46,7 +48,8 @@ const components = [
 	ScrollBox,
 	Pagination,
 	Nav,
-	Rahmen
+	Rahmen,
+	Avatar
 ]
 
 const Oasis = {
