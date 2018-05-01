@@ -14,7 +14,7 @@ export default {
 			if (typeof window === 'undefined') return
 			const el = document.createElement('div')
 			document.body.appendChild(el)
-			const instance = new AlertClass({
+			new AlertClass({
 				propsData: config
 			}).$mount(el)
 		}
@@ -22,7 +22,7 @@ export default {
 			if (typeof window === 'undefined') return
 			const el = document.createElement('div')
 			document.body.appendChild(el)
-			const instance = new ConfirmClass({
+			new ConfirmClass({
 				propsData: config
 			}).$mount(el)
 		}
@@ -30,7 +30,7 @@ export default {
 			if (typeof window === 'undefined') return
 			const el = document.createElement('div')
 			document.body.appendChild(el)
-			const instance = new PromptClass({
+			new PromptClass({
 				propsData: config
 			}).$mount(el)
 		}

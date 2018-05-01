@@ -8,7 +8,7 @@ module.exports = {
 		modules: ['node_modules'],
 		extensions: ['.vue', '.js', '.json'],
 		alias: {
-			utils: path.resolve(__dirname, '../src/utils'),
+			utils: path.resolve(__dirname, '../utils'),
 			// vue: 'vue'
 			vue: 'vue/dist/vue.esm.js'
 		}

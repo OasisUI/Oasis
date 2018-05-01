@@ -1,13 +1,13 @@
 import Vue from 'vue'
-import Oasis from '../src/packages'
+import Oasis from '../packages'
 import { router } from './router'
 
-import '../src/theme/index.css'
+import '../theme/index.css'
 import './style/example.css'
 
 Vue.use(Oasis)
 
-const app = new Vue({
+new Vue({
 	router,
 	render () {
 		return (<router-view></router-view>)

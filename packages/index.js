@@ -1,4 +1,3 @@
-import Vue from 'vue'
 // components
 import Img from './img'
 import Loading from './loading'

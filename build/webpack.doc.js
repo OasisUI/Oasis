@@ -9,7 +9,7 @@ module.exports = merge(base, {
 	entry: path.join(__dirname, '../example/index.docs.js'),
 	output: {
 		path: path.join(__dirname, '../docs'),
-		filename: 'index.js',
+		filename: 'index.js'
 	},
 	devtool: '#source-map',
 	resolve: {
