@@ -1,5 +1,7 @@
 <template>
-	<ul class="o-Navbar">
+	<ul
+		class="o-Navbar"
+	>
 		<slot></slot>
 	</ul>
 </template>

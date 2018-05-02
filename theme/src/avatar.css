@@ -1,0 +1,59 @@
+@import '../common/_var.css';
+
+@component Avatar {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+
+	@m round {
+		border-radius: 50%;
+	}
+
+	@m rect {
+		border-radius: 0;
+	}
+
+	@m sm {
+		width: var(--Avatar-sm-width);
+		height: var(--Avatar-sm-width);
+		line-height: var(--Avatar-sm-width);
+		font-size: var(--Avatar-sm-fontSize);
+	}
+
+	@m md {
+		width: var(--Avatar-md-width);
+		height: var(--Avatar-md-width);
+		line-height: var(--Avatar-md-width);
+		font-size: var(--Avatar-md-fontSize);
+	}
+
+	@m lg {
+		width: var(--Avatar-lg-width);
+		height: var(--Avatar-lg-width);
+		line-height: var(--Avatar-lg-width);
+		font-size: var(--Avatar-lg-fontSize);
+	}
+
+	@d name {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		color: var(--Avatar-color);
+		font-weight: 700;
+		text-align: center;
+	}
+}
+
+@component AvatarGroup {
+	display: inline-block;
+	white-space: nowrap;
+	font-size: 0;
+
+	& .o-Avatar:not(:first-of-type) {
+		margin-left: -8%;
+	}
+
+}

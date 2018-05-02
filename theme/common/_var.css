@@ -120,6 +120,15 @@
 	--Navbar-height: 50px;
 	--Navbar-padding: 20px;
 
+	/* avatar */
+	--Avatar-color: #FFFFFF;
+	--Avatar-sm-width: 28px;
+	--Avatar-sm-fontSize: 16px;
+	--Avatar-md-width: 40px;
+	--Avatar-md-fontSize: 18px;
+	--Avatar-lg-width: 52px;
+	--Avatar-lg-fontSize: 22px;
+
 	/*shadow*/
 	--shadw-dropdown: 1px 1px 8px 0px rgba(0,0,0,0.24);
 	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);

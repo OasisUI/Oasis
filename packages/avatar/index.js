@@ -1,7 +1,9 @@
 import Avatar from './src'
+import AvatarGroup from './src/avatarGroup'
 
 const components = [
-	Avatar
+	Avatar,
+	AvatarGroup
 ]
 
 export default {
