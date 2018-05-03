@@ -118,8 +118,8 @@
 	--ScrollBox-scrollbar-width: 8px;
 
 	/*navbar*/
-	--Navbar-height: 50px;
-	--Navbar-padding: 20px;
+	--SideNav-height: 50px;
+	--SideNav-padding: 20px;
 
 	/* avatar */
 	--Avatar-color: #FFFFFF;

@@ -1,9 +1,13 @@
 import Navbar from './src'
+import NavGroup from './src/navGroup'
+import SideNav from './src/sideNav'
 import SubNav from './src/subNav'
 import NavItem from './src/navItem'
 
 const components = [
 	Navbar,
+	NavGroup,
+	SideNav,
 	SubNav,
 	NavItem
 ]

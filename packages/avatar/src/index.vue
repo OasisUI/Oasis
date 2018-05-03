@@ -5,20 +5,30 @@
 			round ? 'o-Avatar--round' : 'o-Avatar--rect',
 			'o-Avatar--' + _size
 		]"
-		:style="{
-			backgroundColor: _bg
-		}"
 	>
-		<Rahmen
-			v-if="src"
-			:src="src"
-			width="100%"
-			ratio="1"
-		></Rahmen>
-		<span
-			v-else
-			class="o-Avatar__name"
-		>{{ name[0] }}</span>
+		<div
+			class="o-Avatar__imgWrapper"
+		>
+			<Rahmen
+				v-if="src"
+				:src="src"
+				width="100%"
+				ratio="1"
+			></Rahmen>
+			<span
+				v-else
+				class="o-Avatar__name"
+				:style="{
+					backgroundColor: _bg
+				}"
+			>{{ name[0] }}</span>
+		</div>
+		<div
+			v-if="$slots.default"
+			class="o-Avatar__addon"
+		>
+			<slot></slot>
+		</div>
 	</div>
 </template>
 

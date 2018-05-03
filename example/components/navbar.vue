@@ -1,11 +1,28 @@
 <template lang="docs">
 
-	# Navbar 导航
+	# Navigator 导航
 
-	## 基本使用
+	## Navbar 基本使用
 
 	:::html
 		<Navbar>
+			<NavItem>Home</NavItem>
+			<NavItem>Component</NavItem>
+			<NavItem>API</NavItem>
+			<NavGroup right>
+				<Avatar
+					src="https://cloud.githubusercontent.com/assets/848515/21667899/c46e1fba-d337-11e6-9f9b-62a28deb6d32.png"
+					name="Oasis"
+				>Oasis</Avatar>
+			</NavGroup>
+		</Navbar>
+	:::
+
+
+	## SideNav
+
+	:::html
+		<SideNav>
 			<SubNav>
 				<template slot="title">
 					Group 1
@@ -39,7 +56,7 @@
 			<NavItem>
 				Navigator E
 			</NavItem>
-		</Navbar>
+		</SideNav>
 	:::
 </template>
 

@@ -1,12 +1,14 @@
 <template>
-	<div class="o-Navbar">
+	<ul
+		class="o-SideNav"
+	>
 		<slot></slot>
-	</div>
+	</ul>
 </template>
 
 <script>
 	export default {
-		name: 'Navbar',
+		name: 'SideNav',
 		type: 'navigator',
 		data () {
 			return {
@@ -29,5 +31,4 @@
 			}
 		}
 	}
-
 </script>

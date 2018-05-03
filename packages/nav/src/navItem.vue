@@ -11,7 +11,7 @@
 </template>
 
 <script>
-	import { getParentComponent } from '../../../utils'
+	import { getParentComponentByType } from '../../../utils'
 
 	export default {
 		name: 'NavItem',
@@ -22,7 +22,7 @@
 		},
 		methods: {
 			select () {
-				getParentComponent(this, 'Navbar').$emit('select', this)
+				getParentComponentByType(this, 'navigator').$emit('select', this)
 			}
 		}
 	}

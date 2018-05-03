@@ -146,7 +146,7 @@ const components = [
 		component: Navbar,
 		title: {
 			zh: '导航',
-			en: 'Navbar'
+			en: 'Navigator'
 		}
 	},
 	{

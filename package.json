@@ -1,7 +1,7 @@
 {
   "name": "oasis-ui",
   "version": "0.1.0-alpha.3",
-  "description": "",
+  "description": "🍃 An elegant UI framework.",
   "main": "lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --open --config ./build/webpack.dev.js",

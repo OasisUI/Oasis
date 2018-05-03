@@ -208,3 +208,12 @@ export function getParentComponent (co, name = '') {
 		return getParentComponent(co.$parent, name)
 	}
 }
+
+export function getParentComponentByType (co, name = '') {
+	if (co.$parent === void (0)) return
+	if (co.$parent.$options.type === name) {
+		return co.$parent
+	} else {
+		return getParentComponentByType(co.$parent, name)
+	}
+}
