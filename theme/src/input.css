@@ -216,16 +216,12 @@
 		}
 	}
 
-	& input {
-		padding-right: 24px;
-	}
-
 	& .iconfont {
 		font-size: 12px
 	}
 
-	.o-InputNumber__add,
-	.o-InputNumber__sub {
+	& .o-InputNumber__add,
+	& .o-InputNumber__sub {
 		position: absolute;
 		right: 0;
 		width: 24px;
@@ -244,11 +240,12 @@
 		}
 	}
 
-	.o-Input__native {
+	& .o-Input__native {
 		z-index: 1;
 		position: absolute;
 		left: 0;
 		top: 0;
+		padding-right: 24px;
 	}
 
 	@d actions {
