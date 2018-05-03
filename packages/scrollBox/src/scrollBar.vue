@@ -21,11 +21,12 @@
 		data () {
 			return {
 				visible: false,
-				mile: 0
+				mile: 0,
+				isDragging: false
 			}
 		},
 		mounted () {
-			const { type } = this
+			const { type, $el } = this
 			const { thumb } = this.$refs
 			if (thumb) {
 				new ElDraggable(thumb, {
@@ -34,12 +35,10 @@
 					updateStyle: false,
 					onDrag: this.onDrag,
 					onStart: () => {
-						thumb.classList.add('is-active')
-						this.$parent.isDragging = true
+						this.$parent.isDragging = this.isDragging = true
 					},
 					onEnd: () => {
-						thumb.classList.remove('is-active')
-						this.$parent.isDragging = false
+						this.$parent.isDragging = this.isDragging = false
 					}
 				})
 				const elSize = getDomSize(this.$el)
@@ -73,20 +72,25 @@
 			const {
 				type,
 				style,
-				visible
+				visible,
+				isDragging
 			} = this
 			return visible ? (
 				<transition name="o-ScrollBar">
 					<div
 						class={[
-							type === 'vertical' ? 'is-vertical' : 'is-horizontal',
-							"o-ScrollBar"
+							"o-ScrollBar",
+							isDragging ? 'is-active' : '',
+							type === 'vertical' ? 'o-ScrollBar--vertical' : 'o-ScrollBar--horizontal'
 						]}
 					>
 						<div
 							ref="thumb"
 							style={style}
-							class="o-ScrollBar__thumb"
+							class={[
+								'o-ScrollBar__thumb',
+								isDragging ? 'is-active' : ''
+							]}
 						></div>
 					</div>
 				</transition>

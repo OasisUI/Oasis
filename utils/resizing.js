@@ -1,6 +1,6 @@
 /**
  * Create by joe223
- * MIT License
+ * https://github.com/joe223/resizing
  */
 export default class Resizing {
 	constructor (el) {
@@ -8,7 +8,7 @@ export default class Resizing {
 		this.listeners = []
 		this.load = false
 		this.box = document.createElement('iframe')
-		this.box.setAttribute('style', 'position: absolute; left: 0; top: 0; z-index: -9999; visibility: hidden; width: 100%; height: 100%; border: none;')
+		this.box.setAttribute('style', 'position: absolute; overflow: hidden; opacity: 0; pointer-events: none; left: 0; top: 0; z-index: -9999; width: 100%; height: 100%; border: none;')
 		this.box.onload = e => {
 			this.load = true
 			this.bindListener()

@@ -68,7 +68,6 @@
 				return this.group.$options.type === 'avatarGroup'
 			},
 			_bg () {
-				console.log(avatarColors.length)
 				let color = ''
 				if (avatarColors.length <= 1) {
 					avatarColors = avatarColors.concat(minorAavatarColors)

@@ -22,7 +22,6 @@
 		},
 		methods: {
 			select () {
-				console.log(this)
 				getParentComponent(this, 'Navbar').$emit('select', this)
 			}
 		}

@@ -28,6 +28,12 @@
 @component ScrollBar {
 	position: absolute;
 	cursor: pointer;
+	transition: var(--transition-scrollBox);
+
+	@when active {
+		background: rgba(0,0,0,0.1) !important;
+		border-radius: calc(var(--ScrollBox-scrollbar-width) / 2);
+	}
 
 	@d thumb {
 		position: absolute;
@@ -37,25 +43,21 @@
 		height: var(--ScrollBox-scrollbar-width);
 		border-radius: calc(var(--ScrollBox-scrollbar-width) / 2);
 		background: #DDDDDD;
-		transition: all linear 0.1s;
-
-		&:hover {
-			background: #8d8d8d;
-		}
+		transition: var(--transition-scrollBox);
 
 		&.is-active {
 			background: #8d8d8d;
 		}
 	}
 
-	@when horizontal {
+	@m horizontal {
 		left: 0;
 		bottom: 0;
 		width: calc(100% - var(--ScrollBox-scrollbar-width));
 		height: var(--ScrollBox-scrollbar-width);
 	}
 
-	@when vertical {
+	@m vertical {
 		top: 0;
 		right: 0;
 		height: calc(100% - var(--ScrollBox-scrollbar-width));
