@@ -7,7 +7,7 @@ import './style/example.css'
 
 Vue.use(Oasis)
 
-const app = new Vue({
+new Vue({
 	router,
 	render () {
 		return (<router-view></router-view>)

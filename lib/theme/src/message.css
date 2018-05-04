@@ -30,6 +30,8 @@
 
 	/*navbar*/
 
+	/* avatar */
+
 	/*shadow*/
 
 	/*z-index*/}.o-MessageBox{z-index:1060;position:fixed;top:0;height:0;width:100%;overflow:visible}.o-Message{pointer-events:none;position:relative;margin-top:8px;height:34px;text-align:center}.o-Message__text{overflow:hidden;pointer-events:all;display:inline-block;height:100%;min-width:360px;padding:0 17px;line-height:34px;white-space:nowrap;border-radius:4px}.o-Message--info{color:#105196;background:#E7F3FF}.o-Message--danger{color:#F06868;background:#F8D7DA}.o-Message--success{color:#155724;background:#D4EDDA}.o-Message--warning{color:#F08200;background:#FFF4D6}
