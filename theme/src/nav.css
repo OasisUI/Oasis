@@ -73,6 +73,7 @@
 .o-Navbar {
 	display: flex;
 	align-items: center;
+	border-bottom: 1px solid #E1E1E1;
 
 	.o-NavGroup {
 		display: flex;

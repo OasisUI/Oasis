@@ -1,7 +1,6 @@
 @import '../common/_var.css';
 
 @component Avatar {
-	position: relative;
 	display: inline-flex;
 
 	@m round {
@@ -46,6 +45,7 @@
 	}
 
 	@d imgWrapper {
+		position: relative;
 		height: 100%;
 	}
 
