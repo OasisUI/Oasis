@@ -1,13 +1,26 @@
 <template>
-	<div class="o-Navbar">
+	<div
+		:class="[
+			'o-Navbar',
+			fixed ? 'o-Navbar--fixed' : ''
+		]"
+	>
 		<slot></slot>
 	</div>
 </template>
 
 <script>
+	const props = {
+		fixed: {
+			type: Boolean,
+			default: false
+		}
+	}
+
 	export default {
 		name: 'Navbar',
 		type: 'navigator',
+		props,
 		data () {
 			return {
 				selectedItem: null

@@ -58,6 +58,13 @@
 			</NavItem>
 		</SideNav>
 	:::
+
+	## Navigator API
+
+	|参数|说明|类型|默认值|
+	|---|---|---|---|
+	|fixed|固定于视窗|`Boolean`|`false`|
+
 </template>
 
 <script>
