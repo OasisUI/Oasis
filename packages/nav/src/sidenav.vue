@@ -1,15 +1,26 @@
 <template>
 	<ul
-		class="o-SideNav"
+		:class="[
+			'o-SideNav',
+			fixed ? 'o-SideNav--fixed' : ''
+		]"
 	>
 		<slot></slot>
 	</ul>
 </template>
 
 <script>
+	const props = {
+		fixed: {
+			type: Boolean,
+			default: false
+		}
+	}
+
 	export default {
 		name: 'SideNav',
 		type: 'navigator',
+		props,
 		data () {
 			return {
 				selectedItem: null

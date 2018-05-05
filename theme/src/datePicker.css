@@ -68,7 +68,7 @@
 			border-radius: calc(var(--DatePicker-dayHeight) / 2);
 
 			&:hover {
-				color: var(--color-primary);				
+				color: var(--color-primary);
 			}
 		}
 	}
@@ -112,6 +112,7 @@
 
 @component DayPicker {
 	display: block;
+	text-align: left;
 
 	@d weekDay {
 		font-weight: 700;

@@ -40,6 +40,7 @@
 	/* components */
 
 	/*loading*/
+	--Loading-bg: rgba(255,255,255, 0.2);
 	--Loading-spin-width: 42px;
 	--Loading-spin-height: 42px;
 
