@@ -1,7 +1,7 @@
 {
-  "name": "@oasis-ui/oasis",
-  "version": "0.1.7",
-  "description": "🍃 An elegant UI framework.",
+  "name": "oasis-ui",
+  "version": "0.1.8",
+  "description": "🍃 Elegant UI framework.",
   "main": "lib/index.js",
   "repository": {
     "type": "git",

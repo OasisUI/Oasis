@@ -2,3 +2,4 @@
 .vscode
 .idea
 *.log
+package-lock.json
