@@ -37,8 +37,8 @@
 </template>
 
 <script>
-	import Modal from '../../modal/src'
-	import Button from '../../button/src'
+	import Modal from '@oasisui/modal/src'
+	import Button from '@oasisui/button/src'
 
 	const props = {
 		title: {

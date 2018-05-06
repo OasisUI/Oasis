@@ -34,7 +34,7 @@
 
 	/*shadow*/
 
-	/*z-index*/}.o-Loading{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(222,222,222,0.78)}.o-Loading .path{
+	/*z-index*/}.o-Loading{position:absolute;z-index:1070;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,.2)}.o-Loading .path{
 	stroke-dasharray:100,140;
 	stroke-dashoffset:0;
 	stroke-width:4;

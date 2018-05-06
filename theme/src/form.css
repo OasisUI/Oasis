@@ -8,6 +8,7 @@
 			display: inline-block;
 			margin-right: 1rem;
 		}
+
 		& .o-FormItem__wrapper {
 			display: inline-block;
 		}
@@ -46,7 +47,6 @@
 	}
 
 	@d wrapper {
-
 		& .o-Input {
 			height: var(--Input-lg-height);
 			line-height: var(--Input-lg-height);

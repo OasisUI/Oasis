@@ -8,6 +8,8 @@ const WebpackDevConfig = require('./build/webpack.dev')
 const WebpackDocConfig = require('./build/webpack.doc')
 const WebpackBuildConfig = require('./build/webpack.build')
 
+const libPath = './packages/oasis/lib'
+
 gulp.task('build:module', () => {
 	const compiler = webpack(WebpackBuildConfig)
 	compiler.run((err, stats) => {
@@ -48,7 +50,7 @@ gulp.task('dev:theme', function () {
 			.on('error', err => {
 				err && console.log(err.name, err.reason, err.file, err.line + '/' + err.column)
 			})
-			.pipe(gulp.dest('./lib/theme'))
+			.pipe(gulp.dest(`${libPath}/theme`))
 	})
 })
 
@@ -56,12 +58,12 @@ gulp.task('build:theme', function () {
 	return gulp.src('./theme/**/*.css')
 		.pipe(postcss())
 		// minify
-		.pipe(gulp.dest('./lib/theme'))
+		.pipe(gulp.dest(`${libPath}/theme`))
 })
 
 gulp.task('copy', function () {
 	return gulp.src('./theme/font/*')
-		.pipe(gulp.dest('./lib/theme/font'))
+		.pipe(gulp.dest(`${libPath}/theme/font`))
 })
 
 gulp.task('lint:theme', function () {

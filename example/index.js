@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Oasis from '../packages'
+import Oasis from '../packages/oasis'
 import { router } from './router'
 
 import '../theme/index.css'

@@ -34,10 +34,11 @@
 		</Modal>
 	</Input>
 </template>
+
 <script>
-	import Input from '../../input/src'
+	import Input from '@oasisui/input/src'
+	import Modal from '@oasisui/modal/src'
 	import DatePicker from './datePicker'
-	import Modal from '../../modal/src'
 	import { getDomSize } from "utils"
 
 	const props = {
