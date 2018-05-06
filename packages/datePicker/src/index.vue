@@ -36,8 +36,8 @@
 </template>
 
 <script>
-	import Input from '@oasisui/input/src'
-	import Modal from '@oasisui/modal/src'
+	import Input from '@oasis-ui/input/src'
+	import Modal from '@oasis-ui/modal/src'
 	import DatePicker from './datePicker'
 	import { getDomSize } from "utils"
 

@@ -40,8 +40,8 @@
 </template>
 
 <script>
-	import Modal from '@oasisui/modal/src'
-	import Button from '@oasisui/button/src'
+	import Modal from '@oasis-ui/modal/src'
+	import Button from '@oasis-ui/button/src'
 
 	const props = {
 		confirmText: {

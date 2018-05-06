@@ -33,7 +33,7 @@
 </template>
 
 <script>
-	import Rahmen from '@oasisui/rahmen/src'
+	import Rahmen from '@oasis-ui/rahmen/src'
 
 	const props = {
 		displayName: {

@@ -1,5 +1,5 @@
 {
-	"name": "@oasisui/avatar",
+	"name": "@oasis-ui/avatar",
 	"version": "0.1.2",
 	"description": "",
 	"main": "index.js",
@@ -9,6 +9,6 @@
 	"author": "oasis",
 	"license": "MIT",
 	"dependencies": {
-		"@oasisui/rahmen": "^0.1.1"
+		"@oasis-ui/rahmen": "^0.1.1"
 	}
 }

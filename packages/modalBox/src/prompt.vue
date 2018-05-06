@@ -42,9 +42,9 @@
 </template>
 
 <script>
-	import Modal from '@oasisui/modal/src'
-	import Button from '@oasisui/button/src'
-	import Input from '@oasisui/input/src'
+	import Modal from '@oasis-ui/modal/src'
+	import Button from '@oasis-ui/button/src'
+	import Input from '@oasis-ui/input/src'
 
 	const props = {
 		confirmText: {

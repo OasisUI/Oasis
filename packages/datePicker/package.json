@@ -1,11 +1,11 @@
 {
-  "name": "@oasisui/datepicker",
+  "name": "@oasis-ui/datepicker",
   "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@oasisui/input": "^0.0.3",
-    "@oasisui/modal": "^0.0.3"
+    "@oasis-ui/input": "^0.0.3",
+    "@oasis-ui/modal": "^0.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

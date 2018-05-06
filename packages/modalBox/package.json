@@ -1,5 +1,5 @@
 {
-  "name": "@oasisui/modalbox",
+  "name": "@oasis-ui/modalbox",
   "version": "0.0.3",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,8 @@
   "author": "oasis",
   "license": "MIT",
   "dependencies": {
-    "@oasisui/button": "^0.0.3",
-    "@oasisui/input": "^0.0.3",
-    "@oasisui/modal": "^0.0.3"
+    "@oasis-ui/button": "^0.0.3",
+    "@oasis-ui/input": "^0.0.3",
+    "@oasis-ui/modal": "^0.0.3"
   }
 }
