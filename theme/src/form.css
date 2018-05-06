@@ -1,34 +1,51 @@
 @import '../common/_var.css';
 
-@c FormItem {
-	position: relative;
+@component FormGroup {
 	display: block;
-	margin-bottom: 20px;
+
+	@m inline {
+		& .o-FormItem{
+			display: inline-block;
+			margin-right: 1rem;
+		}
+		& .o-FormItem__wrapper {
+			display: inline-block;
+		}
+	}
+
+	@m blockLabel {
+		& .o-FormItem__label {
+			display: block;
+			height: 12px;
+			line-height: 12px;
+			margin-bottom: 10px;
+			text-align: left;
+			color: #878F94;
+			font-size: 12px;
+		}
+	}
+
+}
+
+@component FormItem {
+	position: relative;
+	margin-bottom: 24px;
 
 	@d label {
+		float: left;
 		display: inline-block;
-		padding-right: 14px;
+		padding-right: 12px;
+		text-align: right;
 		line-height: var(--Input-lg-height);
 
-		& > label {
-			display: block;
-			text-align: right;
-
-			&:before {
-				content: '* ';
-				display: none;
-				color: var(--color-danger);
-			}
-
-			&:after {
-				content: ':';
-				display: inline;
-			}
+		&:before {
+			content: ' * ';
+			display: none;
+			color: var(--color-danger);
 		}
 	}
 
 	@d wrapper {
-		display: inline-block;
 
 		& .o-Input {
 			height: var(--Input-lg-height);
@@ -37,7 +54,7 @@
 	}
 
 	@when required {
-		& .o-FormItem__label label:before {
+		& .o-FormItem__label:before {
 			display: inline;
 		}
 	}

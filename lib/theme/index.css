@@ -63,15 +63,21 @@
 	stroke-dasharray:100,140;
 	stroke-dashoffset:0;
 	stroke-width:4;
-	stroke:#34B697;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-animation:loading-spin 2s linear infinite;animation:loading-spin 2s linear infinite}.o-Loading__spin{width:42px;height:42px}.o-Loading__spin svg{-webkit-animation:loading-rotate 2s linear infinite;animation:loading-rotate 2s linear infinite}.o-FormItem{position:relative;display:block;margin-bottom:20px}.o-FormItem.is-required .o-FormItem__label label:before{
-	display:inline}.o-FormItem__label{display:inline-block;padding-right:14px;line-height:40px}.o-FormItem__label > label{
+	stroke:#34B697;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-animation:loading-spin 2s linear infinite;animation:loading-spin 2s linear infinite}.o-Loading__spin{width:42px;height:42px}.o-Loading__spin svg{-webkit-animation:loading-rotate 2s linear infinite;animation:loading-rotate 2s linear infinite}.o-FormGroup{display:block}.o-FormGroup--inline .o-FormItem{
+	display:inline-block;
+	margin-right:1rem}.o-FormGroup--inline .o-FormItem__wrapper{
+	display:inline-block}.o-FormGroup--blockLabel .o-FormItem__label{
 	display:block;
-	text-align:right}.o-FormItem__label > label:before{
-	content:'* ';
+	height:12px;
+	line-height:12px;
+	margin-bottom:10px;
+	text-align:left;
+	color:#878F94;
+	font-size:12px}.o-FormItem{position:relative;margin-bottom:24px}.o-FormItem.is-required .o-FormItem__label:before{
+	display:inline}.o-FormItem__label{float:left;display:inline-block;padding-right:12px;text-align:right;line-height:40px}.o-FormItem__label:before{
+	content:' * ';
 	display:none;
-	color:#F06868}.o-FormItem__label > label:after{
-	content:':';
-	display:inline}.o-FormItem__wrapper{display:inline-block}.o-FormItem__wrapper .o-Input{
+	color:#F06868}.o-FormItem__wrapper .o-Input{
 	height:40px;
 	line-height:40px}.o-Btn{display:inline-block;margin:0;padding:0;border-radius:4px;font-size:14px;-webkit-transition:color ease-in-out 20ms,background-color ease-in-out 160ms,-webkit-box-shadow ease-in-out 100ms;transition:color ease-in-out 20ms,background-color ease-in-out 160ms,-webkit-box-shadow ease-in-out 100ms;transition:color ease-in-out 20ms,background-color ease-in-out 160ms,box-shadow ease-in-out 100ms;transition:color ease-in-out 20ms,background-color ease-in-out 160ms,box-shadow ease-in-out 100ms,-webkit-box-shadow ease-in-out 100ms;text-decoration:none;-webkit-box-shadow:0 0 0 0 transparent;box-shadow:0 0 0 0 transparent;overflow:hidden;text-overflow:ellipsis}.o-Btn:not(.disabled){
 	cursor:pointer}.o-Btn{

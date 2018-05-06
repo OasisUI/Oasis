@@ -1,40 +1,10 @@
-<!--<template>-->
-	<!--<div-->
-		<!--class="o-FormItem o-Row"-->
-		<!--:class="[-->
-			<!--required ? 'is-required' : ''-->
-		<!--]"-->
-	<!--&gt;-->
-		<!--<div-->
-			<!--v-if="label"-->
-			<!--class="o-FormItem__label"-->
-			<!--:class="[-->
-				<!--`o-Col-${layout.labelCol}`-->
-			<!--]"-->
-		<!--&gt;-->
-			<!--<label>{{label}}</label>-->
-		<!--</div>-->
-		<!--<div-->
-			<!--class="o-FormItem__wrapper"-->
-			<!--:class="[-->
-				<!--`o-Col-${layout.wrapperCol}`,-->
-				<!--!label ?-->
-					<!--`o-Col-offset-${layout.labelCol}` : '',-->
-			<!--]"-->
-		<!--&gt;-->
-			<!--&lt;!&ndash;<slot size="lg"></slot>&ndash;&gt;-->
-		<!--</div>-->
-	<!--</div>-->
-<!--</template>-->
-
 <script>
-	import formItemLayoutValidator from './formItemLayoutValidator'
-
 	const props = {
 		label: String,
 		required: Boolean,
-		formItemLayout: {
-			validator: formItemLayoutValidator
+		labelWidth: {
+			type: String,
+			default: '80'
 		}
 	}
 
@@ -50,28 +20,31 @@
 				{
 					'class': [
 						'o-FormItem',
-						'o-Row', this.required ? 'is-required' : ''
+						this.required ? 'is-required' : ''
 					]
 				},
 				[
-					this.label ? h(
-						'div',
+					this.label !== void (0) ? h(
+						'label',
 						{
 							'class': [
-								'o-FormItem__label',
-								`o-Col-${this.layout.labelCol}`
-							]
+								'o-FormItem__label'
+							],
+							'style': {
+								'width': this._labelWidth
+							}
 						},
-						[h('label', this.label)]
-					) : '',
+						this.label
+					) : null,
 					h(
 						'div',
 						{
 							'class': [
-								'o-FormItem__wrapper',
-								`o-Col-${this.layout.wrapperCol}`,
-								!this.label ? `o-Col-offset-${this.layout.labelCol}` : ''
+								'o-FormItem__wrapper'
 							],
+							'style': {
+								'margin-left': this._labelWidth
+							}
 						},
 						[slot]
 					)
@@ -79,11 +52,9 @@
 			)
 		},
 		computed: {
-			layout () {
-				return this.formItemLayout || this.$parent.formItemLayout || {
-					labelCol: 4,
-					wrapperCol: 20
-				} // default
+			_labelWidth () {
+				const { $parent, labelWidth } = this
+				return $parent.inline || $parent.blockLabel ? '' : `${$parent.labelWidth || labelWidth}px`
 			}
 		}
 		// https://github.com/vuejs/vue/issues/3690

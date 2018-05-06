@@ -5,10 +5,7 @@
 
 	:::html
 		<FormGroup
-			:form-item-layout="{
-				labelCol: 4,
-				wrapperCol: 20
-			}"
+			label-width="70"
 		>
 			<FormItem
 				label="Name"
@@ -52,15 +49,59 @@
 		</FormGroup>
 	:::
 
+	## Inline FormItem
 
-	也可以单独为 `FormItem` 设置 `formItemLayout`，其的默认值是：
+	:::html
+		<FormGroup
+			inline
+		>
+			<FormItem
+				label="Name"
+			>
+				<Input
+					v-model="name"
+				></Input>
+			</FormItem>
+			<FormItem
+				label="E-mail"
+				required
+			>
+				<Input
+					v-model="email"
+				></Input>
+			</FormItem>
+			<FormItem>
+				<Button type="primary">submit</Button>
+			</FormItem>
+		</FormGroup>
+	:::
 
-	```
-		{
-			labelCol: 4,
-			wrapperCol: 20
-		}
-	```
+	## Block FormLabel
+
+	:::html
+		<FormGroup
+			block-label
+		>
+			<FormItem
+				label="Name"
+			>
+				<Input
+					v-model="name"
+				></Input>
+			</FormItem>
+			<FormItem
+				label="E-mail"
+				required
+			>
+				<Input
+					v-model="email"
+				></Input>
+			</FormItem>
+			<FormItem>
+				<Button type="primary">submit</Button>
+			</FormItem>
+		</FormGroup>
+	:::
 
 	### 表单校验（TODO）
 
