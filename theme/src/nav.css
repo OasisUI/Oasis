@@ -72,6 +72,7 @@
 
 	.o-NavItem.is-selected {
 		color: var(--color-primary);
+		font-weight: 500;
 	}
 
 	.o-NavItem:hover {
@@ -113,6 +114,7 @@
 
 	.o-NavItem.is-selected {
 		color: var(--color-primary);
+		font-weight: 500;
 	}
 }
 

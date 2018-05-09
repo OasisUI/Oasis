@@ -1,20 +1,3 @@
-<!--<template>-->
-	<!--<div class="o-Progress">-->
-		<!--<LineProgress-->
-			<!--v-if="type === 'line'"-->
-			<!--:progress="percent"-->
-			<!--:info="info"-->
-			<!--:status="computedStatus"-->
-		<!--&gt;</LineProgress>-->
-		<!--<CircleProgress-->
-			<!--v-else-->
-			<!--:progress="percent"-->
-			<!--:info="info"-->
-			<!--:status="computedStatus"-->
-		<!--&gt;</CircleProgress>-->
-	<!--</div>-->
-<!--</template>-->
-
 <script>
 	import CircleProgress from './circle'
 	import LineProgress from './line'
@@ -40,7 +23,8 @@
 			default: 'line'
 		},
 		info: String,
-		status: String
+		status: String,
+		inline: Boolean
 	}
 
 	export default {
@@ -55,7 +39,8 @@
 						progress: this.percent,
 						info: this.info,
 						status: this.computedStatus,
-						showInfo: this.showInfo
+						showInfo: this.showInfo,
+						inline: this.inline
 					}
 				}
 			)

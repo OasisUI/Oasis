@@ -1,6 +1,7 @@
 <template>
 	<div class="o-UploadBox">
 		<UploadFile
+			ref="upload"
 			:url="url"
 			:files="files"
 			:multiple="multiple"
@@ -12,9 +13,13 @@
 			:on-progress="_onProgress"
 			:on-timeout="_onTimeout"
 			:disabled="disabled"
-			auto-upload
+			:auto-upload="autoUpload"
 		>
 			<slot></slot>
+			<slot
+				name="extra"
+				slot="extra"
+			></slot>
 		</UploadFile>
 		<FileList
 			:files="files"
@@ -36,7 +41,9 @@
 			type: Boolean
 		},
 		files: {
-			default: [],
+			default () {
+				return []
+			},
 			type: Array
 		},
 		url: String,
@@ -62,7 +69,6 @@
 				return this.beforeUpload && this.beforeUpload(files)
 			},
 			_onProgress (e, file) {
-				console.log(file)
 				file.percent = e.percent
 				this.onProgress && this.onProgress(e)
 			},
@@ -74,6 +80,9 @@
 			},
 			_onTimeout (e) {
 				this.onTimeout && this.onTimeout(e)
+			},
+			upload () {
+				this.$refs.upload.upload()
 			}
 		},
 		components: {

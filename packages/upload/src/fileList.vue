@@ -21,19 +21,20 @@
 </template>
 
 <script>
+	import Progress from '@oasis-ui/progress/src'
+
 	const props = {
 		files: {
 			type: Array,
 			default: []
 		}
 	}
+
 	export default {
 		name: 'FileList',
 		props,
-		watch: {
-			files (val) {
-				console.log(window.f = val)
-			}
+		components: {
+			Progress
 		}
 	}
 </script>

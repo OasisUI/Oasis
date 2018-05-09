@@ -4,6 +4,10 @@
 	@d input {
 		display: none;
 	}
+
+	@d picker {
+		display: inline-block;
+	}
 }
 
 @component UploadFiles {

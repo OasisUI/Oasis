@@ -1,4 +1,4 @@
-import Progress from './src/progress'
+import Progress from './src'
 
 export default {
 	install (Vue) {

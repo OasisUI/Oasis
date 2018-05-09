@@ -3,7 +3,8 @@
 		:class="[
 			`is-${status}`,
 			{
-				'is-showInfo': showInfo
+				'is-showInfo': showInfo,
+				'o-Progress--inline': inline
 			}
 		]"
 		class="o-CircleProgress"
@@ -53,7 +54,8 @@
 		status: {
 			type: String,
 			default: 'primary'
-		}
+		},
+		inline: Boolean
 	}
 
 	export default {

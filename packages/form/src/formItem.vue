@@ -13,8 +13,12 @@
 		type: 'formItem',
 		props,
 		render (h) {
-			const slot = this.$slots.default[0]
-			if (slot) slot.componentOptions.propsData.size = 'lg'
+			const slots = this.$slots.default
+			slots.map(slot => {
+				if (slot.componentOptions) {
+					slot.componentOptions.propsData.size = 'lg'
+				}
+			})
 			return h(
 				'div',
 				{
@@ -46,7 +50,7 @@
 								'margin-left': this._labelWidth
 							}
 						},
-						[slot]
+						slots
 					)
 				]
 			)

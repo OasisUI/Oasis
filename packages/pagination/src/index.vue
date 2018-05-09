@@ -114,7 +114,7 @@
 				return arr
 			},
 			totalPage () {
-				return Math.ceil(this.total / this.pageSize)
+				return Math.ceil(this.total / this.pageSize) || 1
 			},
 		},
 		methods: {

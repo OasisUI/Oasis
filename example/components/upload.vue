@@ -6,15 +6,11 @@
 	:::html
 		<Upload
 			url="https://jsonplaceholder.typicode.com/posts/"
-			multiple
-			:uploader="uploader"
-			:files="files"
+			:files="files1"
 			:on-success="onSuccess"
 			:on-error="onError"
-			:on-progress="onProgress"
-			:on-cancel="onCancel"
 		>
-			<Button>upload file</Button>
+			<Button type="primary">Upload file</Button>
 		</Upload>
 	:::
 
@@ -22,19 +18,62 @@
 
 	可以通过 `uploader` 参数设置自定义的上传方法，如以下示例。你必须在上传的 `progress` `error` `success` 三个状态中调用指定的方法。
 
+	:::html
+		<Upload
+			url="https://jsonplaceholder.typicode.com/posts/"
+			multiple
+			:uploader="uploader"
+			:files="files2"
+			:on-success="onSuccess"
+			:on-error="onError"
+			:on-progress="onProgress"
+			:on-cancel="onCancel"
+		>
+			<Button type="primary">Upload file</Button>
+		</Upload>
+	:::
+
 	```javascript
-		uploader ({url, file, onProgress, onSuccess, onError}) {
-			let formData = new FormData()
-			formData.append('file', file)
-			return axios.post(url, formData, {
-				onUploadProgress: onProgress
-			}).then(res => {
-				onSuccess(res)
-			}).catch(err => {
-				onError(err)
-			})
+		methods: {
+			uploader ({url, file, onProgress, onSuccess, onError}) {
+				let formData = new FormData()
+				formData.append('file', file)
+				return axios.post(url, formData, {
+					onUploadProgress: onProgress
+				}).then(res => {
+					onSuccess(res)
+				}).catch(err => {
+					onError(err)
+				})
+			}
 		}
 	```
+
+	## 手动上传
+
+	需要主动调用 `Upload` 组件的 `upload` 方法。
+
+	:::html
+		<Upload
+			url="https://jsonplaceholder.typicode.com/posts/"
+			multiple
+			ref="uploader"
+			:auto-upload="false"
+			:uploader="uploader"
+			:files="files3"
+			:on-success="onSuccess"
+			:on-error="onError"
+			:on-progress="onProgress"
+			:on-cancel="onCancel"
+		>
+			<Button type="primary">Choose file</Button>
+			<Button
+				type="primary"
+				slot="extra"
+				@click="$refs.uploader.upload()"
+			>Upload file</Button>
+		</Upload>
+	:::
 
 	## API
 
@@ -42,6 +81,7 @@
 	|---|---|---|---|
 	|url|上传地址|String|`''`|
 	|multiple|上传多个文件|Boolean|`false`|
+	|autoUpload|选择文件后自动上传|Boolean|`true`|
 	|files|需要上传的文件列表|Array|`[]`|
 	|uploader|自定义上传方法|Function|`undefined`|
 	|beforeUpload|即将上传的回调方法，你可以在此方法内做文件校验，如果返回 `true` 则继续上传|Function|`undefined`|
@@ -57,14 +97,22 @@
 	export default {
 		data () {
 			return {
-				files: [
+				files1: [
 					{
 						filename: 'test.pdf',
 						percent: 20
-					},
+					}
+				],
+				files2: [
 					{
 						filename: 'test2.mp3',
 						percent: 88
+					}
+				],
+				files3: [
+					{
+						filename: 'test3.mobi',
+						percent: 69
 					}
 				]
 			}

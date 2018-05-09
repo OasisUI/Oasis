@@ -21,6 +21,8 @@ import Pagination from './components/pagination'
 import Navbar from './components/navbar'
 import Rahmen from './components/rahmen'
 import Avatar from './components/avatar'
+import Loading from './components/loading'
+import Progress from './components/progress'
 
 Vue.use(VueRouter)
 
@@ -163,6 +165,22 @@ const components = [
 		title: {
 			zh: '头像',
 			en: 'Avatar'
+		}
+	},
+	{
+		path: 'loading',
+		component: Loading,
+		title: {
+			zh: '加载动画',
+			en: 'Loading'
+		}
+	},
+	{
+		path: 'progress',
+		component: Progress,
+		title: {
+			zh: '进度条',
+			en: 'Progress'
 		}
 	}
 ]

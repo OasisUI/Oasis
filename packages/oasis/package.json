@@ -13,31 +13,6 @@
   "homepage": "http://www.oasisui.org/",
   "author": "oasis",
   "license": "MIT",
-  "dependencies": {
-    "@oasis-ui/avatar": "^0.1.6",
-    "@oasis-ui/button": "^0.0.7",
-    "@oasis-ui/checkbox": "^0.0.7",
-    "@oasis-ui/datepicker": "^0.0.7",
-    "@oasis-ui/form": "^0.0.7",
-    "@oasis-ui/grid": "^0.0.7",
-    "@oasis-ui/img": "^0.0.7",
-    "@oasis-ui/input": "^0.0.7",
-    "@oasis-ui/inputnumber": "^0.0.7",
-    "@oasis-ui/loading": "^0.0.7",
-    "@oasis-ui/message": "^0.0.7",
-    "@oasis-ui/modal": "^0.0.7",
-    "@oasis-ui/modalbox": "^0.0.7",
-    "@oasis-ui/nav": "^0.0.7",
-    "@oasis-ui/pagination": "^0.0.7",
-    "@oasis-ui/popup": "^0.0.7",
-    "@oasis-ui/progress": "^0.0.7",
-    "@oasis-ui/radio": "^0.0.7",
-    "@oasis-ui/rahmen": "^0.1.5",
-    "@oasis-ui/scrollbox": "^0.0.7",
-    "@oasis-ui/select": "^0.0.7",
-    "@oasis-ui/timepicker": "^0.0.7",
-    "@oasis-ui/upload": "^0.0.7"
-  },
   "publishConfig": {
     "access": "public"
   }

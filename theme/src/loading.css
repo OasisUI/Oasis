@@ -14,16 +14,7 @@
 		height: var(--Loading-spin-height);
 
 		& svg {
-			animation: loading-rotate 2s linear infinite;
+			animation: loading-rotate 1.2s linear infinite;
 		}
-	}
-
-	& .path {
-		stroke-dasharray: 100, 140;
-		stroke-dashoffset: 0;
-		stroke-width: 4;
-		stroke: var(--color-primary);
-		transform-origin: 50% 50%;
-		animation: loading-spin 2s linear infinite;
 	}
 }

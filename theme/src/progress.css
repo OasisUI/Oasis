@@ -4,7 +4,8 @@
 	display: inline-block;
 	transition: all ease-out 0.24s;
 
-	@d circle {
+	@m inline {
+		display: inline-block;
 	}
 }
 

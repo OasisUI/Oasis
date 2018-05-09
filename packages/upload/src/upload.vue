@@ -1,9 +1,16 @@
 <template>
 	<div
-		@click="onClick"
 		class="o-Upload"
 	>
-		<slot></slot>
+		<div
+			@click="chooseFiles"
+			class="o-Upload__picker"
+		>
+			<slot></slot>
+		</div>
+		<slot
+			name="extra"
+		></slot>
 		<input
 			ref="input"
 			type="file"
@@ -43,7 +50,7 @@
 		name: 'UploadFile',
 		props,
 		methods: {
-			onClick () {
+			chooseFiles () {
 				this.$refs.input.click()
 			},
 			onChange () {
@@ -57,19 +64,23 @@
 					}
 				})
 				this.files && this.files.push(...files)
-				if (!this.autoUpload) return
-				const check = this._beforeUpload(files)
-				if (check !== false) {
-					this.upload(files)
+				if (this.autoUpload) {
+					this.upload()
 				}
 			},
+
 			_beforeUpload (files) {
 				return this.beforeUpload && this.beforeUpload(files)
 			},
-			upload (files) {
-				files = files || this.files
-				const upload = this.uploader || uploader
+
+			upload () {
+				const upload = (this.uploader || uploader)
+				const files = this.files.filter(file => file.status === '')
+
+				if (this._beforeUpload(files) === false) return
+
 				files.map(file => {
+					file.status = 'pending'
 					upload({
 						url: this.url,
 						filename: this.filename,
