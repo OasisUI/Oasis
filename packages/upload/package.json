@@ -1,6 +1,6 @@
 {
   "name": "@oasis-ui/upload",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@oasis-ui/progress": "^0.0.7"
+    "@oasis-ui/progress": "^0.0.8"
   }
 }
