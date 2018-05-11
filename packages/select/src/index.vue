@@ -13,6 +13,9 @@
 			class="o-Input__native"
 			v-model="currentVal"
 			:disabled="disabled"
+			@focus="onFocus"
+			@blur="onBlur"
+			@change="onChange"
 			readonly="readonly"
 			type="text"
 		/>
@@ -99,6 +102,9 @@
 			},
 			onBlur (e) {
 				this.$emit('blur', e)
+			},
+			onChange (e) {
+				this.$emit('change', e)
 			},
 		},
 		computed: {
