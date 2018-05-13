@@ -20,6 +20,6 @@
 		"unit-whitelist": ["em", "rem", "%", "px", "ms", "s", "deg"]
 	},
 	"ignoreFiles": [
-		"./theme/iconfont/iconfont.css"
+		"./packages/theme/iconfont/iconfont.css"
 	],
 }
