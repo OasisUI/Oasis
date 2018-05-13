@@ -9,6 +9,7 @@ const WebpackDocConfig = require('./build/webpack.doc')
 const WebpackBuildConfig = require('./build/webpack.build')
 
 const libPath = './packages/oasis/lib'
+const themePath = './packages/theme'
 
 gulp.task('build:module', () => {
 	const compiler = webpack(WebpackBuildConfig)
@@ -44,8 +45,8 @@ gulp.task('dev:server', () => {
 })
 
 gulp.task('dev:theme', function () {
-	return watch('./theme/**/*.css', function () {
-		gulp.src('./theme/index.css')
+	return watch(`${themePath}/**/*.css`, function () {
+		gulp.src(`${themePath}/index.css`)
 			.pipe(postcss())
 			.on('error', err => {
 				err && console.log(err.name, err.reason, err.file, err.line + '/' + err.column)
@@ -55,19 +56,19 @@ gulp.task('dev:theme', function () {
 })
 
 gulp.task('build:theme', function () {
-	return gulp.src('./theme/**/*.css')
+	return gulp.src(`${themePath}/**/*.css`)
 		.pipe(postcss())
 		// minify
 		.pipe(gulp.dest(`${libPath}/theme`))
 })
 
 gulp.task('copy', function () {
-	return gulp.src('./theme/font/*')
+	return gulp.src(`${themePath}/font/*`)
 		.pipe(gulp.dest(`${libPath}/theme/font`))
 })
 
 gulp.task('lint:theme', function () {
-	return gulp.src('./theme/**/*.css')
+	return gulp.src(`${themePath}/**/*.css`)
 		.pipe(require('gulp-stylelint')({
 			debug: true,
 			reporters: [
