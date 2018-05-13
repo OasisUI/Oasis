@@ -1,11 +1,14 @@
 {
   "name": "@oasis-ui/theme",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "lib/index.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "oasis",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT"
 }
