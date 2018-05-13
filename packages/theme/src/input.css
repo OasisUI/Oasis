@@ -1,5 +1,3 @@
-@import '../common/_var.css';
-
 @component Input {
 	position: relative;
 	display: inline-block;

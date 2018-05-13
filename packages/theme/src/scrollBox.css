@@ -1,5 +1,3 @@
-@import './../common/_var.css';
-
 @component Scroll{
 	position: relative;
 	width: 100%;

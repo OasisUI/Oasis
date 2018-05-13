@@ -1,5 +1,3 @@
-@import '../common/_var.css';
-
 @component Avatar {
 	display: inline-flex;
 
@@ -75,5 +73,4 @@
 	& .o-Avatar:not(:first-of-type) {
 		margin-left: -8%;
 	}
-
 }

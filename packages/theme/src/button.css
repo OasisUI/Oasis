@@ -1,6 +1,3 @@
-@import '../common/_var.css';
-@import '../common/_animation.css';
-
 @component Btn {
 	display: inline-block;
 	margin: 0;

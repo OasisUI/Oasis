@@ -26,10 +26,14 @@ module.exports = {
 			browsers: ['ie > 8', 'last 2 versions'],
 			cascade: false
 		}),
-		require('postcss-discard-empty'),
-		require('postcss-normalize-whitespace'),
-		require('postcss-svgo'),
-		require('postcss-reporter')({ clearReportedMessages: true })
-		// require('cssnano')
+		require('postcss-reporter')({ clearReportedMessages: true }),
+		process.env.ENV === 'prod' ? require('cssnano')(
+			{
+				discardComments: {
+					removeAll: true
+				},
+				autoprefixer: false
+			}
+		) : null
 	]
 }

@@ -1,10 +1,8 @@
-@import '../common/_var.css';
-
 @component Popup {
 	z-index: var(--zIndex-popover);
 	position: absolute;
 	top: 0;
-	
+
 	@d inner {
 		position: relative;
 		margin-top: calc(var(--Popup-arrow-height) + 2px);

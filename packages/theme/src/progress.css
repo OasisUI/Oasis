@@ -1,5 +1,3 @@
-@import './../common/_var.css';
-
 @component Progress {
 	display: inline-block;
 	transition: all ease-out 0.24s;

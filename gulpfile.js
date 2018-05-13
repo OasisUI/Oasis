@@ -1,4 +1,5 @@
 const gulp = require('gulp')
+const rimraf = require('rimraf')
 const util = require('gulp-util')
 const webpack = require('webpack')
 const watch = require('gulp-watch')
@@ -56,7 +57,7 @@ gulp.task('dev:theme', function () {
 })
 
 gulp.task('build:theme', function () {
-	return gulp.src(`${themePath}/**/*.css`)
+	return gulp.src(`${themePath}/index.css`)
 		.pipe(postcss())
 		// minify
 		.pipe(gulp.dest(`${libPath}/theme`))
@@ -79,4 +80,8 @@ gulp.task('lint:theme', function () {
 
 gulp.task('dev', ['dev:server', 'dev:theme'])
 
-gulp.task('build', ['copy', 'build:module', 'build:theme', 'build:doc'])
+gulp.task('build', function () {
+	rimraf('./packages/oasis/theme', function () {
+		gulp.start(['copy', 'build:module', 'build:theme', 'build:doc'])
+	})
+})

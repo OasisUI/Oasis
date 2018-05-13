@@ -1,5 +1,3 @@
-@import '../common/_var.css';
-
 @component InputTime {
 	text-align: center;
 
@@ -13,7 +11,7 @@
 	height: calc(var(--TimeSpinnerItem-height) * 7);
 	text-align: center;
 	overflow: hidden;
-	font-size: 0;	
+	font-size: 0;
 	color: var(--color-gray-1);
 
 	&:after {
@@ -29,12 +27,12 @@
 		display: inline-block;
 		text-align: center;
 		vertical-align: middle;
-		width: var(--TimeSpinner-width);		
+		width: var(--TimeSpinner-width);
 		height: 100%;
 	}
 
 	@d spinnerList {
-		display: inline-block;		
+		display: inline-block;
 		overflow: auto;
 		position: absolute;
 		top: 0;
@@ -74,7 +72,7 @@
 	overflow-x: hidden;
 
 	&:hover {
-		overflow-y: auto;		
+		overflow-y: auto;
 	}
 
 	&:before,
@@ -88,7 +86,7 @@
 		display: block;
 		margin: 0;
 		padding: 0;
-		width: var(--TimeSpinner-width);		
+		width: var(--TimeSpinner-width);
 		height: var(--TimeSpinnerItem-height);
 		line-height: var(--TimeSpinnerItem-height);
 		text-align: center;

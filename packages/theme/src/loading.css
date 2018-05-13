@@ -1,5 +1,3 @@
-@import '../common/_var.css';
-
 @c Loading {
 	position: absolute;
 	z-index: var(--zIndex-tooltip);

@@ -1,5 +1,3 @@
-@import '../common/_var.css';
-
 @component MessageBox {
 	z-index: var(--zIndex-popover);
 	position: fixed;

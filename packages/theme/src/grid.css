@@ -1,7 +1,3 @@
-/*grid layout*/
-$w: 1;
-$d: '';
-
 @component Row {
 	display: block;
 
