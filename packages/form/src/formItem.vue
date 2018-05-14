@@ -14,7 +14,7 @@
 		props,
 		render (h) {
 			const slots = this.$slots.default
-			slots.map(slot => {
+			slots && slots.map(slot => {
 				if (slot.componentOptions) {
 					slot.componentOptions.propsData.size = 'lg'
 				}
@@ -23,7 +23,7 @@
 				'div',
 				{
 					'class': [
-						'o-FormItem',
+						'o-FormItem clearfix',
 						this.required ? 'is-required' : ''
 					]
 				},
