@@ -22,6 +22,7 @@ import Pagination from '../pagination'
 import Nav from '../nav'
 import Rahmen from '../rahmen'
 import Avatar from '../avatar'
+import PreviewImg from '../previewImg'
 
 // tools
 // TODO
@@ -49,7 +50,8 @@ const components = [
 	Pagination,
 	Nav,
 	Rahmen,
-	Avatar
+	Avatar,
+	PreviewImg
 ]
 
 const Oasis = {

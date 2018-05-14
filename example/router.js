@@ -23,6 +23,7 @@ import Rahmen from './components/rahmen'
 import Avatar from './components/avatar'
 import Loading from './components/loading'
 import Progress from './components/progress'
+import previewImg from './components/previewImg'
 
 Vue.use(VueRouter)
 
@@ -105,6 +106,14 @@ const components = [
 		title: {
 			zh: '模态框',
 			en: 'Modal'
+		}
+	},
+	{
+		path: 'previewImg',
+		component: previewImg,
+		title: {
+			zh: '图片预览',
+			en: 'PreviewImg'
 		}
 	},
 	{
