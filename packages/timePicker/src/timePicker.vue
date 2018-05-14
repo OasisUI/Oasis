@@ -1,6 +1,6 @@
 <template>
 	<div class="o-TimePicker">
-		<div			
+		<div
 			class="o-TimePicker__currentValue"
 		>
 			<TimeSpinner
@@ -8,7 +8,7 @@
 				v-model="hour"
 			></TimeSpinner>
 		</div>
-		<div			
+		<div
 			class="o-TimePicker__currentValue"
 		>
 			<TimeSpinner
@@ -16,7 +16,7 @@
 				v-model="minute"
 			></TimeSpinner>
 		</div>
-		<div			
+		<div
 			class="o-TimePicker__currentValue"
 		>
 			<TimeSpinner
@@ -31,7 +31,7 @@
 		formatNumber
 	} from '../../../utils'
 	import Spinner from './spinner'
-	
+
 	const props = {
 		value: {},
 		split: {

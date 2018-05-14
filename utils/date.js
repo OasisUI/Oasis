@@ -37,7 +37,7 @@ export function dateWrapper (date) {
 
 export class D {
 	constructor (year, month = 1, day = 1, hour = 0, minute = 0, second = 0) {
-		this._ = new Date(year, month - 1, day)
+		this._ = new Date(year, month - 1, day, hour, minute, second)
 	}
 
 	get year () {
@@ -82,5 +82,9 @@ export class D {
 
 	get weekday () {
 		return this._.getDay()
+	}
+
+	get unixTime () {
+		return this._.getTime()
 	}
 }

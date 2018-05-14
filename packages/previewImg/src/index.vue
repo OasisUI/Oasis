@@ -14,8 +14,8 @@
 			<Rahmen
 				v-for="(img, index) in material.images"
 				v-show="index === material.current"
-				:key="img"
 				:src="img"
+				:key="index"
 				ratio="1"
 				width="100%"
 				type="fillMax"
@@ -50,6 +50,7 @@
 	}
 
 	export default {
+		name: 'PreviewImg',
 		props,
 		data () {
 			return {

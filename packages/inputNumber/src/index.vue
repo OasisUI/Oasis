@@ -13,12 +13,13 @@
 				class="o-InputNumber__suffixWrapper"
 			>
 				{{currentVal}}
-				<span class="o-InputNumber__suffix">&nbsp{{suffix}}</span>
+				<span class="o-InputNumber__suffix">&nbsp;{{suffix}}</span>
 			</div>
 			<input
 				class="o-Input__native"
 				type="text"
 				:value="currentVal"
+				@input="onInput"
 				@change="onChange"
 				@focus="onFocus"
 				@blur="onBlur"
@@ -106,6 +107,9 @@
 		},
 		methods: {
 			onChange (e) {
+				this.currentVal = number(e.target.value)
+			},
+			onInput (e) {
 				this.currentVal = number(e.target.value)
 			},
 			onFocus (e) {

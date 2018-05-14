@@ -1,0 +1,15 @@
+@component DateTimePicker {
+	text-align: center;
+
+	& .o-DatePicker,
+	& .o-TimePicker {
+		display: inline-block;
+	}
+
+	& .o-DateTimePicker__date,
+	& .o-DateTimePicker__time {
+		.o-Input__wrapper {
+			display: none;
+		}
+	}
+}
