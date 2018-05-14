@@ -1,6 +1,10 @@
 {
   "name": "oasis-ui",
+<<<<<<< HEAD
   "version": "0.3.2",
+=======
+  "version": "0.3.0",
+>>>>>>> 12c7909d4eccc4694c71a22a7363708ea038d36d
   "description": "🍃 Elegant UI framework.",
   "main": "lib/index.js",
   "repository": {
