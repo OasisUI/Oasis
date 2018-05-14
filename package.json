@@ -9,6 +9,7 @@
 		"build:doc": "gulp build:doc",
 		"build:theme": "gulp build:theme",
 		"build": "cross-env ENV=prod gulp build",
+		"publish": "npm run build && lerna publish",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"devDependencies": {

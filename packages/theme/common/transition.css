@@ -16,15 +16,15 @@
 
 .o-Modal-enter-active,
 .o-Modal-leave-active {
-	transition: all ease-in-out 0.3s;
+	transition: all linear 0.3s;
 }
 
 .o-Modal-enter-active .o-Modal__content {
-	transition: all ease-in-out 0.2s 0.1s;
+	transition: all ease-in-out 0.14s 0.16s;
 }
 
 .o-Modal-leave-active .o-Modal__content {
-	transition: all ease-in-out .2s 0s;
+	transition: all ease-in-out 0.14s 0s;
 }
 
 .o-Modal-enter,

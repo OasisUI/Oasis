@@ -17,6 +17,14 @@
 		></InputTime>
 	:::
 
+	## 日期时间选择
+
+	:::html
+		<InputDateTime
+			v-model="datetime"
+		></InputDateTime>
+	:::
+
 	## API
 
 	|参数|说明|类型|默认值|
@@ -30,8 +38,9 @@
 	export default {
 		data () {
 			return {
-				date: + new Date(),
-				time: '12:00'
+				date: '2018/05/14',
+				time: '12:00',
+				datetime: '2018/05/14 12:00'
 			}
 		}
 	}

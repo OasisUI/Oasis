@@ -6,18 +6,19 @@ import Button from '../button'
 import Grid from '../grid'
 import Checkbox from '../checkbox'
 import Input from '../input'
-import InputNumber from '../inputnumber'
+import InputNumber from '../inputNumber'
 import Select from '../select'
 import Radio from '../radio'
 import Message from '../message'
 import Modal from '../modal'
-import ModalBox from '../modalbox'
-import DatePicker from '../datepicker'
-import TimePicker from '../timepicker'
+import ModalBox from '../modalBox'
+import DatePicker from '../datePicker'
+import TimePicker from '../timePicker'
+import DateTimePicker from '../dateTimePicker'
 import Upload from '../upload'
 import Progress from '../progress'
 import Popup from '../popup'
-import ScrollBox from '../scrollbox'
+import ScrollBox from '../scrollBox'
 import Pagination from '../pagination'
 import Nav from '../nav'
 import Rahmen from '../rahmen'
@@ -43,6 +44,7 @@ const components = [
 	ModalBox,
 	DatePicker,
 	TimePicker,
+	DateTimePicker,
 	Upload,
 	Progress,
 	Popup,
