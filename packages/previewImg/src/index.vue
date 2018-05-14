@@ -14,6 +14,7 @@
 			<Rahmen
 				v-for="(img, index) in material.images"
 				v-show="index === material.current"
+				:key="img"
 				:src="img"
 				ratio="1"
 				width="100%"
