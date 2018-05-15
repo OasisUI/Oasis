@@ -13,6 +13,8 @@ language: node_js
 node_js:
   - 8
 
+
 script:
+- npm run bootstrap
 - npm run build
 - npm run build:doc
