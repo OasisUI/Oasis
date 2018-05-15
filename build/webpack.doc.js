@@ -18,7 +18,8 @@ module.exports = merge(base, {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.join(__dirname, '../example/index.docs.html')
+			template: path.join(__dirname, '../example/index.docs.html'),
+			filename: path.join(__dirname, '../index.html')
 		}),
 		new webpack.DefinePlugin({
 			'process.env': {
