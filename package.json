@@ -6,7 +6,7 @@
 		"dev": "gulp dev",
 		"dev:theme": "gulp dev:theme",
 		"build:module": "gulp build:module",
-		"build:doc": "gulp build:doc",
+		"build:doc": "gulp build:doc && echo 'www.oasisui.org' > CNAME",
 		"build:theme": "gulp build:theme",
 		"build": "cross-env ENV=prod gulp build",
 		"publish": "npm run build && lerna publish",
@@ -60,7 +60,6 @@
 		"stylelint-selector-bem-pattern": "^2.0.0",
 		"uglifyjs-webpack-plugin": "^1.2.5",
 		"url-loader": "^0.6.2",
-		"vue": "^2.5.16",
 		"vue-loader": "^13.7.0",
 		"vue-router": "^3.0.1",
 		"vue-template-compiler": "^2.5.16",
@@ -68,5 +67,8 @@
 		"webpack": "^3.10.0",
 		"webpack-dev-server": "^2.11.0",
 		"webpack-merge": "^4.1.1"
+	},
+	"dependencies": {
+		"vue": "^2.5.16"
 	}
 }
