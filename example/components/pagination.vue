@@ -65,8 +65,8 @@
 			return {
 				currentPage: 1,
 				listing: {
-					limit: 10,
-					total: 255
+					limit: 20,
+					total: 21
 				}
 			}
 		},

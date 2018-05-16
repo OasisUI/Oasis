@@ -17,6 +17,7 @@
 						v-if="showCloseBtn"
 						@click="close"
 						class="o-Modal__close"
+						type="button"
 					>
 						<i class="iconfont icon-close"></i>
 					</button>
