@@ -103,6 +103,7 @@
 			onBlur (e) {
 				this.$emit('blur', e)
 			},
+			// can not trigger
 			onChange (e) {
 				this.$emit('change', e)
 			},

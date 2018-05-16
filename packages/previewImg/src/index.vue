@@ -8,6 +8,7 @@
 			<button
 				@click="preview(-1)"
 				class="o-PreviewImg__prev"
+				type="button"
 			>
 				<i class="iconfont icon-line-arrow-left"></i>
 			</button>
@@ -24,6 +25,7 @@
 			<button
 				@click="preview(1)"
 				class="o-PreviewImg__next"
+				type="button"
 			>
 				<i class="iconfont icon-line-arrow-right"></i>
 			</button>

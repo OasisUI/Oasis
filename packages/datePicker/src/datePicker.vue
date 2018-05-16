@@ -3,6 +3,7 @@
 		<!--<p>{{`${dateWrapper(date).year}/${dateWrapper(date).month}/${dateWrapper(date).day}`}}</p>-->
 		<div class="o-DatePicker__actions">
 			<button
+				type="button"
 				class="o-DatePicker__prevBtn"
 				@click.stop="$emit('updatePage', -1)"
 			>
@@ -10,12 +11,14 @@
 			</button>
 			<div class="o-DatePicker__statusGroup">
 				<button
+					type="button"
 					:class="{
 					'is-currentEdit': status === 'year'
 				}"
 					@click.stop="status = 'year'"
 				>{{dateWrapper(currentPage).year}}年</button>
 				<button
+					type="button"
 					:class="{
 					'is-currentEdit': status === 'month'
 				}"
@@ -23,6 +26,7 @@
 				>{{dateWrapper(currentPage).month}}月</button>
 			</div>
 			<button
+				type="button"
 				class="o-DatePicker__nextBtn"
 				@click.stop="$emit('updatePage', 1)"
 			>
