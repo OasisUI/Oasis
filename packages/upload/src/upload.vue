@@ -1,5 +1,5 @@
 <template>
-	<div
+	<form
 		class="o-Upload"
 	>
 		<div
@@ -19,7 +19,7 @@
 			:multiple="multiple ? 'multiple' : ''"
 			class="o-Upload__input"
 		/>
-	</div>
+	</form>
 </template>
 
 <script>
@@ -63,6 +63,7 @@
 						filename: file.name
 					}
 				})
+				this.$el.reset()
 				this.files && this.files.push(...files)
 				if (this.autoUpload) {
 					this.upload()

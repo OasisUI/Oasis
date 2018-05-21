@@ -2,6 +2,7 @@
 	<ul class="o-UploadFiles">
 		<li
 			v-for="file in files"
+			v-if="file.status !== 'success' && file.status !== 'danger'"
 			class="o-UploadFiles__item"
 		>
 			<Progress

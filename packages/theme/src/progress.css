@@ -28,7 +28,7 @@
 	}
 
 	@d backup {
-		stroke: var(--color-gray-2);
+		stroke: color(var(--color-black-4) alpha(40%));
 	}
 
 	@d value {
@@ -94,7 +94,7 @@
 		width: 100%;
 		border-radius: 3px;
 		overflow: hidden;
-		background: var(--color-gray-2);
+		background: color(var(--color-black-4) alpha(40%));
 	}
 
 	@d value {

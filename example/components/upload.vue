@@ -142,7 +142,10 @@
 			onProgress (e) {
 			},
 			onError (e) {
-				this.status = 'danger'
+				this.$message({
+					type: 'danger',
+					text: 'failed'
+				})
 			},
 			onSuccess (e) {
 				this.$message({
