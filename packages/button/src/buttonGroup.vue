@@ -18,6 +18,7 @@
 		loading: Boolean,
 		disabled: Boolean,
 		ghost: Boolean,
+		block: Boolean,
 		gradient: Boolean
 	}
 

@@ -6,12 +6,13 @@
 			'o-Btn--' + _size,
 			_round ? 'o-Btn--round' : '',
 			_ghost ? 'o-Btn--ghost' : '',
+			_block ? 'o-Btn--block' : '',
 			_disabled ? 'is-disabled' : '',
 			_gradient ? 'o-Btn--gradient' : '',
 			_loading ? 'is-loading' : '',
 		]"
 		class="o-Btn"
-		type="button"
+		:type="htmlType"
 	>
 		<div
 			class="o-Btn__wrapper"
@@ -34,10 +35,15 @@
 			type: String,
 			default: 'md'
 		},
+		htmlType: {
+			type: String,
+			default: 'button'
+		},
 		round: Boolean,
 		loading: Boolean,
 		disabled: Boolean,
 		ghost: Boolean,
+		block: Boolean,
 		gradient: Boolean
 	}
 
@@ -63,6 +69,9 @@
 			},
 			_ghost () {
 				return this.useGroup ? this.group.ghost || this.ghost : this.ghost
+			},
+			_block () {
+				return this.useGroup ? this.group.block || this.block : this.block
 			},
 			_disabled () {
 				return this.useGroup ? this.group.disabled || this.disabled : this.disabled

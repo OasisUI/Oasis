@@ -189,6 +189,15 @@
 		}
 	}
 
+	@m block {
+		display: block;
+		width: 100%;
+
+		& + .o-Btn--block {
+			margin-top: .5rem;
+		}
+	}
+
 	/*disabled*/
 	@when disabled {
 		cursor: not-allowed !important;

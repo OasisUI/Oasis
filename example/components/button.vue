@@ -54,6 +54,17 @@
 		</div>
 	:::
 
+	### 块级按钮
+
+	设置按钮 `display` 属性值为 `block`。
+
+	:::html
+		<div>
+			<Button type="primary" round block>Round</Button>
+			<Button type="danger" block>{{text}}</Button>
+		</div>
+	:::
+
 	### 渐变背景
 
 	使用渐变背景。只在 `type="primary"` 时有效。
