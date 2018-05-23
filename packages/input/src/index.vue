@@ -134,6 +134,7 @@
 				const list = this.$refs.list.children
 				const index = Array.prototype.indexOf.call(list, e.target)
 				this.$emit('input', this.options[index])
+				this.$emit('change', this.options[index])
 				this.showList = false
 			},
 			onFocus (e) {

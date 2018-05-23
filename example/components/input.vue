@@ -32,6 +32,7 @@
 	:::html
 		<Input
 			v-model="inputText"
+			@change="onChange"
 			:options="inputTextOptions"
 		>
 			<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
@@ -110,6 +111,12 @@
 			return {
 				inputText: '',
 				inputTextOptions: ['Alice', 'Bob', 'Eve']
+			}
+		},
+
+		methods: {
+			onChange (e) {
+				console.log(e)
 			}
 		}
 	}

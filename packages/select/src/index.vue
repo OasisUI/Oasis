@@ -79,7 +79,13 @@
 				const list = this.$refs.list.children
 				const index = Array.prototype.indexOf.call(list, e.target)
 				const value = this.currentOpts[index] && this.currentOpts[index].value
-				this.$emit('input', value)
+				let changed = false
+				if (value !== this.value) {
+					changed = true
+				}
+				changed && this.$emit('input', value)
+				this.$emit('select', value)
+				changed && this.$emit('change', value)
 				this.showList = false
 			},
 			hideList (e) {
@@ -104,6 +110,7 @@
 				this.$emit('blur', e)
 			},
 			// can not trigger
+			// how about listening value change ?
 			onChange (e) {
 				this.$emit('change', e)
 			},

@@ -8,6 +8,9 @@
 	:::html
 		<Select
 			v-model="value"
+			@input="onInput"
+			@change="onChange"
+			@select="onSelect"
 			:options="['Alice', 'Bob', 'Dylan']"
 		></Select>
 	:::
@@ -50,6 +53,20 @@
 		data () {
 			return {
 				value: 1,
+			}
+		},
+
+		methods: {
+			onInput (e) {
+				console.log(e)
+			},
+
+			onChange (e) {
+				console.log(e)
+			},
+
+			onSelect (e) {
+				console.log(e)
 			}
 		}
 	}
