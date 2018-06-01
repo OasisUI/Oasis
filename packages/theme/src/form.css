@@ -5,6 +5,7 @@
 		& .o-FormItem{
 			display: inline-block;
 			margin-right: 1rem;
+			vertical-align: middle;
 		}
 
 		& .o-FormItem__wrapper {

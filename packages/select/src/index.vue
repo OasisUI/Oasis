@@ -1,7 +1,7 @@
 <!--select 组件-->
 <template>
 	<div
-		@click.stop="displayList"
+		@click="displayList"
 		:class="[
 			disabled ? 'is-disabled' : '',
 			readonly ? 'is-readonly' : '',
@@ -32,7 +32,13 @@
 				ref="list"
 				class="o-Input__options"
 			>
-				<li v-for="opt in currentOpts">{{opt.key ? opt.key : opt}}</li>
+				<li
+					v-for="opt in currentOpts"
+					:key="opt.key"
+					:class="{
+						'is-selected': opt.selected
+					}"
+				>{{opt.key ? opt.key : opt}}</li>
 			</ul>
 		</transition>
 	</div>
@@ -90,7 +96,7 @@
 			},
 			hideList (e) {
 				const list = this.$refs.list
-				if (e.target !== list && !list.contains(e.target) && !this.$el.contains(e.target)) {
+				if (!this.$el.contains(e.target) && this.showList) {
 					this.showList = false
 				}
 			},
@@ -109,24 +115,28 @@
 			onBlur (e) {
 				this.$emit('blur', e)
 			},
-			// can not trigger
-			// how about listening value change ?
 			onChange (e) {
 				this.$emit('change', e)
 			},
 		},
 		computed: {
 			currentOpts () {
-				const { options } = this
+				const { options, value } = this
 				if (typeof options[0] !== 'object') {
 					return options.map((item, index) => {
 						return {
 							key: item,
-							value: item
+							value: item,
+							selected: item === value
 						}
 					})
 				} else {
-					return options
+					return options.map(item => {
+						if (item.value === value) {
+							item.selected = true
+						}
+						return item
+					})
 				}
 			}
 		},

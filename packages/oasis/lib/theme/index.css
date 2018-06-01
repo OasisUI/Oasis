@@ -364,6 +364,7 @@ input {
 .o-FormGroup--inline .o-FormItem {
 	display: inline-block;
 	margin-right: 1rem;
+	vertical-align: middle;
 }
 
 .o-FormGroup--inline .o-FormItem__wrapper {
@@ -801,6 +802,8 @@ input {
 .o-Input__openList .iconfont {
 	color: #D8D8D8;
 	font-size: 12px;
+	-webkit-transition: color ease 0.24s;
+	transition: color ease 0.24s;
 }
 
 .o-Input__openList .iconfont:hover {
@@ -812,7 +815,7 @@ input {
 		position: absolute;
 		top: 100%;
 		right: 0;
-		padding: 0;
+		padding: 4px 0;
 		margin-top: 4px;
 		min-height: 38px;
 		max-height: 300px;
@@ -835,7 +838,12 @@ input {
 	cursor: pointer;
 }
 
-.o-Input__options li:hover {
+.o-Input__options li.is-selected {
+	background: #34B697;
+	color: #fff;
+}
+
+.o-Input__options li:hover:not(.is-selected) {
 	background: #F6F6F6;
 }
 
@@ -965,7 +973,7 @@ input {
 	font-size: 12px;
 }
 
-.o-InputNumber__actions .iconfont:hover {
+.o-InputNumber__actions:hover .iconfont {
 	color: #666666;
 }
 
@@ -993,12 +1001,14 @@ input {
 		bottom: 2px;
 }
 
-.o-InputSelect {
-	.o-Input__native {
-		position: relative;
-		z-index: 1;
-		cursor: pointer;
-	}
+.o-InputSelect .o-Input__native {
+	position: relative;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.o-InputSelect:hover .o-Input__openList .iconfont {
+	color: #666666;
 }
 
 .o-InputCheckbox {
