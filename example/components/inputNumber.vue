@@ -60,6 +60,13 @@
 		></InputNumber>
 	:::
 
+	:::html
+		<InputNumber
+			v-model="value4"
+			:step="0.1"
+		></InputNumber>
+	:::
+
 </template>
 
 <script>
@@ -68,7 +75,8 @@
 			return {
 				value1: 0,
 				value2: 100,
-				value3: 100
+				value3: 100,
+				value4: 1
 			}
 		}
 	}

@@ -120,11 +120,11 @@
 			},
 			add () {
 				if (this.disableAdd) return
-				this.currentVal += this.step
+				this.currentVal = this.calculate(this.currentVal, this.step)
 			},
 			sub () {
 				if (this.disableSub) return
-				this.currentVal -= this.step
+				this.currentVal = this.calculate(this.currentVal, -this.step)
 			},
 			updateVal (val) {
 				this.$emit('input', this.formatVal(this.checkVal(val)))
@@ -142,6 +142,10 @@
 					val = min
 				}
 				return val
+			},
+			calculate (...val) {
+				const multiple = 1 / this.step
+				return val.reduce((prev, next) => prev * 1 + next * multiple, 0) / multiple
 			}
 		}
 	}
