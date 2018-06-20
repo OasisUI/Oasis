@@ -1,8 +1,15 @@
 {
 	"presets": [
-		"stage-2"
+		["env", { "modules": false }]
 	],
 	"plugins": [
 		"transform-vue-jsx"
-	]
+	],
+	"env": {
+		"test": {
+			"presets": [
+				["env", { "targets": { "node": "current" }}]
+			]
+		}
+	}
 }
