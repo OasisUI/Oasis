@@ -132,9 +132,7 @@
 					})
 				} else {
 					return options.map(item => {
-						if (item.value === value) {
-							item.selected = true
-						}
+						item.selected = item.value === value
 						return item
 					})
 				}
