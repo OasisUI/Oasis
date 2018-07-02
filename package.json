@@ -10,20 +10,23 @@
 		"build:theme": "gulp build:theme",
 		"build": "cross-env ENV=prod gulp build",
 		"publish": "npm run build && lerna publish",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test:unit": "jest"
 	},
 	"devDependencies": {
+		"@vue/test-utils": "^1.0.0-beta.19",
 		"autoprefixer": "^7.2.5",
 		"axios": "^0.18.0",
 		"babel-core": "^6.26.0",
 		"babel-eslint": "^8.2.2",
 		"babel-helper-vue-jsx-merge-props": "^2.0.3",
+		"babel-jest": "^23.0.1",
 		"babel-loader": "^7.1.2",
 		"babel-plugin-syntax-jsx": "^6.18.0",
 		"babel-plugin-transform-vue-jsx": "^3.5.1",
-		"babel-preset-env": "^1.6.1",
+		"babel-preset-env": "^1.7.0",
 		"babel-preset-es2015": "^6.24.1",
 		"babel-preset-stage-2": "^6.24.1",
+		"chai": "^4.1.2",
 		"cross-env": "^5.1.5",
 		"css-loader": "^0.28.8",
 		"cssnano": "^3.10.0",
@@ -42,6 +45,10 @@
 		"gulp-util": "^3.0.8",
 		"gulp-watch": "^5.0.0",
 		"html-webpack-plugin": "^2.30.1",
+		"jest": "^23.1.0",
+		"jest-serializer-vue": "^2.0.2",
+		"jsdom": "^11.11.0",
+		"jsdom-global": "^3.0.2",
 		"lerna": "^2.9.0",
 		"postcss": "^6.0.16",
 		"postcss-cssnext": "^3.0.2",
@@ -60,6 +67,7 @@
 		"stylelint-selector-bem-pattern": "^2.0.0",
 		"uglifyjs-webpack-plugin": "^1.2.5",
 		"url-loader": "^0.6.2",
+		"vue-jest": "^2.6.0",
 		"vue-loader": "^13.7.0",
 		"vue-router": "^3.0.1",
 		"vue-template-compiler": "^2.5.16",
@@ -70,5 +78,25 @@
 	},
 	"dependencies": {
 		"vue": "^2.5.16"
+	},
+	"jest": {
+		"testMatch": [
+			"<rootDir>/test/unit/**/?(*.)+(spec|test).js"
+		],
+		"moduleFileExtensions": [
+			"js",
+			"vue"
+		],
+		"transform": {
+			".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+			"^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+		},
+		"moduleNameMapper": {
+			"^@/(.*)$": "<rootDir>/packages/$1/src",
+			"^utils/?": "<rootDir>/utils/"
+		},
+		"snapshotSerializers": [
+			"<rootDir>/node_modules/jest-serializer-vue"
+		]
 	}
 }

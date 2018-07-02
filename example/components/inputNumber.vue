@@ -11,7 +11,7 @@
 
 	## 最大/最小值
 
-	`max` 和 `min` 类型为 `Number`
+	`max` 和 `min` 类型为 `Number`, value2: {{value2}}
 
 	:::h
 		<InputNumber
@@ -39,7 +39,7 @@
 
 	### 添加后缀
 
-	`InputNumber` 数值改变时，后缀会添加到数值后。`value2`: {{value3}}
+	`InputNumber` 数值改变时，后缀会添加到数值后。`value3`: {{value3}}
 
 	:::html
 		<InputNumber

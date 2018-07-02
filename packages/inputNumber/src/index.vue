@@ -16,10 +16,10 @@
 				<span class="o-InputNumber__suffix">&nbsp;{{suffix}}</span>
 			</div>
 			<input
+				ref="input"
 				class="o-Input__native"
 				type="text"
-				:value="currentVal"
-				@input="onInput"
+				:value="value"
 				@change="onChange"
 				@focus="onFocus"
 				@blur="onBlur"
@@ -31,14 +31,14 @@
 				class="o-InputNumber__actions"
 			>
 				<span
-					@click="add"
+					@click="increase"
 					:class="{'is-disabled': disableAdd}"
 					class="o-InputNumber__add"
 				>
 					<i class="iconfont icon-arrow-up"></i>
 				</span>
 				<span
-					@click="sub"
+					@click="decrease"
 					:class="{'is-disabled': disableSub}"
 					class="o-InputNumber__sub"
 				>
@@ -68,23 +68,23 @@
 		},
 		max: Number,
 		min: Number,
+		precision: {
+			type: Number,
+			default: 1
+		},
 		disabled: Boolean,
-		readonly: Boolean,
-		appendsuffix: Boolean,
+		readonly: Boolean
 	}
 
 	export default {
 		name: 'InputNumber',
 		props,
+		data () {
+			return {
+				currentVal: this.value
+			}
+		},
 		computed: {
-			currentVal: {
-				get () {
-					return isNaN(parseFloat(this.value)) ? this.value : number(this.value)
-				},
-				set (val) {
-					this.updateVal(val)
-				}
-			},
 			disableAdd () {
 				const { max, currentVal } = this
 				return !isNaN(max) && currentVal >= max
@@ -95,22 +95,25 @@
 			}
 		},
 		watch: {
+			currentVal: {
+				handler (val) {
+					const newVal = this.checkVal(number(val))
+					this.$emit('input', newVal)
+					this.$emit('change', newVal)
+				}
+			},
 			value: {
 				handler (val) {
-					const newVal = this.formatVal(this.checkVal(number(val)))
-					if (newVal !== val) {
-						this.$emit('input', newVal)
-					}
+					this.currentVal = val
 				},
 				immediate: true
 			}
 		},
 		methods: {
 			onChange (e) {
-				this.currentVal = number(e.target.value)
-			},
-			onInput (e) {
-				this.currentVal = number(e.target.value)
+				const newVal = this.checkVal(number(e.target.value))
+				this.$refs.input.value = newVal
+				this.currentVal = newVal
 			},
 			onFocus (e) {
 				this.$emit('focus', e)
@@ -118,20 +121,13 @@
 			onBlur (e) {
 				this.$emit('blur', e)
 			},
-			add () {
+			increase () {
 				if (this.disableAdd) return
 				this.currentVal = this.calculate(this.currentVal, this.step)
 			},
-			sub () {
+			decrease () {
 				if (this.disableSub) return
 				this.currentVal = this.calculate(this.currentVal, -this.step)
-			},
-			updateVal (val) {
-				this.$emit('input', this.formatVal(this.checkVal(val)))
-			},
-			formatVal (val) {
-				const { suffix, appendsuffix } = this
-				return suffix && appendsuffix ? val + suffix : val
 			},
 			checkVal (val) {
 				const { max, min } = this

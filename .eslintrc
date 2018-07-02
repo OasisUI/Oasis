@@ -15,6 +15,7 @@
 		"quotes": ["error", "single"],
 		"indent": ["error", "tab"],
 		"no-tabs": 0,
+		"no-new": 0,
 		"no-unused-vars": 1,
 		"one-var": 0,
 		"spaced-comment": ["error", "always", {
