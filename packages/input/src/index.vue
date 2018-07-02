@@ -68,7 +68,7 @@
 </template>
 
 <script>
-	import { getDomSize } from "utils";
+	import { getDomSize } from 'utils'
 
 	const props = {
 		value: {},

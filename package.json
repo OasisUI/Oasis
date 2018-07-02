@@ -93,7 +93,7 @@
 		},
 		"moduleNameMapper": {
 			"^@/(.*)$": "<rootDir>/packages/$1/src",
-			"^utils/(.*)$": "<rootDir>/utils/$1"
+			"^utils/?": "<rootDir>/utils/"
 		},
 		"snapshotSerializers": [
 			"<rootDir>/node_modules/jest-serializer-vue"
