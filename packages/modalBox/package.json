@@ -1,6 +1,6 @@
 {
   "name": "@oasis-ui/modalbox",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@oasis-ui/button": "^0.0.8",
-    "@oasis-ui/input": "^0.0.8",
+    "@oasis-ui/input": "^0.0.9",
     "@oasis-ui/modal": "^0.0.8"
   },
   "publishConfig": {

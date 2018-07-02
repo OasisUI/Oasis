@@ -1,10 +1,10 @@
 {
   "name": "@oasis-ui/datepicker",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@oasis-ui/input": "^0.0.8",
+    "@oasis-ui/input": "^0.0.9",
     "@oasis-ui/modal": "^0.0.8"
   },
   "scripts": {

@@ -214,6 +214,7 @@
 			color: var(--Input-toggleOptionsColor);
 			font-size: 12px;
 		}
+
 		&:hover .iconfont {
 			color: var(--color-black-4);
 		}
