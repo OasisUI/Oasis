@@ -1,0 +1,469 @@
+@component Input {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	vertical-align: middle;
+	border-radius: var(--Input-borderRadius);
+	color: #464646;
+	font-size: 14px;
+	transition: all ease 0.24s;
+
+
+	@when readonly {
+		color: var(--color-gray-1);
+		background: var(--Input-readonly-bg);
+	}
+
+	@when disabled {
+		background: var(--Input-disabled-bg);
+		color: var(--color-gray-1);
+	}
+
+	@d wrapper {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding: 0;
+	}
+
+	@d openList {
+		z-index: 2;
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: block;
+		right: 0;
+		width: 24px;
+		height: 100%;
+		text-align: center;
+		cursor: pointer;
+
+		& .iconfont {
+			color: var(--Input-toggleOptionsColor);
+			font-size: 12px;
+			transition: color ease 0.24s;
+
+			&:hover {
+				color: var(--color-black-4);
+			}
+		}
+	}
+
+	@d options {
+		z-index: var(--zIndex-dropdown);
+		position: absolute;
+		top: 100%;
+		right: 0;
+		padding: 4px 0;
+		margin-top: 4px;
+		min-height: 38px;
+		max-height: 300px;
+		width: 100%;
+		overflow: auto;
+		list-style: none;
+		background: #fff;
+		border-radius: var(--Input-borderRadius);
+		box-shadow: var(--shadw-dropdown);
+
+		& li {
+			margin: 0;
+			padding: 0 var(--Input-padding);
+			height: var(--Input-md-height);
+			line-height: var(--Input-md-height);
+			transition: ease all 0.2s;
+			cursor: pointer;
+
+			&.is-selected {
+				background: var(--color-primary);
+				color: #fff;
+			}
+
+			&:hover:not(.is-selected) {
+				background: var(--color-gray-4);
+			}
+		}
+	}
+
+	@d addonWrapper {
+		display: table;
+		border-collapse: separate;
+		line-height: normal;
+
+		/*https://www.w3.org/TR/CSS2/tables.html 17.6.2 The collapsing border model*/
+
+		& input {
+			display: table-cell;
+		}
+
+		& .o-Input__addon:not(:first-child),
+		& .o-Input__native:not(:first-child) {
+			border-top-left-radius: 0 !important;
+			border-bottom-left-radius: 0 !important;
+		}
+
+		& .o-Input__addon:not(:last-child),
+		& .o-Input__native:not(:last-child) {
+			border-top-right-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
+		}
+
+		& .o-Input__addon:last-child {
+			border-left-width: 0;
+		}
+
+		& .o-Input__addon:first-child {
+			border-right-width: 0;
+		}
+
+		& .o-Btn {
+			margin: 0 calc(-1px - var(--Input-padding));	/*chrome bug*/
+			border-radius: 0;
+		}
+	}
+
+	@d addon {
+		overflow: hidden;
+		display: table-cell;
+		width: 1px;
+		padding: 0 var(--Input-padding);
+		vertical-align: middle;
+		text-align: center;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: var(--Input-borderRadius);
+	}
+
+	@d prefixWrapper {
+
+	}
+
+	@m sm {
+		line-height: var(--Input-sm-height);
+
+		&, & input {
+			height: var(--Input-sm-height);
+		}
+	}
+	@m md {
+		line-height: var(--Input-md-height);
+
+		&, & input {
+			height: var(--Input-md-height);
+		}
+	}
+	@m lg {
+		line-height: var(--Input-lg-height);
+
+		&, & input {
+			height: var(--Input-lg-height);
+		}
+	}
+
+	& input {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 100%;
+		letter-spacing: 0;
+		border: none;
+		outline: none;
+		padding: 0 var(--Input-padding);
+		background: transparent;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: var(--Input-borderRadius);
+		transition: all ease 0.24s;
+	}
+
+	& input::placeholder {
+		color: #999999;
+	}
+
+	&.is-disabled input {
+		cursor: not-allowed;
+	}
+
+	&:not(.is-disabled) input {
+		&:hover {
+			border-color: var(--Input-hoverColor);
+		}
+
+		&:focus {
+			z-index: 1;
+			border-color: var(--color-primary);
+			box-shadow: 0 0 0 2px color(var(--color-primary) alpha(30%));
+		}
+	}
+}
+
+@component Input {
+	& input {
+		padding-right: 24px;
+		width: 100%;
+	}
+}
+
+@component InputNumber {
+	@d actions {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 24px;
+		height: 100%;
+
+		& .iconfont {
+			color: var(--Input-toggleOptionsColor);
+			font-size: 12px;
+		}
+
+		&:hover .iconfont {
+			color: var(--color-black-4);
+		}
+	}
+
+	& .iconfont {
+		font-size: 12px
+	}
+
+	& .o-InputNumber__add,
+	& .o-InputNumber__sub {
+		position: absolute;
+		right: 0;
+		width: 24px;
+		text-align: center;
+		line-height: 1;
+		cursor: pointer;
+
+		&:after {
+			display: inline-block;
+			content: '';
+		}
+
+		&.is-disabled:hover * {
+			color: var(--Input-toggleOptionsColor);
+			cursor: not-allowed;
+		}
+	}
+
+	& .o-Input__native {
+		z-index: 1;
+		position: absolute;
+		left: 0;
+		top: 0;
+		padding-right: 24px;
+	}
+
+	@d actions {
+		z-index: 2;
+	}
+
+	@d suffixWrapper {
+		padding: 0 24px 0 var(--Input-padding);
+		white-space: nowrap;
+		overflow: hidden;
+		color: transparent;
+		font-family: sans-serif;
+	}
+
+	@d suffix {
+		color: var(--color-gray-1);
+	}
+
+	@d add {
+		top: 2px;
+	}
+
+	@d sub {
+		bottom: 2px;
+	}
+}
+
+@component InputSelect {
+	& .o-Input__native {
+		position: relative;
+		z-index: 1;
+		cursor: pointer;
+	}
+
+	&:hover .o-Input__openList .iconfont {
+		color: var(--color-black-4);
+	}
+}
+
+@component InputCheckbox {
+	width: auto;
+	cursor: pointer;
+
+	@d inner {
+		position: relative;
+		display: inline-block;
+		width: var(--Input-checkbox-size);
+		height: var(--Input-checkbox-size);
+		vertical-align: middle;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: 3px;
+		transition: var(--transition-default);
+
+		&:after {
+			display: block;
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			width: 7px;
+			height: 3px;
+			border: 2px solid white;
+			border-top-width: 0;
+			border-right-width: 0;
+			transform: scale(0) rotate(-45deg);
+			transform-origin: 10px 1px;
+			background: transparent;
+			transition: var(--transition-checkbox);
+		}
+	}
+
+	@when disabled {
+		background: inherit;
+
+		& .o-InputCheckbox__inner {
+			cursor: not-allowed;
+			border-color: var(--color-gray-2) !important;
+			background: var(--Input-disabled-bg) !important;
+
+			&:after {
+				border-color: var(--color-gray-2);
+			}
+		}
+	}
+
+	& input[type="checkbox"] {
+		display: none;
+
+		&:checked + .o-InputCheckbox__inner {
+			border-color: var(--color-primary);
+			background: var(--color-primary);
+
+			&:after {
+				transform: scale(1) rotate(-45deg);
+			}
+		}
+	}
+
+	& + .o-InputCheckbox {
+		margin-left: 20px;
+	}
+}
+
+
+@component InputRadio {
+	width: auto;
+	cursor: pointer;
+
+	@d inner {
+		position: relative;
+		display: inline-block;
+		width: var(--Input-checkbox-size);
+		height: var(--Input-checkbox-size);
+		vertical-align: middle;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: 50%;
+		transition: var(--transition-default);
+
+		&:after {
+			display: block;
+			position: absolute;
+			content: '';
+			top: 4px;
+			left: 4px;
+			width: 6px;
+			height: 6px;
+			transform: scale(0);
+			border-radius: 50%;
+			background: white;
+			transition: var(--transition-checkbox);
+		}
+	}
+
+	@when disabled {
+		background: inherit;
+
+		& .o-InputRadio__inner {
+			cursor: not-allowed;
+			border-color: var(--color-gray-2) !important;
+			background: var(--Input-disabled-bg) !important;
+
+			&:after {
+				background: var(--color-gray-2);
+			}
+		}
+	}
+
+	& input[type="radio"] {
+		display: none;
+
+		&:checked + .o-InputRadio__inner {
+			border-color: var(--color-primary);
+			background: var(--color-primary);
+
+			&:after {
+				transform: scale(1);
+			}
+		}
+	}
+
+	& + .o-InputRadio {
+		margin-left: 20px;
+	}
+}
+
+@component InputRadioBtn {
+	border: 1px solid var(--color-primary);
+	padding: 0 20px;
+	width: auto;
+	color: var(--color-primary);
+	cursor: pointer;
+
+	@when checked {
+		background: var(--color-primary);
+		color: white;
+	}
+
+	@when disabled {
+		border-color: var(--color-gray-2) !important;
+		color: var(--color-gray-2);
+		cursor: not-allowed;
+
+		&.is-checked {
+			background: var(--Input-disabled-checked-bg);
+			color: white;
+		}
+	}
+
+	& input[type="radio"] {
+		display: none;
+	}
+}
+
+@component InputRadioGroup {
+	display: inline-block;
+
+	& .o-InputRadio,
+	& .o-InputRadioBtn {
+		float: left;
+	}
+
+	& .o-InputRadioBtn:not(:first-of-type):not(:last-of-type) {
+		border-radius: 0;
+	}
+
+	& .o-InputRadioBtn:first-of-type {
+		border-radius: var(--Input-borderRadius) 0 0 var(--Input-borderRadius);
+	}
+
+	& .o-InputRadioBtn:last-of-type {
+		border-radius: 0 var(--Input-borderRadius) var(--Input-borderRadius) 0;
+	}
+
+	& .o-InputRadioBtn:not(:first-of-type) {
+		margin-left: -1px;
+	}
+}

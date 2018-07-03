@@ -1,4 +1,5 @@
 @component Btn {
+	position: relative;
 	display: inline-block;
 	margin: 0;
 	padding: 0;
@@ -38,6 +39,7 @@
 			box-shadow: 0 0 0 2px color(var(--color-primary-dark) alpha(30%));
 		}
 	}
+
 	@m danger {
 		background: var(--color-danger);
 		color: var(--color-white);
@@ -115,18 +117,14 @@
 	/*size*/
 	@m sm {
 		height: var(--Button-sm-height);
-		line-height: var(--Button-sm-height);
 		font-size: var(--fontSize-14);
-
-		& .o-Btn__wrapper {
-			padding: 0 var(--Button-sm-padding);
-		}
+		padding: 0 var(--Button-sm-padding);
 
 		& .o-Btn__loading {
 			left: calc(var(--Button-sm-padding) - 9px);
 		}
 
-		&.is-loading .o-Btn__wrapper {
+		&.is-loading {
 			padding: 0 calc(var(--Button-sm-padding) - 9px) 0 calc(var(--Button-sm-padding) + 9px);
 		}
 
@@ -137,18 +135,14 @@
 
 	@m md {
 		height: var(--Button-md-height);
-		line-height: var(--Button-md-height);
 		font-size: var(--fontSize-16);
-
-		& .o-Btn__wrapper {
-			padding: 0 var(--Button-md-padding);
-		}
+		padding: 0 var(--Button-md-padding);
 
 		& .o-Btn__loading {
 			left: calc(var(--Button-md-padding) - 9px);
 		}
 
-		&.is-loading .o-Btn__wrapper {
+		&.is-loading {
 			padding: 0 calc(var(--Button-md-padding) - 9px) 0 calc(var(--Button-md-padding) + 9px);
 		}
 
@@ -159,18 +153,14 @@
 
 	@m lg {
 		height: var(--Button-lg-height);
-		line-height: var(--Button-lg-height);
 		font-size: var(--fontSize-16);
-
-		& .o-Btn__wrapper {
-			padding: 0 var(--Button-lg-padding);
-		}
+		padding: 0 var(--Button-lg-padding);
 
 		& .o-Btn__loading {
 			left: calc(var(--Button-lg-padding) - 9px);
 		}
 
-		&.is-loading .o-Btn__wrapper {
+		&.is-loading {
 			padding: 0 calc(var(--Button-lg-padding) - 9px) 0 calc(var(--Button-lg-padding) + 9px);
 		}
 
@@ -236,13 +226,15 @@
 	}
 
 	@d wrapper {
+		display: inline-block;
 		position: relative;
 		height: 100%;
-		width: 100%;
+		width: auto;
+		padding-right: calc(var(--Button-md-padding) - 9px);
+		vertical-align: middle;
 		transition: all ease-in-out 220ms;
 	}
 }
-
 
 @component BtnGroup {
 	font-size: 0;

@@ -90,7 +90,7 @@
 	/*transition*/
 	--transition-default: all ease-in-out 140ms;
 	--transition-slide: all ease-in-out 240ms;
-	--transition-btn-default: color ease-in-out 20ms, background-color ease-in-out 160ms, box-shadow ease-in-out 100ms;
+	--transition-btn-default: color ease-in-out 20ms, background-color ease-in-out 160ms, box-shadow ease-in-out 100ms, padding ease-in-out 160ms;
 	--transition-checkbox: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
 	--transition-navbar: all ease-in-out 140ms;
 	--transition-scrollBox: background ease-in-out 140ms;

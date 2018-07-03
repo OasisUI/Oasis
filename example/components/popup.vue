@@ -18,6 +18,7 @@
 		</Popup>
 		<Button
 			v-popup:popup
+			type="primary"
 		>
 			show Popup!
 		</Button>
@@ -28,7 +29,7 @@
 	|参数|说明|类型|默认值|
 	|---|---|---|---|
 	|title|弹框标题|String|`''`|
-	|content|弹框内容|String|`''`|
+	|showArrow|是否
 	|content|弹框内容|String|空字符|
 	|v-popup|【required】 `popup` 引用名|String|`''`|
 </template>

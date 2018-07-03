@@ -39,7 +39,7 @@
 
 .o-Popup-enter-active,
 .o-Popup-leave-active {
-	transition: all cubic-bezier(0.38, 0.63, 0.71, 1.29) 0.18s;
+	transition: all ease 0.12s; /*cubic-bezier(0.38, 0.63, 0.71, 1.29)*/
 	transform-origin: 50% -10px;
 }
 

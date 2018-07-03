@@ -33,9 +33,9 @@
 		<Input
 			v-model="inputText"
 			@change="onChange"
-			:options="inputTextOptions"
 		>
 			<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
+			<i slot="suffix">px</i>
 			<Button slot="addonAfter">Go!</Button>
 		</Input>
 	:::
@@ -47,17 +47,17 @@
 			<Input
 				v-model="inputText"
 				size="lg"
-				placeholder="大"
+				placeholder="large"
 			></Input>
 			<Input
 				v-model="inputText"
 				size="md"
-				placeholder="中"
+				placeholder="middle"
 			></Input>
 			<Input
 				v-model="inputText"
 				size="sm"
-				placeholder="小"
+				placeholder="small"
 			></Input>
 		</div>
 	:::

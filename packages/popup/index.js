@@ -4,7 +4,7 @@ export default {
 	install (Vue) {
 		Vue.directive('popup', {
 			bind (el, binding, vnode) {
-				vnode.context.$refs[binding.arg].$refs.fuse = el
+				vnode.context.$refs[binding.arg].$refs.trigger = el
 			}
 		})
 		Vue.component(Popup.name, Popup)
