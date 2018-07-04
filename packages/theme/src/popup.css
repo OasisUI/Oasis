@@ -11,7 +11,7 @@
 	@d inner {
 		position: relative;
 		min-width: 100px;
-		padding: 10px;
+		padding: var(--Popup-inner-padding);
 		background: white;
 		box-shadow: var(--shadow-popup);
 		border-radius: var(--Popup-borderRadius);

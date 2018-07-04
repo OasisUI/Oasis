@@ -6,6 +6,13 @@
 	color: #464646;
 	font-size: 14px;
 
+	& .o-Input__prefix,
+	& .o-Input__suffix,
+	& .o-Input__addonWrapper {
+		display: flex;
+		flex-direction: row;
+	}
+
 	@when readonly {
 		color: var(--color-gray-1);
 		background: var(--Input-readonly-bg);
@@ -38,6 +45,11 @@
 		}
 	}
 
+	@d popup {
+		top: 100% !important;
+		width: 100%;
+	}
+
 	@d native {
 		width: 0;
 		flex: 1;
@@ -45,13 +57,13 @@
 
 	@d prefix {
 		flex-grow: 0;
-		padding: 0 0 0 var(--Input-padding);
+		padding: 0 0 0 calc(var(--Input-padding) / 2);
 		color: var(--Input-borderColor);
 	}
 
 	@d suffix {
 		flex-grow: 0;
-		padding: 0 var(--Input-padding) 0 0;
+		padding: 0 calc(var(--Input-padding) / 2) 0 0;
 		color: var(--Input-borderColor);
 	}
 
@@ -132,6 +144,33 @@
 		transition: all ease 0.24s;
 	}
 
+	@d options {
+		margin: -var(--Popup-inner-padding);
+		padding: 4px 0;
+		min-height: 38px;
+		max-height: 300px;
+		overflow: auto;
+		list-style: none;
+
+		& li {
+			margin: 0;
+			padding: 0 var(--Input-padding);
+			height: var(--Input-md-height);
+			line-height: var(--Input-md-height);
+			transition: ease all 0.2s;
+			cursor: pointer;
+
+			&.is-selected {
+				background: var(--color-primary);
+				color: #fff;
+			}
+
+			&:hover:not(.is-selected) {
+				background: var(--color-gray-4);
+			}
+		}
+	}
+
 	& input::placeholder {
 		color: #999999;
 	}
@@ -144,6 +183,7 @@
 		&:hover {
 			border-color: var(--Input-hoverColor);
 		}
+
 		&.is-focused {
 			z-index: 1;
 			border-color: var(--color-primary);

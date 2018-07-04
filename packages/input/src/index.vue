@@ -25,10 +25,12 @@
 				<slot name="prefix"></slot>
 			</span>
 			<input
-				v-model="currentVal"
+				:value="currentValue"
 				:disabled="disabled"
 				:readonly="readonly"
 				:placeholder="placeholder"
+				ref="input"
+				@input="onInput"
 				@focus="onFocus"
 				@blur="onBlur"
 				@change="onChange"
@@ -80,19 +82,22 @@
 		props,
 		data () {
 			return {
-				currentVal: this.value || '',
+				currentValue: this.value || '',
 				isFocused: false
 			}
 		},
 		watch: {
-			currentVal (val) {
+			currentValue (val) {
 				this.$emit('input', val)
 			},
 			value (val) {
-				this.currentVal = val
+				this.currentValue = val
 			}
 		},
 		methods: {
+			onInput (e) {
+				this.currentValue = e.target.value
+			},
 			onFocus (e) {
 				this.$emit('focus', e)
 				this.isFocused = true

@@ -89,10 +89,11 @@
 	通过 `options` 参数提供输入候选项。交互与 `InputSelect` 相同。
 
 	:::html
-		<Input
+		<Candidate
+			disabled
 			v-model="inputText"
 			:options="inputTextOptions"
-		></Input>
+		></Candidate>
 	:::
 
 	## API
@@ -109,7 +110,7 @@
 	export default {
 		data () {
 			return {
-				inputText: '',
+				inputText: 'Hello Oasis',
 				inputTextOptions: ['Alice', 'Bob', 'Eve']
 			}
 		},

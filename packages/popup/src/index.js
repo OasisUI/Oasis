@@ -3,12 +3,15 @@ import { elOffset } from '../../../utils'
 const props = {
 	title: String,
 	content: String,
-	action: String,
 	trigger: Object,
 	nested: Boolean,
 	position: {
 		type: String,
 		default: 'bottom'
+	},
+	action: {
+		type: String,
+		default: 'click'
 	},
 	showArrow: {
 		type: Boolean,
@@ -99,7 +102,7 @@ export default {
 			if (this.$isServer) return
 			const body = document.body
 			let popupList = body.querySelector('.o-PopupList')
-			popupList.removeChild(this.$el)
+			popupList && popupList.removeChild(this.$el)
 		},
 		mount () {
 			if (this.$isServer) return

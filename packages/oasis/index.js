@@ -6,6 +6,7 @@ import Button from '../button'
 import Grid from '../grid'
 import Checkbox from '../checkbox'
 import Input from '../input'
+import Candidate from '../candidate'
 import InputNumber from '../inputNumber'
 import Select from '../select'
 import Radio from '../radio'
@@ -23,6 +24,7 @@ import Pagination from '../pagination'
 import Nav from '../nav'
 import Rahmen from '../rahmen'
 import Avatar from '../avatar'
+import AvatarGroup from '../avatarGroup'
 import PreviewImg from '../previewImg'
 
 // tools
@@ -36,6 +38,7 @@ const components = [
 	Grid,
 	Checkbox,
 	Input,
+	Candidate,
 	InputNumber,
 	Select,
 	Radio,
@@ -53,6 +56,7 @@ const components = [
 	Nav,
 	Rahmen,
 	Avatar,
+	AvatarGroup,
 	PreviewImg
 ]
 

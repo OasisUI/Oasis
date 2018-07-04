@@ -114,6 +114,7 @@
 	--Popup-borderRadius: 3px;
 	--Popup-arrow-height: 8px;
 	--Popup-arrow-width: 18px;
+	--Popup-inner-padding: 10px;
 
 	/*scrollBox*/
 	--ScrollBox-scrollbar-width: 8px;

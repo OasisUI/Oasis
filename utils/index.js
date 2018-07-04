@@ -217,3 +217,20 @@ export function getParentComponentByType (co, name = '') {
 		return getParentComponentByType(co.$parent, name)
 	}
 }
+
+export function formatSelectOptions (options = [], value) {
+	if (typeof options[0] !== 'object') {
+		return options.map((item, index) => {
+			return {
+				key: item,
+				value: item,
+				selected: item === value
+			}
+		})
+	} else {
+		return options.map(item => {
+			item.selected = item.value === value
+			return item
+		})
+	}
+}

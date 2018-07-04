@@ -45,6 +45,10 @@
 </template>
 
 <script>
+	import {
+		formatSelectOptions
+	} from 'utils'
+
 	const props = {
 		value: {
 			required: true
@@ -122,20 +126,7 @@
 		computed: {
 			currentOpts () {
 				const { options, value } = this
-				if (typeof options[0] !== 'object') {
-					return options.map((item, index) => {
-						return {
-							key: item,
-							value: item,
-							selected: item === value
-						}
-					})
-				} else {
-					return options.map(item => {
-						item.selected = item.value === value
-						return item
-					})
-				}
+				return formatSelectOptions(options, value)
 			}
 		},
 		watch: {

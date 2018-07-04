@@ -12,6 +12,8 @@
     "access": "public"
   },
   "dependencies": {
+    "@oasis-ui/button": "^0.0.8",
+    "@oasis-ui/input": "^0.0.9",
     "@oasis-ui/popup": "^0.0.7"
   }
 }
