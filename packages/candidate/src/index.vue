@@ -4,7 +4,6 @@ import {
 } from 'utils'
 import Popup from '@oasis-ui/popup'
 import Input from '@oasis-ui/input'
-import Button from '@oasis-ui/button'
 
 const props = {
 	value: {},
@@ -61,10 +60,11 @@ export default {
 				onChange={this.onChange}
 				onFocus={this.onFocus}
 				onBlur={this.onBlur}
+				class='o-Candidate'
 			>
 				<Popup
 					v-show={options.length && !this.disabled && !this.readonly}
-					slot='addonAfter'
+					slot='suffix'
 					style={style}
 					nested={true}
 					showArrow={false}
@@ -83,10 +83,13 @@ export default {
 						})}
 					</ul>
 				</Popup>
-				<Button
-					slot='addonAfter'
+				<button
+					slot='suffix'
 					{...{directives}}
-				></Button>
+					class='o-Input__trigger'
+				>
+					<i class='iconfont icon-arrow-down'/>
+				</button>
 			</Input>
 		)
 	},

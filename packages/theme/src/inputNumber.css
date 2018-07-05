@@ -14,15 +14,13 @@
 		color: var(--Input-hoverColor);
 
 		& i {
-			font-size: 14px;
+			font-size: 12px;
 		}
 	}
 
 	& .o-InputNumber__add,
 	& .o-InputNumber__sub {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		height: 50%;
 		cursor: pointer;
 
 		&:hover:not(.is-disabled) {
@@ -31,6 +29,27 @@
 
 		&.is-disabled {
 			cursor: not-allowed;
+		}
+	}
+
+	&.o-Input--sm {
+		& .o-InputNumber__add,
+		& .o-InputNumber__sub {
+			line-height: calc(var(--Input-sm-height) / 2);
+		}
+	}
+
+	&.o-Input--md {
+		& .o-InputNumber__add,
+		& .o-InputNumber__sub {
+			line-height: calc(var(--Input-md-height) / 2);
+		}
+	}
+
+	&.o-Input--lg {
+		& .o-InputNumber__add,
+		& .o-InputNumber__sub {
+			line-height: calc(var(--Input-lg-height) / 2);
 		}
 	}
 }

@@ -27,7 +27,7 @@
 			<input
 				:value="currentValue"
 				:disabled="disabled"
-				:readonly="readonly"
+				:readonly="readonly || htmlReadonly"
 				:placeholder="placeholder"
 				ref="input"
 				@input="onInput"
@@ -74,7 +74,8 @@
 			type: String,
 			default: 'text'
 		},
-		placeholder: String
+		placeholder: String,
+		htmlReadonly: Boolean
 	}
 
 	export default {
@@ -107,7 +108,7 @@
 				this.isFocused = false
 			},
 			onChange (e) {
-				this.$emit('change', e)
+				this.$emit('change', this.currentValue)
 			}
 		}
 	}

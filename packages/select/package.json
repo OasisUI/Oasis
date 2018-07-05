@@ -10,5 +10,9 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@oasis-ui/input": "^0.0.9",
+    "@oasis-ui/popup": "^0.0.7"
   }
 }

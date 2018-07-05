@@ -83,7 +83,7 @@
 		watch: {
 			currentValue: {
 				handler (val) {
-					const newVal = this.checkVal(number(val))
+					const newVal = this.checkValue(number(val))
 					this.$emit('input', newVal)
 					this.$emit('change', newVal)
 				}
@@ -96,8 +96,8 @@
 			}
 		},
 		methods: {
-			onChange (e) {
-				const newVal = this.checkVal(number(e.target.value))
+			onChange (value) {
+				const newVal = this.checkValue(number(value))
 				this.$refs.input.currentValue = newVal
 				this.currentValue = newVal
 			},
@@ -115,7 +115,7 @@
 				if (this.disableSub) return
 				this.currentValue = this.calculate(this.currentValue, -this.step)
 			},
-			checkVal (val) {
+			checkValue (val) {
 				const { max, min } = this
 				if (!isNaN(max) && val > max) {
 					val = max

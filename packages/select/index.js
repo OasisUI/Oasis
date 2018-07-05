@@ -1,7 +1,7 @@
-import InputSelect from './src/index'
+import Select from './src/index'
 
-export default {
-	install (Vue) {
-		Vue.component(InputSelect.name, InputSelect)
-	}
+Select.install = function (Vue) {
+	Vue.component(Select.name, Select)
 }
+
+export default Select

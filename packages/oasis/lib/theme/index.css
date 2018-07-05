@@ -561,6 +561,7 @@ input {
 
 .o-Btn--sm {
 		height: 28px;
+		line-height: 28px;
 		font-size: 14px;
 		padding: 0 20px;
 }
@@ -579,6 +580,7 @@ input {
 
 .o-Btn--md {
 		height: 32px;
+		line-height: 32px;
 		font-size: 16px;
 		padding: 0 24px;
 }
@@ -597,6 +599,7 @@ input {
 
 .o-Btn--lg {
 		height: 38px;
+		line-height: 38px;
 		font-size: 16px;
 		padding: 0 36px;
 }
@@ -909,6 +912,7 @@ input {
 		max-height: 300px;
 		overflow: auto;
 		list-style: none;
+		color: #333333;
 }
 
 .o-Input__options li {
@@ -930,22 +934,27 @@ input {
 	background: #F6F6F6;
 }
 
+.o-Input__trigger {
+		padding: 0;
+		background: transparent;
+		color: #BBBBBB;
+}
+
+.o-Input__trigger .iconfont {
+	font-size: 12px;
+}
+
+.o-Input__trigger:hover {
+	color: #545454;
+}
+
 .o-InputNumber .o-Input__addonWrapper {
 	background: transparent;
 }
 
 .o-InputNumber .o-InputNumber__add,
 	.o-InputNumber .o-InputNumber__sub {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	height: 50%;
 	cursor: pointer;
 }
 
@@ -955,6 +964,21 @@ input {
 
 .o-InputNumber .o-InputNumber__add.is-disabled, .o-InputNumber .o-InputNumber__sub.is-disabled {
 	cursor: not-allowed;
+}
+
+.o-InputNumber.o-Input--sm .o-InputNumber__add,
+		.o-InputNumber.o-Input--sm .o-InputNumber__sub {
+	line-height: 15px;
+}
+
+.o-InputNumber.o-Input--md .o-InputNumber__add,
+		.o-InputNumber.o-Input--md .o-InputNumber__sub {
+	line-height: 17px;
+}
+
+.o-InputNumber.o-Input--lg .o-InputNumber__add,
+		.o-InputNumber.o-Input--lg .o-InputNumber__sub {
+	line-height: 20px;
 }
 
 .o-InputNumber__actions {
@@ -975,7 +999,55 @@ input {
 }
 
 .o-InputNumber__actions i {
-	font-size: 14px;
+	font-size: 12px;
+}
+
+.o-Select:hover .o-Select__trigger {
+	color: #545454;
+}
+
+.o-Select .o-Input__native {
+	background: inherit;
+}
+
+.o-Select * {
+	cursor: pointer;
+}
+
+.o-Select__options {
+		margin: -10px;
+		padding: 4px 0;
+		min-height: 38px;
+		max-height: 300px;
+		overflow: auto;
+		list-style: none;
+		color: #333333;
+}
+
+.o-Select__options li {
+	margin: 0;
+	padding: 0 12px;
+	height: 34px;
+	line-height: 34px;
+	-webkit-transition: ease all 0.2s;
+	transition: ease all 0.2s;
+	cursor: pointer;
+}
+
+.o-Select__options li.is-selected {
+	background: #34B697;
+	color: #fff;
+}
+
+.o-Select__options li:hover:not(.is-selected) {
+	background: #F6F6F6;
+}
+
+.o-Select__trigger {
+		padding: 0;
+		background: transparent;
+		color: #BBBBBB;
+		font-size: 12px;
 }
 
 .o-Row {

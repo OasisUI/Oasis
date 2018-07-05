@@ -151,6 +151,7 @@
 		max-height: 300px;
 		overflow: auto;
 		list-style: none;
+		color: var(--fontColor-default);
 
 		& li {
 			margin: 0;
@@ -168,6 +169,20 @@
 			&:hover:not(.is-selected) {
 				background: var(--color-gray-4);
 			}
+		}
+	}
+
+	@d trigger {
+		padding: 0;
+		background: transparent;
+		color: var(--Input-hoverColor);
+
+		& .iconfont {
+			font-size: 12px;
+		}
+
+		&:hover {
+			color: var(--color-black-3);
 		}
 	}
 

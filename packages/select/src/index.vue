@@ -1,71 +1,30 @@
-<!--select 组件-->
-<template>
-	<div
-		@click="displayList"
-		:class="[
-			disabled ? 'is-disabled' : '',
-			readonly ? 'is-readonly' : '',
-			'o-Input--' + size
-		]"
-		class="o-Input o-InputSelect"
-	>
-		<input
-			class="o-Input__native"
-			v-model="currentVal"
-			:disabled="disabled"
-			@focus="onFocus"
-			@blur="onBlur"
-			@change="onChange"
-			readonly="readonly"
-			type="text"
-		/>
-		<span
-			v-if="options"
-			class="o-Input__openList"
-		>
-			<i class="iconfont icon-arrow-down"></i>
-		</span>
-		<transition name="o-InputOptions">
-			<ul
-				@click="setVal"
-				v-show="showList"
-				ref="list"
-				class="o-Input__options"
-			>
-				<li
-					v-for="opt in currentOpts"
-					:key="opt.key"
-					:class="{
-						'is-selected': opt.selected
-					}"
-				>{{opt.key ? opt.key : opt}}</li>
-			</ul>
-		</transition>
-	</div>
-</template>
-
 <script>
 	import {
 		formatSelectOptions
 	} from 'utils'
+	import Popup from '@oasis-ui/popup'
+	import Input from '@oasis-ui/input'
 
 	const props = {
-		value: {
-			required: true
+		value: {},
+		disabled: {
+			type: Boolean,
+			default: false
 		},
-		options: {
-			type: Array
+		readonly: {
+			type: Boolean,
+			default: false
 		},
 		size: {
 			type: String,
 			default: 'md'
 		},
-		disabled: {
-			type: Boolean,
-			default: false
+		type: {
+			type: String,
+			default: 'text'
 		},
-		disabled: Boolean,
-		readonly: Boolean
+		placeholder: String,
+		options: Array
 	}
 
 	export default {
@@ -73,22 +32,72 @@
 		props,
 		data () {
 			return {
-				showList: false,
-				currentVal: '',
+				currentValue: this.value
 			}
 		},
-		mounted () {
-			document.addEventListener('click', this.hideList)
-			this.initVal()
-		},
-		beforeDestroy () {
-			document.removeEventListener('click', this.hideList)
+		render () {
+			const popupId = this._uid
+			const directives = [
+				{
+					name: 'popup',
+					arg: popupId
+				}
+			]
+			const style = {
+				padding: '4px 0'
+			}
+			const options = this.currentOptions
+
+			return (
+				<Input
+					disabled={this.disabled}
+					readonly={this.readonly}
+					size={this.size}
+					type={this.type}
+					placeholder={this.placeholder}
+					value={this.value}
+					onInput={this.onInput}
+					onChange={this.onChange}
+					onFocus={this.onFocus}
+					onBlur={this.onBlur}
+					{...{directives}}
+					class='o-Select'
+					html-readonly
+				>
+					<Popup
+						v-show={options.length && !this.disabled && !this.readonly}
+						slot='suffix'
+						style={style}
+						nested={true}
+						showArrow={false}
+						ref={popupId}
+						class='o-Input__popup'
+					>
+						<ul
+							ref='list'
+							onClick={this.setValue}
+							class='o-Input__options'
+						>
+							{options.map(option => {
+								return (<li class={option.selected ? 'is-selected' : ''}>
+									{option.key}
+								</li>)
+							})}
+						</ul>
+					</Popup>
+					<i
+						slot='suffix'
+						class='o-Select__trigger iconfont icon-arrow-down'
+					/>
+				</Input>
+			)
 		},
 		methods: {
-			setVal (e) {
+			setValue (e) {
+				const $popup = this.$refs[this._uid]
 				const list = this.$refs.list.children
 				const index = Array.prototype.indexOf.call(list, e.target)
-				const value = this.currentOpts[index] && this.currentOpts[index].value
+				const value = this.currentOptions[index] && this.currentOptions[index].value
 				let changed = false
 				if (value !== this.value) {
 					changed = true
@@ -96,53 +105,31 @@
 				changed && this.$emit('input', value)
 				this.$emit('select', value)
 				changed && this.$emit('change', value)
-				this.showList = false
+				this.$nextTick(() => {
+					$popup.show = false
+				})
 			},
-			hideList (e) {
-				const list = this.$refs.list
-				if (!this.$el.contains(e.target) && this.showList) {
-					this.showList = false
-				}
+
+			onInput (value) {
+				this.$emit('input', value)
 			},
-			displayList (e) {
-				if (!this.disabled && !this.readonly && !this.$refs.list.contains(e.target)) {
-					this.showList = true
-				}
+
+			onChange (value) {
+				this.$emit('change', value)
 			},
-			initVal () {
-				const v = this.currentOpts.find(item => item.value === this.value)
-				this.currentVal = v ? v.key : '未选择'
+
+			onFocus (...arg) {
+				this.$emit('focus', ...arg)
 			},
-			onFocus (e) {
-				this.$emit('focus', e)
-			},
-			onBlur (e) {
-				this.$emit('blur', e)
-			},
-			onChange (e) {
-				this.$emit('change', e)
-			},
-		},
-		computed: {
-			currentOpts () {
-				const { options, value } = this
-				return formatSelectOptions(options, value)
+
+			onBlur (...arg) {
+				this.$emit('blur', ...arg)
 			}
 		},
-		watch: {
-			value: {
-				handler () {
-					this.initVal()
-				},
-				immediate: true
-			},
-			options: {
-				handler () {
-					this.initVal()
-				},
-				immediate: true
+		computed: {
+			currentOptions () {
+				return formatSelectOptions(this.options, this.value)
 			}
 		}
 	}
 </script>
-

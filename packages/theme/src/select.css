@@ -1,0 +1,51 @@
+@component Select {
+
+	&:hover {
+		& .o-Select__trigger {
+			color: var(--color-black-3);
+		}
+	}
+
+	& .o-Input__native {
+		background: inherit;
+	}
+
+	& * {
+		cursor: pointer;
+	}
+
+	@d options {
+		margin: -var(--Popup-inner-padding);
+		padding: 4px 0;
+		min-height: 38px;
+		max-height: 300px;
+		overflow: auto;
+		list-style: none;
+		color: var(--fontColor-default);
+
+		& li {
+			margin: 0;
+			padding: 0 var(--Input-padding);
+			height: var(--Input-md-height);
+			line-height: var(--Input-md-height);
+			transition: ease all 0.2s;
+			cursor: pointer;
+
+			&.is-selected {
+				background: var(--color-primary);
+				color: #fff;
+			}
+
+			&:hover:not(.is-selected) {
+				background: var(--color-gray-4);
+			}
+		}
+	}
+
+	@d trigger {
+		padding: 0;
+		background: transparent;
+		color: var(--Input-hoverColor);
+		font-size: 12px;
+	}
+}

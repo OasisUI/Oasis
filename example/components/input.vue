@@ -90,7 +90,6 @@
 
 	:::html
 		<Candidate
-			disabled
 			v-model="inputText"
 			:options="inputTextOptions"
 		></Candidate>
