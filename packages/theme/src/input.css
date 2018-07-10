@@ -2,7 +2,7 @@
 	position: relative;
 	display: inline-flex;
 	width: 100%;
-	align-items: cneter;
+	align-items: center;
 	color: #464646;
 	font-size: 14px;
 
@@ -27,7 +27,8 @@
 		position: relative;
 		display: flex;
 		flex: 1;
-		width: 0;
+
+		/* width: 0; */
 		height: 100%;
 		padding: 0;
 		border: 1px solid var(--Input-borderColor);

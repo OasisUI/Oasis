@@ -1,5 +1,5 @@
 <template>
-	<div class="o-InputRadioGroup clearfix">
+	<div class="o-RadioGroup clearfix">
 		<slot></slot>
 	</div>
 </template>

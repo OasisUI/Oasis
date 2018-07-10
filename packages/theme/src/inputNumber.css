@@ -1,5 +1,4 @@
 @component InputNumber {
-
 	& .o-Input__addonWrapper {
 		background: transparent;
 	}

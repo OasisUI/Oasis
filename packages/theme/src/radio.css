@@ -1,0 +1,119 @@
+
+@component Radio {
+	width: auto;
+	cursor: pointer;
+
+	& * {
+		vertical-align: middle;
+	}
+
+	@d inner {
+		position: relative;
+		display: inline-block;
+		margin-right: calc(var(--Input-checkbox-size) / 2);
+		width: var(--Input-checkbox-size);
+		height: var(--Input-checkbox-size);
+		vertical-align: middle;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: 50%;
+		transition: var(--transition-default);
+
+		&:after {
+			display: block;
+			position: absolute;
+			content: '';
+			top: 4px;
+			left: 4px;
+			width: 6px;
+			height: 6px;
+			transform: scale(0);
+			border-radius: 50%;
+			background: white;
+			transition: var(--transition-checkbox);
+		}
+	}
+
+	@when disabled {
+		background: inherit;
+
+		& .o-Radio__inner {
+			cursor: not-allowed;
+			border-color: var(--color-gray-2) !important;
+			background: var(--Input-disabled-bg) !important;
+
+			&:after {
+				background: var(--color-gray-2);
+			}
+		}
+	}
+
+	& input[type="radio"] {
+		display: none;
+
+		&:checked + .o-Radio__inner {
+			border-color: var(--color-primary);
+			background: var(--color-primary);
+
+			&:after {
+				transform: scale(1);
+			}
+		}
+	}
+
+	& + .o-Radio {
+		margin-left: 20px;
+	}
+}
+
+@component RadioBtn {
+	border: 1px solid var(--color-primary);
+	padding: 0 20px;
+	width: auto;
+	color: var(--color-primary);
+	cursor: pointer;
+
+	@when checked {
+		background: var(--color-primary);
+		color: white;
+	}
+
+	@when disabled {
+		border-color: var(--color-gray-2) !important;
+		color: var(--color-gray-2);
+		cursor: not-allowed;
+
+		&.is-checked {
+			background: var(--Input-disabled-checked-bg);
+			color: white;
+		}
+	}
+
+	& input[type="radio"] {
+		display: none;
+	}
+}
+
+@component RadioGroup {
+	display: inline-block;
+
+	& .o-Radio,
+	& .o-RadioBtn {
+		float: left;
+	}
+
+	& .o-RadioBtn:not(:first-of-type):not(:last-of-type) {
+		border-radius: 0;
+	}
+
+	& .o-RadioBtn:first-of-type {
+		border-radius: var(--Input-borderRadius) 0 0 var(--Input-borderRadius);
+	}
+
+	& .o-RadioBtn:last-of-type {
+		border-radius: 0 var(--Input-borderRadius) var(--Input-borderRadius) 0;
+	}
+
+	& .o-RadioBtn:not(:first-of-type) {
+		margin-left: -1px;
+	}
+}

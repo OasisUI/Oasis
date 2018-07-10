@@ -5,17 +5,22 @@
 
 	:::html
 		<FormGroup
-			label-width="70"
+			:verify-result="verifyResult"
+			label-width="80"
 		>
 			<FormItem
 				label="Name"
+				prop="name"
+				tip="Your name"
 			>
 				<Input
 					v-model="name"
 				></Input>
 			</FormItem>
 			<FormItem
-				label="E-mail"
+				label="Account"
+				prop="email"
+				tip="Your E-mail address"
 				required
 			>
 				<Input
@@ -44,7 +49,10 @@
 				</Checkbox>
 			</FormItem>
 			<FormItem>
-				<Button type="primary">submit</Button>
+				<Button
+					@click="submit"
+					type="primary"
+				>submit</Button>
 			</FormItem>
 		</FormGroup>
 	:::
@@ -114,7 +122,26 @@
 				name: '',
 				email: '',
 				gender: 'famale',
-				agree: false
+				agree: false,
+				verifyResult: null
+			}
+		},
+		methods: {
+			submit () {
+				const result = {}
+				if (!this.name) {
+					result.name = {
+						msg: 'name is required',
+						__status__: false
+					}
+				}
+				if (!this.email) {
+					result.email = {
+						msg: 'email is required',
+						__status__: false
+					}
+				}
+				this.verifyResult = result
 			}
 		}
 	}

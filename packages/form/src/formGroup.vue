@@ -23,7 +23,8 @@
 		blockLabel: {
 			type: Boolean,
 			default: false
-		}
+		},
+		verifyResult: {}
 	}
 
 	export default {

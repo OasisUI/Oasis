@@ -37,6 +37,9 @@
 		padding-right: 12px;
 		text-align: right;
 		line-height: var(--Input-lg-height);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 
 		&:before {
 			content: ' * ';
@@ -46,15 +49,41 @@
 	}
 
 	@d wrapper {
+		position: relative;
+
 		& .o-Input {
 			height: var(--Input-lg-height);
 			line-height: var(--Input-lg-height);
 		}
 	}
 
+	@d tip {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		font-size: var(--FormItem--info-fontSize);
+		color: var(--color-black-5);
+	}
+
 	@when required {
 		& .o-FormItem__label:before {
 			display: inline;
+		}
+	}
+
+	@when error {
+		& .o-FormItem__tip {
+			color: var(--color-danger);
+		}
+
+		& .o-Input__wrapper {
+			border-color: var(--color-danger) !important;
+
+			&.is-focused {
+				box-shadow: 0 0 0 2px color(var(--color-danger) alpha(30%)) !important;
+			}
 		}
 	}
 }
