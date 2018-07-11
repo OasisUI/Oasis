@@ -1,5 +1,4 @@
 @component Select {
-
 	&:hover {
 		& .o-Select__trigger {
 			color: var(--color-black-3);

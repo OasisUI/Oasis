@@ -17,6 +17,16 @@ describe('Select', () => {
 		expect(wrapper.classes()).toContain('o-Select')
 	})
 
+	it('disabled', () => {
+		const wrapper = mount(Select, {
+			localVue,
+			propsData: {
+				disabled: true
+			}
+		})
+		expect(wrapper.classes()).toContain('is-disabled')
+	})
+
 	it('select option', () => {
 		const wrapper = mount(Select, {
 			localVue,

@@ -10,6 +10,15 @@ describe('InputNumber', () => {
 		expect(wrapper.classes()).toContain('o-InputNumber')
 	})
 
+	it('disabled', () => {
+		const wrapper = mount(InputNumber, {
+			propsData: {
+				disabled: true
+			}
+		})
+		expect(wrapper.classes()).toContain('is-disabled')
+	})
+
 	it('input', () => {
 		const wrapper = mount(InputNumber, {
 			propsData: {

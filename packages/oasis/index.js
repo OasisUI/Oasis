@@ -5,11 +5,14 @@ import Form from '../form'
 import Button from '../button'
 import Grid from '../grid'
 import Checkbox from '../checkbox'
+import CheckboxGroup from '../checkboxGroup'
 import Input from '../input'
 import Candidate from '../candidate'
 import InputNumber from '../inputNumber'
 import Select from '../select'
 import Radio from '../radio'
+import RadioBtn from '../radioBtn'
+import RadioGroup from '../radioGroup'
 import Message from '../message'
 import Modal from '../modal'
 import ModalBox from '../modalBox'
@@ -26,6 +29,8 @@ import Rahmen from '../rahmen'
 import Avatar from '../avatar'
 import AvatarGroup from '../avatarGroup'
 import PreviewImg from '../previewImg'
+import Table from '../table'
+import Cascader from '../cascader'
 
 // tools
 // TODO
@@ -37,11 +42,14 @@ const components = [
 	Button,
 	Grid,
 	Checkbox,
+	CheckboxGroup,
 	Input,
 	Candidate,
 	InputNumber,
 	Select,
 	Radio,
+	RadioBtn,
+	RadioGroup,
 	Message,
 	Modal,
 	ModalBox,
@@ -57,7 +65,9 @@ const components = [
 	Rahmen,
 	Avatar,
 	AvatarGroup,
-	PreviewImg
+	PreviewImg,
+	Table,
+	Cascader
 ]
 
 const Oasis = {

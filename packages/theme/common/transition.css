@@ -45,7 +45,7 @@
 
 .o-Popup-enter,
 .o-Popup-leave-to {
-	transform: scale(0) !important;
+	transform: scaleY(0) !important;
 	opacity: 0;
 }
 

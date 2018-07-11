@@ -10,6 +10,7 @@
 @import './src/input.css';
 @import './src/inputNumber.css';
 @import './src/select.css';
+@import './src/cascader.css';
 @import './src/radio.css';
 @import './src/checkbox.css';
 @import './src/grid.css';

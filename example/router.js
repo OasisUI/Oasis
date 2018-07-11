@@ -24,6 +24,8 @@ import Avatar from './components/avatar'
 import Loading from './components/loading'
 import Progress from './components/progress'
 import previewImg from './components/previewImg'
+import Table from './components/table'
+import Cascader from './components/cascader'
 
 Vue.use(VueRouter)
 
@@ -58,6 +60,14 @@ const components = [
 		title: {
 			zh: '选择器',
 			en: 'Select'
+		}
+	},
+	{
+		path: 'cascader',
+		component: Cascader,
+		title: {
+			zh: '级联选择',
+			en: 'Cascader'
 		}
 	},
 	{
@@ -190,6 +200,14 @@ const components = [
 		title: {
 			zh: '进度条',
 			en: 'Progress'
+		}
+	},
+	{
+		path: 'table',
+		component: Table,
+		title: {
+			zh: '表格',
+			en: 'Table'
 		}
 	}
 ]
