@@ -1,5 +1,7 @@
 <template lang="docs">
-	## Table
+	# Table 表格
+
+	## 基本使用
 
 	:::html
 		<div class="table-wrapper">
@@ -14,9 +16,66 @@
 					:fixed="column.fixed"
 					:column="column"
 				></TableColumn>
+				<TableColumn
+					label="Action"
+					fixed="right"
+				>
+					<template slot-scope="item">
+						<Button
+							@click="deleteData(item)"
+							type="danger"
+						>Delete</Button>
+					</template>
+				</TableColumn>
 			</Table>
 		</div>
 	:::
+
+	```javascript
+		export default {
+			data () {
+				return {
+					columns: [
+						{
+							prop: 'column1',
+							fixed: 'left'
+						},
+						{
+							prop: 'column2',
+						},
+						{
+							prop: 'column3',
+						},
+						{
+							prop: 'column4',
+						},
+						{
+							prop: 'column5',
+						},
+					],
+					data: []
+				}
+			},
+			mounted () {
+				const data = []
+				for (let i = 0; i < 20; i++) {
+					data.push({
+						column1: 'column1' + i,
+						column2: 'column2' + i,
+						column3: 'column3' + i,
+						column4: 'column4' + i,
+						column5: 'column5' + i,
+					})
+				}
+				this.data = data
+			},
+			methods: {
+				deleteData (data) {
+					console.log(data)
+				}
+			}
+		}
+	```
 </template>
 
 <script>
@@ -25,11 +84,8 @@
 			return {
 				columns: [
 					{
-						prop: 'title',
-						fixed: 'left'
-					},
-					{
 						prop: 'column1',
+						fixed: 'left'
 					},
 					{
 						prop: 'column2',
@@ -44,14 +100,25 @@
 						prop: 'column5',
 					},
 				],
-				data: new Array(20).fill({
-					title: 'Title',
-					column1: 'column1',
-					column2: 'column2',
-					column3: 'column3',
-					column4: 'column4',
-					column5: 'column5',
+				data: []
+			}
+		},
+		mounted () {
+			const data = []
+			for (let i = 0; i < 20; i++) {
+				data.push({
+					column1: 'column1' + i,
+					column2: 'column2' + i,
+					column3: 'column3' + i,
+					column4: 'column4' + i,
+					column5: 'column5' + i,
 				})
+			}
+			this.data = data
+		},
+		methods: {
+			deleteData (data) {
+				console.log(data)
 			}
 		}
 	}

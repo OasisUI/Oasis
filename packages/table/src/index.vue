@@ -1,6 +1,6 @@
 <template>
 	<table class="o-Table">
-		<TableHead :columns="columns">
+		<TableHead>
 			<slot></slot>
 		</TableHead>
 		<TableBody
@@ -15,19 +15,28 @@
 	import TableHead from './tableHead'
 
 	const props = {
-		columns: Array,
 		data: Array
 	}
 
 	export default {
 		name: 'Table',
 		props,
+		data () {
+			return {
+				columns: []
+			}
+		},
 		components: {
 			TableHead,
 			TableBody
 		},
-		mounted () {
-			console.log(this.$slots.default)
+		methods: {
+			insertColumn (index, columnConfig) {
+				this.columns.splice(index, 0, columnConfig)
+			},
+			removeColumn (index) {
+				this.columns.splice(index, 1)
+			}
 		}
 	}
 </script>

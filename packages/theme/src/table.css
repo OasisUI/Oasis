@@ -16,7 +16,7 @@
 		padding: 0.8rem 1rem;
 		border: 0 solid #eee;
 		border-bottom-width: 1px;
-		color: #b8b8b8;
+		color: var(--color-black-5);
 		background: #fff;
 	}
 
