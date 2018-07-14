@@ -20,6 +20,7 @@
 	}
 
 	@d trigger {
+		pointer-events: none;
 		padding: 0;
 		background: transparent;
 		color: var(--Input-hoverColor);

@@ -21,6 +21,13 @@
 		type: 'formItem',
 		props,
 
+		data () {
+			return {
+				errorMsg: '',
+				isError: false
+			}
+		},
+
 		render (h) {
 			const slots = this.$slots.default
 			slots && slots.map(slot => {
@@ -40,7 +47,8 @@
 					style={labelStyle}
 				>{this.label}</label>
 			) : null
-			const $tip = <p class={['o-FormItem__tip']}>{this.errorMsg || this.tip}</p>
+			const $tip = <div class={['o-FormItem__tip']}>{this.tip}</div>
+			const $errorMsg = this.isError && this.errorMsg ? <div class={['o-FormItem__errMsg']}>{this.errorMsg}</div> : ''
 
 			return <div class={[
 					'o-FormItem clearfix',
@@ -53,6 +61,7 @@
 					style={wrapperStyle}
 				>
 					{slots}
+					{$errorMsg}
 					{$tip}
 				</div>
 			</div>

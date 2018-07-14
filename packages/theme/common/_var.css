@@ -40,8 +40,17 @@
 
 	/* components */
 
+	/*table*/
+	--Table-cell-paddingLeftRight: 1rem;
+	--Table-cell-paddingTopBottom: 1rem;
+	--Table-cell-padding: var(--Table-cell-paddingTopBottom) var(--Table-cell-paddingLeftRight);
+	--Table-border: 1px solid #EEE;
+	--Table-row-hoverColor: #F7F7F7;
+
 	/*form*/
 	--FormItem--info-fontSize: var(--fontSize-12);
+	--FormItem-marginBottom: 24px;
+	--FormItem-errMsg-height: 18px;
 
 	/*loading*/
 	--Loading-bg: rgba(224,224,224,0.54);

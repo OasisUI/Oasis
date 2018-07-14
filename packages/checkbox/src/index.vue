@@ -6,7 +6,7 @@
 		class="o-Input o-Checkbox">
 		<input
 			v-model="currentVal"
-				:value="label"
+			:value="label"
 			:disabled="isDisabled"
 			type="checkbox"
 		/>

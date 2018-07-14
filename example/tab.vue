@@ -50,6 +50,11 @@
 			a {
 				text-decoration: none;
 				color: inherit;
+				transition: all ease 0.24s;
+
+				&:hover {
+					color: #34B697;
+				}
 			}
 		}
 	}

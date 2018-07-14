@@ -3,6 +3,7 @@
 	display: inline-block;
 	margin: 0;
 	padding: 0;
+	vertical-align: middle;
 	border-radius: 4px;
 	font-size: var(--fontSize-default);
 	transition: var(--transition-btn-default);
@@ -87,6 +88,17 @@
 			box-shadow: 0 0 0 2px color(var(--color-warning-dark) alpha(30%));
 		}
 	}
+
+	@m text {
+		background: transparent;
+		color: var(--color-primary);
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
 	@m default {
 		background: var(--color-gray-4);
 		color: var(--color-black-4);

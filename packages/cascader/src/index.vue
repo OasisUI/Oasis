@@ -4,6 +4,9 @@
 	import Menu from './menu'
 
 	const props = {
+		placeholder: String,
+		readonly: Boolean,
+		disabled: Boolean,
 		value: {
 			type: Array,
 			required: true
@@ -52,10 +55,14 @@
 					onFocus={this.handleFocus}
 					value={this.currentLabel}
 					html-readonly
+					placeholder={this.placeholder}
+					readonly={this.readonly}
+					disabled={this.disabled}
 					{...{directives}}
 					class="o-Cascader"
 				>
 					<Popup
+						v-show={this.options && this.options.length && !this.disabled && !this.readonly}
 						ref={popupId}
 						slot='suffix'
 						style={style}

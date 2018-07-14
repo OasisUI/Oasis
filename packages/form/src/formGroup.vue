@@ -24,7 +24,12 @@
 			type: Boolean,
 			default: false
 		},
-		verifyResult: {}
+		verifyResult: {
+			type: Object,
+			default () {
+				return {}
+			}
+		}
 	}
 
 	export default {

@@ -36,6 +36,10 @@
 				@change="onChange"
 				class="o-Input__native"
 				:type="type"
+				:max="max"
+				:min="min"
+				:maxlength="maxlength"
+				:minlength="minlength"
 			/>
 			<span
 				v-if="$slots.suffix"
@@ -74,6 +78,10 @@
 			type: String,
 			default: 'text'
 		},
+		max: [String, Number],
+		min: [String, Number],
+		maxlength: [String, Number],
+		minlength: [String, Number],
 		placeholder: String,
 		htmlReadonly: Boolean
 	}
@@ -83,7 +91,7 @@
 		props,
 		data () {
 			return {
-				currentValue: this.value || '',
+				currentValue: this.value,
 				isFocused: false
 			}
 		},

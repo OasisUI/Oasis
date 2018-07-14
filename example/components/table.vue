@@ -3,11 +3,14 @@
 
 	## 基本使用
 
+	<Button @click="updateData">updateData</Button>
+
 	:::html
 		<div class="table-wrapper">
 			<Table
 				:columns="columns"
 				:data="data"
+				selectable
 			>
 				<TableColumn
 					v-for="column in columns"
@@ -38,10 +41,11 @@
 					columns: [
 						{
 							prop: 'column1',
-							fixed: 'left'
+							fixed: 'left',
 						},
 						{
 							prop: 'column2',
+							fixed: 'left',
 						},
 						{
 							prop: 'column3',
@@ -57,21 +61,24 @@
 				}
 			},
 			mounted () {
-				const data = []
-				for (let i = 0; i < 20; i++) {
-					data.push({
-						column1: 'column1' + i,
-						column2: 'column2' + i,
-						column3: 'column3' + i,
-						column4: 'column4' + i,
-						column5: 'column5' + i,
-					})
-				}
-				this.data = data
+				this.updateData()
 			},
 			methods: {
 				deleteData (data) {
 					console.log(data)
+				},
+				updateData () {
+					const data = []
+					for (let i = 0; i < 5; i++) {
+						data.push({
+							column1: Math.random(),
+							column2: Math.random(),
+							column3: Math.random(),
+							column4: Math.random(),
+							column5: Math.random(),
+						})
+					}
+					this.data = data
 				}
 			}
 		}
@@ -85,10 +92,11 @@
 				columns: [
 					{
 						prop: 'column1',
-						fixed: 'left'
+						fixed: 'left',
 					},
 					{
 						prop: 'column2',
+						fixed: 'left',
 					},
 					{
 						prop: 'column3',
@@ -104,21 +112,24 @@
 			}
 		},
 		mounted () {
-			const data = []
-			for (let i = 0; i < 20; i++) {
-				data.push({
-					column1: 'column1' + i,
-					column2: 'column2' + i,
-					column3: 'column3' + i,
-					column4: 'column4' + i,
-					column5: 'column5' + i,
-				})
-			}
-			this.data = data
+			this.updateData()
 		},
 		methods: {
 			deleteData (data) {
 				console.log(data)
+			},
+			updateData () {
+				const data = []
+				for (let i = 0; i < 5; i++) {
+					data.push({
+						column1: Math.random(),
+						column2: Math.random(),
+						column3: Math.random(),
+						column4: Math.random(),
+						column5: Math.random(),
+					})
+				}
+				this.data = data
 			}
 		}
 	}
