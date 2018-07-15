@@ -3,7 +3,9 @@
  		:class="[
  			disabled ? 'is-disabled' : '',
  			readonly ? 'is-readonly' : '',
-			'o-Input--' + size
+			type !== 'textarea' ? 'o-Input--' + size : '',
+			resize ? 'o-Input--resizable' : '',
+			`o-Input--${type}`
 		]"
 	>
 		<div
@@ -24,7 +26,11 @@
 			>
 				<slot name="prefix"></slot>
 			</span>
-			<input
+			<textarea
+				v-if="type === 'textarea'"
+				:cols="cols"
+				:rows="rows"
+				:resize="resize"
 				:value="currentValue"
 				:disabled="disabled"
 				:readonly="readonly || htmlReadonly"
@@ -40,6 +46,31 @@
 				:min="min"
 				:maxlength="maxlength"
 				:minlength="minlength"
+				:autofocus="autofocus"
+				:spellcheck="spellcheck"
+				:style="{
+					resize: resize
+				}"
+			></textarea>
+			<input
+				v-else
+				:value="currentValue"
+				:disabled="disabled"
+				:readonly="readonly || htmlReadonly"
+				:placeholder="placeholder"
+				ref="input"
+				@input="onInput"
+				@focus="onFocus"
+				@blur="onBlur"
+				@change="onChange"
+				class="o-Input__native"
+				:type="type"
+				:max="max"
+				:min="min"
+				:maxlength="maxlength"
+				:minlength="minlength"
+				:autofocus="autofocus"
+				:spellcheck="spellcheck"
 			/>
 			<span
 				v-if="$slots.suffix"
@@ -83,7 +114,17 @@
 		maxlength: [String, Number],
 		minlength: [String, Number],
 		placeholder: String,
-		htmlReadonly: Boolean
+		htmlReadonly: Boolean,
+		autofocus: Boolean,
+		spellcheck: Boolean,
+
+		// textarea
+		rows: [String, Number],
+		cols: [String, Number],
+		resize: {
+			type: String,
+			default: 'auto'			// vertical, horizontal, none
+		}
 	}
 
 	export default {

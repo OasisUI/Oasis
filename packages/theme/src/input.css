@@ -111,13 +111,30 @@
 	}
 
 	@m sm {
+		height: var(--Input-sm-height);
 		line-height: var(--Input-sm-height);
 	}
+
 	@m md {
+		height: var(--Input-md-height);
 		line-height: var(--Input-md-height);
 	}
+
 	@m lg {
+		height: var(--Input-lg-height);
 		line-height: var(--Input-lg-height);
+	}
+
+	@m resizable {
+		& textarea {
+			transition: width 0s, height 0s;
+		}
+	}
+
+	@m textarea {
+		& textarea {
+			padding: calc(var(--Input-padding) / 3) var(--Input-padding);
+		}
 	}
 
 	@d native {
@@ -128,6 +145,8 @@
 		border: none;
 		outline: none;
 		padding: 0 var(--Input-padding);
+		font-size: inherit;
+		color: inherit;
 		background: transparent;
 		transition: all ease 0.24s;
 	}

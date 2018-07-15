@@ -95,6 +95,20 @@
 		></Candidate>
 	:::
 
+	## Textarea 文本域
+
+	设置 `type='textarea'`
+
+	:::html
+		<Input
+			type="textarea"
+			resize="vertical"
+			rows="4"
+			cols="20"
+			spellcheck
+		/>
+	:::
+
 	## API
 
 	|参数|说明|类型|默认值|

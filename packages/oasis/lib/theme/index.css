@@ -96,10 +96,6 @@ a:link,a:visited {
 	color: #34B697;
 }
 
-a:link:hover,a:visited:hover {
-		color: #64DC9C;
-	}
-
 a:visited {
 	color: #1F9D7F;
 }
@@ -939,15 +935,27 @@ a:visited {
 }
 
 .o-Input--sm {
+		height: 30px;
 		line-height: 30px;
 }
 
 .o-Input--md {
+		height: 34px;
 		line-height: 34px;
 }
 
 .o-Input--lg {
+		height: 40px;
 		line-height: 40px;
+}
+
+.o-Input--resizable textarea {
+	-webkit-transition: width 0s, height 0s;
+	transition: width 0s, height 0s;
+}
+
+.o-Input--textarea textarea {
+	padding: 4px 12px;
 }
 
 .o-Input__native {
@@ -958,6 +966,8 @@ a:visited {
 		border: none;
 		outline: none;
 		padding: 0 12px;
+		font-size: inherit;
+		color: inherit;
 		background: transparent;
 		-webkit-transition: all ease 0.24s;
 		transition: all ease 0.24s;
