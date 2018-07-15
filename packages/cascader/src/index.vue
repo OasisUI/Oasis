@@ -20,7 +20,10 @@
 			default () {
 				return []
 			}
-		}
+		},
+		size: {
+			type: String
+		},
 	}
 
 	export default {
@@ -59,6 +62,7 @@
 					readonly={this.readonly}
 					disabled={this.disabled}
 					{...{directives}}
+					size={size}
 					class="o-Cascader"
 				>
 					<Popup

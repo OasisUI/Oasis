@@ -39,6 +39,8 @@ describe('Select', () => {
 		wrapper.findAll('.o-Input__options li').at(2).trigger('click')
 		expect(wrapper.emitted().input).toEqual([['c']])
 		expect(wrapper.emitted().change).toEqual([['c']])
+		setTimeout(() => {
+			expect(wrapper.find('input').element.value).toEqual('c')
+		}, 10)
 	})
-
 })

@@ -29,10 +29,10 @@
 						sortedColumns={this.sortedColumns}
 						selectable={this.selectable}
 					>
-						<TableColumn
+						{this.selectable ? <TableColumn
 							fixed='left'
 							selectable
-						></TableColumn>
+						></TableColumn> : null}
 						{this.$slots.default}
 					</TableHead>
 					<TableBody
@@ -84,7 +84,7 @@
 			},
 
 			// https://github.com/vuejs/vue/issues/3699
-			toggleAllSelector: debounce(function () {
+			toggleAllSelector () {
 				if (this.isAllSelected) {
 					this.selectedRows.splice(0, this.selectedRows.length)
 				} else {
@@ -94,8 +94,8 @@
 						}
 					})
 				}
-			}, 23),
-			toggleRowSelector: debounce(function ($data) {
+			},
+			toggleRowSelector ($data) {
 				const {
 					data, $index
 				} = $data
@@ -105,7 +105,7 @@
 				} else {
 					this.selectedRows.push(data)
 				}
-			}, 23),
+			},
 			updateSeletedRow: throttle(function () {
 				this.selectedRows = this.selectedRows.filter(item => {
 					return this.data.indexOf(item) > -1

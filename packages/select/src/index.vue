@@ -16,8 +16,7 @@
 			default: false
 		},
 		size: {
-			type: String,
-			default: 'md'
+			type: String
 		},
 		type: {
 			type: String,
@@ -30,11 +29,6 @@
 	export default {
 		name: 'Select',
 		props,
-		data () {
-			return {
-				currentValue: this.value
-			}
-		},
 		render () {
 			const popupId = this._uid
 			const directives = [
@@ -55,9 +49,7 @@
 					size={this.size}
 					type={this.type}
 					placeholder={this.placeholder}
-					value={this.value}
-					onInput={this.onInput}
-					onChange={this.onChange}
+					value={this.currentValue}
 					onFocus={this.onFocus}
 					onBlur={this.onBlur}
 					{...{directives}}
@@ -110,14 +102,6 @@
 				})
 			},
 
-			onInput (value) {
-				this.$emit('input', value)
-			},
-
-			onChange (value) {
-				this.$emit('change', value)
-			},
-
 			onFocus (...arg) {
 				this.$emit('focus', ...arg)
 			},
@@ -129,6 +113,10 @@
 		computed: {
 			currentOptions () {
 				return formatSelectOptions(this.options, this.value)
+			},
+			currentValue () {
+				const currentValue = this.currentOptions.find(option => option.value === this.value)
+				return currentValue ? currentValue.key : ''
 			}
 		}
 	}

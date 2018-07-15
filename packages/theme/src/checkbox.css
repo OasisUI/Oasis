@@ -4,6 +4,7 @@
 
 	@d inner {
 		position: relative;
+		flex-shrink: 0;
 		display: inline-block;
 		margin-right: calc(var(--Input-checkbox-size) / 2);
 		width: var(--Input-checkbox-size);

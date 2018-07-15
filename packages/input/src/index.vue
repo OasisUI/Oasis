@@ -103,7 +103,7 @@
 		},
 		size: {
 			type: String,
-			default: 'md'
+			default: 'lg'
 		},
 		type: {
 			type: String,

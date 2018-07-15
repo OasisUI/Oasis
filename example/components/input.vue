@@ -35,7 +35,7 @@
 			@change="onChange"
 		>
 			<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
-			<i slot="suffix">px</i>
+			<template slot="suffix">px</template>
 			<Button slot="addonAfter">Go!</Button>
 		</Input>
 	:::

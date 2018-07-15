@@ -51,8 +51,7 @@
 			default: false
 		},
 		size: {
-			type: String,
-			default: 'md'
+			type: String
 		},
 		placeholder: String
 	}

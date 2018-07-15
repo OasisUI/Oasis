@@ -50,11 +50,7 @@
 
 	@d wrapper {
 		position: relative;
-
-		& .o-Input {
-			height: var(--Input-lg-height);
-			line-height: var(--Input-lg-height);
-		}
+		line-height: var(--Input-lg-height);
 	}
 
 	@d tip {

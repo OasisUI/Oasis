@@ -16,8 +16,7 @@ const props = {
 		default: false
 	},
 	size: {
-		type: String,
-		default: 'md'
+		type: String
 	},
 	type: {
 		type: String,
@@ -87,6 +86,7 @@ export default {
 					slot='suffix'
 					{...{directives}}
 					class='o-Input__trigger'
+					type='button'
 				>
 					<i class='iconfont icon-arrow-down'/>
 				</button>
