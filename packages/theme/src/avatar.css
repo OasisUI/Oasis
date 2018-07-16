@@ -1,0 +1,76 @@
+@component Avatar {
+	display: inline-flex;
+
+	@m round {
+		& .o-Avatar__imgWrapper {
+			border-radius: 50%;
+			overflow: hidden;
+		}
+	}
+
+	@m rect {
+		border-radius: 0;
+	}
+
+	@m sm {
+		height: var(--Avatar-sm-width);
+		line-height: var(--Avatar-sm-width);
+
+		& .o-Avatar__imgWrapper {
+			width: var(--Avatar-sm-width);
+			font-size: var(--Avatar-sm-fontSize);
+		}
+	}
+
+	@m md {
+		height: var(--Avatar-md-width);
+		line-height: var(--Avatar-md-width);
+
+		& .o-Avatar__imgWrapper {
+			width: var(--Avatar-md-width);
+			font-size: var(--Avatar-md-fontSize);
+		}
+	}
+
+	@m lg {
+		height: var(--Avatar-lg-width);
+		line-height: var(--Avatar-lg-width);
+
+		& .o-Avatar__imgWrapper {
+			width: var(--Avatar-lg-width);
+			font-size: var(--Avatar-lg-fontSize);
+		}
+	}
+
+	@d imgWrapper {
+		position: relative;
+		height: 100%;
+	}
+
+	@d name {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		color: var(--Avatar-color);
+		font-weight: 700;
+		text-align: center;
+	}
+
+	@d addon {
+		height: 100%;
+		margin-left: 1rem;
+	}
+}
+
+@component AvatarGroup {
+	display: inline-block;
+	white-space: nowrap;
+	font-size: 0;
+
+	& .o-Avatar:not(:first-of-type) {
+		margin-left: -8%;
+	}
+}

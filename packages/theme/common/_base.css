@@ -1,0 +1,82 @@
+@import './_var.css';
+
+/*default*/
+* {
+	box-sizing: border-box;
+}
+
+/*layout*/
+@u center{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}
+
+
+/*reset style*/
+body {
+	color: var(--fontColor-default);
+	font-size: var(--fontSize-default);
+	font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	/*https://davidwalsh.name/font-smoothing*/
+}
+
+button {
+	outline: none;
+	border: none;
+	margin: 0;
+	white-space: nowrap;
+	background: inherit;
+	cursor: pointer;
+}
+
+input {
+	border: none;
+	outline: none;
+	color: inherit;
+	font-size: 100%;
+	font-family: sans-serif;
+}
+
+a:active {
+}
+
+a:any-link {
+	text-decoration: none;
+	color: var(--color-primary);
+}
+
+a:visited {
+	color: var(--color-primary-dark);
+}
+
+.iconfont {
+	font-size: inherit;
+}
+
+.clearfix {
+	&:before,
+	&:after {
+		display: table;
+		content: " ";
+		clear: both;
+	}
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.block {
+	display: block;
+}

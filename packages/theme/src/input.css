@@ -1,0 +1,215 @@
+@component Input {
+	position: relative;
+	display: inline-flex;
+	width: 100%;
+	align-items: center;
+	color: #464646;
+	font-size: 14px;
+
+	& .o-Input__prefix,
+	& .o-Input__suffix,
+	& .o-Input__addonWrapper {
+		display: flex;
+		flex-direction: row;
+	}
+
+	@when readonly {
+		color: var(--color-gray-1);
+		background: var(--Input-readonly-bg);
+	}
+
+	@when disabled {
+		background: var(--Input-disabled-bg);
+		color: var(--color-gray-1);
+	}
+
+	@d wrapper {
+		position: relative;
+		display: flex;
+		flex: 1;
+
+		/* width: 0; */
+		height: 100%;
+		padding: 0;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: var(--Input-borderRadius);
+		transition: all ease 0.24s;
+
+		&:not(:first-child) {
+			border-top-left-radius: 0 !important;
+			border-bottom-left-radius: 0 !important;
+		}
+
+		&:not(:last-child) {
+			border-top-right-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
+		}
+	}
+
+	@d popup {
+		top: 100% !important;
+		width: 100%;
+	}
+
+	@d native {
+		width: 0;
+		flex: 1;
+	}
+
+	@d prefix {
+		flex-grow: 0;
+		padding: 0 0 0 calc(var(--Input-padding) / 2);
+		color: var(--Input-borderColor);
+	}
+
+	@d suffix {
+		flex-grow: 0;
+		padding: 0 calc(var(--Input-padding) / 2) 0 0;
+		color: var(--Input-borderColor);
+	}
+
+	@d addonWrapper {
+		display: block;
+		height: 100%;
+		padding: 0 var(--Input-padding);
+		border: 0;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: var(--Input-borderRadius);
+		background: var(--color-gray-4);
+		color: var(--color-black-4);
+
+		/*https://www.w3.org/TR/CSS2/tables.html 17.6.2 The collapsing border model*/
+
+		&:not(:first-child) {
+			border-top-left-radius: 0 !important;
+			border-bottom-left-radius: 0 !important;
+			border-left: 0;
+
+			& .o-Btn {
+				border-top-right-radius: var(--Input-borderRadius) !important;
+				border-bottom-right-radius: var(--Input-borderRadius) !important;
+			}
+		}
+
+		&:not(:last-child) {
+			border-top-right-radius: 0 !important;
+			border-bottom-right-radius: 0 !important;
+			border-right: 0;
+
+			& .o-Btn {
+				border-top-left-radius: var(--Input-borderRadius) !important;
+				border-bottom-left-radius: var(--Input-borderRadius) !important;
+			}
+		}
+
+		& .o-Btn {
+			border-radius: 0;
+			margin: 0 -var(--Input-padding);
+			height: 100% !important;
+			line-height: normal !important;
+		}
+	}
+
+	@m sm {
+		height: var(--Input-sm-height);
+		line-height: var(--Input-sm-height);
+	}
+
+	@m md {
+		height: var(--Input-md-height);
+		line-height: var(--Input-md-height);
+	}
+
+	@m lg {
+		height: var(--Input-lg-height);
+		line-height: var(--Input-lg-height);
+	}
+
+	@m resizable {
+		& textarea {
+			transition: width 0s, height 0s;
+		}
+	}
+
+	@m textarea {
+		& textarea {
+			padding: calc(var(--Input-padding) / 2) var(--Input-padding);
+		}
+	}
+
+	@d native {
+		position: relative;
+		display: block;
+		width: 100%;
+		letter-spacing: 0;
+		border: none;
+		outline: none;
+		padding: 0 var(--Input-padding);
+		font-size: inherit;
+		color: inherit;
+		background: transparent;
+		transition: all ease 0.24s;
+	}
+
+	@d options {
+		margin: -var(--Popup-inner-padding);
+		padding: 4px 0;
+		min-height: 38px;
+		max-height: 300px;
+		overflow: auto;
+		list-style: none;
+		color: var(--fontColor-default);
+
+		& li {
+			margin: 0;
+			padding: 0 var(--Input-padding);
+			height: var(--Input-md-height);
+			line-height: var(--Input-md-height);
+			transition: ease all 0.2s;
+			cursor: pointer;
+
+			&.is-selected {
+				background: var(--color-primary);
+				color: #fff;
+			}
+
+			&:hover:not(.is-selected) {
+				background: var(--color-gray-4);
+			}
+		}
+	}
+
+	@d trigger {
+		padding: 0;
+		background: transparent;
+		color: var(--Input-hoverColor);
+
+		& .iconfont {
+			font-size: 12px;
+		}
+
+		&:hover {
+			color: var(--color-black-3);
+		}
+	}
+
+	& input::placeholder {
+		color: #999999;
+	}
+
+	&.is-disabled input {
+		cursor: not-allowed;
+	}
+
+	&:not(.is-disabled) .o-Input__wrapper {
+		&:hover {
+			border-color: var(--Input-hoverColor);
+		}
+
+		&.is-focused {
+			z-index: 1;
+			border-color: var(--color-primary);
+			box-shadow: 0 0 0 2px color(var(--color-primary) alpha(30%));
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@oasis-ui/modalbox",
+  "version": "0.0.13",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "oasis",
+  "license": "MIT",
+  "dependencies": {
+    "@oasis-ui/button": "^0.0.10",
+    "@oasis-ui/input": "^0.0.12",
+    "@oasis-ui/modal": "^0.0.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

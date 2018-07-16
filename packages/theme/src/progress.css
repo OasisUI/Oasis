@@ -1,0 +1,159 @@
+@component Progress {
+	display: inline-block;
+	transition: all ease-out 0.24s;
+
+	@m inline {
+		display: inline-block;
+	}
+}
+
+@component CircleProgress {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	text-align: center;
+
+	&:after {
+		display: inline-block;
+		content: '';
+		width: 0;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	@d bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	@d backup {
+		stroke: color(var(--color-black-4) alpha(40%));
+	}
+
+	@d value {
+		transition: stroke-dashoffset ease-out 0.34s;
+	}
+
+	@d info {
+		display: inline-block;
+		vertical-align: middle;
+		color: var(--color-black-2);
+		font-weight: 700;
+	}
+
+	@when primary {
+		& .o-CircleProgress__value {
+			stroke: var(--color-primary) !important;
+		}
+	}
+
+	@when warning {
+		& .o-CircleProgress__value {
+			stroke: var(--color-warning) !important;
+		}
+
+		& .o-CircleProgress__info {
+			color: var(--color-warning) !important;
+		}
+	}
+
+	@when danger {
+		& .o-CircleProgress__value {
+			stroke: var(--color-danger) !important;
+		}
+
+		& .o-CircleProgress__info {
+			color: var(--color-danger) !important;
+		}
+	}
+
+	@when success {
+		& .o-CircleProgress__value {
+			stroke: var(--color-primary) !important;
+		}
+
+		& .o-CircleProgress__info {
+			color: var(--color-primary) !important;
+		}
+	}
+}
+
+@component LineProgress {
+	position: relative;
+	font-size: 0;
+
+	@d bar {
+		display: inline-block;
+		width: 100%;
+		vertical-align: middle;
+	}
+
+	@d backup {
+		height: 6px;
+		width: 100%;
+		border-radius: 3px;
+		overflow: hidden;
+		background: color(var(--color-black-4) alpha(40%));
+	}
+
+	@d value {
+		width: 100%;
+		height: 100%;
+		border-radius: 3px;
+		transition: width ease-out 0.34s;
+	}
+
+	@d info {
+		width: 40px;
+		display: inline-block;
+		padding-left: 6px;
+		vertical-align: middle;
+		text-align: right;
+		font-size: 14px;
+		color: var(--color-black-2);
+	}
+
+	@when showInfo {
+		& .o-LineProgress__bar {
+			margin-right: -40px;
+			padding-right: 40px;
+		}
+	}
+
+	@when primary {
+		& .o-LineProgress__value {
+			background: var(--color-primary) !important;
+		}
+	}
+
+	@when warning {
+		& .o-LineProgress__value {
+			background: var(--color-warning) !important;
+		}
+
+		& .o-LineProgress__info {
+			color: var(--color-warning) !important;
+		}
+	}
+
+	@when danger {
+		& .o-LineProgress__value {
+			background: var(--color-danger) !important;
+		}
+
+		& .o-LineProgress__info {
+			color: var(--color-danger) !important;
+		}
+	}
+
+	@when success {
+		& .o-LineProgress__value {
+			background: var(--color-primary) !important;
+		}
+
+		& .o-LineProgress__info {
+			color: var(--color-primary) !important;
+		}
+	}
+}

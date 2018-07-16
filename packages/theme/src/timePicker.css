@@ -1,0 +1,103 @@
+@component InputTime {
+	text-align: center;
+
+	& .o-TimePicker {
+		display: inline-block;
+	}
+}
+
+@component TimePicker {
+	width: calc(var(--TimeSpinner-width) * 3);
+	height: calc(var(--TimeSpinnerItem-height) * 7);
+	text-align: center;
+	overflow: hidden;
+	font-size: 0;
+	color: var(--fontColor-default);
+
+
+	&:after {
+		width: 0;
+		height: 100%;
+		display: inline-block;
+		vertical-align: middle;
+		content: '';
+	}
+
+	@d currentValue {
+		position: relative;
+		display: inline-block;
+		text-align: center;
+		vertical-align: middle;
+		width: var(--TimeSpinner-width);
+		height: 100%;
+	}
+
+	@d spinnerList {
+		display: inline-block;
+		overflow: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-top: 70px;
+		width: 100%;
+		transition: top linear 0.2s;
+	}
+
+	@d spinnerItem {
+		display: block;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		cursor: pointer;
+
+		&:hover:not(.is-selected) {
+			color: var(--color-black-4);
+			font-weight: 700;
+		}
+	}
+
+	& .is-selected {
+		color: var(--color-primary);
+		font-weight: 700;
+	}
+}
+
+
+@component TimeSpinner {
+	height: 100%;
+	width: var(--TimeSpinner-width);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: hidden;
+	overflow-x: hidden;
+
+	&:hover {
+		overflow-y: auto;
+	}
+
+	&:before,
+	&:after {
+		display: block;
+		content: '';
+		height: calc(var(--TimeSpinnerItem-height) * 3);
+	}
+
+	@d Item {
+		display: block;
+		margin: 0;
+		padding: 0;
+		width: var(--TimeSpinner-width);
+		height: var(--TimeSpinnerItem-height);
+		line-height: var(--TimeSpinnerItem-height);
+		text-align: center;
+		font-size: 16px;
+		cursor: pointer;
+		transition: all ease 0.2s;
+
+		&:hover:not(.is-selected) {
+			color: var(--color-black-4);
+			font-weight: 700;
+		}
+	}
+}

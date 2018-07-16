@@ -1,0 +1,86 @@
+@component Table {
+	position: relative;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+
+	@d fixedWrapper {
+		white-space: nowrap;
+
+		& .o-Table__fixedCell,
+		& .o-Table__fixedColumn {
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0 var(--Table-cell-paddingLeftRight);
+		}
+	}
+
+	@d head {
+		width: 100%;
+		height: 40px;
+	}
+
+	@d column {
+		z-index: 2;
+		position: sticky;
+		top: 0;
+		padding: var(--Table-cell-padding);
+		border: 0 solid #eee;
+		border-bottom-width: 1px;
+		color: var(--color-black-5);
+		background: #fff;
+	}
+
+	@d row {
+		&:hover .o-Table__cell {
+			background: var(--Table-row-hoverColor);
+		}
+
+		&:not(:last-of-type) {
+			border-bottom: var(--Table-border);
+		}
+	}
+
+	@d cell {
+		padding: var(--Table-cell-padding);
+		text-align: center;
+		border: 0 solid #eee;
+		background: #fff;
+	}
+
+	@m stickyLeft {
+		z-index: 3;
+		position: sticky;
+		left: 0;
+		border-right-width: 1px;
+		border-right-style: solid;
+
+		&.o-Table__column {
+			z-index: 4;
+		}
+
+		&:last-of-type {
+			border-right-color: var(--color-black-4);
+		}
+	}
+
+	@m stickyRight {
+		z-index: 3;
+		position: sticky;
+		right: 0;
+		border-left-width: 1px;
+		border-left-style: solid;
+
+		&.o-Table__column {
+			z-index: 4;
+		}
+
+		&:first-of-type {
+			border-left-color: var(--color-black-4);
+		}
+	}
+}
+
+@component TableWrapper {
+	overflow: auto;
+}

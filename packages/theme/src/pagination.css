@@ -1,0 +1,43 @@
+@component Pagination {
+	@d action {
+
+	}
+}
+
+@component Page {
+	display: inline-block;
+	padding: 0;
+	margin: 0 2px;
+	border-radius: 3px;
+
+	&:hover {
+		background: var(--color-gray-4);
+	}
+
+	@d link {
+		display: block;
+		min-width: 30px;
+		padding: 4px 0;
+		color: inherit;
+		font-size: 14px;
+		text-decoration: none;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	@when active {
+		color: white;
+		font-weight: 700;
+		background: var(--color-primary);
+	}
+
+	@when disabled {
+		color: var(--color-gray-2);
+
+		& a {
+			cursor: not-allowed;
+		}
+	}
+}
+
+

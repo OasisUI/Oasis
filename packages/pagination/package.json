@@ -1,0 +1,17 @@
+{
+  "name": "@oasis-ui/pagination",
+  "version": "0.0.8",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "oasis",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.5.13"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,113 @@
+@component Modal {
+	z-index: var(--zIndex-modal);
+	position: fixed;
+	text-align: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.32);
+
+	&:after {
+		display: inline-block;
+		width: 0;
+		height: 100%;
+		content: '';
+		vertical-align: middle;
+	}
+
+	@d content {
+		display: inline-block;
+		position: relative;
+		vertical-align: middle;
+		min-width: 420px;
+		min-height: 230px;
+		border-radius: var(--Input-borderRadius);
+		background: white;
+		overflow: hidden;
+	}
+
+	@d close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 10px;
+		color: #8A8A8A;
+		cursor: pointer;
+		transition: color linear 0.24s;
+
+		&:hover {
+			color: #4C4C4C;
+		}
+	}
+
+	@d header {
+		padding: var(--Modal-padding) var(--Modal-padding) 20px var(--Modal-padding);
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		text-align: cente;
+	}
+
+	@d body {
+		padding: 0 var(--Modal-padding);
+	}
+
+	@d footer {
+		width: 100%;
+		padding: var(--Modal-padding);
+		text-align: right;
+		letter-spacing: 20px;
+	}
+}
+
+
+@component ModalBox {
+	& .o-Modal__body,
+
+	& .o-Modal__footer {
+		text-align: center;
+	}
+
+	@d alert {
+		text-align: center;
+	}
+
+	@when success {
+		& .o-ModalBox__icon {
+			color: var(--color-primary);
+		}
+	}
+
+	@when info {
+
+	}
+
+	@when danger {
+		& .o-ModalBox__icon {
+			color: var(--color-danger);
+		}
+	}
+
+	@when warning {
+		& .o-ModalBox__icon {
+			color: var(--color-warning);
+		}
+	}
+
+	@d confirmBtn {
+		min-width: var(--ModalBox-btn-minWidth);
+	}
+
+	@d cancelBtn {
+		min-width: var(--ModalBox-btn-minWidth);
+	}
+
+	@d icon {
+		margin: 0 auto 14px auto;
+		width: 40px;
+		height: 40px;
+		font-size: 40px;
+		display: block;
+	}
+}

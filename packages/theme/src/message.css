@@ -1,0 +1,49 @@
+@component MessageBox {
+	z-index: var(--zIndex-popover);
+	position: fixed;
+	top: 0;
+	height: 0;
+	width: 100%;
+	overflow: visible;
+}
+
+@component Message {
+	pointer-events: none;
+	position: relative;
+	margin-top: 8px;
+	height: var(--Message-height);
+	text-align: center;
+
+	@d text {
+		overflow: hidden;
+		pointer-events: all;
+		display: inline-block;
+		height: 100%;
+		min-width: var(--Message-minWidth);
+		padding: 0 calc(var(--Message-height) / 2);
+		line-height: var(--Message-height);
+		white-space: nowrap;
+		border-radius: var(--Message-borderRadius);
+	}
+
+	@m info {
+		color: var(--Message-info-color);
+		background: var(--Message-info-bg);
+	}
+
+	@m danger {
+		color: var(--Message-danger-color);
+		background: var(--Message-danger-bg);
+	}
+
+	@m success {
+		color: var(--Message-success-color);
+		background: var(--Message-success-bg);
+	}
+
+	@m warning {
+		color: var(--Message-warning-color);
+		background: var(--Message-warning-bg);
+	}
+}
+

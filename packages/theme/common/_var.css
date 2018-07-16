@@ -1,0 +1,162 @@
+:root {
+
+	/* theme */
+	--color-primary: #34B697;
+	--color-primary-light: #64DC9C;
+	--color-primary-dark: #1F9D7F;
+
+	--color-warning: #F08200;
+	--color-warning-light: #FFB864;
+	--color-warning-dark: #CC7100;
+
+	--color-danger: #F06868;
+	--color-danger-light: #FF7D7D;
+	--color-danger-dark: #CF5158;
+
+	--color-info: #FFEDD7;
+
+	--color-white: #FFFFFF;
+
+	--color-black-1: #333333;
+	--color-black-2: #4C4C4C;
+	--color-black-3: #545454;
+	--color-black-4: #666666;
+	--color-black-5: #888888;
+
+	--color-gray-1: #999999;
+	--color-gray-2: #CECECE ;
+	--color-gray-3: #F1F1F1;
+	--color-gray-4: #F6F6F6;
+	--color-gray-5: #F0F1F1;
+	--color-gray-6: #FDFDFD;
+
+	/* font */
+	--fontColor-default: #333333;
+	--fontSize-default: var(--fontSize-14);
+	--fontSize-12: 12px;
+	--fontSize-14: 14px;
+	--fontSize-16: 16px;
+	--fontSize-18: 18px;
+
+	/* components */
+
+	/*table*/
+	--Table-cell-paddingLeftRight: 1rem;
+	--Table-cell-paddingTopBottom: 1rem;
+	--Table-cell-padding: var(--Table-cell-paddingTopBottom) var(--Table-cell-paddingLeftRight);
+	--Table-border: 1px solid #EEE;
+	--Table-row-hoverColor: #F7F7F7;
+
+	/*form*/
+	--FormItem--info-fontSize: var(--fontSize-12);
+	--FormItem-marginBottom: 24px;
+	--FormItem-errMsg-height: 18px;
+
+	/*loading*/
+	--Loading-bg: rgba(224,224,224,0.54);
+	--Loading-spin-width: 42px;
+	--Loading-spin-height: 42px;
+
+	/*button*/
+	--Button-sm-height: 28px;
+	--Button-md-height: 32px;
+	--Button-lg-height: 38px;
+	--Button-sm-padding: 20px;
+	--Button-md-padding: 24px;
+	--Button-lg-padding: 36px;
+
+	/*input*/
+	--Input-lg-height: 40px;
+	--Input-md-height: 34px;
+	--Input-sm-height: 30px;
+	--Input-borderRadius: 4px;
+	--Input-padding: 12px;
+	--Input-checkbox-size: 16px;
+	--Input-borderColor: #E1E1E1;
+	--Input-hoverColor: #BBBBBB;
+	--Input-toggleOptionsColor: #D8D8D8;
+	--Input-disabled-bg: #F2F2F2;
+	--Input-readonly-bg: #F5FAF9;
+	--Input-disabled-checked-bg: #D8D8D8;
+
+	/*message*/
+	--Message-borderRadius: 4px;
+	--Message-height: 34px;
+	--Message-minWidth: 360px;
+
+	--Message-info-bg: #E7F3FF;
+	--Message-info-color: #105196;
+	--Message-info-border: 1px solid #C1DEFD;
+
+	--Message-danger-bg: #F8D7DA;
+	--Message-danger-color: var(--color-danger);
+	--Message-danger-border: 1px solid #F5C6CB;
+
+	--Message-success-bg: #D4EDDA;
+	--Message-success-color: #155724;
+	--Message-success-border: 1px solid #ADCEB4;
+
+	--Message-warning-bg: #FFF4D6;
+	--Message-warning-color: var(--color-warning);
+	--Message-warning-border: 1px solid #FFCE8F;
+
+	/*transition*/
+	--transition-default: all ease-in-out 140ms;
+	--transition-slide: all ease-in-out 240ms;
+	--transition-btn-default: color ease-in-out 20ms, background-color ease-in-out 160ms, box-shadow ease-in-out 100ms, padding ease-in-out 160ms;
+	--transition-checkbox: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
+	--transition-navbar: all ease-in-out 140ms;
+	--transition-scrollBox: background ease-in-out 140ms;
+
+	/*modal*/
+	--Modal-padding: 34px;
+	--ModalBox-btn-minWidth: 138px;
+
+	/*datePicker*/
+	--DatePicker-dayWidth: 40px;
+	--DatePicker-dayHeight: 40px;
+
+	/* timePicker */
+	--TimeSpinnerItem-height: 34px;
+	--TimeSpinner-width: 80px;
+
+	/*progress*/
+	--LineProgress-height: 24px;
+
+	/*Popup*/
+	--Popup-borderRadius: 3px;
+	--Popup-arrow-height: 8px;
+	--Popup-arrow-width: 18px;
+	--Popup-inner-padding: 10px;
+
+	/*scrollBox*/
+	--ScrollBox-scrollbar-width: 8px;
+
+	/*navbar*/
+	--SideNav-height: 50px;
+	--SideNav-padding: 20px;
+
+	/* avatar */
+	--Avatar-color: #FFFFFF;
+	--Avatar-sm-width: 28px;
+	--Avatar-sm-fontSize: 16px;
+	--Avatar-md-width: 40px;
+	--Avatar-md-fontSize: 18px;
+	--Avatar-lg-width: 52px;
+	--Avatar-lg-fontSize: 22px;
+
+	/*shadow*/
+	--shadw-dropdown: 1px 1px 8px 0px rgba(0,0,0,0.24);
+	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);
+	--shadow-message: 0 0 4px 1px rgba(0,0,0,0.12);
+	--shadow-popup: 1px 1px 8px 0px rgba(0,0,0,0.24);
+
+	/*z-index*/
+	--zIndex-dropdown: 1000;
+	--zIndex-sticky: 1020;
+	--zIndex-fixed: 1030;
+	--zIndex-modal-backdrop: 1040;
+	--zIndex-modal: 1050;
+	--zIndex-popover: 1060;
+	--zIndex-tooltip: 1070;
+}

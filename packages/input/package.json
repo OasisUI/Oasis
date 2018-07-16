@@ -1,0 +1,14 @@
+{
+  "name": "@oasis-ui/input",
+  "version": "0.0.12",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "oasis",
+  "license": "MIT",
+  "description": "",
+  "publishConfig": {
+    "access": "public"
+  }
+}

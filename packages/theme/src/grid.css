@@ -1,0 +1,23 @@
+@component Row {
+	display: block;
+
+	&:after,
+	&:before {
+		display: table;
+		content: ' ';
+		clear: both;
+	}
+}
+@for $i from 1 to 24 {
+	.o-Col-$i {
+		width: calc($i / 0.24)%;
+	}
+
+	.o-Col-offset-$i {
+		margin-left: calc($i / 0.24)%;
+	}
+}
+
+.o-Col-1, .o-Col-2, .o-Col-3, .o-Col-4, .o-Col-5, .o-Col-6, .o-Col-7, .o-Col-8, .o-Col-9, .o-Col-10, .o-Col-11, .o-Col-12, .o-Col-13, .o-Col-14, .o-Col-15, .o-Col-16, .o-Col-17, .o-Col-18, .o-Col-19, .o-Col-20, .o-Col-21, .o-Col-22, .o-Col-23, .o-Col-24 {
+	float: left;
+}

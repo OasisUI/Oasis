@@ -1,0 +1,14 @@
+{
+  "name": "@oasis-ui/nav",
+  "version": "0.0.8",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "oasis",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

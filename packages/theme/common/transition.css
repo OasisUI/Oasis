@@ -1,0 +1,85 @@
+@import './_var.css';
+
+.o-Message-enter-active,
+.o-Message-leave-active {
+	transition: all ease-in-out 0.24s;
+}
+
+.o-Message-enter,
+.o-Message-leave-to {
+	opacity: 0;
+	font-size: 0;
+	line-height: 0;
+	height: 0 !important;
+	transform: translateY(calc(var(--Message-height) / -4));
+}
+
+.o-Modal-enter-active,
+.o-Modal-leave-active {
+	transition: all linear 0.3s;
+}
+
+.o-Modal-enter-active .o-Modal__content {
+	transition: all ease-in-out 0.14s 0.16s;
+}
+
+.o-Modal-leave-active .o-Modal__content {
+	transition: all ease-in-out 0.14s 0s;
+}
+
+.o-Modal-enter,
+.o-Modal-leave-to {
+	opacity: 0;
+
+	& .o-Modal__content {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+}
+
+.o-Popup-enter-active,
+.o-Popup-leave-active {
+	transition: all ease 0.12s; /*cubic-bezier(0.38, 0.63, 0.71, 1.29)*/
+	transform-origin: 50% -10px;
+}
+
+.o-Popup-enter,
+.o-Popup-leave-to {
+	transform: scaleY(0) !important;
+	opacity: 0;
+}
+
+.o-InputOptions-enter-active,
+.o-InputOptions-leave-active {
+	transition: all ease-in-out 0.18s;
+}
+
+.o-InputOptions-enter,
+.o-InputOptions-leave-to {
+	opacity: 0;
+	transform: translateY(-4px);
+}
+
+.o-ScrollBar-enter-active {
+	transition: all ease-in-out 0.1s 0.1s;
+}
+
+.o-ScrollBar-leave-active {
+	transition: all ease-in-out 0.08s;
+}
+
+.o-ScrollBar-enter,
+.o-ScrollBar-leave-to {
+	opacity: 0;
+}
+
+/*button loading*/
+.o-Btn__loading-enter-active,
+.o-Btn__loading-leave-active {
+	transition: all ease-in-out 0.16s;
+}
+
+.o-Btn__loading-enter,
+.o-Btn__loading-leave-to {
+	opacity: 0;
+}

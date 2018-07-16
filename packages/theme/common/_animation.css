@@ -1,0 +1,27 @@
+@keyframes loading-spin {
+	0% {
+		stroke-dasharray: 100, 140;
+		stroke-dashoffset: 265;
+	}
+
+	50% {
+		stroke-dasharray: 100, 200;
+		stroke-dashoffset: 300;
+	}
+
+	100% {
+		stroke-dasharray: 100, 140;
+		stroke-dashoffset: 265;
+	}
+}
+
+
+@keyframes loading-rotate {
+	0% {
+		transform: rotate(0);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

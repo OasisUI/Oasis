@@ -1,0 +1,17 @@
+{
+	"name": "@oasis-ui/avatar",
+	"version": "0.2.1",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "oasis",
+	"license": "MIT",
+	"dependencies": {
+		"@oasis-ui/rahmen": "^0.1.8"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

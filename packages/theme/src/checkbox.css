@@ -1,0 +1,65 @@
+@component Checkbox {
+	width: auto;
+	cursor: pointer;
+
+	@d inner {
+		position: relative;
+		flex-shrink: 0;
+		display: inline-block;
+		margin-right: calc(var(--Input-checkbox-size) / 2);
+		width: var(--Input-checkbox-size);
+		height: var(--Input-checkbox-size);
+		vertical-align: middle;
+		border: 1px solid var(--Input-borderColor);
+		border-radius: 3px;
+		transition: var(--transition-default);
+
+		&:after {
+			display: block;
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			width: 7px;
+			height: 3px;
+			border: 2px solid white;
+			border-top-width: 0;
+			border-right-width: 0;
+			transform: scale(0) rotate(-45deg);
+			transform-origin: 10px 1px;
+			background: transparent;
+			transition: var(--transition-checkbox);
+		}
+	}
+
+	@when disabled {
+		background: inherit;
+
+		& .o-Checkbox__inner {
+			cursor: not-allowed;
+			border-color: var(--color-gray-2) !important;
+			background: var(--Input-disabled-bg) !important;
+
+			&:after {
+				border-color: var(--color-gray-2);
+			}
+		}
+	}
+
+	& input[type="checkbox"] {
+		display: none;
+
+		&:checked + .o-Checkbox__inner {
+			border-color: var(--color-primary);
+			background: var(--color-primary);
+
+			&:after {
+				transform: scale(1) rotate(-45deg);
+			}
+		}
+	}
+
+	& + .o-Checkbox {
+		margin-left: 20px;
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"sourceType": "module",
+		"allowImportExportEverywhere": false
+	},
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"extends": "standard",
+	"rules": {
+		"semi": ["error", "never"],
+		"semi-style": ["error", "first"],
+		"quotes": ["error", "single"],
+		"indent": ["error", "tab"],
+		"no-tabs": 0,
+		"no-new": 0,
+		"no-unused-vars": 1,
+		"one-var": 0,
+		"spaced-comment": ["error", "always", {
+			"line": {
+				"markers": ["/"],
+				"exceptions": ["-", "+"]
+			},
+			"block": {
+				"markers": ["!"],
+				"exceptions": ["*"],
+				"balanced": true
+			}
+		}]
+	}
+}

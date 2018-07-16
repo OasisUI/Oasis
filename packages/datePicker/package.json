@@ -1,0 +1,18 @@
+{
+  "name": "@oasis-ui/datepicker",
+  "version": "0.0.15",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@oasis-ui/input": "^0.0.12",
+    "@oasis-ui/modal": "^0.0.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "oasis",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

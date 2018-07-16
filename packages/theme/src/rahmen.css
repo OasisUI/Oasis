@@ -1,0 +1,10 @@
+@component Rahmen {
+	height: 100%;
+
+	@d image {
+		display: block;
+		box-sizing: content-box;
+		height: 0;
+		background-color: #F7FBF9;
+	}
+}

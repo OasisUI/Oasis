@@ -1,0 +1,19 @@
+@c Img {
+	position: relative;
+	display: inline-block;
+	font-size: 0;
+
+	@d loading, backup {
+		font-size: var(--fontSize-default)
+	}
+
+	@when failed {
+		color: red;
+	}
+
+	& img {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
