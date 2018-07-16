@@ -28,7 +28,10 @@
 				return !isNaN(val) && val > 0
 			}
 		},
-		type: String
+		type: {
+			type: String,
+			default: 'fillMax'
+		}
 	}
 
 	const RAHMEN_TYPE = {
@@ -50,7 +53,7 @@
 			imageStyle () {
 				return {
 					paddingTop: this.height === void (0) ? this.ratio * 100 + '%' : isNaN(this.height) ? this.height : this.height + 'px',
-					background: (RAHMEN_TYPE[this.type] || RAHMEN_TYPE['fill']) + `url("${this.src}")`
+					background: RAHMEN_TYPE[this.type] + `url("${this.src}")`
 				}
 			}
 		}

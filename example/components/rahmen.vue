@@ -7,6 +7,17 @@
 	:::html
 		<Rahmen
 			src="https://camo.githubusercontent.com/87882cd6c816edb053cfb6e3c7f0d8ab0af4aae3/68747470733a2f2f63646e2e7261776769742e636f6d2f6a6f653232332f4f617369732f6465762f69636f6e2f69636f6e2e7376673f73616e6974697a653d74727565"
+			width="300px"
+		></Rahmen>
+	:::
+
+
+	## Type
+
+	:::html
+		<Rahmen
+			src="https://camo.githubusercontent.com/87882cd6c816edb053cfb6e3c7f0d8ab0af4aae3/68747470733a2f2f63646e2e7261776769742e636f6d2f6a6f653232332f4f617369732f6465762f69636f6e2f69636f6e2e7376673f73616e6974697a653d74727565"
+			width="300px"
 			type="fill"
 			ratio="0.5"
 		></Rahmen>
