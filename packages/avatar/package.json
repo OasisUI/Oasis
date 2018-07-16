@@ -1,6 +1,6 @@
 {
 	"name": "@oasis-ui/avatar",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
@@ -9,7 +9,7 @@
 	"author": "oasis",
 	"license": "MIT",
 	"dependencies": {
-		"@oasis-ui/rahmen": "^0.1.7"
+		"@oasis-ui/rahmen": "^0.1.8"
 	},
 	"publishConfig": {
 		"access": "public"
