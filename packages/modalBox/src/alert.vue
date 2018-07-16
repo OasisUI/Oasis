@@ -5,6 +5,8 @@
 		:class="[
 			`is-${type}`
 		]"
+		:show-close-btn="showCloseBtn"
+		:show-title="showTitle"
 	>
 		<template
 			slot="header"
@@ -51,7 +53,15 @@
 			type: String,
 			default: '确定'
 		},
-		onConfirm: Function
+		onConfirm: Function,
+		showCloseBtn: {
+			type: Boolean,
+			default: true
+		},
+		showTitle: {
+			type: Boolean,
+			default: true
+		}
 	}
 
 	export default {

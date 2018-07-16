@@ -11,6 +11,10 @@
 	const props = {
 		data: Array,
 		selectable: Boolean,
+		width: String,
+		height: String,
+		tableWidth: String,
+		tableHeight: String,
 	}
 
 	export default {
@@ -23,23 +27,41 @@
 			}
 		},
 		render () {
+			const wrapperStyle = {
+				height: this.height,
+				width: this.width
+			}
+			const tableStyle = {
+				height: this.tableHeight,
+				minWidth: this.tableWidth
+			}
+
 			return (
-				<table class='o-Table'>
-					<TableHead
-						sortedColumns={this.sortedColumns}
-						selectable={this.selectable}
+				<div
+					class='o-TableWrapper'
+					style={wrapperStyle}
+				>
+					<table
+						class='o-Table'
+						style={tableStyle}
 					>
-						{this.selectable ? <TableColumn
-							fixed='left'
-							selectable
-						></TableColumn> : null}
-						{this.$slots.default}
-					</TableHead>
-					<TableBody
-						sortedColumns={this.sortedColumns}
-						data={this.data}
-					></TableBody>
-				</table>
+						<TableHead
+							sortedColumns={this.sortedColumns}
+							selectable={this.selectable}
+						>
+							{this.selectable ? <TableColumn
+								fixed='left'
+								selectable
+								width='50'
+							></TableColumn> : null}
+							{this.$slots.default}
+						</TableHead>
+						<TableBody
+							sortedColumns={this.sortedColumns}
+							data={this.data}
+						></TableBody>
+					</table>
+				</div>
 			)
 		},
 		mounted () {
@@ -69,7 +91,7 @@
 				return columns
 			},
 			isAllSelected () {
-				return this.data.every(item => this.selectedRows.find((row => row === item)))
+				return this.data.length && this.data.every(item => this.selectedRows.find((row => row === item)))
 			}
 		},
 		methods: {

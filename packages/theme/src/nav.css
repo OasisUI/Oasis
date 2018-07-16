@@ -121,13 +121,13 @@
 		height: var(--SideNav-height);
 		padding: 0 var(--SideNav-padding);
 		line-height: var(--SideNav-height);
+		font-weight: 500;
 		cursor: pointer;
 		transition: var(--transition-navbar);
 	}
 
 	.o-NavItem.is-selected {
 		color: var(--color-primary);
-		font-weight: 500;
 	}
 }
 

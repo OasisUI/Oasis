@@ -2,6 +2,8 @@
 	<Modal
 		v-model="show"
 		@close="cancel"
+		:show-close-btn="showCloseBtn"
+		:show-title="showTitle"
 		class="o-ModalBox o-ModalBox__confirm"
 	>
 		<template
@@ -55,7 +57,15 @@
 		onConfirm: Function,
 		onCancel: Function,
 		title: String,
-		content: String
+		content: String,
+		showCloseBtn: {
+			type: Boolean,
+			default: true
+		},
+		showTitle: {
+			type: Boolean,
+			default: true
+		}
 	}
 
 	export default {

@@ -13,6 +13,7 @@
 		},
 		label: String,
 		prop: String,
+		width: [String, Number],
 		selectable: true
 	}
 	export default {
@@ -36,6 +37,7 @@
 						this.fixed === 'right' ? 'o-Table--stickyRight' : ''
 					]}
 					style={this.style}
+					width={this.width}
 				>
 					{this.renderHeader(h)}
 				</th>
@@ -141,7 +143,7 @@
 								}}
 							/>
 						) : ( _this.$scopedSlots.default ?
-							_this.$scopedSlots.default(row.data)
+							_this.$scopedSlots.default(row)
 							: _this.$slots.default || row.data[_this.prop])
 					}
 				}

@@ -14,6 +14,7 @@
 				:src="src"
 				width="100%"
 				ratio="1"
+				type="fillMin"
 			></Rahmen>
 			<span
 				v-else

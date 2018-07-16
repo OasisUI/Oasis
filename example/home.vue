@@ -32,7 +32,7 @@
 	}
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 	.home {
 		position: fixed;
 		top: 0;
@@ -67,6 +67,7 @@
 		.o-Btn {
 			&:not(:last-of-type) {
 				margin-right: 44px;
+				color: white;
 			}
 			width: 160px;
 			vertical-align: middle;

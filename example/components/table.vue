@@ -6,32 +6,34 @@
 	<Button @click="updateData">updateData</Button>
 
 	:::html
-		<div class="table-wrapper">
-			<Table
-				:columns="columns"
-				:data="data"
-				selectable
+		<Table
+			:columns="columns"
+			:data="data"
+			width="100%"
+			height="300px"
+			table-width="1000px"
+			selectable
+		>
+			<TableColumn
+				v-for="column in columns"
+				:key="column.prop"
+				:prop="column.prop"
+				:fixed="column.fixed"
+				:column="column"
+			></TableColumn>
+			<TableColumn
+				label="Action"
+				fixed="right"
+				width="100"
 			>
-				<TableColumn
-					v-for="column in columns"
-					:key="column.prop"
-					:prop="column.prop"
-					:fixed="column.fixed"
-					:column="column"
-				></TableColumn>
-				<TableColumn
-					label="Action"
-					fixed="right"
-				>
-					<template slot-scope="item">
-						<Button
-							@click="deleteData(item)"
-							type="danger"
-						>Delete</Button>
-					</template>
-				</TableColumn>
-			</Table>
-		</div>
+				<template slot-scope="row">
+					<Button
+						@click="deleteData(row)"
+						type="danger"
+					>Delete</Button>
+				</template>
+			</TableColumn>
+		</Table>
 	:::
 
 	```javascript
@@ -134,16 +136,3 @@
 		}
 	}
 </script>
-
-<style>
-	.table-wrapper {
-		min-width: 700px;
-		height: 300px;
-		overflow: auto
-	}
-
-	.table-wrapper table {
-		width: 800px;
-	}
-</style>
-

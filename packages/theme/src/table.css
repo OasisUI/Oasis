@@ -32,8 +32,12 @@
 	}
 
 	@d row {
-		&:hover o-Table__cell {
+		&:hover .o-Table__cell {
 			background: var(--Table-row-hoverColor);
+		}
+
+		&:not(:last-of-type) {
+			border-bottom: var(--Table-border);
 		}
 	}
 
@@ -41,7 +45,6 @@
 		padding: var(--Table-cell-padding);
 		text-align: center;
 		border: 0 solid #eee;
-		border-bottom: var(--Table-border);
 		background: #fff;
 	}
 
@@ -76,4 +79,8 @@
 			border-left-color: var(--color-black-4);
 		}
 	}
+}
+
+@component TableWrapper {
+	overflow: auto;
 }

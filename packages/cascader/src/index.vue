@@ -62,7 +62,7 @@
 					readonly={this.readonly}
 					disabled={this.disabled}
 					{...{directives}}
-					size={size}
+					size={this.size}
 					class="o-Cascader"
 				>
 					<Popup

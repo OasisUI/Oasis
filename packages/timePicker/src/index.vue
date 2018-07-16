@@ -2,11 +2,15 @@
 	<Input
 		v-model="currentTime"
 		@focus="onFocus"
+		:size="size"
+		:readonly="readonly"
+		:disabled="disabled"
 		class="o-InputTime"
+		html-readonly
 	>
 	<Modal
 		v-model="showPicker"
-		slot="options"
+		slot="suffix"
 		:show-title="false"
 	>
 		<TimePicker

@@ -1,5 +1,6 @@
 @component DateTimePicker {
 	text-align: center;
+	color: var(--fontColor-default);
 
 	& .o-DatePicker,
 	& .o-TimePicker {

@@ -6,10 +6,11 @@
 		:size="size"
 		:readonly="readonly"
 		:disabled="disabled"
+		html-readonly
 	>
 		<Modal
+			slot="suffix"
 			v-model="showPicker"
-			slot="options"
 			:show-title="false"
 		>
 			<DatePicker
