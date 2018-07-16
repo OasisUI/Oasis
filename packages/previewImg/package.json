@@ -1,6 +1,6 @@
 {
   "name": "@oasis-ui/preview-img",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "@oasis-ui/modal": "^0.0.8",
-    "@oasis-ui/rahmen": "^0.1.6"
+    "@oasis-ui/rahmen": "^0.1.7"
   }
 }

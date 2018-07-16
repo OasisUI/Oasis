@@ -1,6 +1,6 @@
 {
 	"name": "@oasis-ui/cascader",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
@@ -9,8 +9,8 @@
 	"author": "oasis",
 	"license": "MIT",
 	"dependencies": {
-		"@oasis-ui/input": "^0.0.10",
-		"@oasis-ui/popup": "^0.0.8"
+		"@oasis-ui/input": "^0.0.11",
+		"@oasis-ui/popup": "^0.0.9"
 	},
 	"publishConfig": {
 		"access": "public"
