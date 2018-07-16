@@ -29,7 +29,7 @@
 
 @component FormItem {
 	position: relative;
-	margin-bottom: 24px;
+	margin-bottom: var(--FormItem-marginBottom);
 
 	@d label {
 		float: left;
@@ -37,6 +37,9 @@
 		padding-right: 12px;
 		text-align: right;
 		line-height: var(--Input-lg-height);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 
 		&:before {
 			content: ' * ';
@@ -46,15 +49,44 @@
 	}
 
 	@d wrapper {
-		& .o-Input {
-			height: var(--Input-lg-height);
-			line-height: var(--Input-lg-height);
-		}
+		position: relative;
+		line-height: var(--Input-lg-height);
+	}
+
+	@d tip {
+		padding-top: 4px;
+		font-size: var(--FormItem--info-fontSize);
+		color: var(--color-black-5);
+	}
+
+	@d errMsg {
+		padding-top: 4px;
+		height: var(--FormItem-errMsg-height);
+		line-height: var(--FormItem-errMsg-height);
+		font-size: var(--FormItem--info-fontSize);
+		color: var(--color-danger);
 	}
 
 	@when required {
 		& .o-FormItem__label:before {
 			display: inline;
+		}
+	}
+
+	@when error {
+		margin-bottom: calc(var(--FormItem-marginBottom) - var(--FormItem-errMsg-height));
+
+		& .o-Input__wrapper {
+			border-color: var(--color-danger) !important;
+
+			&.is-focused {
+				box-shadow: 0 0 0 2px color(var(--color-danger) alpha(30%)) !important;
+			}
+		}
+
+		& i[class*="__trigger"],
+		& button[class*="__trigger"] i {
+			color: var(--color-danger) !important;
 		}
 	}
 }

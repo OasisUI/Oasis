@@ -3,16 +3,17 @@
 		:class="{
 			'is-disabled': isDisabled
 		}"
-		class="o-Input o-InputRadio"
+		class="o-Input o-Radio"
 	>
 		<input
-			v-model="currentVal"
+			v-model="currentValue"
 			:value="label"
 			:disabled="isDisabled"
 			:name="name"
+			@change="onChange"
 			type="radio"
 		/>
-		<span class="o-InputRadio__inner"></span>
+		<span class="o-Radio__inner"></span>
 		<slot></slot>
 	</label>
 </template>
@@ -29,12 +30,12 @@
 		name: 'Radio',
 		props,
 		computed: {
-			currentVal: {
-				set () {
-					(this.useGroup ? this.group : this).$emit('input', this.label)
+			currentValue: {
+				set (value) {
+					(this.useGroup ? this.group : this).$emit('input', value)
 				},
 				get () {
-					return this.useGroup ? this.groupVal : this.value
+					return this.useGroup ? this.groupValue : this.value
 				}
 			},
 			group () {
@@ -43,13 +44,20 @@
 			useGroup () {
 				return this.group.$options.type === 'radioGroup'
 			},
-			groupVal () {
+			groupValue () {
 				return this.group.value
 			},
 			isDisabled () {
 				return this.useGroup ?
 					this.group.disabled || this.disabled
 					: this.disabled
+			}
+		},
+		methods: {
+			onChange (e) {
+				this.$nextTick(() => {
+					this.$emit('change', this.currentValue)
+				})
 			}
 		}
 	}

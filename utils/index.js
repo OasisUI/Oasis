@@ -1,4 +1,4 @@
-export function throttle (fn, delay = 10) {
+export function throttle (fn, delay = 10, trailMode = false) {
 	let result,
 		last = 0,
 		count = 0
@@ -9,7 +9,9 @@ export function throttle (fn, delay = 10) {
 		if (time - last > delay) {
 			last = time
 			arg.push(count)
-			result = fn.apply(this, arg)
+			result = trailMode ? setTimeout(() => {
+				fn.apply(this, arg)
+			}, delay) : fn.apply(this, arg)
 			count = 0
 			return result
 		}
@@ -46,7 +48,7 @@ export function elOffset (el, p = {x: 0, y: 0}) {
 }
 
 export function getDomSize (el) {
-	const size = el ? el.getBoundingClientRect() : {x: 0, y: 0}
+	const size = el && el.getBoundingClientRect ? el.getBoundingClientRect() : {x: 0, y: 0}
 	return {
 		x: size.width,
 		y: size.height
@@ -215,5 +217,22 @@ export function getParentComponentByType (co, name = '') {
 		return co.$parent
 	} else {
 		return getParentComponentByType(co.$parent, name)
+	}
+}
+
+export function formatSelectOptions (options = [], value) {
+	if (typeof options[0] !== 'object') {
+		return options.map((item, index) => {
+			return {
+				key: item,
+				value: item,
+				selected: item === value
+			}
+		})
+	} else {
+		return options.map(item => {
+			item.selected = item.value === value
+			return item
+		})
 	}
 }

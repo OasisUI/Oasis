@@ -1,6 +1,6 @@
 <template>
 	<label
-		class="o-Input o-InputRadioBtn"
+		class="o-Input o-RadioBtn"
 		:class="[
  			isDisabled ? 'is-disabled' : '',
 			'o-Input--' + currentSize,
@@ -9,7 +9,7 @@
 	>
 		<slot></slot>
 		<input
-			v-model="currentVal"
+			v-model="currentValue"
 			:value="label"
 			:disabled="isDisabled"
 			:name="name"
@@ -36,12 +36,12 @@
 		name: 'RadioBtn',
 		props,
 		computed: {
-			currentVal: {
-				set () {
-					(this.useGroup ? this.group : this).$emit('input', this.label)
+			currentValue: {
+				set (value) {
+					(this.useGroup ? this.group : this).$emit('input', value)
 				},
 				get () {
-					return this.useGroup ? this.groupVal : this.value
+					return this.useGroup ? this.groupValue : this.value
 				}
 			},
 			group () {
@@ -50,7 +50,7 @@
 			useGroup () {
 				return this.group.$options.type === 'radioGroup'
 			},
-			groupVal () {
+			groupValue () {
 				return this.group.value
 			},
 			isDisabled () {
@@ -59,7 +59,7 @@
 					: this.disabled
 			},
 			isChecked () {
-				return this.currentVal === this.label
+				return this.currentValue === this.label
 			},
 			currentSize () {
 				return this.useGroup ?
@@ -69,7 +69,7 @@
 		},
 		methods: {
 			onChange () {
-				this.$emit('change', this.currentVal)
+				this.$emit('change', this.currentValue)
 			}
 		}
 	}

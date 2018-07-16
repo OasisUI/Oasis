@@ -3,14 +3,14 @@
 		:class="{
 			'is-disabled': isDisabled
 		}"
-		class="o-Input o-InputCheckbox">
+		class="o-Input o-Checkbox">
 		<input
 			v-model="currentVal"
-				:value="label"
+			:value="label"
 			:disabled="isDisabled"
 			type="checkbox"
 		/>
-		<span class="o-InputCheckbox__inner"></span>
+		<span class="o-Checkbox__inner"></span>
 		<slot></slot>
 	</label>
 </template>

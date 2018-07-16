@@ -13,8 +13,8 @@
 <script>
 	const props = {
 		labelWidth: {
-			type: String,
-			default: '80'
+			type: [String, Number],
+			default: 80
 		},
 		inline: {
 			type: Boolean,
@@ -23,6 +23,12 @@
 		blockLabel: {
 			type: Boolean,
 			default: false
+		},
+		verifyResult: {
+			type: Object,
+			default () {
+				return {}
+			}
 		}
 	}
 

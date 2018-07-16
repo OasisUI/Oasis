@@ -10,17 +10,32 @@ describe('InputNumber', () => {
 		expect(wrapper.classes()).toContain('o-InputNumber')
 	})
 
+	it('disabled', () => {
+		const wrapper = mount(InputNumber, {
+			propsData: {
+				disabled: true
+			}
+		})
+		expect(wrapper.classes()).toContain('is-disabled')
+	})
+
 	it('input', () => {
 		const wrapper = mount(InputNumber, {
 			propsData: {
-				value: 2
+				value: 2,
+				max: 3,
+				min: 1
 			}
 		})
 		const input = wrapper.find('input')
-		input.setValue('1')
+		input.setValue('4')
 		input.trigger('change')
-		expect(wrapper.emitted().input).toEqual([[1]])
-		expect(wrapper.emitted().change).toEqual([[1]])
+		input.setValue('5')
+		input.trigger('change')
+		expect(wrapper.emitted().input).toEqual([[3]])
+		expect(wrapper.emitted().change).toEqual([[3]])
+		// Fix: #8
+		expect(input.element.value).toEqual('3')
 	})
 
 	it('increase and decrease', () => {

@@ -28,10 +28,10 @@ export default {
 			queue.push(instance)
 
 			if (queue.length > maxQueueLength) {
-				queue[0].close()
+				queue[0].close(queue)
 			}
 			config.duration !== 0 && setTimeout(() => {
-				instance.close()
+				instance.close(queue)
 			}, config.duration || 3000)
 
 			return instance

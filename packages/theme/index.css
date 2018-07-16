@@ -8,6 +8,11 @@
 @import './src/form.css';
 @import './src/button.css';
 @import './src/input.css';
+@import './src/inputNumber.css';
+@import './src/select.css';
+@import './src/cascader.css';
+@import './src/radio.css';
+@import './src/checkbox.css';
 @import './src/grid.css';
 @import './src/message.css';
 @import './src/modal.css';
@@ -23,3 +28,4 @@
 @import './src/avatar.css';
 @import './src/previewImg.css';
 @import './src/dateTimePicker.css';
+@import './src/table.css';

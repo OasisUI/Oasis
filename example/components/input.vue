@@ -33,9 +33,9 @@
 		<Input
 			v-model="inputText"
 			@change="onChange"
-			:options="inputTextOptions"
 		>
 			<i slot="addonBefore" class="iconfont icon-link" style="color: #888;"></i>
+			<template slot="suffix">px</template>
 			<Button slot="addonAfter">Go!</Button>
 		</Input>
 	:::
@@ -47,17 +47,17 @@
 			<Input
 				v-model="inputText"
 				size="lg"
-				placeholder="大"
+				placeholder="large"
 			></Input>
 			<Input
 				v-model="inputText"
 				size="md"
-				placeholder="中"
+				placeholder="middle"
 			></Input>
 			<Input
 				v-model="inputText"
 				size="sm"
-				placeholder="小"
+				placeholder="small"
 			></Input>
 		</div>
 	:::
@@ -89,10 +89,24 @@
 	通过 `options` 参数提供输入候选项。交互与 `InputSelect` 相同。
 
 	:::html
-		<Input
+		<Candidate
 			v-model="inputText"
 			:options="inputTextOptions"
-		></Input>
+		></Candidate>
+	:::
+
+	## Textarea 文本域
+
+	设置 `type='textarea'`
+
+	:::html
+		<Input
+			type="textarea"
+			resize="vertical"
+			rows="4"
+			cols="20"
+			spellcheck
+		/>
 	:::
 
 	## API
@@ -109,7 +123,7 @@
 	export default {
 		data () {
 			return {
-				inputText: '',
+				inputText: 'Hello Oasis',
 				inputTextOptions: ['Alice', 'Bob', 'Eve']
 			}
 		},

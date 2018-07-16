@@ -1,6 +1,6 @@
 {
   "name": "@oasis-ui/inputnumber",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,9 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@oasis-ui/input": "^0.0.10",
+    "@oasis-ui/popup": "^0.0.8"
   }
 }

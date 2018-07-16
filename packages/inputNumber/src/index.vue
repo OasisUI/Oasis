@@ -1,55 +1,41 @@
 <template>
-	<div
-		:class="[
-			disabled ? 'is-disabled' : '',
-			readonly ? 'is-readonly' : '',
-			'o-Input--' + size
-		]"
+	<o-input
+		ref="input"
+		type="text"
+		:value="currentValue"
+		@change="onChange"
+		@focus="onFocus"
+		@blur="onBlur"
+		:disabled="disabled"
+		:readonly="readonly"
 		class="o-Input o-InputNumber"
 	>
-		<div class="o-Input__wrapper">
-			<div
-				v-if="suffix"
-				class="o-InputNumber__suffixWrapper"
+		<span slot="suffix">{{suffix}}</span>
+		<div
+			slot="suffix"
+			v-show="!disabled && !readonly"
+			class="o-InputNumber__actions"
+		>
+			<span
+				@click="increase"
+				:class="{'is-disabled': disableAdd}"
+				class="o-InputNumber__add"
 			>
-				{{currentVal}}
-				<span class="o-InputNumber__suffix">&nbsp;{{suffix}}</span>
-			</div>
-			<input
-				ref="input"
-				class="o-Input__native"
-				type="text"
-				:value="value"
-				@change="onChange"
-				@focus="onFocus"
-				@blur="onBlur"
-				:disabled="disabled"
-				:readonly="readonly"
-			/>
-			<div
-				v-show="!disabled && !readonly"
-				class="o-InputNumber__actions"
+				<i class="iconfont icon-arrow-up"></i>
+			</span>
+			<span
+				@click="decrease"
+				:class="{'is-disabled': disableSub}"
+				class="o-InputNumber__sub"
 			>
-				<span
-					@click="increase"
-					:class="{'is-disabled': disableAdd}"
-					class="o-InputNumber__add"
-				>
-					<i class="iconfont icon-arrow-up"></i>
-				</span>
-				<span
-					@click="decrease"
-					:class="{'is-disabled': disableSub}"
-					class="o-InputNumber__sub"
-				>
-					<i class="iconfont icon-arrow-down"></i>
-				</span>
-			</div>
+				<i class="iconfont icon-arrow-down"></i>
+			</span>
 		</div>
-	</div>
+	</o-input>
 </template>
 
 <script>
+	import Input from '@oasis-ui/input'
 	import { number } from 'utils'
 
 	const props = {
@@ -81,39 +67,39 @@
 		props,
 		data () {
 			return {
-				currentVal: this.value
+				currentValue: this.value
 			}
 		},
 		computed: {
 			disableAdd () {
-				const { max, currentVal } = this
-				return !isNaN(max) && currentVal >= max
+				const { max, currentValue } = this
+				return !isNaN(max) && currentValue >= max
 			},
 			disableSub () {
-				const { min, currentVal } = this
-				return !isNaN(min) && currentVal <= min
+				const { min, currentValue } = this
+				return !isNaN(min) && currentValue <= min
 			}
 		},
 		watch: {
-			currentVal: {
+			currentValue: {
 				handler (val) {
-					const newVal = this.checkVal(number(val))
+					const newVal = this.checkValue(number(val))
 					this.$emit('input', newVal)
 					this.$emit('change', newVal)
 				}
 			},
 			value: {
 				handler (val) {
-					this.currentVal = val
+					this.currentValue = val
 				},
 				immediate: true
 			}
 		},
 		methods: {
-			onChange (e) {
-				const newVal = this.checkVal(number(e.target.value))
-				this.$refs.input.value = newVal
-				this.currentVal = newVal
+			onChange (value) {
+				const newVal = this.checkValue(number(value))
+				this.$refs.input.currentValue = newVal
+				this.currentValue = newVal
 			},
 			onFocus (e) {
 				this.$emit('focus', e)
@@ -123,13 +109,13 @@
 			},
 			increase () {
 				if (this.disableAdd) return
-				this.currentVal = this.calculate(this.currentVal, this.step)
+				this.currentValue = this.calculate(this.currentValue, this.step)
 			},
 			decrease () {
 				if (this.disableSub) return
-				this.currentVal = this.calculate(this.currentVal, -this.step)
+				this.currentValue = this.calculate(this.currentValue, -this.step)
 			},
-			checkVal (val) {
+			checkValue (val) {
 				const { max, min } = this
 				if (!isNaN(max) && val > max) {
 					val = max
@@ -143,6 +129,9 @@
 				const multiple = 1 / this.step
 				return val.reduce((prev, next) => prev * 1 + next * multiple, 0) / multiple
 			}
+		},
+		components: {
+			'o-input': Input
 		}
 	}
 </script>

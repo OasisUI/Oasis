@@ -1,0 +1,54 @@
+@component InputNumber {
+	& .o-Input__addonWrapper {
+		background: transparent;
+	}
+
+	@d actions {
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+		justify-content: center;
+		padding: 0 0 0 calc(var(--Input-padding) / 2);
+		line-height: normal;
+		color: var(--Input-hoverColor);
+
+		& i {
+			font-size: 12px;
+		}
+	}
+
+	& .o-InputNumber__add,
+	& .o-InputNumber__sub {
+		height: 50%;
+		cursor: pointer;
+
+		&:hover:not(.is-disabled) {
+			color: var(--color-black-3);
+		}
+
+		&.is-disabled {
+			cursor: not-allowed;
+		}
+	}
+
+	&.o-Input--sm {
+		& .o-InputNumber__add,
+		& .o-InputNumber__sub {
+			line-height: calc(var(--Input-sm-height) / 2);
+		}
+	}
+
+	&.o-Input--md {
+		& .o-InputNumber__add,
+		& .o-InputNumber__sub {
+			line-height: calc(var(--Input-md-height) / 2);
+		}
+	}
+
+	&.o-Input--lg {
+		& .o-InputNumber__add,
+		& .o-InputNumber__sub {
+			line-height: calc(var(--Input-lg-height) / 2);
+		}
+	}
+}

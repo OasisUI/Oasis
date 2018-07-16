@@ -1,7 +1,7 @@
 import ScrollBox from './src'
 
-export default {
-	install (Vue) {
-		Vue.component(ScrollBox.name, ScrollBox)
-	}
+ScrollBox.install = function (Vue) {
+	Vue.component(ScrollBox.name, ScrollBox)
 }
+
+export default ScrollBox

@@ -12,7 +12,8 @@
 	text-align: center;
 	overflow: hidden;
 	font-size: 0;
-	color: var(--color-gray-1);
+	color: var(--fontColor-default);
+
 
 	&:after {
 		width: 0;

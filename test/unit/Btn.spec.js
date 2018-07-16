@@ -9,7 +9,7 @@ describe('Button', () => {
 	})
 
 	it('disabled', () => {
-		const wrapper = shallowMount(Button,{
+		const wrapper = shallowMount(Button, {
 			propsData: {
 				disabled: true
 			}
@@ -17,8 +17,8 @@ describe('Button', () => {
 		expect(wrapper.classes()).toContain('is-disabled')
 	})
 
-	it('readonly', () => {
-		const wrapper = shallowMount(Button,{
+	it('loading', () => {
+		const wrapper = shallowMount(Button, {
 			propsData: {
 				loading: true
 			}
@@ -27,7 +27,7 @@ describe('Button', () => {
 	})
 
 	it('round', () => {
-		const wrapper = shallowMount(Button,{
+		const wrapper = shallowMount(Button, {
 			propsData: {
 				round: true
 			}
@@ -36,7 +36,7 @@ describe('Button', () => {
 	})
 
 	it('block', () => {
-		const wrapper = shallowMount(Button,{
+		const wrapper = shallowMount(Button, {
 			propsData: {
 				block: true
 			}
@@ -45,7 +45,7 @@ describe('Button', () => {
 	})
 
 	it('gradient', () => {
-		const wrapper = shallowMount(Button,{
+		const wrapper = shallowMount(Button, {
 			propsData: {
 				gradient: true
 			}
@@ -54,7 +54,7 @@ describe('Button', () => {
 	})
 
 	it('ghost', () => {
-		const wrapper = shallowMount(Button,{
+		const wrapper = shallowMount(Button, {
 			propsData: {
 				ghost: true
 			}

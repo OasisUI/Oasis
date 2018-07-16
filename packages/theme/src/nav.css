@@ -6,6 +6,13 @@
 	list-style: none;
 	border-right: 1px solid #E1E1E1;
 
+	& a {
+		text-decoration: none !important;
+	}
+
+	& ::selection {
+		background: transparent;
+	}
 
 	&.o-SideNav--fixed {
 		position: fixed;
@@ -83,6 +90,14 @@
 	align-items: center;
 	border-bottom: 1px solid #E1E1E1;
 
+	& a {
+		text-decoration: none !important;
+	}
+
+	& ::selection {
+		background: transparent;
+	}
+
 	&.o-Navbar--fixed {
 		position: fixed;
 		z-index: var(--zIndex-fixed);
@@ -106,13 +121,13 @@
 		height: var(--SideNav-height);
 		padding: 0 var(--SideNav-padding);
 		line-height: var(--SideNav-height);
+		font-weight: 500;
 		cursor: pointer;
 		transition: var(--transition-navbar);
 	}
 
 	.o-NavItem.is-selected {
 		color: var(--color-primary);
-		font-weight: 500;
 	}
 }
 

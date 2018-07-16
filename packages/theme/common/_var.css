@@ -21,6 +21,7 @@
 	--color-black-2: #4C4C4C;
 	--color-black-3: #545454;
 	--color-black-4: #666666;
+	--color-black-5: #888888;
 
 	--color-gray-1: #999999;
 	--color-gray-2: #CECECE ;
@@ -38,6 +39,18 @@
 	--fontSize-18: 18px;
 
 	/* components */
+
+	/*table*/
+	--Table-cell-paddingLeftRight: 1rem;
+	--Table-cell-paddingTopBottom: 1rem;
+	--Table-cell-padding: var(--Table-cell-paddingTopBottom) var(--Table-cell-paddingLeftRight);
+	--Table-border: 1px solid #EEE;
+	--Table-row-hoverColor: #F7F7F7;
+
+	/*form*/
+	--FormItem--info-fontSize: var(--fontSize-12);
+	--FormItem-marginBottom: 24px;
+	--FormItem-errMsg-height: 18px;
 
 	/*loading*/
 	--Loading-bg: rgba(224,224,224,0.54);
@@ -90,7 +103,7 @@
 	/*transition*/
 	--transition-default: all ease-in-out 140ms;
 	--transition-slide: all ease-in-out 240ms;
-	--transition-btn-default: color ease-in-out 20ms, background-color ease-in-out 160ms, box-shadow ease-in-out 100ms;
+	--transition-btn-default: color ease-in-out 20ms, background-color ease-in-out 160ms, box-shadow ease-in-out 100ms, padding ease-in-out 160ms;
 	--transition-checkbox: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
 	--transition-navbar: all ease-in-out 140ms;
 	--transition-scrollBox: background ease-in-out 140ms;
@@ -114,6 +127,7 @@
 	--Popup-borderRadius: 3px;
 	--Popup-arrow-height: 8px;
 	--Popup-arrow-width: 18px;
+	--Popup-inner-padding: 10px;
 
 	/*scrollBox*/
 	--ScrollBox-scrollbar-width: 8px;

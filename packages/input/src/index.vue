@@ -1,69 +1,90 @@
 <template>
-	<div class="o-Input o-Input"
+	<div class="o-Input"
  		:class="[
  			disabled ? 'is-disabled' : '',
  			readonly ? 'is-readonly' : '',
-			'o-Input--' + size
+			type !== 'textarea' ? 'o-Input--' + size : '',
+			resize ? 'o-Input--resizable' : '',
+			`o-Input--${type}`
 		]"
-		@mouseleave="onMouseleave"
-		@mouseover="onMouseover"
 	>
-		<span
-			v-if="options && !disabled && !readonly"
-			@click="displayList"
-			:style="style"
-			class="o-Input__openList"
-		>
-			<i class="iconfont icon-arrow-down"></i>
-		</span>
 		<div
-			class="o-Input__wrapper"
-			:class="{
-				'o-Input__addonWrapper': $slots.addonBefore || $slots.addonAfter
-			}"
+			v-if="$slots.addonBefore"
+			class="o-Input__addonWrapper"
+		>
+			<slot name="addonBefore"></slot>
+		</div>
+		<div
+			:class="[
+				'o-Input__wrapper',
+				isFocused ? 'is-focused' : ''
+			]"
 		>
 			<span
-				v-if="$slots.addonBefore"
-				class="o-Input__addon"
+				v-if="$slots.prefix"
+				class="o-Input__prefix"
 			>
-				<slot name="addonBefore"></slot>
+				<slot name="prefix"></slot>
 			</span>
-			<input
-				v-model="currentVal"
+			<textarea
+				v-if="type === 'textarea'"
+				:cols="cols"
+				:rows="rows"
+				:resize="resize"
+				:value="currentValue"
 				:disabled="disabled"
-				:readonly="readonly"
+				:readonly="readonly || htmlReadonly"
 				:placeholder="placeholder"
+				ref="input"
+				@input="onInput"
 				@focus="onFocus"
 				@blur="onBlur"
 				@change="onChange"
 				class="o-Input__native"
-				:type="_type"
+				:type="type"
+				:max="max"
+				:min="min"
+				:maxlength="maxlength"
+				:minlength="minlength"
+				:autofocus="autofocus"
+				:spellcheck="spellcheck"
+				:style="{
+					resize: resize
+				}"
+			></textarea>
+			<input
+				v-else
+				:value="currentValue"
+				:disabled="disabled"
+				:readonly="readonly || htmlReadonly"
+				:placeholder="placeholder"
+				ref="input"
+				@input="onInput"
+				@focus="onFocus"
+				@blur="onBlur"
+				@change="onChange"
+				class="o-Input__native"
+				:type="type"
+				:max="max"
+				:min="min"
+				:maxlength="maxlength"
+				:minlength="minlength"
+				:autofocus="autofocus"
+				:spellcheck="spellcheck"
 			/>
 			<span
-				v-if="$slots.addonAfter"
-				ref="addonAfter"
-				class="o-Input__addon"
+				v-if="$slots.suffix"
+				class="o-Input__suffix"
 			>
-				<slot name="addonAfter"></slot>
+				<slot name="suffix"></slot>
 			</span>
 		</div>
-		<slot
-			v-if="$slots.options"
-			name="options"
-		></slot>
-		<transition
-			v-else
-			name="o-InputOptions"
+		<div
+			v-if="$slots.addonAfter"
+			class="o-Input__addonWrapper"
 		>
-			<ul
-				v-show="showList"
-				@click="setVal"
-				class="o-Input__options"
-				ref="list"
-			>
-				<li v-for="val in options">{{ val }}</li>
-			</ul>
-		</transition>
+			<slot name="addonAfter"></slot>
+		</div>
 	</div>
 </template>
 
@@ -72,9 +93,6 @@
 
 	const props = {
 		value: {},
-		options: {
-			type: Array
-		},
 		disabled: {
 			type: Boolean,
 			default: false
@@ -85,13 +103,28 @@
 		},
 		size: {
 			type: String,
-			default: 'md'
+			default: 'lg'
 		},
 		type: {
 			type: String,
 			default: 'text'
 		},
-		placeholder: String
+		max: [String, Number],
+		min: [String, Number],
+		maxlength: [String, Number],
+		minlength: [String, Number],
+		placeholder: String,
+		htmlReadonly: Boolean,
+		autofocus: Boolean,
+		spellcheck: Boolean,
+
+		// textarea
+		rows: [String, Number],
+		cols: [String, Number],
+		resize: {
+			type: String,
+			default: 'auto'			// vertical, horizontal, none
+		}
 	}
 
 	export default {
@@ -99,66 +132,32 @@
 		props,
 		data () {
 			return {
-				currentVal: this.value || '',
-				showList: false,
-				style: {
-					display: 'none'
-				}
+				currentValue: this.value,
+				isFocused: false
 			}
 		},
-		mounted () {
-			document.addEventListener('click', this.hideList)
-		},
-		beforeDestroy () {
-			document.removeEventListener('click', this.hideList)
-		},
 		watch: {
-			currentVal (val) {
+			currentValue (val) {
 				this.$emit('input', val)
 			},
 			value (val) {
-				this.currentVal = val
+				this.currentValue = val
 			}
 		},
 		methods: {
-			displayList (e) {
-				this.showList = !this.showList
-			},
-			hideList (e) {
-				const list = this.$refs.list
-				if (e.target !== list && list && !list.contains(e.target) && !this.$el.contains(e.target)) {
-					this.showList = false
-				}
-			},
-			setVal (e) {
-				const list = this.$refs.list.children
-				const index = Array.prototype.indexOf.call(list, e.target)
-				this.$emit('input', this.options[index])
-				this.$emit('change', this.options[index])
-				this.showList = false
+			onInput (e) {
+				this.currentValue = e.target.value
 			},
 			onFocus (e) {
 				this.$emit('focus', e)
+				this.isFocused = true
 			},
 			onBlur (e) {
 				this.$emit('blur', e)
+				this.isFocused = false
 			},
 			onChange (e) {
-				this.$emit('change', e)
-			},
-			onMouseover () {
-				this.style = {
-					right: `${getDomSize(this.$refs.addonAfter).x}px`,
-					display: 'block'
-				}
-			},
-			onMouseleave () {
-				this.style.display = 'none'
-			}
-		},
-		computed: {
-			_type () {
-				return ['text', 'password', 'textarea'].findIndex(type => type === this.type) > -1 ? this.type : 'text'
+				this.$emit('change', this.currentValue)
 			}
 		}
 	}

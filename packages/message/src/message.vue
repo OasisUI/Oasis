@@ -41,8 +41,7 @@
 			this.show = true
 		},
 		methods: {
-			close () {
-				const queue = Vue.prototype.$messageQueue
+			close (queue) {
 				const index = queue.indexOf(this)
 				index > -1 && queue.splice(index, 1)
 				this.show = false

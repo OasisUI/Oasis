@@ -14,14 +14,10 @@
 		class="o-Btn"
 		:type="htmlType"
 	>
-		<div
-			class="o-Btn__wrapper"
-		>
-			<transition name="o-Btn__loading">
-				<span v-if="_loading" class="o-Btn__loading"></span>
-			</transition>
-			<slot></slot>
-		</div>
+		<transition name="o-Btn__loading">
+			<span v-if="_loading" class="o-Btn__loading"></span>
+		</transition>
+		<slot></slot>
 	</button>
 </template>
 

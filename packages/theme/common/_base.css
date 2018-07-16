@@ -44,6 +44,18 @@ input {
 	font-family: sans-serif;
 }
 
+a:active {
+}
+
+a:any-link {
+	text-decoration: none;
+	color: var(--color-primary);
+}
+
+a:visited {
+	color: var(--color-primary-dark);
+}
+
 .iconfont {
 	font-size: inherit;
 }

@@ -9,6 +9,7 @@
 @component DatePicker {
 	width: calc(var(--DatePicker-dayWidth) * 8);
 	padding: calc(var(--DatePicker-dayWidth) / 2);
+	color: var(--fontColor-default);
 	cursor: pointer;
 
 	& * {

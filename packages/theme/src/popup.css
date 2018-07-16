@@ -2,12 +2,16 @@
 	z-index: var(--zIndex-popover);
 	position: absolute;
 	top: 0;
+	padding-top: 2px;
+
+	@m arrow {
+		padding-top: calc(var(--Popup-arrow-height) + 2px);
+	}
 
 	@d inner {
 		position: relative;
-		margin-top: calc(var(--Popup-arrow-height) + 2px);
 		min-width: 100px;
-		padding: 10px;
+		padding: var(--Popup-inner-padding);
 		background: white;
 		box-shadow: var(--shadow-popup);
 		border-radius: var(--Popup-borderRadius);
