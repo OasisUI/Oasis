@@ -6,7 +6,10 @@ deploy:
   allow-empty-commit: false
   target-branch: gh-pages
   on:
-    branch: master
+	repo: OasisUI/Oasis
+    branches:
+		only:
+			- master
 
 language: node_js
 
