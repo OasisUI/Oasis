@@ -8,8 +8,8 @@
 		"build:module": "gulp build:module",
 		"build:doc": "gulp build:doc && echo 'www.oasisui.org' > CNAME",
 		"build:theme": "gulp build:theme",
-		"build": "cross-env ENV=prod gulp build",
-		"publish": "npm run build && lerna publish",
+		"build": "npm i && npm run bootstrap && cross-env ENV=prod gulp build",
+		"publish": "npm run test:unit && npm run build && lerna publish",
 		"test:unit": "jest"
 	},
 	"devDependencies": {

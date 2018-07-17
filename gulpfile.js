@@ -83,8 +83,8 @@ gulp.task('dev', ['dev:server', 'dev:theme'])
 gulp.task('build', function () {
 	rimraf('./packages/oasis/theme', function () {
 		gulp.start(['copy', 'build:module', 'build:theme'], function () {
-			rimraf('./docs', () => {})
-			rimraf('./index.html', () => {})
+			// rimraf('./docs', () => {})
+			// rimraf('./index.html', () => {})
 		})
 	})
 })
