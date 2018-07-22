@@ -40,11 +40,11 @@
 		width: var(--ScrollBox-scrollbar-width);
 		height: var(--ScrollBox-scrollbar-width);
 		border-radius: calc(var(--ScrollBox-scrollbar-width) / 2);
-		background: #DDDDDD;
+		background: var(--ScrollBox-thumb-bg);
 		transition: var(--transition-scrollBox);
 
 		&.is-active {
-			background: #8d8d8d;
+			background: var(--ScrollBox-thumb-hover-bg);
 		}
 	}
 
