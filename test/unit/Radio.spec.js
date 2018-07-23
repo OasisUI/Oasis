@@ -1,4 +1,4 @@
-import Radio from '@/radio'
+import Radio from '@/radio/src'
 import {
 	mount
 } from '@vue/test-utils'
@@ -29,7 +29,7 @@ describe ('Radio', () => {
 		wrapper.trigger('click')
 		setTimeout(() => {
 			expect(wrapper.vm.currentValue).toBe(1)
-			expect(wrapper.emitted().change).isEqual([[1]])
+			expect(wrapper.emitted().change).toEqual([[1]])
 		}, 10)
 	})
 })

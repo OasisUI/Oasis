@@ -1,4 +1,4 @@
-import InputNumber from '@/inputNumber'
+import InputNumber from '@/inputNumber/src'
 import {
 	mount
 } from '@vue/test-utils'

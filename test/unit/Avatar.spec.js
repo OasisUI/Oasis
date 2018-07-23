@@ -1,4 +1,4 @@
-import Avatar from '@/avatar'
+import Avatar from '@/avatar/src'
 import {
 	shallowMount
 } from '@vue/test-utils'

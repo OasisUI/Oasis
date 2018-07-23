@@ -1,15 +1,37 @@
 {
 	"presets": [
-		["env", { "modules": false }]
+		[
+			"env",
+			{
+				"modules": "umd",
+				"targets": {
+					"browsers": [
+						"> 1%",
+						"last 2 versions",
+						"ie >= 10"
+					]
+				},
+				"useBuiltIns": "usage",
+            	"debug": false
+			}
+		],
+		"stage-3"
 	],
 	"plugins": [
-		"transform-vue-jsx"
+		"transform-runtime",
+		"transform-vue-jsx",
+		"transform-object-rest-spread"
 	],
 	"env": {
 		"test": {
 			"presets": [
-				["env", { "targets": { "node": "current" }}]
+				"env",
+				"stage-2"
+			],
+			"plugins": [
+				"istanbul"
 			]
 		}
-	}
+	},
+	"comments": false
 }

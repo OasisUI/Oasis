@@ -1,4 +1,4 @@
-import Button from '@/button'
+import Button from '@/button/src'
 import { shallowMount } from '@vue/test-utils'
 
 describe('Button', () => {

@@ -10,40 +10,91 @@
 @component Message {
 	pointer-events: none;
 	position: relative;
-	margin-top: 8px;
-	height: var(--Message-height);
-	text-align: center;
+	display: flex;
+	height: 0;
+	justify-content: center;
+	align-items: flex-start;
+	transition: all linear 0.24s;
+
+	@d wrapper {
+		pointer-events: all;
+		display: flex;
+		flex: 0 0 auto;
+		justify-content: center;
+		align-items: center;
+		padding-top: var(--Message-padding);
+		min-width: var(--Message-minWidth);
+	}
+
+	@d inner {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding: var(--Message-padding);
+		border-radius: var(--Message-borderRadius);
+		background: var(--Message-bg);
+		box-shadow: var(--Message-shadow);
+	}
+
+	@d type {
+		margin: 0 var(--Message-statusBlock) 0 0;
+		width: var(--Message-statusBlock);
+		height: var(--Message-statusBlock);
+		text-align: center;
+		line-height: var(--Message-statusBlock);
+
+		&.is-danger {
+			color: var(--color-danger);
+		}
+
+		&.is-info {
+			color: var(--color-info);
+		}
+
+		&.is-success {
+			color: var(--color-success);
+		}
+
+		&.is-warning {
+			color: var(--color-warning);
+		}
+	}
+
+	@d content {
+		font-size: 14px;
+		color: var(--color-black-2);
+	}
 
 	@d text {
-		overflow: hidden;
-		pointer-events: all;
-		display: inline-block;
-		height: 100%;
-		min-width: var(--Message-minWidth);
-		padding: 0 calc(var(--Message-height) / 2);
-		line-height: var(--Message-height);
+		margin: 0;
+		height: var(--Message-statusBlock);
 		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-weight: 700;
+		max-width: var(--Message-maxWidth);
+	}
+
+	@d desc {
+		margin: 0;
+		line-height: 20px;
+		word-wrap: break-word;
+		width: var(--Message-maxWidth);
+	}
+
+	@d closeBtn {
+		margin: 0 0 0 var(--Message-statusBlock);
+		width: var(--Message-statusBlock);
+		height: var(--Message-statusBlock);
+		padding: 0;
+		text-align: center;
+		line-height: var(--Message-statusBlock);
 		border-radius: var(--Message-borderRadius);
-	}
 
-	@m info {
-		color: var(--Message-info-color);
-		background: var(--Message-info-bg);
-	}
-
-	@m danger {
-		color: var(--Message-danger-color);
-		background: var(--Message-danger-bg);
-	}
-
-	@m success {
-		color: var(--Message-success-color);
-		background: var(--Message-success-bg);
-	}
-
-	@m warning {
-		color: var(--Message-warning-color);
-		background: var(--Message-warning-bg);
+		&:hover {
+			background: rgba(0,0,0,0.1);
+		}
 	}
 }
 

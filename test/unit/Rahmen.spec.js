@@ -1,4 +1,4 @@
-import Rahmen from '@/rahmen'
+import Rahmen from '@/rahmen/src'
 import {
 	shallowMount, mount
 } from '@vue/test-utils'

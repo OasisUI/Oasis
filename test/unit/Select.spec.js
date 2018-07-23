@@ -1,5 +1,5 @@
-import Select from '@/select'
-import Popup from '@/popup'
+import Select from '@/select/src'
+import Popup from '@/popup/src'
 import {
 	mount,
 	createLocalVue

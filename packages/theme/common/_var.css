@@ -2,6 +2,7 @@
 
 	/* theme */
 	--color-primary: #34B697;
+	--color-success: var(--color-primary);
 	--color-primary-light: #64DC9C;
 	--color-primary-dark: #1F9D7F;
 
@@ -80,9 +81,14 @@
 	--Input-disabled-checked-bg: #D8D8D8;
 
 	/*message*/
-	--Message-borderRadius: 4px;
-	--Message-height: 34px;
-	--Message-minWidth: 360px;
+	--Message-borderRadius: 3px;
+	--Message-height: 40px;
+	--Message-padding: 12px;
+	--Message-minWidth: 240px;
+	--Message-maxWidth: calc(var(--Message-minWidth) * 2.2);
+	--Message-statusBlock: 24px;
+	--Message-bg: #FFF;
+	--Message-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.22);
 
 	--Message-info-bg: #E7F3FF;
 	--Message-info-color: #105196;
