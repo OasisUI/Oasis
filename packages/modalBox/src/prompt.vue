@@ -1,7 +1,7 @@
 <template>
 	<Modal
 		v-model="show"
-		@close="cancel"
+		@close="handleClose"
 		:show-close-btn="showCloseBtn"
 		:show-title="showTitle"
 		class="o-ModalBox o-ModalBox__confirm"
@@ -14,13 +14,14 @@
 		<template>
 			<Input
 				v-model="value"
+				:html-type="inputType"
 			/>
 		</template>
 		<template
 			slot="footer"
 		>
 			<Button
-				@click="cancel"
+				@click="show = false"
 				type="primary"
 				round
 				ghost
@@ -30,7 +31,7 @@
 				{{cancelText}}
 			</Button>
 			<Button
-				@click="confirm"
+				@click="handleConfirm"
 				type="primary"
 				round
 				gradient
@@ -57,8 +58,13 @@
 			type: String,
 			default: '取消'
 		},
+		validator: {
+			type: Function,
+			default () {}
+		},
 		onConfirm: Function,
-		onCancel: Function,
+		onClose: Function,
+		onError: Function,
 		title: String,
 		content: String,
 		showCloseBtn: {
@@ -68,6 +74,10 @@
 		showTitle: {
 			type: Boolean,
 			default: true
+		},
+		inputType: {
+			type: String,
+			default: 'text'
 		}
 	}
 
@@ -76,25 +86,29 @@
 		props,
 		data () {
 			return {
-				show: false,
+				show: true,
 				value: ''
 			}
 		},
-		mounted () {
-			this.show = true
-		},
 		methods: {
-			confirm () {
-				const { onConfirm, value } = this
+			handleConfirm () {
+				const {
+					value,
+					onError,
+					validator,
+					onConfirm,
+				} = this
+				const result = validator(value)
+				if (result instanceof Error) {
+					onError && onError(result)
+					return
+				}
 				this.show = false
 				onConfirm && onConfirm(value)
-				this.$emit('confirm', value)
 			},
-			cancel () {
-				const { onCancel } = this
-				this.show = false
-				onCancel && onCancel()
-				this.$emit('cancel')
+			handleClose () {
+				const { onClose } = this
+				onClose && onClose()
 			}
 		},
 		components: {

@@ -63,12 +63,11 @@
 				type: type,
 				title: type,
 				content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p><p>Curabitur aliquet quam id dui posuere blandit.</p>',
-				confirmText: 'OK',
-				onConfirm: () => {
-					this.$message({
-						text: 'confirm'
-					})
-				}
+				confirmText: 'OK'
+			}).then(res => {
+				this.$message.success('confirm')
+			}).catch(err => {
+				this.$message.danger('cancel')
 			})
 		},
 	```
@@ -77,7 +76,7 @@
 
 	询问用户是否需要进行接下来的操作。
 
-	<Button @click="confirm">
+	<Button type="primary" @click="confirm">
 		$confirm
 	</Button>
 
@@ -85,48 +84,41 @@
 		confirm () {
 			this.$confirm({
 				title: '《Jane Eyre》',
-				content: '你以为，因为我穷、低微、不美、矮小，我就没有灵魂，也没有心吗？',
+				content: 'Do you think, because I am poor, obscure, plain and little, I am soulless and heartless?',
 				confirmText: 'Yes',
-				cancelText: 'No',
-				onConfirm: () => {
-					this.$message({
-						type: 'danger',
-						text: 'Yes'
-					})
-				},
-				onCancel: () => {
-					this.$message({
-						type: 'success',
-						text: 'No'
-					})
-				}
+				cancelText: 'No'
+			}).then(res => {
+				this.$message.danger('confirm')
+			}).catch(err => {
+				this.$message.success('cancel')
 			})
-		}
+		},
 	```
 
 	## Prompt 提交
 
 	要求用户输入一个值。
 
-	<Button @click="prompt">
+	<Button type="primary" @click="prompt">
 		$prompt
 	</Button>
 
 	```javascript
 		prompt () {
 			this.$prompt({
-				title: 'Your name:',
-				onConfirm: (value) => {
-					this.$message({
-						type: 'success',
-						text: `Hello ${value}`
-					})
+				title: 'What is your name?',
+				validator (value) {
+					if (value.length > 5) {
+						return new Error('value is overlength!')
+					}
 				},
-				onCancel: () => {
-					this.$message({
-						text: 'canceled'
-					})
+				onError: (err) => {
+					this.$message.danger(err.message)
 				}
+			}).then(value => {
+				this.$message.success(`Hello ${value}`)
+			}).catch(err => {
+				this.$message.danger('cancel')
 			})
 		}
 	```
@@ -160,6 +152,8 @@
 	|---|---|---|---|
 	|title|弹框标题|String|`'提示'`|
 	|content|弹框内容|String|空字符|
+	|validator|输入值检验|Function| |
+	|onError|输入值未通过检验|Function| |
 	|confirmText|弹框确认按钮|String|`'确定'`|
 	|cancelText|弹框取消按钮|String|`'取消'`|
 	|onConfirm|弹框确认回调方法|Function|`undefined`|
@@ -187,49 +181,40 @@
 					type: type,
 					title: type,
 					content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p><p>Curabitur aliquet quam id dui posuere blandit.</p>',
-					confirmText: 'OK',
-					onConfirm: () => {
-						this.$message({
-							text: 'confirm'
-						})
-					}
+					confirmText: 'OK'
+				}).then(res => {
+					this.$message.success('confirm')
+				}).catch(err => {
+					this.$message.danger('cancel')
 				})
 			},
 			confirm () {
 				this.$confirm({
 					title: '《Jane Eyre》',
-					content: '你以为，因为我穷、低微、不美、矮小，我就没有灵魂，也没有心吗？',
+					content: 'Do you think, because I am poor, obscure, plain and little, I am soulless and heartless?',
 					confirmText: 'Yes',
-					cancelText: 'No',
-					onConfirm: () => {
-						this.$message({
-							type: 'danger',
-							text: 'Yes'
-						})
-					},
-					onCancel: () => {
-						this.$message({
-							type: 'success',
-							text: 'No'
-						})
-					}
+					cancelText: 'No'
+				}).then(res => {
+					this.$message.danger('confirm')
+				}).catch(err => {
+					this.$message.success('cancel')
 				})
 			},
 			prompt () {
 				this.$prompt({
-					title: 'Your name:',
-					// TODO: required: true,
-					onConfirm: (value) => {
-						this.$message({
-							type: 'success',
-							text: `Hello ${value}`
-						})
+					title: 'What is your name?',
+					validator (value) {
+						if (value.length > 5) {
+							return new Error('value is overlength!')
+						}
 					},
-					onCancel: () => {
-						this.$message({
-							text: 'canceled'
-						})
+					onError: (err) => {
+						this.$message.danger(err.message)
 					}
+				}).then(value => {
+					this.$message.success(`Hello ${value}`)
+				}).catch(err => {
+					this.$message.danger('cancel')
 				})
 			}
 		}

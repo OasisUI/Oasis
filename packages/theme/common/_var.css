@@ -14,7 +14,7 @@
 	--color-danger-light: #FF7D7D;
 	--color-danger-dark: #CF5158;
 
-	--color-info: #FFEDD7;
+	--color-info: var(--fontColor-default);
 
 	--color-white: #FFFFFF;
 
@@ -89,6 +89,7 @@
 	--Message-statusBlock: 24px;
 	--Message-bg: #FFF;
 	--Message-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.22);
+	--Message-transition-duration: 0.24s;
 
 	--Message-info-bg: #E7F3FF;
 	--Message-info-color: #105196;

@@ -14,7 +14,7 @@
 	height: 0;
 	justify-content: center;
 	align-items: flex-start;
-	transition: all linear 0.24s;
+	transition: all linear var(--Message-transition-duration);
 
 	@d wrapper {
 		pointer-events: all;

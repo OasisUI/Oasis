@@ -32,10 +32,9 @@
 	:::html
 		<Button
 			@click="$message({
-					type: 'warning',
 					text: 'Message',
 					description: 'Certainty listening no no behaviour existence assurance situation is. Because add why not esteems amiable him. Interested the unaffected mrs law friendship add principles. Indeed on people do merits to. ',
-					duration: 5000,
+					duration: 0,
 				})"
 			type="warning"
 		>

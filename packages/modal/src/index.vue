@@ -1,7 +1,7 @@
 <template>
-	<transition name="o-Modal">
+	<transition appear name="o-Modal">
 		<div
-			v-if="show !== false"
+			v-show="show"
 			class="o-Modal"
 			@click.self.stop="close"
 		>
@@ -35,10 +35,7 @@
 
 <script>
 	const props = {
-		value: {
-			type: Boolean,
-			default: true
-		},
+		value: {},
 		showCloseBtn: {
 			type: Boolean,
 			default: true
@@ -52,12 +49,19 @@
 	export default {
 		name: 'Modal',
 		props,
+		data () {
+			return {
+				visible: true
+			}
+		},
 		computed: {
 			show: {
 				get () {
-					return this.value
+					return this.value === void(0) ? this.visible : Boolean(this.value)
 				},
 				set (val) {
+					val = Boolean(val)
+					this.visible = val
 					this.$emit('input', val)
 				}
 			}
@@ -65,7 +69,11 @@
 		methods: {
 			close () {
 				this.show = false
-				this.$emit('close')
+			}
+		},
+		watch: {
+			show (val) {
+				!val && this.$emit('close')
 			}
 		}
 	}

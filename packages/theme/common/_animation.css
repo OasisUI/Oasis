@@ -25,3 +25,5 @@
 		transform: rotate(360deg);
 	}
 }
+
+@keyframes message-enter {}
