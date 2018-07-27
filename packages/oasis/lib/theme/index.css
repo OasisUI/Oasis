@@ -1121,6 +1121,10 @@ a:visited {
 	margin: 0;
 	padding: 0 12px;
 	height: 34px;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	line-height: 34px;
 	-webkit-transition: ease all 0.2s;
 	transition: ease all 0.2s;
@@ -2217,7 +2221,7 @@ a:visited {
 }
 
 .o-CircleProgress__backup {
-		stroke: rgba(102, 102, 102, 0.4);
+		stroke: rgba(102, 102, 102, 0.22);
 }
 
 .o-CircleProgress__value {
@@ -2235,6 +2239,7 @@ a:visited {
 .o-LineProgress {
 	position: relative;
 	font-size: 0;
+	line-height: 20px;
 }
 
 .o-LineProgress.is-success .o-LineProgress__value {
@@ -2281,7 +2286,7 @@ a:visited {
 		width: 100%;
 		border-radius: 3px;
 		overflow: hidden;
-		background: rgba(102, 102, 102, 0.4);
+		background: rgba(102, 102, 102, 0.22);
 }
 
 .o-LineProgress__value {
@@ -2483,6 +2488,7 @@ a:visited {
 
 .o-SideNav {
 	display: block;
+	overflow: auto;
 	width: 280px;
 	height: auto;
 	padding: 0 20px 0 0;

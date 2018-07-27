@@ -22,7 +22,7 @@
 				:style="{
 					backgroundColor: _bg
 				}"
-			>{{ name[0] }}</span>
+			>{{name[0]}}</span>
 		</div>
 		<div
 			v-if="$slots.default"

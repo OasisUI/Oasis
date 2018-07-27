@@ -2,6 +2,7 @@ import Rahmen from '@/rahmen/src'
 import {
 	shallowMount, mount
 } from '@vue/test-utils'
+import { wrap } from 'module';
 
 describe('Rahmen', () => {
 	it('render', () => {
@@ -17,23 +18,27 @@ describe('Rahmen', () => {
 			}
 		})
 
-		setTimeout(() => {
-			// Why we need setTimeout?
-			expect(wrapper.find('.o-Rahmen__image').attributes().style).toBe('padding-top: 50%; background: url("src") center center / contain no-repeat;')
-		}, 0)
+		// TODO:
+		// expect(wrapper.find('.o-Rahmen__image').attributes().style).toBe('padding-top: 100%; background: url("src") center center / 100% 100% no-repeat;')
+
+		expect(wrapper.vm.imageStyle).toEqual({
+			paddingTop: '100%',
+			background: 'center center / contain no-repeat url("src")'
+		})
 	})
 
 	it('ratio', () => {
 		const wrapper = shallowMount(Rahmen, {
 			propsData: {
 				src: 'src',
-				ratio: 1
+				ratio: 0.5
 			}
 		})
 
-		setTimeout(() => {
-			expect(wrapper.find('.o-Rahmen__image').attributes().style).toBe('padding-top: 100%; background: url("src") center center / contain no-repeat;')
-		}, 0)
+		expect(wrapper.vm.imageStyle).toEqual({
+			paddingTop: '50%',
+			background: 'center center / contain no-repeat url("src")'
+		})
 	})
 
 	it('type', () => {
@@ -44,9 +49,10 @@ describe('Rahmen', () => {
 			}
 		})
 
-		setTimeout(() => {
-			expect(wrapper.find('.o-Rahmen__image').attributes().style).toBe('padding-top: 100%; background: url("src") center center / 100% 100% no-repeat;')
-		}, 0)
+		expect(wrapper.vm.imageStyle).toEqual({
+			paddingTop: '100%',
+			background: 'center center / 100% 100% no-repeat url("src")'
+		})
 	})
 
 	it('width', () => {
@@ -57,8 +63,6 @@ describe('Rahmen', () => {
 			}
 		})
 
-		setTimeout(() => {
-			expect(wrapper.attributes().style).toBe('width: 300px;')
-		}, 0)
+		expect(wrapper.attributes().style).toBe('width: 300px;')
 	})
 })

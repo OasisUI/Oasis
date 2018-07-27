@@ -1,13 +1,7 @@
 import Rahmen from './src'
 
-const components = [
-	Rahmen
-]
-
-export default {
-	install (Vue) {
-		components.map(component => {
-			Vue.component(component.name, component)
-		})
-	}
+Rahmen.install = function (Vue) {
+	Vue.component(Rahmen.name, Rahmen)
 }
+
+export default Rahmen

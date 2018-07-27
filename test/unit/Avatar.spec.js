@@ -1,30 +1,36 @@
-import Avatar from '@/avatar/src'
+import Avatar from '@/avatar'
+import Rahmen from '@/rahmen'
 import {
-	shallowMount
+	mount,
+	createLocalVue
 } from '@vue/test-utils'
+
+const localVue = createLocalVue()
+localVue.use(Rahmen)
 
 describe('Avatar', () => {
 	it('render', () => {
-		const wrapper = shallowMount(Avatar)
+		const wrapper = mount(Avatar)
 		expect(wrapper.isVueInstance()).toBe(true)
 		expect(wrapper.classes()).toContain('o-Avatar')
 	})
 
 	it('src', () => {
-		const wrapper = shallowMount(Avatar, {
-			src: 'src'
+		const wrapper = mount(Avatar, {
+			propsData: {
+				src: 'src'
+			},
+			localVue
 		})
-		setTimeout(() => {
-			expect(wrapper.find('.o-Rahmen__image').attributes().style).toBe('padding-top: 100%; background: url("src") center center / 100% 100% no-repeat;')
-		}, 0)
+		expect(wrapper.find('.o-Rahmen').exists()).toBeTruthy()
 	})
 
 	it('name', () => {
-		const wrapper = shallowMount(Avatar, {
-			name: 'name'
+		const wrapper = mount(Avatar, {
+			propsData: {
+				name: 'name'
+			},
 		})
-		setTimeout(() => {
-			expect(wrapper.find('.o-Avatar__name').text()).toBe('name')
-		}, 0)
+		expect(wrapper.vm.name).toEqual('name')
 	})
 })

@@ -56,7 +56,7 @@
 		methods: {
 			onChange (e) {
 				this.$nextTick(() => {
-					this.$emit('change', this.currentValue)
+					(this.useGroup ? this.group : this).$emit('change', this.currentValue)
 				})
 			}
 		}

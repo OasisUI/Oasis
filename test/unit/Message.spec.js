@@ -26,15 +26,17 @@ describe('Message', () => {
 		expect(document.body.querySelector('.o-MessageBox .o-Message__desc').innerHTML).toEqual('description')
 	})
 
-	it('duration', () => {
-		localVue.prototype.$message({
-			text: 'message',
-			duration: 5
-		})
-		setTimeout(() => {
-			expect(document.body.querySelector('.o-MessageBox .o-Message')).toBeUndefined()
-		}, 10)
-	})
+	// TODO
+	// it('duration', (done) => {
+	// 	localVue.prototype.$message({
+	// 		text: 'message',
+	// 		duration: 0
+	// 	})
+	// 	setTimeout(() => {
+	// 		expect(document.body.querySelector('.o-MessageBox .o-Message')).toBe(1)
+	// 		done()
+	// 	}, 100)
+	// })
 
 	it('type', () => {
 		localVue.prototype.$message({

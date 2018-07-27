@@ -1,5 +1,6 @@
 .o-SideNav {
 	display: block;
+	overflow: auto;
 	width: 280px;
 	height: auto;
 	padding: 0 var(--SideNav-padding) 0 0;

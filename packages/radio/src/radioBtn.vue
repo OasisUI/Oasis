@@ -3,8 +3,8 @@
 		class="o-Input o-RadioBtn"
 		:class="[
  			isDisabled ? 'is-disabled' : '',
+			isChecked ? 'is-checked' : '',
 			'o-Input--' + currentSize,
-			isChecked ? 'is-checked' : ''
 		]"
 	>
 		<slot></slot>
@@ -69,7 +69,7 @@
 		},
 		methods: {
 			onChange () {
-				this.$emit('change', this.currentValue)
+				(this.useGroup ? this.group : this).$emit('change', this.currentValue)
 			}
 		}
 	}

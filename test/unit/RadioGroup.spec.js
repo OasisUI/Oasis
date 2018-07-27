@@ -1,4 +1,6 @@
 import Radio from '@/radio'
+import RadioBtn from '@/radioBtn'
+import RadioGroup from '@/radioGroup'
 import {
 	mount
 } from '@vue/test-utils'
@@ -7,34 +9,50 @@ import {
 	destroyInstance
 } from '../helper'
 
-describe ('Radio', () => {
+describe ('RadioGroup', () => {
 	it('render', () => {
-		const wrapper = mount(Radio)
+		const wrapper = mount(RadioGroup)
 		expect(wrapper.isVueInstance()).toBe(true)
-		expect(wrapper.classes()).toContain('o-Radio')
+		expect(wrapper.classes()).toContain('o-RadioGroup')
 	})
 
 	it('disabled', () => {
-		const wrapper = mount(Radio, {
-			propsData: {
-				disabled: true
+		const wrapper = createInstance({
+			data () {
+				return {
+					value: ''
+				}
+			},
+			render () {
+				return (<RadioGroup
+					v-model={this.value}
+					disabled
+				>
+					<Radio label={1}/>
+					<Radio label={2}/>
+					<Radio label={3}/>
+				</RadioGroup>)
 			}
 		})
-		expect(wrapper.classes()).toContain('is-disabled')
+		expect(wrapper.$el.querySelectorAll('.o-Radio.is-disabled').length).toEqual(3)
+		destroyInstance(wrapper)
 	})
 
 	it('change event', (done) => {
 		const wrapper = createInstance({
 			render () {
-				return (<Radio
+				return (<RadioGroup
 					v-model={this.value}
 					label={this.label}
 					onChange={this.onChange}
-				></Radio>)
+				>
+					<Radio label={1}/>
+					<Radio label={2}/>
+					<Radio label={3}/>
+				</RadioGroup>)
 			},
 			data () {
 				return {
-					label: 1,
 					value: '',
 					changed: false
 				}
@@ -46,7 +64,7 @@ describe ('Radio', () => {
 			}
 		})
 		expect(wrapper.value).toEqual('')
-		wrapper.$el.click()
+		wrapper.$el.querySelectorAll('.o-Radio')[0].click()
 		setTimeout(() => {
 			expect(wrapper.value).toEqual(1)
 			expect(wrapper.changed).toBeTruthy()

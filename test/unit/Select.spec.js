@@ -31,16 +31,15 @@ describe('Select', () => {
 		const wrapper = mount(Select, {
 			localVue,
 			propsData: {
+
 				options: ['a', 'b', 'c']
 			}
 		})
 		wrapper.find('.o-Select').trigger('click')
 		expect(wrapper.find('.o-Popup__inner').isVisible()).toBe(true)
-		wrapper.findAll('.o-Input__options li').at(2).trigger('click')
+		wrapper.findAll('.o-Input__options li').at(2).element.click()
 		expect(wrapper.emitted().input).toEqual([['c']])
 		expect(wrapper.emitted().change).toEqual([['c']])
-		setTimeout(() => {
-			expect(wrapper.find('input').element.value).toEqual('c')
-		}, 10)
+		expect(wrapper.find('input').element.value).toEqual('c')
 	})
 })

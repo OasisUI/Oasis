@@ -48,7 +48,6 @@
 				return {
 					width: isNaN(this.width) ? this.width : this.width + 'px'
 				}
-
 			},
 			imageStyle () {
 				return {
