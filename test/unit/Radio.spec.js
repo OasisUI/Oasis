@@ -7,7 +7,7 @@ import {
 	destroyInstance
 } from '../helper'
 
-describe ('Radio', () => {
+describe('Radio', () => {
 	it('render', () => {
 		const wrapper = mount(Radio)
 		expect(wrapper.isVueInstance()).toBe(true)

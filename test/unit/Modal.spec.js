@@ -100,7 +100,6 @@ describe('Modal', () => {
 			content: 'content',
 			confirmText: 'confirmText'
 		}).then(res => {
-			console.log('res:', res)
 			expect(res).toEqual('value')
 			document.body.removeChild(document.body.querySelector('.o-Modal'))
 		}).catch(err => {})

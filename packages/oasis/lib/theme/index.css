@@ -2546,15 +2546,14 @@ a:visited {
 		top: 0;
 		right: 0;
 		font-size: 12px;
-		-webkit-transition: all ease-in-out 140ms;
-		transition: all ease-in-out 140ms;
+		-webkit-transition: all ease-in-out 240ms;
+		transition: all ease-in-out 240ms;
 	}
 
 .o-SideNav .o-SubNav__group {
-		height: 0;
 		padding-left: 20px;
-		-webkit-transition: all ease-in-out 140ms;
-		transition: all ease-in-out 140ms;
+		-webkit-transition: all ease-in-out 240ms;
+		transition: all ease-in-out 240ms;
 	}
 
 .o-SideNav .o-SubNav__group .o-NavItem.is-selected {
@@ -2568,8 +2567,8 @@ a:visited {
 		line-height: 50px;
 		border-radius: 4px;
 		cursor: pointer;
-		-webkit-transition: all ease-in-out 140ms;
-		transition: all ease-in-out 140ms;
+		-webkit-transition: all ease-in-out 240ms;
+		transition: all ease-in-out 240ms;
 	}
 
 .o-SideNav .o-NavItem.is-selected {
@@ -2632,8 +2631,8 @@ a:visited {
 		line-height: 50px;
 		font-weight: 500;
 		cursor: pointer;
-		-webkit-transition: all ease-in-out 140ms;
-		transition: all ease-in-out 140ms;
+		-webkit-transition: all ease-in-out 240ms;
+		transition: all ease-in-out 240ms;
 	}
 
 .o-Navbar .o-NavItem.is-selected {

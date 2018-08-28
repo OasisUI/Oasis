@@ -57,7 +57,6 @@
 	}
 
 	.o-SubNav__group {
-		height: 0;
 		padding-left: var(--SideNav-padding);
 		transition: var(--transition-navbar);
 

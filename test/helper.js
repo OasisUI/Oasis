@@ -18,3 +18,7 @@ export function createEl () {
 	document.body.appendChild($el)
 	return $el
 }
+
+export function querySelector (scheme, root = document.body) {
+	return root.querySelectorAll(scheme)
+}
