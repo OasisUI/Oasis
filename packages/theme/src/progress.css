@@ -28,7 +28,7 @@
 	}
 
 	@d backup {
-		stroke: color(var(--color-black-4) alpha(40%));
+		stroke: color(var(--color-black-4) alpha(22%));
 	}
 
 	@d value {
@@ -82,6 +82,7 @@
 @component LineProgress {
 	position: relative;
 	font-size: 0;
+	line-height: 20px;
 
 	@d bar {
 		display: inline-block;
@@ -94,7 +95,7 @@
 		width: 100%;
 		border-radius: 3px;
 		overflow: hidden;
-		background: color(var(--color-black-4) alpha(40%));
+		background: color(var(--color-black-4) alpha(22%));
 	}
 
 	@d value {

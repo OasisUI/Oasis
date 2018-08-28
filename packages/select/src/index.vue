@@ -29,6 +29,11 @@
 	export default {
 		name: 'Select',
 		props,
+		data () {
+			return {
+				currentValue: ''
+			}
+		},
 		render () {
 			const popupId = this._uid
 			const directives = [
@@ -91,6 +96,7 @@
 				const index = Array.prototype.indexOf.call(list, e.target)
 				const value = this.currentOptions[index] && this.currentOptions[index].value
 				let changed = false
+				this.currentValue = value
 				if (value !== this.value) {
 					changed = true
 				}
@@ -108,15 +114,31 @@
 
 			onBlur (...arg) {
 				this.$emit('blur', ...arg)
+			},
+
+			updateCurrentValue () {
+				const currentValue = this.currentOptions.find(option => option.value === this.value)
+				this.currentValue ? currentValue.key : ''
 			}
 		},
 		computed: {
 			currentOptions () {
 				return formatSelectOptions(this.options, this.value)
+			}
+		},
+		watch: {
+			currentOptions: {
+				handler (currentOptions) {
+					this.updateCurrentValue()
+				},
+				immediate: true,
+				deep: true
 			},
-			currentValue () {
-				const currentValue = this.currentOptions.find(option => option.value === this.value)
-				return currentValue ? currentValue.key : ''
+			value: {
+				handler (currentOptions) {
+					this.updateCurrentValue()
+				},
+				immediate: true
 			}
 		}
 	}

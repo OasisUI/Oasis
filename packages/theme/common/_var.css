@@ -2,6 +2,7 @@
 
 	/* theme */
 	--color-primary: #34B697;
+	--color-success: var(--color-primary);
 	--color-primary-light: #64DC9C;
 	--color-primary-dark: #1F9D7F;
 
@@ -13,7 +14,7 @@
 	--color-danger-light: #FF7D7D;
 	--color-danger-dark: #CF5158;
 
-	--color-info: #FFEDD7;
+	--color-info: var(--fontColor-default);
 
 	--color-white: #FFFFFF;
 
@@ -80,9 +81,15 @@
 	--Input-disabled-checked-bg: #D8D8D8;
 
 	/*message*/
-	--Message-borderRadius: 4px;
-	--Message-height: 34px;
-	--Message-minWidth: 360px;
+	--Message-borderRadius: 3px;
+	--Message-height: 40px;
+	--Message-padding: 12px;
+	--Message-minWidth: 240px;
+	--Message-maxWidth: calc(var(--Message-minWidth) * 2.2);
+	--Message-statusBlock: 24px;
+	--Message-bg: #FFF;
+	--Message-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.22);
+	--Message-transition-duration: 0.24s;
 
 	--Message-info-bg: #E7F3FF;
 	--Message-info-color: #105196;
@@ -105,8 +112,8 @@
 	--transition-slide: all ease-in-out 240ms;
 	--transition-btn-default: color ease-in-out 20ms, background-color ease-in-out 160ms, box-shadow ease-in-out 100ms, padding ease-in-out 160ms;
 	--transition-checkbox: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 180ms;
-	--transition-navbar: all ease-in-out 140ms;
-	--transition-scrollBox: background ease-in-out 140ms;
+	--transition-navbar: all ease-in-out 240ms;
+	--transition-scrollBox: background ease-in-out 240ms;
 
 	/*modal*/
 	--Modal-padding: 34px;
@@ -131,6 +138,8 @@
 
 	/*scrollBox*/
 	--ScrollBox-scrollbar-width: 8px;
+	--ScrollBox-thumb-bg: #DDDDDD;
+	--ScrollBox-thumb-hover-bg: #8D8D8D;
 
 	/*navbar*/
 	--SideNav-height: 50px;

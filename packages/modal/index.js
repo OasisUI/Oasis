@@ -1,7 +1,7 @@
 import Modal from './src/index'
 
-export default {
-	install (Vue) {
-		Vue.component(Modal.name, Modal)
-	}
+Modal.install = function (Vue) {
+	Vue.component(Modal.name, Modal)
 }
+
+export default Modal

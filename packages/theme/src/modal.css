@@ -17,9 +17,12 @@
 	}
 
 	@d content {
-		display: inline-block;
+		display: inline-flex;
 		position: relative;
 		vertical-align: middle;
+		flex-direction: column;
+		justify-content: space-between;
+		max-width: 80%;
 		min-width: 420px;
 		min-height: 230px;
 		border-radius: var(--Input-borderRadius);

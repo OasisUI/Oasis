@@ -31,7 +31,7 @@
 	|title|弹框标题|String|`''`|
 	|showArrow|是否
 	|content|弹框内容|String|空字符|
-	|v-popup|【required】 `popup` 引用名|String|`''`|
+	|v-popup|`popup` 引用名[required]|String|`''`|
 </template>
 
 <script>

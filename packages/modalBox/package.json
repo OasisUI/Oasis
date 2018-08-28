@@ -8,12 +8,12 @@
   },
   "author": "oasis",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@oasis-ui/button": "^0.0.10",
     "@oasis-ui/input": "^0.0.12",
     "@oasis-ui/modal": "^0.0.8"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

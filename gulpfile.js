@@ -7,12 +7,12 @@ const postcss = require('gulp-postcss')
 const WebpackDevServer = require('webpack-dev-server')
 const WebpackDevConfig = require('./build/webpack.dev')
 const WebpackDocConfig = require('./build/webpack.doc')
-const WebpackBuildConfig = require('./build/webpack.build')
+const WebpackBuildConfig = require('./build/webpack.prod')
 
 const libPath = './packages/oasis/lib'
 const themePath = './packages/theme'
 
-gulp.task('build:module', () => {
+gulp.task('build:prod', () => {
 	const compiler = webpack(WebpackBuildConfig)
 	compiler.run((err, stats) => {
 		err && console.log(err)
@@ -82,7 +82,7 @@ gulp.task('dev', ['dev:server', 'dev:theme'])
 
 gulp.task('build', function () {
 	rimraf('./packages/oasis/theme', function () {
-		gulp.start(['copy', 'build:module', 'build:theme'], function () {
+		gulp.start(['copy', 'build:prod', 'build:theme'], function () {
 			rimraf('./docs', () => {})
 			rimraf('./index.html', () => {})
 		})

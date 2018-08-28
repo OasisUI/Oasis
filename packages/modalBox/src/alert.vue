@@ -1,5 +1,6 @@
 <template>
 	<Modal
+		ref="modal"
 		v-model="show"
 		class="o-ModalBox o-ModalBox__alert"
 		:class="[
@@ -7,6 +8,7 @@
 		]"
 		:show-close-btn="showCloseBtn"
 		:show-title="showTitle"
+		@close="handleClose"
 	>
 		<template
 			slot="header"
@@ -24,7 +26,7 @@
 			slot="footer"
 		>
 			<Button
-				@click="confirm"
+				@click="handleConfirm"
 				:type="btnType"
 				:outline="btnType === 'default'"
 				round
@@ -54,6 +56,7 @@
 			default: '确定'
 		},
 		onConfirm: Function,
+		onClose: Function,
 		showCloseBtn: {
 			type: Boolean,
 			default: true
@@ -69,18 +72,19 @@
 		props,
 		data () {
 			return {
-				show: false
+				show: true
 			}
 		},
-		mounted () {
-			this.show = true
-		},
 		methods: {
-			confirm () {
+			handleConfirm () {
 				const { onConfirm } = this
 				this.show = false
 				onConfirm && onConfirm()
-				this.$emit('confirm')
+			},
+
+			handleClose () {
+				const { onClose } = this
+				onClose && onClose()
 			}
 		},
 		computed: {

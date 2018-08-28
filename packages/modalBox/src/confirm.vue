@@ -1,7 +1,7 @@
 <template>
 	<Modal
 		v-model="show"
-		@close="cancel"
+		@close="handleClose"
 		:show-close-btn="showCloseBtn"
 		:show-title="showTitle"
 		class="o-ModalBox o-ModalBox__confirm"
@@ -18,7 +18,7 @@
 			slot="footer"
 		>
 			<Button
-				@click="cancel"
+				@click="show = false"
 				type="primary"
 				round
 				ghost
@@ -28,7 +28,7 @@
 				{{cancelText}}
 			</Button>
 			<Button
-				@click="confirm"
+				@click="handleConfirm"
 				type="primary"
 				round
 				gradient
@@ -55,7 +55,7 @@
 			default: '取消'
 		},
 		onConfirm: Function,
-		onCancel: Function,
+		onClose: Function,
 		title: String,
 		content: String,
 		showCloseBtn: {
@@ -73,24 +73,18 @@
 		props,
 		data () {
 			return {
-				show: false
+				show: true
 			}
 		},
-		mounted () {
-			this.show = true
-		},
 		methods: {
-			confirm () {
+			handleConfirm () {
 				const { onConfirm } = this
 				this.show = false
 				onConfirm && onConfirm()
-				this.$emit('confirm')
 			},
-			cancel () {
-				const { onCancel } = this
-				this.show = false
-				onCancel && onCancel()
-				this.$emit('cancel')
+			handleClose () {
+				const { onClose } = this
+				onClose && onClose()
 			}
 		},
 		components: {

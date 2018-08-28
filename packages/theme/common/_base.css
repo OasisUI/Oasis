@@ -15,6 +15,26 @@
 	margin: auto;
 }
 
+/* scrollbar */
+::-webkit-scrollbar {
+	width: var(--ScrollBox-scrollbar-width);
+	height: var(--ScrollBox-scrollbar-width);
+}
+
+*:hover {
+	&::-webkit-scrollbar-track {
+		border-radius: calc(var(--ScrollBox-scrollbar-width) / 2);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: var(--ScrollBox-thumb-bg);
+		border-radius: calc(var(--ScrollBox-scrollbar-width) / 2);
+	}
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--ScrollBox-thumb-hover-bg);
+}
 
 /*reset style*/
 body {

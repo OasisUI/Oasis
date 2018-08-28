@@ -1,21 +1,21 @@
-import Radio from '@/radio'
+import RadioBtn from '@/radioBtn'
 import {
 	mount
 } from '@vue/test-utils'
 import {
 	createInstance,
-	destroyInstance
+	destroyInstance,
 } from '../helper'
 
-describe('Radio', () => {
+describe('RadioBtn', () => {
 	it('render', () => {
-		const wrapper = mount(Radio)
+		const wrapper = mount(RadioBtn)
 		expect(wrapper.isVueInstance()).toBe(true)
-		expect(wrapper.classes()).toContain('o-Radio')
+		expect(wrapper.classes()).toContain('o-RadioBtn')
 	})
 
 	it('disabled', () => {
-		const wrapper = mount(Radio, {
+		const wrapper = mount(RadioBtn, {
 			propsData: {
 				disabled: true
 			}
@@ -26,11 +26,11 @@ describe('Radio', () => {
 	it('change event', (done) => {
 		const wrapper = createInstance({
 			render () {
-				return (<Radio
+				return (<RadioBtn
 					v-model={this.value}
 					label={this.label}
 					onChange={this.onChange}
-				></Radio>)
+				></RadioBtn>)
 			},
 			data () {
 				return {

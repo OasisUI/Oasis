@@ -71,6 +71,7 @@ const components = [
 ]
 
 const Oasis = {
+	components,
 	install (Vue) {
 		components.map(component => {
 			Vue.use(component)

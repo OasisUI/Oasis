@@ -1,18 +1,18 @@
 import Vue from 'vue'
-import Message from './src/message'
+import Message from './src'
 
 const Msg = Vue.extend(Message)
 const maxQueueLength = 3
 
 export default {
 	install (Vue) {
-		if (typeof window !== 'undefined') {
-			const messageBox = document.createElement('div')
-			messageBox.setAttribute('class', 'o-MessageBox')
-			document.body.appendChild(messageBox)
-			Vue.prototype.$messageBox = messageBox
-			Vue.prototype.$messageQueue = []
-		}
+		if (Vue.prototype.$isServer) return
+
+		const messageBox = document.createElement('div')
+		messageBox.setAttribute('class', 'o-MessageBox')
+		document.body.appendChild(messageBox)
+		Vue.prototype.$messageBox = messageBox
+		Vue.prototype.$messageQueue = []
 
 		Vue.prototype.$message = function (config) {
 			const queue = Vue.prototype.$messageQueue
@@ -21,14 +21,18 @@ export default {
 			if (typeof $messageBox === 'undefined') return
 
 			const el = document.createElement('div')
-			$messageBox.appendChild(el)
+			if ($messageBox.children.length) {
+				$messageBox.insertBefore(el, $messageBox.children[0])
+			} else {
+				$messageBox.appendChild(el)
+			}
 			const instance = new Msg({
 				propsData: config
 			}).$mount(el)
-			queue.push(instance)
+			queue.unshift(instance)
 
 			if (queue.length > maxQueueLength) {
-				queue[0].close(queue)
+				queue[queue.length - 1].close(queue)
 			}
 			config.duration !== 0 && setTimeout(() => {
 				instance.close(queue)
@@ -36,5 +40,15 @@ export default {
 
 			return instance
 		}
+
+		;['info', 'success', 'danger', 'warning'].forEach(type => {
+			Vue.prototype.$message[type] = function (text = '', config = {}) {
+				Vue.prototype.$message({
+					type,
+					text,
+					...config
+				})
+			}
+		})
 	}
 }

@@ -7,7 +7,7 @@ module.exports = merge(base, {
 	entry: path.join(__dirname, '../packages/oasis/index.js'),
 	output: {
 		path: path.join(__dirname, '../packages/oasis/lib'),
-		filename: 'index.js',
+		filename: 'index.min.js',
 		library: {
 			root: 'Oasis',
 			amd: 'oasis-ui',
@@ -31,6 +31,6 @@ module.exports = merge(base, {
 		extensions: ['.vue', '.js', '.json']
 	},
 	plugins: [
-		new UglifyJSPlugin()
+		// new UglifyJSPlugin()
 	]
 })
