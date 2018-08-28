@@ -4,7 +4,7 @@
 			<img class="logo" src="../icon/icon.svg" alt="">
 		</router-link>
 		<router-link to="/components">文档</router-link>
-		<a class="float-right" href="https://github.com/joe223/Oasis">Github</a>
+		<a class="float-right" href="https://github.com/OasisUI/Oasis">Github</a>
 	</nav>
 </template>
 
