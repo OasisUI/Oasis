@@ -6,7 +6,7 @@
 		"dev": "gulp dev",
 		"dev:theme": "gulp dev:theme",
 		"build:prod": "gulp build:prod",
-		"build:doc": "gulp build:doc && echo 'www.oasisui.org' > CNAME",
+		"build:doc": "gulp build:doc",
 		"build:theme": "gulp build:theme",
 		"build": "cross-env ENV=prod gulp build",
 		"publish": "npm run build && lerna publish",

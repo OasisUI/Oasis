@@ -23,7 +23,10 @@ module.exports = {
 			{
 				test: /\.js$/i,
 				use: ['babel-loader', 'eslint-loader'],
-				exclude: /node_modules/
+				exclude: [
+					/node_modules/,
+					path.resolve(__dirname, '../packages/oasis/lib/index.min.js')
+				]
 			},
 			{
 				test: /\.vue$/i,
