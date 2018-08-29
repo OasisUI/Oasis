@@ -45,7 +45,7 @@
 		},
 
 		methods: {
-			toggle (e) {
+			toggle () {
 				const $group = this.$refs.group
 				if (!$group || this.$isServer) return
 				this.isOpen = !this.isOpen
@@ -61,7 +61,6 @@
 			},
 
 			afterEnter (el) {
-				console.log(el)
 				el.style.height = ''
 			},
 

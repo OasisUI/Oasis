@@ -1,7 +1,8 @@
 <template>
 	<nav>
 		<router-link to="/">
-			<img class="logo" src="../icon/icon.svg" alt="">
+			<img class="logo" src="../icon/icon.svg" alt="Oasis">
+			<sub>&nbsp;{{version}}</sub>
 		</router-link>
 		<router-link to="/components">文档</router-link>
 		<a class="float-right" href="https://github.com/OasisUI/Oasis">Github</a>
@@ -9,7 +10,15 @@
 </template>
 
 <script>
-	export default {}
+	import { version } from '../packages/oasis/package'
+
+	export default {
+		data () {
+			return {
+				version
+			}
+		}
+	}
 </script>
 
 <style lang="postcss">

@@ -1,23 +1,9 @@
 sudo: false
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $CI_TOKEN
-  allow-empty-commit: false
-  target-branch: gh-pages
-  on:
-	repo: OasisUI/Oasis
-    branches:
-		only:
-			- master
 
 language: node_js
 
 node_js:
   - 8
 
-
 script:
-- npm run bootstrap
-- npm run build
-- npm run build:doc
+- sh deploy/deploy.sh
