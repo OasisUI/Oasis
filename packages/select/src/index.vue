@@ -94,15 +94,15 @@
 				const $popup = this.$refs[this._uid]
 				const list = this.$refs.list.children
 				const index = Array.prototype.indexOf.call(list, e.target)
-				const value = this.currentOptions[index] && this.currentOptions[index].value
+				const option = this.currentOptions[index]
 				let changed = false
-				this.currentValue = value
-				if (value !== this.value) {
+				this.currentValue = option.key
+				if (option.value !== this.value) {
 					changed = true
 				}
-				changed && this.$emit('input', value)
-				this.$emit('select', value)
-				changed && this.$emit('change', value)
+				changed && this.$emit('input', option.value)
+				this.$emit('select', option.value)
+				changed && this.$emit('change', option.value)
 				this.$nextTick(() => {
 					$popup.show = false
 				})
@@ -118,7 +118,7 @@
 
 			updateCurrentValue () {
 				const currentValue = this.currentOptions.find(option => option.value === this.value)
-				this.currentValue ? currentValue.key : ''
+				this.currentValue = currentValue ?  currentValue.key : ''
 			}
 		},
 		computed: {
