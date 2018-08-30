@@ -8,7 +8,7 @@ git clone -b master https://$CI_TOKEN@github.com/OasisUI/Oasis.git web
 cd web
 
 pwd
-
+./tableColumn
 VERSION=$(node -p "require('./packages/oasis/package.json').version")
 
 if [ -z "$VERSION" ]
@@ -19,11 +19,11 @@ fi
 
 echo 'VERSION:' $VERSION
 
-npm install
-npm run bootstrap
-npm run test:unit
-npm run build
-npm run build:doc
+npm install || exit 1
+npm run bootstrap || exit 1
+npm run test:unit || exit 1
+npm run build || exit 1
+npm run build:doc || exit 1
 
 cd ..
 git clone -b gh-pages https://$CI_TOKEN@github.com/OasisUI/Oasis.git
@@ -38,4 +38,4 @@ echo '\r\nstart deploying...'
 git add .
 git commit -m "Build $VERSION"
 
-# git push origin gh-pages
+git push origin gh-pages
