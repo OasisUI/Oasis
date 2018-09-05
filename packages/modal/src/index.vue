@@ -1,7 +1,7 @@
 <template>
 	<transition appear name="o-Modal">
 		<div
-			v-show="show"
+			v-if="show"
 			class="o-Modal"
 			@click.self.stop="close"
 		>

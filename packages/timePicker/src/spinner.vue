@@ -27,12 +27,13 @@
 
 	export default {
 		name: 'TimeSpinner',
+
 		props,
+
 		mounted () {
-			this.$nextTick(() => {
-				this.updateScrollTop()
-			})
+			this.updateScrollTop()
 		},
+
 		methods: {
 			updateScrollTop () {
 				if (!this.$el) return
@@ -41,16 +42,20 @@
 				const itemHeight = $el.children[0].offsetHeight
 				$el.scrollTop = itemHeight * (this.value)
 			},
+
 			setTime (e) {
 				const index = [].indexOf.call(this.$el.children, e.target)
 				index > -1 && this.$emit('input', index)
 			},
+
 			onScroll: throttle(function (e) {
 				this.updateValue()
 			}, 60),
+
 			onScrollEnd () {
 				this.updateScrollTop()
 			},
+
 			updateValue () {
 				const { $el } = this
 				const top = $el.scrollTop
@@ -63,9 +68,10 @@
 				this.$emit('input', value)
 			}
 		},
+
 		watch: {
 			value: {
-				handler (val) {
+				handler () {
 					this.updateScrollTop()
 				},
 				immediate: true

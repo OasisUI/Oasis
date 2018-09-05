@@ -1,89 +1,99 @@
 <template>
 	<div class="o-TimePicker">
 		<div
+			v-show="visiable.hour"
 			class="o-TimePicker__currentValue"
 		>
 			<TimeSpinner
 				:list="24"
-				v-model="hour"
+				v-model="time.hour"
 			></TimeSpinner>
 		</div>
 		<div
+			v-show="visiable.minute"
 			class="o-TimePicker__currentValue"
 		>
 			<TimeSpinner
 				:list="60"
-				v-model="minute"
+				v-model="time.minute"
 			></TimeSpinner>
 		</div>
 		<div
+			v-show="visiable.second"
 			class="o-TimePicker__currentValue"
 		>
 			<TimeSpinner
 				:list="60"
-				v-model="second"
+				v-model="time.second"
 			></TimeSpinner>
 		</div>
 	</div>
 </template>
 <script>
-	import {
-		formatNumber
-	} from '../../../utils'
+	import moment from 'moment'
 	import Spinner from './spinner'
+	import { dateWrapper } from 'utils/date'
 
 	const props = {
-		value: {},
-		split: {
-			type: String,
-			default: ':'
-		}
+		value: Number,
+		format: String
 	}
 
 	export default {
 		name: 'TimePicker',
+
 		props,
+
 		data () {
 			return {
-				hour: 10,
-				minute: 20,
-				second: 30
+				time: {
+					hour: 0,
+					minute: 0,
+					second: 0
+				}
 			}
 		},
+
+		mounted () {
+			this.$nextTick(() => {
+				const time = dateWrapper(this.value)
+				this.time = {
+					hour: time.hour,
+					minute: time.minute,
+					second: time.second
+				}
+			})
+		},
+
+		methods: {
+			updateValue () {
+				this.$emit('input', dateWrapper(this.time).time)
+			}
+		},
+
 		components: {
 			[Spinner.name]: Spinner
 		},
-		methods: {
-			updateValue () {
-				const { split } = this
-				const value = `${formatNumber(this.hour, 2)}${split}${formatNumber(this.minute, 2)}${split}${formatNumber(this.second, 2)}`
-				this.$emit('input', value)
+
+		watch: {
+			time: {
+				handler () {
+					this.updateValue()
+				},
+				deep: true
 			}
 		},
-		watch: {
-			value: {
-				handler (val) {
-					const [hour, minute, second] = val.split(':')
-					this.hour = parseInt(hour) || 0
-					this.minute = parseInt(minute) || 0
-					this.second = parseInt(second) || 0
-				},
-				immediate: true
-			},
-			hour: {
-				handler (val) {
-					this.updateValue()
-				}
-			},
-			minute: {
-				handler (val) {
-					this.updateValue()
-				}
-			},
-			second: {
-				handler (val) {
-					this.updateValue()
-				}
+
+		computed: {
+			visiable () {
+				const visiable = {}
+				this.format.split('').forEach(key => {
+					key = moment.normalizeUnits(key)
+					if (key) {
+						visiable[key] = true
+					}
+				})
+				return visiable
 			}
 		}
 	}

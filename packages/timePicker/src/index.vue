@@ -1,45 +1,48 @@
 <template>
 	<Input
-		v-model="currentTime"
+		:value="currentTime"
 		@focus="onFocus"
+		class="o-InputTime"
 		:size="size"
 		:readonly="readonly"
 		:disabled="disabled"
-		class="o-InputTime"
 		html-readonly
 	>
-	<Modal
-		v-model="showPicker"
-		slot="suffix"
-		:show-title="false"
-	>
-		<TimePicker
-			ref="picker"
-			v-model="time"
-		></TimePicker>
-		<template slot="footer">
-			<Button
-				@click="showPicker = false"
-				type="primary"
-				ghost
-			>
-				取消
-			</Button>
-			<Button
-				@click="setTime"
-				type="primary"
-			>
-				确定
-			</Button>
-		</template>
-	</Modal>
+		<Modal
+			slot="suffix"
+			v-model="showPicker"
+			:show-title="false"
+		>
+			<TimePicker
+				:value="time"
+				:format="format"
+				@input="updateValue"
+				ref="picker"
+			></TimePicker>
+			<template slot="footer">
+				<Button
+					@click="showPicker = false"
+					type="primary"
+					ghost
+				>
+					取消
+				</Button>
+				<Button
+					@click="setTime"
+					type="primary"
+				>
+					确定
+				</Button>
+			</template>
+		</Modal>
 	</Input>
 </template>
+
 <script>
-	import Input from '../../input/src'
+	import Input from '@oasis-ui/input/src'
+	import Modal from '@oasis-ui/modal/src'
 	import TimePicker from './timePicker'
-	import Modal from '../../modal/src'
-	import { getDomSize } from "utils"
+	import { dateWrapper } from 'utils/date'
 
 	const props = {
 		value: {},
@@ -57,6 +60,10 @@
 		size: {
 			type: String
 		},
+		format: {
+			type: String,
+			default: 'HH:mm:ss'
+		},
 		placeholder: String
 	}
 
@@ -70,16 +77,14 @@
 		},
 		data () {
 			return {
-				currentTime: 0,
-				time: 0,
+				time: '',
 				showPicker: false
 			}
 		},
 		watch: {
 			value: {
 				handler (val) {
-					this.currentTime = val || ''
-					this.time = val || ''
+					this.time = this.formatValue(val).time
 				},
 				immediate: true
 			}
@@ -88,14 +93,28 @@
 			onFocus () {
 				this.showPicker = true
 			},
+
 			setTime () {
-				this.$emit('input', this.time)
-				this.currentTime = this.time
-				this.showPicker = false
+				const { time, format } = this
+				this.$emit('input', dateWrapper(time).format(format))
+				this.$nextTick(() => {
+					this.showPicker = false
+				})
+			},
+
+			updateValue (val) {
+				this.time = val
+			},
+
+			formatValue (value, format) {
+				format = format || this.format
+				return dateWrapper(value, format)
 			}
-			// onBlur () {
-			//
-			// }
+		},
+		computed: {
+			currentTime () {
+				return this.formatValue(this.value).format(this.format)
+			}
 		}
 	}
 </script>

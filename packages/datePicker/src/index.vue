@@ -1,6 +1,6 @@
 <template>
 	<Input
-		v-model="_currentTime"
+		:value="currentTime"
 		@focus="onFocus"
 		class="o-InputDate"
 		:size="size"
@@ -40,7 +40,6 @@
 	import Input from '@oasis-ui/input/src'
 	import Modal from '@oasis-ui/modal/src'
 	import DatePicker from './datePicker'
-	import { getDomSize, formatNumber } from "utils"
 	import { dateWrapper } from "utils/date"
 
 	const props = {
@@ -59,6 +58,10 @@
 		size: {
 			type: String
 		},
+		format: {
+			type: String,
+			default: 'YYYY-MM-DD'
+		},
 		placeholder: String
 	}
 
@@ -72,17 +75,15 @@
 		},
 		data () {
 			return {
-				currentTime: 0,
-				time: 0,
+				time: dateWrapper().time,
 				showPicker: false
 			}
 		},
 		watch: {
 			value: {
 				handler (val) {
-					val = new Date(val).getTime()
-					this.currentTime = val || 0
-					this.time = val
+					if (!val && !Number.isInteger(val)) return
+					this.time = dateWrapper(this.value).time
 				},
 				immediate: true
 			}
@@ -92,22 +93,19 @@
 				this.showPicker = true
 			},
 			setTime () {
-				this.currentTime = this.time
-				this.$emit('input', this._currentTime)
-				this.showPicker = false
+				const { time, format } = this
+				this.$emit('input', dateWrapper(time).format(format))
+				this.$nextTick(() => {
+					this.showPicker = false
+				})
 			}
 		},
 		computed: {
-			_currentTime: {
-				get () {
-					const date = dateWrapper(this.currentTime)
-					return `${formatNumber(date.year, 4)}/${formatNumber(date.month, 2)}/${formatNumber(date.day, 2)}`
-				},
-				set (val) {
-					this.currentTime = val
-				}
+			currentTime () {
+				const { value, format } = this
+				if (!value && !Number.isInteger(value)) return ''
+				return dateWrapper(value).format(format)
 			}
-
 		}
 	}
 </script>

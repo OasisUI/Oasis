@@ -24,11 +24,10 @@
 
 <script>
 	import {
-		D,
+		getWeekDays,
 		dateWrapper,
 		getDaysOfMonth,
-		getWeekDays
-	} from "../../../utils/date"
+	} from '../../../utils/date'
 
 	const props = {
 		value: {
@@ -55,12 +54,11 @@
 			this.$parent.$off('updatePage', this.updatePage)
 		},
 		mounted () {
-			this.$parent.$on('updatePage', this.updatePage)			
+			this.$parent.$on('updatePage', this.updatePage)
 		},
 		methods: {
 			pickDate (day) {
 				const { date } = this
-				// this.$emit('input', new D(date.year, date.month, day.day, date.hours, date.minutes, date.seconds))
 				date.day = day.day
 				this.$emit('input', day)
 			},

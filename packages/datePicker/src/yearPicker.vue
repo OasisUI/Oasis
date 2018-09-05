@@ -17,7 +17,7 @@
 	import {
 		D,
 		dateWrapper
-	} from "../../../utils/date"
+	} from '../../../utils/date'
 
 	const props = {
 		value: {
@@ -54,7 +54,7 @@
 				const { listLength } = this
 				year = year || this.date.year
 				this.years = new Array(listLength).fill(null).map((item, index) => {
-					return new D(year + index - listLength / 2)
+					return new D([year + index - listLength / 2])
 				})
 			},
 			updatePage (n) {

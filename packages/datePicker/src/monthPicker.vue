@@ -18,7 +18,7 @@
 	import {
 		D,
 		dateWrapper
-	} from "../../../utils/date"
+	} from '../../../utils/date'
 
 	const props = {
 		value: {
@@ -40,7 +40,7 @@
 		beforeDestroy () {
 			this.$parent.$off('nextPage', this.updatePage)
 		},
-		
+
 		mounted () {
 			this.$parent.$on('updatePage', this.updatePage)
 			this.updateList()
@@ -53,12 +53,12 @@
 					date.month = month.month
 				}
 				this.$emit('input', this.date.time)
-				this.$parent.$emit('updateCurrentPage')				
+				this.$parent.$emit('updateCurrentPage')
 			},
 			updateList (year) {
 				year = year || this.date.year
 				this.months = new Array(12).fill(null).map((item, index) => {
-					return new D(year, index + 1)
+					return new D([year, index + 1])
 				})
 			},
 			updatePage (n) {

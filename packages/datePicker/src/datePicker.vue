@@ -60,9 +60,8 @@
 
 	const props = {
 		value: {
-			validator (val) {
-				return !isNaN(val)
-			}
+			type: Number,
+			default: 0
 		}
 	}
 	export default {
@@ -85,7 +84,7 @@
 				this.status = 'day'
 			})
 			const currentPage = dateWrapper(this.value)
-			this.currentPage = new D(currentPage.year, currentPage.month).time
+			this.currentPage = new D([currentPage.year, currentPage.month - 1]).time
 		},
 		methods: {
 			dateWrapper: dateWrapper,
@@ -103,13 +102,6 @@
 				}
 			}
 		},
-		// watch: {
-		// 	currentPage: {
-		// 		handler (val) {
-		// 			this.setTime()
-		// 		}
-		// 	}
-		// },
 		components: {
 			[YearPicker.name]: YearPicker,
 			[MonthPicker.name]: MonthPicker,
