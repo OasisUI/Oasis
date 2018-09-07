@@ -1,0 +1,17 @@
+{
+  "name": "@oasis-ui/daterangepicker",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@oasis-ui/datepicker": "^0.0.15"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "oasis",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

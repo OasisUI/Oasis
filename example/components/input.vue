@@ -117,6 +117,7 @@
 	|options|提供给用户的候选项|String|`undefined`|
 	|readonly|只读|Boolean|`false`|
 	|disabled|禁用|Boolean|`false`|
+	|placeholder|占位符|String||
 </template>
 
 <script>

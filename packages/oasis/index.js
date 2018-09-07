@@ -19,6 +19,7 @@ import ModalBox from '../modalBox'
 import DatePicker from '../datePicker'
 import TimePicker from '../timePicker'
 import DateTimePicker from '../dateTimePicker'
+import DateRangePicker from '../dateRangePicker'
 import Upload from '../upload'
 import Progress from '../progress'
 import Popup from '../popup'
@@ -56,6 +57,7 @@ const components = [
 	DatePicker,
 	TimePicker,
 	DateTimePicker,
+	DateRangePicker,
 	Upload,
 	Progress,
 	Popup,

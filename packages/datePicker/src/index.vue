@@ -6,6 +6,7 @@
 		:size="size"
 		:readonly="readonly"
 		:disabled="disabled"
+		:placeholder="placeholder"
 		html-readonly
 	>
 		<Modal
@@ -16,6 +17,9 @@
 			<DatePicker
 				ref="picker"
 				v-model="time"
+				:start="startTime"
+				:end="endTime"
+				:range="range"
 			></DatePicker>
 			<template slot="footer">
 				<Button
@@ -40,7 +44,7 @@
 	import Input from '@oasis-ui/input/src'
 	import Modal from '@oasis-ui/modal/src'
 	import DatePicker from './datePicker'
-	import { dateWrapper } from "utils/date"
+	import { dateWrapper } from 'utils/date'
 
 	const props = {
 		value: {},
@@ -62,49 +66,73 @@
 			type: String,
 			default: 'YYYY-MM-DD'
 		},
+		start: {},
+		end: {},
+		range: Boolean,
 		placeholder: String
 	}
 
 	export default {
 		props,
+
 		name: 'InputDate',
+
 		components: {
 			Modal,
 			Input,
 			DatePicker
 		},
+
 		data () {
 			return {
 				time: dateWrapper().time,
 				showPicker: false
 			}
 		},
+
 		watch: {
 			value: {
 				handler (val) {
-					if (!val && !Number.isInteger(val)) return
-					this.time = dateWrapper(this.value).time
+					const value = dateWrapper(val, this.format)
+					this.time = value.isValid() ? value.time : dateWrapper().time
 				},
 				immediate: true
 			}
 		},
+
 		methods: {
 			onFocus () {
 				this.showPicker = true
 			},
+
 			setTime () {
 				const { time, format } = this
-				this.$emit('input', dateWrapper(time).format(format))
+				const value = dateWrapper(time).format(format)
+				this.$emit('input', value)
+				this.$emit('change', value)
 				this.$nextTick(() => {
 					this.showPicker = false
 				})
 			}
 		},
+
 		computed: {
 			currentTime () {
 				const { value, format } = this
-				if (!value && !Number.isInteger(value)) return ''
-				return dateWrapper(value).format(format)
+				const currentTime = dateWrapper(value, format)
+				return currentTime.isValid() ? currentTime.format(format) : ''
+			},
+
+			startTime () {
+				const { start, format } = this
+				const time = dateWrapper(start, format)
+				return time.isValid().time ? time : null
+			},
+
+			endTime () {
+				const { end, format } = this
+				const time = dateWrapper(end, format)
+				return time.isValid().time ? time : null
 			}
 		}
 	}

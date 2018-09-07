@@ -35,8 +35,13 @@
 	import { dateWrapper } from 'utils/date'
 
 	const props = {
-		value: Number,
-		format: String
+		value: {
+			type: Number
+		},
+		format: {
+			type: String,
+			default: 'HH:mm:ss'
+		}
 	}
 
 	export default {
@@ -54,20 +59,24 @@
 			}
 		},
 
-		mounted () {
-			this.$nextTick(() => {
-				const time = dateWrapper(this.value)
-				this.time = {
-					hour: time.hour,
-					minute: time.minute,
-					second: time.second
-				}
-			})
-		},
-
 		methods: {
 			updateValue () {
-				this.$emit('input', dateWrapper(this.time).time)
+				const {
+					value,
+					time
+				} = this
+				const date = dateWrapper(value)
+				const val = dateWrapper({
+
+					// get function can not be used for
+					// Destructuring assignment
+					year: date.year,
+					month: date.month - 1,
+					date: date.date,
+					...time
+				})
+
+				this.$emit('input', val.time)
 			}
 		},
 
@@ -81,6 +90,23 @@
 					this.updateValue()
 				},
 				deep: true
+			},
+
+			value: {
+				handler (value) {
+					const time = dateWrapper(value)
+					if (time.isValid() && dateWrapper(this.time).time !== time.time) {
+						this.time = {
+							year: time.year,
+							month: time.month - 1,
+							date: time.date,
+							hour: time.hour,
+							minute: time.minute,
+							second: time.second,
+						}
+					}
+				},
+				immediate: true
 			}
 		},
 

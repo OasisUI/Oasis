@@ -6,6 +6,7 @@
 		:size="size"
 		:readonly="readonly"
 		:disabled="disabled"
+		:placeholder="placeholder"
 		html-readonly
 	>
 		<Modal
@@ -96,7 +97,9 @@
 
 			setTime () {
 				const { time, format } = this
-				this.$emit('input', dateWrapper(time).format(format))
+				const value = dateWrapper(time).format(format)
+				this.$emit('input', value)
+				this.$emit('change', value)
 				this.$nextTick(() => {
 					this.showPicker = false
 				})
@@ -108,12 +111,18 @@
 
 			formatValue (value, format) {
 				format = format || this.format
-				return dateWrapper(value, format)
+				const currentTime = dateWrapper(value, format)
+				return currentTime.isValid() ? currentTime : dateWrapper()
 			}
 		},
 		computed: {
 			currentTime () {
-				return this.formatValue(this.value).format(this.format)
+				const {
+					value,
+					format
+				} = this
+				const currentTime = dateWrapper(value, format)
+				return currentTime.isValid() ? currentTime.format(format) : ''
 			}
 		}
 	}

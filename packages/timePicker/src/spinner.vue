@@ -38,7 +38,6 @@
 			updateScrollTop () {
 				if (!this.$el) return
 				const { $el } = this
-				const top = $el.scrollTop
 				const itemHeight = $el.children[0].offsetHeight
 				$el.scrollTop = itemHeight * (this.value)
 			},
@@ -71,7 +70,7 @@
 
 		watch: {
 			value: {
-				handler () {
+				handler (val) {
 					this.updateScrollTop()
 				},
 				immediate: true

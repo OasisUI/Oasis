@@ -7,11 +7,10 @@ export function getWeekDays () {
 
 export function getDaysOfMonth (year, month) {
 	const d = dateWrapper([year, month - 1])
-	return new Array(countDaysOfMonth(year, month) + d.weekDay)
+	return new Array(Math.ceil((countDaysOfMonth(year, month) + d.weekDay) / 7) * 7)
 		.fill(null)
 		.map((day, index) => {
-			day = index - d.weekDay
-			return day >= 0 ? new D([year, month - 1, day + 1]) : {}
+			return dateWrapper([year, month - 1]).add(index - d.weekDay, 'day')
 		})
 }
 
@@ -53,11 +52,11 @@ export class D {
 		this._.month(val - 1)
 	}
 
-	get day () {
+	get date () {
 		return this._.date()
 	}
 
-	set day (val) {
+	set date (val) {
 		this._.date(val)
 	}
 
@@ -107,5 +106,17 @@ export class D {
 
 	format (scheme = '') {
 		return this._.format(scheme)
+	}
+
+	isValid () {
+		return this._.isValid()
+	}
+
+	add (...args) {
+		return new D(this._.add(...args))
+	}
+
+	isBetween (...args) {
+		return this._.isBetween(...args)
 	}
 }

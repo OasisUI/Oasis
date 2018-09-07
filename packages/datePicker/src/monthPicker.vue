@@ -9,7 +9,9 @@
 								month.year === date.year
 			}"
 		>
-			<span>{{month.month}}</span>
+			<span>
+				<label>{{month.month}}</label>
+			</span>
 		</div>
 	</div>
 </template>
@@ -18,25 +20,24 @@
 	import {
 		D,
 		dateWrapper
-	} from '../../../utils/date'
+	} from 'utils/date'
 
 	const props = {
-		value: {
-			validator (val) {
-				return !isNaN(val)
-			}
-		}
+		value: {}
 	}
 
 	export default {
 		name: 'MonthPicker',
+
 		props,
+
 		data () {
 			return {
 				months: [],
 				currentPage: 0
 			}
 		},
+
 		beforeDestroy () {
 			this.$parent.$off('nextPage', this.updatePage)
 		},
@@ -45,6 +46,7 @@
 			this.$parent.$on('updatePage', this.updatePage)
 			this.updateList()
 		},
+
 		methods: {
 			pickMonth (month) {
 				const { date } = this
@@ -55,18 +57,21 @@
 				this.$emit('input', this.date.time)
 				this.$parent.$emit('updateCurrentPage')
 			},
+
 			updateList (year) {
 				year = year || this.date.year
 				this.months = new Array(12).fill(null).map((item, index) => {
-					return new D([year, index + 1])
+					return new D([year, index])
 				})
 			},
+
 			updatePage (n) {
 				this.date.year += n
 				this.$emit('input', this.date.time)
 				this.updateList()
 			}
 		},
+
 		computed: {
 			date () {
 				return dateWrapper(this.value)

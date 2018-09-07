@@ -32,14 +32,14 @@ describe('Modal', () => {
 		const wrapper = shallowMount(Modal)
 		expect(wrapper.isVisible()).toBeTruthy()
 		wrapper.trigger('click')
-		expect(wrapper.isVisible()).toBeFalsy()
+		expect(wrapper.isEmpty()).toBeTruthy()
 	})
 
 	it('click button to close Modal', () => {
 		const wrapper = shallowMount(Modal)
 		expect(wrapper.isVisible()).toBeTruthy()
 		wrapper.find('.o-Modal__close').trigger('click')
-		expect(wrapper.isVisible()).toBeFalsy()
+		expect(wrapper.isEmpty()).toBeTruthy()
 	})
 
 	it('hide close button', () => {
