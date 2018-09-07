@@ -6,6 +6,7 @@
 		:size="size"
 		:readonly="readonly"
 		:disabled="disabled"
+		:placeholder="placeholder"
 		html-readonly
 	>
 		<Modal
@@ -13,16 +14,21 @@
 			slot="suffix"
 			:show-title="false"
 		>
-			<DatePicker
-				v-if="step === 0"
-				ref="picker"
-				v-model="date"
-			></DatePicker>
-			<TimePicker
-				v-else
-				v-model="time"
-				split=":"
-			></TimePicker>
+			<template>
+				<DatePicker
+					v-if="step === 0"
+					ref="picker"
+					:format="format"
+					parse-format="x"
+					v-model="time"
+				></DatePicker>
+				<TimePicker
+					v-else
+					:format="format"
+					parse-format="x"
+					v-model="time"
+				></TimePicker>
+			</template>
 			<template slot="footer">
 				<Button
 					@click="showPicker = false"
@@ -43,19 +49,12 @@
 </template>
 
 <script>
+	import { dateWrapper } from 'utils/date'
 	import DatePicker from '@oasis-ui/datepicker/src/datePicker'
 	import TimePicker from '@oasis-ui/timepicker/src/timePicker'
-	import { getDomSize, formatNumber } from "utils"
-	import { dateWrapper } from "utils/date"
 
 	const props = {
-		value: {
-			type: String,
-			default: ''
-		},
-		options: {
-			type: Array
-		},
+		value: {},
 		disabled: {
 			type: Boolean,
 			default: false
@@ -68,47 +67,59 @@
 			type: String,
 			default: 'md'
 		},
+		format: {
+			type: String,
+			default: 'YYYY/MM/DD HH:mm:ss'
+		},
 		placeholder: String
 	}
 
 	export default {
 		props,
+
 		name: 'InputDateTime',
+
 		data () {
 			return {
 				showPicker: false,
-				date: '',
-				time: '',
+				time: 0,
 				step: 0
 			}
 		},
+
 		methods: {
 			onFocus () {
 				this.step = 0
 				this.showPicker = true
 			},
-			setValue () {
-				this.step++
-				let { date, time } = this
-				date = dateWrapper(date)
 
-				if (this.step >= 2) {
-					const val = `${formatNumber(date.year, 4)}/${formatNumber(date.month, 2)}/${formatNumber(date.day, 2)} ${time}`
-					this.$emit('input', val)
+			setValue () {
+				const {
+					time,
+					format
+				} = this
+				const value = dateWrapper(time).format(format)
+
+				if (this.step) {
+					this.$emit('input', value)
+					this.$emit('change', value)
 					this.showPicker = false
 				}
+				this.step++
 			}
 		},
+
 		watch: {
 			value: {
 				handler (val) {
-					const t = dateWrapper(val)
-					this.date = t.unixTime
-					this.time = `${formatNumber(t.hours, 2)}:${formatNumber(t.minutes, 2)}:${formatNumber(t.seconds, 2)}`
+					const value = dateWrapper(val, this.format)
+
+					this.time = value.isValid() ? value.time : dateWrapper().time
 				},
 				immediate: true
 			}
 		},
+
 		components: {
 			DatePicker,
 			TimePicker

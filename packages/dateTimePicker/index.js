@@ -1,7 +1,6 @@
 import InputDateTime from './src'
 
-export default {
-	install (Vue) {
-		Vue.component(InputDateTime.name, InputDateTime)
-	}
+InputDateTime.install = function (Vue) {
+	Vue.component(InputDateTime.name, InputDateTime)
 }
+export default InputDateTime

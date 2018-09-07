@@ -19,7 +19,8 @@ module.exports = merge(base, {
 			root: 'Vue',
 			commonjs: 'vue',
 			commonjs2: 'vue'
-		}
+		},
+		moment: 'moment'
 	},
 	devtool: '#source-map',
 	resolve: {

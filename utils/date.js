@@ -1,14 +1,17 @@
+import moment from 'moment'
+
 export function getWeekDays () {
 	// TODO: lang
 	return ['日', '一', '二', '三', '四', '五', '六']
 }
 
 export function getDaysOfMonth (year, month) {
-	const d = dateWrapper(new Date(year, month - 1))
-	return new Array(countDaysOfMonth(year, month) + d.weekday).fill(null).map((day, index) => {
-		day = index - d.weekday
-		return day >= 0 ? new D(year, month, day + 1) : {}
-	})
+	const d = dateWrapper([year, month - 1])
+	return new Array(Math.ceil((countDaysOfMonth(year, month) + d.weekDay) / 7) * 7)
+		.fill(null)
+		.map((day, index) => {
+			return dateWrapper([year, month - 1]).add(index - d.weekDay, 'day')
+		})
 }
 
 export function countDaysOfMonth (year, month) {
@@ -23,68 +26,97 @@ export function isLeapYear (year) {
 	return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)
 }
 
-export function dateWrapper (date) {
-	date = date instanceof Date ? date : new Date(date)
-	return new D(
-		date.getFullYear(),
-		date.getMonth() + 1,
-		date.getDate(),
-		date.getHours(),
-		date.getMinutes(),
-		date.getSeconds()
-	)
+export function dateWrapper (...args) {
+	return new D(...args)
 }
 
 export class D {
-	constructor (year, month = 1, day = 1, hour = 0, minute = 0, second = 0) {
-		this._ = new Date(year, month - 1, day, hour, minute, second)
+	constructor (...args) {
+		this._ = moment(...args)
 	}
 
 	get year () {
-		return this._.getFullYear()
+		return this._.year()
 	}
 
 	set year (val) {
-		this._.setFullYear(val)
+		this._.year(val)
 	}
 
 	get month () {
-		return this._.getMonth() + 1
+		return this._.month() + 1
 	}
 
+	// base 1
 	set month (val) {
-		this._.setMonth(val - 1)
+		this._.month(val - 1)
 	}
 
-	get day () {
-		return this._.getDate()
+	get date () {
+		return this._.date()
 	}
 
-	set day (val) {
-		this._.setDate(val)
+	set date (val) {
+		this._.date(val)
 	}
 
-	get hours () {
-		return this._.getHours()
+	get weekDay () {
+		return this._.day()
 	}
 
-	get minutes () {
-		return this._.getMinutes()
+	set weekDay (weekDay) {
+		return this._.day(weekDay)
 	}
 
-	get seconds () {
-		return this._.getSeconds()
+	get hour () {
+		return this._.hour()
+	}
+
+	set hour (val) {
+		this._.hour(val)
+	}
+
+	get minute () {
+		return this._.minute()
+	}
+
+	set minute (val) {
+		return this._.minute(val)
+	}
+
+	get second () {
+		return this._.second()
+	}
+
+	set second (val) {
+		return this._.second(val)
 	}
 
 	get time () {
-		return this._.getTime()
+		return this._.valueOf()
 	}
 
-	get weekday () {
-		return this._.getDay()
+	set time (val) {
+		this._ = moment(val)
 	}
 
 	get unixTime () {
-		return this._.getTime()
+		return this._.unix()
+	}
+
+	format (scheme = '') {
+		return this._.format(scheme)
+	}
+
+	isValid () {
+		return this._.isValid()
+	}
+
+	add (...args) {
+		return new D(this._.add(...args))
+	}
+
+	isBetween (...args) {
+		return this._.isBetween(...args)
 	}
 }

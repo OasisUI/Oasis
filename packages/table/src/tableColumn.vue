@@ -130,6 +130,9 @@
 					get cellWidth () {
 						return _this.cellWidth
 					},
+					get width () {
+						return _this.width
+					},
 					renderHeader (h) {
 						return _this.renderHeader(h)
 					},

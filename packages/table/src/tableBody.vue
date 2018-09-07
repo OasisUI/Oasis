@@ -38,6 +38,8 @@
 								column.fixed === 'right' ? 'o-Table--stickyRight' : ''
 							]}
 							style={column.style}
+							width={column.width}
+							data-prop={column.prop}
 						>
 							{column.renderCell(h, {data, $index})}
 						</td>

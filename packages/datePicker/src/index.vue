@@ -1,11 +1,12 @@
 <template>
 	<Input
-		v-model="_currentTime"
+		:value="currentTime"
 		@focus="onFocus"
 		class="o-InputDate"
 		:size="size"
 		:readonly="readonly"
 		:disabled="disabled"
+		:placeholder="placeholder"
 		html-readonly
 	>
 		<Modal
@@ -16,6 +17,9 @@
 			<DatePicker
 				ref="picker"
 				v-model="time"
+				:start="startTime"
+				:end="endTime"
+				:range="range"
 			></DatePicker>
 			<template slot="footer">
 				<Button
@@ -40,8 +44,7 @@
 	import Input from '@oasis-ui/input/src'
 	import Modal from '@oasis-ui/modal/src'
 	import DatePicker from './datePicker'
-	import { getDomSize, formatNumber } from "utils"
-	import { dateWrapper } from "utils/date"
+	import { dateWrapper } from 'utils/date'
 
 	const props = {
 		value: {},
@@ -59,55 +62,78 @@
 		size: {
 			type: String
 		},
+		format: {
+			type: String,
+			default: 'YYYY-MM-DD'
+		},
+		start: {},
+		end: {},
+		range: Boolean,
 		placeholder: String
 	}
 
 	export default {
 		props,
+
 		name: 'InputDate',
+
 		components: {
 			Modal,
 			Input,
 			DatePicker
 		},
+
 		data () {
 			return {
-				currentTime: 0,
-				time: 0,
+				time: dateWrapper().time,
 				showPicker: false
 			}
 		},
+
 		watch: {
 			value: {
 				handler (val) {
-					val = new Date(val).getTime()
-					this.currentTime = val || 0
-					this.time = val
+					const value = dateWrapper(val, this.format)
+					this.time = value.isValid() ? value.time : dateWrapper().time
 				},
 				immediate: true
 			}
 		},
+
 		methods: {
 			onFocus () {
 				this.showPicker = true
 			},
+
 			setTime () {
-				this.currentTime = this.time
-				this.$emit('input', this._currentTime)
-				this.showPicker = false
+				const { time, format } = this
+				const value = dateWrapper(time).format(format)
+				this.$emit('input', value)
+				this.$emit('change', value)
+				this.$nextTick(() => {
+					this.showPicker = false
+				})
 			}
 		},
-		computed: {
-			_currentTime: {
-				get () {
-					const date = dateWrapper(this.currentTime)
-					return `${formatNumber(date.year, 4)}/${formatNumber(date.month, 2)}/${formatNumber(date.day, 2)}`
-				},
-				set (val) {
-					this.currentTime = val
-				}
-			}
 
+		computed: {
+			currentTime () {
+				const { value, format } = this
+				const currentTime = dateWrapper(value, format)
+				return currentTime.isValid() ? currentTime.format(format) : ''
+			},
+
+			startTime () {
+				const { start, format } = this
+				const time = dateWrapper(start, format)
+				return time.isValid().time ? time : null
+			},
+
+			endTime () {
+				const { end, format } = this
+				const time = dateWrapper(end, format)
+				return time.isValid().time ? time : null
+			}
 		}
 	}
 </script>

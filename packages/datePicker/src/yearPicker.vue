@@ -8,7 +8,9 @@
 				'is-selected': year.year === date.year
 			}"
 		>
-			<span>{{year.year}}</span>
+			<span>
+				<label>{{year.year}}</label>
+			</span>
 		</div>
 	</div>
 </template>
@@ -17,19 +19,17 @@
 	import {
 		D,
 		dateWrapper
-	} from "../../../utils/date"
+	} from 'utils/date'
 
 	const props = {
-		value: {
-			validator (val) {
-				return !isNaN(val)
-			}
-		}
+		value: {}
 	}
 
 	export default {
 		name: 'YearPicker',
+
 		props,
+
 		data () {
 			return {
 				years: [],
@@ -37,35 +37,42 @@
 				currentPage: 0
 			}
 		},
+
 		beforeDestroy () {
 			this.$parent.$off('updatePage', this.updatePage)
 		},
+
 		mounted () {
 			this.$parent.$on('updatePage', this.updatePage)
 			this.updateList()
 		},
+
 		methods: {
 			pickYear (year) {
 				this.date.year = year.year
 				this.$emit('input', this.date.time)
 				this.$parent.$emit('updateCurrentPage')
 			},
+
 			updateList (year) {
 				const { listLength } = this
 				year = year || this.date.year
 				this.years = new Array(listLength).fill(null).map((item, index) => {
-					return new D(year + index - listLength / 2)
+					return new D([year + index - listLength / 2])
 				})
 			},
+
 			updatePage (n) {
 				this.currentPage += n
 			}
 		},
+
 		computed: {
 			date () {
 				return dateWrapper(this.value)
 			}
 		},
+
 		watch: {
 			currentPage: {
 				handler (val) {

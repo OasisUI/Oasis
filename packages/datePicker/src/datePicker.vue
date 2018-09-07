@@ -1,6 +1,5 @@
 <template>
 	<div class="o-DatePicker">
-		<!--<p>{{`${dateWrapper(date).year}/${dateWrapper(date).month}/${dateWrapper(date).day}`}}</p>-->
 		<div class="o-DatePicker__actions">
 			<button
 				type="button"
@@ -34,37 +33,45 @@
 			</button>
 		</div>
 		<YearPicker
-			v-model="currentPage"
 			v-if="status === 'year'"
+			v-model="currentPage"
 		></YearPicker>
 		<MonthPicker
-			v-model="currentPage"
 			v-if="status === 'month'"
+			v-model="currentPage"
 		></MonthPicker>
 		<DayPicker
+			v-if="status === 'day'"
 			v-model="date"
 			:current-page="currentPage"
-			v-if="status === 'day'"
+			:min="min"
+			:max="max"
+			:start="start"
+			:end="end"
 		></DayPicker>
 	</div>
 </template>
 
 <script>
+	import {
+		dateWrapper
+	} from 'utils/date'
+	import DayPicker from './dayPicker'
 	import YearPicker from './yearPicker'
 	import MonthPicker from './monthPicker'
-	import DayPicker from './dayPicker'
-	import {
-		D,
-		dateWrapper
-	} from "../../../utils/date";
 
 	const props = {
-		value: {
-			validator (val) {
-				return !isNaN(val)
-			}
-		}
+		value: Number,
+
+		// Optional range
+		min: Number,
+		max: Number,
+
+		// Selected range
+		start: Number,
+		end: Number,
 	}
+
 	export default {
 		name: 'DatePicker',
 		props,
@@ -85,14 +92,13 @@
 				this.status = 'day'
 			})
 			const currentPage = dateWrapper(this.value)
-			this.currentPage = new D(currentPage.year, currentPage.month).time
+			this.currentPage = dateWrapper([currentPage.year, currentPage.month - 1]).time
 		},
+
 		methods: {
-			dateWrapper: dateWrapper,
-			setTime () {
-				this.$emit('input', this.currentPage)
-			}
+			dateWrapper: dateWrapper
 		},
+
 		computed: {
 			date: {
 				set (val) {
@@ -103,13 +109,7 @@
 				}
 			}
 		},
-		// watch: {
-		// 	currentPage: {
-		// 		handler (val) {
-		// 			this.setTime()
-		// 		}
-		// 	}
-		// },
+
 		components: {
 			[YearPicker.name]: YearPicker,
 			[MonthPicker.name]: MonthPicker,

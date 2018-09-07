@@ -1,0 +1,15 @@
+@component DateRangePicker {
+	text-align: center;
+	color: var(--fontColor-default);
+
+	& .o-DatePicker,
+	& .o-TimePicker {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	@d currentValue {
+
+		color: var(--fontColor-default);
+	}
+}

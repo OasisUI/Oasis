@@ -13,7 +13,7 @@
 	cursor: pointer;
 
 	& * {
-		transition: all ease 0.34s;
+		transition: all 0.34s ease 0s;
 	}
 
 	& ::selection {
@@ -23,14 +23,38 @@
 	& .o-YearPicker__year,
 	& .o-MonthPicker__month,
 	& .o-DayPicker__day {
-		padding: calc((var(--DatePicker-dayHeight) - var(--Button-md-height)) / 2);
+
+		/*padding: calc((var(--DatePicker-dayHeight) - var(--Button-md-height)) / 2);*/
 
 		& span {
+			position: relative;
 			display: inline-block;
 			height: var(--Button-md-height);
 			width: 100%;
 			line-height: var(--Button-md-height);
 			border-radius: calc(var(--DatePicker-dayHeight) / 2);
+
+			& label {
+				pointer-events: none;
+				z-index: 1;
+				position: relative;
+				transition: none;
+			}
+
+			&:after {
+				transform: scale(0.66);
+				opacity: 0;
+				z-index: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				content: "";
+				width: 100%;
+				height: 100%;
+				border-radius: calc(var(--DatePicker-dayHeight) / 2);
+				background: var(--color-primary) !important;
+				transition: all linear 0.12s;
+			}
 		}
 
 		&:hover:not(.is-disabled, .is-selected) span {
@@ -40,9 +64,13 @@
 	}
 
 	& .is-selected span {
+		position: relative;
 		color: white;
-		border-radius: calc(var(--DatePicker-dayHeight) / 2);
-		background: var(--color-primary) !important;
+
+		&:after {
+			transform: scale(1);
+			opacity: 1;
+		}
 	}
 
 	& .is-currentEdit {
@@ -120,14 +148,36 @@
 
 	@d day {
 		cursor: pointer;
+
+		&.is-disabled {
+			pointer-events: none;
+			color: var(--color-gray-2);
+		}
+
+		&.is-inbounds {
+			&:first-of-type span {
+				border-top-left-radius: calc(var(--DatePicker-dayHeight) / 2);
+				border-bottom-left-radius: calc(var(--DatePicker-dayHeight) / 2);
+			}
+
+			&:last-of-type span {
+				border-top-right-radius: calc(var(--DatePicker-dayHeight) / 2);
+				border-bottom-right-radius: calc(var(--DatePicker-dayHeight) / 2);
+			}
+
+			span {
+				border-radius: 0;
+				background: var(--color-gray-3);
+			}
+		}
 	}
 
 	& .o-DayPicker__weekDay,
-
 	& .o-DayPicker__day {
 		display: inline-block;
 		width: var(--DatePicker-dayWidth);
 		height: var(--DatePicker-dayHeight);
+		line-height: var(--DatePicker-dayHeight);
 		text-align: center;
 		vertical-align: middle;
 		font-size: 16px;
