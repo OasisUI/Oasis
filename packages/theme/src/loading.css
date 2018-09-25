@@ -1,18 +1,50 @@
 @c Loading {
 	position: absolute;
-	z-index: var(--zIndex-tooltip);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	background: var(--Loading-bg);
 
-	@d spin {
-		width: var(--Loading-spin-width);
-		height: var(--Loading-spin-height);
+	@when global {
+		position: fixed;
+		z-index: var(--zIndex-tooltip);
+	}
 
-		& svg {
-			animation: loading-rotate 1.2s linear infinite;
+	@d inner {
+		position: relative;
+		background: var(--color-primary-light);
+
+		&,
+		&::before,
+		&::after {
+			display: block;
+			border-radius: 50%;
+			width: var(--Loading-inner-width);
+			height: var(--Loading-inner-height);
+		}
+
+		&::before,
+		&::after {
+			position: absolute;
+			top: 0;
+			content: "";
+			animation-timing-function: cubic-bezier(0.18, 0.46, 0.55, 0.95) !important;
+		}
+
+		&::before {
+			right: 100%;
+			background: var(--color-warning-light);
+			animation: loading-left 0.7s 0s infinite alternate;
+		}
+
+		&::after {
+			left: 100%;
+			background: var(--color-danger-light);
+			animation: loading-right 0.7s 0s infinite alternate-reverse;
 		}
 	}
 }

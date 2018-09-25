@@ -27,3 +27,23 @@
 }
 
 @keyframes message-enter {}
+
+@keyframes loading-left {
+	0%, 50% {
+		transform: translateX(0) scale(0.9);
+	}
+
+	100% {
+		transform: translateX(calc(-1 * 20px)) scale(0.8);
+	}
+}
+
+@keyframes loading-right {
+	0%, 50% {
+		transform: translateX(0) scale(0.9);
+	}
+
+	100% {
+		transform: translateX(calc(1 * 20px)) scale(0.8);
+	}
+}

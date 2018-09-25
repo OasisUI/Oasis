@@ -86,3 +86,14 @@
 .o-Btn__loading-leave-to {
 	opacity: 0;
 }
+
+/*loading component*/
+.o-Loading-enter-active,
+.o-Loading-leave-active {
+	transition: all ease-in-out 0.26s;
+}
+
+.o-Loading-enter,
+.o-Loading-leave-to {
+	opacity: 0;
+}
