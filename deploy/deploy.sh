@@ -29,6 +29,7 @@ cd ..
 git clone -b gh-pages https://$CI_TOKEN@github.com/OasisUI/Oasis.git
 
 cp -rf web/docs/* ./Oasis
+cp icon/favicon.png ./Oasis
 cd Oasis
 
 echo 'www.oasisui.org' > CNAME

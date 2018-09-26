@@ -11,12 +11,45 @@
 			style="position: relative;"
 		></Rahmen>
 	:::
+
+
+	## 全局调用
+
+	:::html
+		<Button
+			type="primary"
+			@click="showLoadingMsg"
+		>showLoadingMsg</Button>
+	:::
+
+	```javascript
+		methods: {
+			showLoadingMsg () {
+				this.$loading(true)
+
+				setTimeout(() => {
+					this.$loading(false)
+				}, 2000)
+			}
+		}
+	```
+
 </template>
 
 <script>
 	export default {
 		data () {
 			return {
+				loadingStatus: false
+			}
+		},
+		methods: {
+			showLoadingMsg () {
+				this.$loading(true)
+
+				setTimeout(() => {
+					this.$loading(false)
+				}, 2000)
 			}
 		}
 	}

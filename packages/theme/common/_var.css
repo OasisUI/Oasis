@@ -41,7 +41,7 @@
 
 	/* components */
 
-	/*table*/
+	/* table */
 	--Table-cell-paddingLeftRight: 1rem;
 	--Table-cell-paddingTopBottom: 1rem;
 	--Table-cell-padding: var(--Table-cell-paddingTopBottom) var(--Table-cell-paddingLeftRight);
@@ -54,9 +54,9 @@
 	--FormItem-errMsg-height: 18px;
 
 	/*loading*/
-	--Loading-bg: rgba(224,224,224,0.54);
-	--Loading-spin-width: 42px;
-	--Loading-spin-height: 42px;
+	--Loading-bg: rgba(244, 244, 244, 0.84);
+	--Loading-inner-width: 14px;
+	--Loading-inner-height: var(--Loading-inner-width);
 
 	/*button*/
 	--Button-sm-height: 28px;

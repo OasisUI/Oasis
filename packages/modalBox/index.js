@@ -30,7 +30,6 @@ export default {
 							},
 							onClose: (e) => {
 								setTimeout(() => {
-									document.body.removeChild(instance.$el)
 									instance.$destroy()
 								}, 400)
 								if (instance.__confirmed__) return

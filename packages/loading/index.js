@@ -1,33 +1,41 @@
 import Vue from 'vue'
 import Loading from './src'
 
-const L = Vue.extend(Loading)
+const LoadingClass = Vue.extend(Loading)
 
-export default {
-	install (Vue) {
-		Vue.component(Loading.name, Loading)
-		Vue.directive('loading', {
-			bind (el, binding, vnode) {
-				const loading = new L({
-					el: document.createElement('div')
-				})
-				el.__loading = loading
-				display(loading.$el, binding.value)
-				el.append(loading.$el)
-			},
-			update (el, binding) {
-				if (binding.value !== binding.oldValue) {
-					display(el.__loading.$el, binding.value)
+Loading.install = function (Vue) {
+	Vue.component(Loading.name, Loading)
+
+	Vue.prototype.$loading = function (visiable) {
+		if (Vue.prototype.$loadingInstance === void (0)) {
+			Vue.prototype.$loadingInstance = new LoadingClass({
+				el: document.createElement('div'),
+				propsData: {
+					global: true
 				}
-			}
-		})
+			})
+		}
+		if (Vue.$isServer) return
+		document.body.appendChild(Vue.prototype.$loadingInstance.$el)
+		Vue.prototype.$loadingInstance.loading(visiable)
+	}
 
-		function display ($el, visiable) {
-			if (visiable === true) {
-				$el.style.display = 'block'
-			} else {
-				$el.style.display = 'none'
+	Vue.directive('loading', {
+		bind (el, binding, vnode) {
+			const loading = new LoadingClass({
+				el: document.createElement('div')
+			})
+			el.__loading = loading
+			loading.loading(binding.value)
+			el.append(loading.$el)
+		},
+
+		update (el, binding) {
+			if (binding.value !== binding.oldValue) {
+				el.__loading.loading(binding.value)
 			}
 		}
-	}
+	})
 }
+
+export default Loading
