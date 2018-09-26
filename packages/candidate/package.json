@@ -1,6 +1,6 @@
 {
   "name": "@oasis-ui/candidate",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@oasis-ui/button": "^0.0.10",
-    "@oasis-ui/input": "^0.0.12",
-    "@oasis-ui/popup": "^0.0.10"
+    "@oasis-ui/button": "^0.1.0",
+    "@oasis-ui/input": "^0.1.0",
+    "@oasis-ui/popup": "^0.1.0"
   }
 }

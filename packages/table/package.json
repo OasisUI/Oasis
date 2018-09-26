@@ -1,6 +1,6 @@
 {
   "name": "@oasis-ui/table",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@oasis-ui/checkbox": "^0.0.10",
-    "@oasis-ui/scrollbox": "^0.0.11"
+    "@oasis-ui/checkbox": "^0.1.0",
+    "@oasis-ui/scrollbox": "^0.1.0"
   }
 }
