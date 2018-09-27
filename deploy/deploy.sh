@@ -8,7 +8,7 @@ git clone -b master https://$CI_TOKEN@github.com/OasisUI/Oasis.git web
 cd web
 
 pwd
-./tableColumn
+
 VERSION=$(node -p "require('./packages/oasis/package.json').version")
 
 if [ -z "$VERSION" ]
