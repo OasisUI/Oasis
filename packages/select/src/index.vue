@@ -73,7 +73,7 @@
 						<ul
 							ref='list'
 							onClick={this.setValue}
-							class='o-Input__options'
+							class='o-Select__options'
 						>
 							{options.map(option => {
 								return (<li class={option.selected ? 'is-selected' : ''}>

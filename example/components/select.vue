@@ -11,7 +11,7 @@
 			@input="onInput"
 			@change="onChange"
 			@select="onSelect"
-			:options="['Alice', 'Bob', 'Dylan']"
+			:options="['AliceAliceAliceAliceAliceAlice', 'Bob', 'Dylan']"
 		></Select>
 	:::
 
