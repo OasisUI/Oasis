@@ -10,7 +10,8 @@ module.exports = {
 		alias: {
 			utils: path.resolve(__dirname, '../utils'),
 			// vue: 'vue'
-			vue: 'vue/dist/vue.esm.js'
+			vue: 'vue/dist/vue.esm.js',
+			'@': path.resolve(__dirname, '../packages')
 		}
 	},
 	module: {

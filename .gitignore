@@ -5,3 +5,5 @@
 package-lock.json
 /docs
 /web
+/coverage
+.nyc_output

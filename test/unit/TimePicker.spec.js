@@ -13,7 +13,7 @@ describe('TimePicker', () => {
 	})
 
 	it('focus', () => {
-		jest.useFakeTimers()
+
 		const wrapper = renderTimePicker({
 			data: {
 				time: '12:13:14',
@@ -32,11 +32,11 @@ describe('TimePicker', () => {
 			expect($selected[2].innerHTML).toEqual('14')
 			destroyInstance(wrapper)
 		}, 10)
-		jest.runTimersToTime()
+
 	})
 
 	it('input', () => {
-		jest.useFakeTimers()
+
 		const wrapper = renderTimePicker({
 			data: {
 				time: '01:00:00',
@@ -64,7 +64,7 @@ describe('TimePicker', () => {
 			}, 10)
 		}, 10)
 
-		jest.runTimersToTime()
+
 	})
 
 })

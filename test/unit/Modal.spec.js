@@ -63,11 +63,11 @@ describe('Modal', () => {
 		}).catch(err => {
 			result = false
 		})
-		document.body.querySelector('.o-Modal.is-danger .o-ModalBox__confirmBtn').click()
+		document.body.querySelector('.o-ModalBox__alert.is-danger .o-ModalBox__confirmBtn').click()
 		expect(result).toBe('result')
 		setTimeout(() => {
 			expect(result).toBe(true)
-			document.body.removeChild(document.body.querySelector('.o-Modal'))
+			document.body.removeChild(document.body.querySelector('.o-ModalBox__alert'))
 			done()
 		}, 10)
 	})
@@ -83,17 +83,17 @@ describe('Modal', () => {
 		}).catch(err => {
 			result = false
 		})
-		document.body.querySelector('.o-Modal .o-ModalBox__confirmBtn').click()
+		document.body.querySelector('.o-ModalBox__confirm .o-ModalBox__confirmBtn').click()
 		expect(result).toBe('result')
 		setTimeout(() => {
 			expect(result).toBe(true)
-			document.body.removeChild(document.body.querySelector('.o-Modal'))
+			document.body.removeChild(document.body.querySelector('.o-ModalBox__confirm'))
 			done()
 		}, 10)
 	})
 
 	it('prompt', () => {
-		jest.useFakeTimers()
+
 		let result = 'result'
 		localVue.prototype.$prompt({
 			title: 'title',
@@ -108,9 +108,10 @@ describe('Modal', () => {
 		$input.dispatchEvent(new Event('input'))
 		expect(result).toBe('result')
 		setTimeout(() => {
-			document.body.querySelector('.o-Modal .o-ModalBox__confirmBtn').click()
+			document.body.querySelector('.o-ModalBox__prompt .o-ModalBox__confirmBtn').click()
 			expect(result).toEqual('result')
+			document.body.removeChild(document.body.querySelector('.o-ModalBox__prompt'))
 		}, 10)
-		jest.runAllTimers()
+
 	})
 })

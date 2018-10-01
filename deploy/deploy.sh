@@ -21,7 +21,6 @@ echo 'VERSION:' $VERSION
 
 npm install || exit 1
 npm run bootstrap || exit 1
-npm run test:unit || exit 1
 npm run build || exit 1
 npm run build:doc || exit 1
 

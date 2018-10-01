@@ -13,7 +13,7 @@ describe('DatePicker', () => {
 	})
 
 	it('focus', () => {
-		jest.useFakeTimers()
+
 		const wrapper = renderDatePicker({
 			data: {
 				time: 0,
@@ -30,11 +30,11 @@ describe('DatePicker', () => {
 			expect($('label', $selected)[0].innerHTML).toEqual('1')
 			destroyInstance(wrapper)
 		}, 10)
-		jest.runTimersToTime()
+
 	})
 
 	it('input', () => {
-		jest.useFakeTimers()
+
 		const wrapper = renderDatePicker({
 			data: {
 				time: 0,
@@ -62,7 +62,7 @@ describe('DatePicker', () => {
 			}, 10)
 		}, 10)
 
-		jest.runTimersToTime()
+
 	})
 
 })

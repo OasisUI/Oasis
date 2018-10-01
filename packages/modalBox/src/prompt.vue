@@ -4,7 +4,7 @@
 		@close="handleClose"
 		:show-close-btn="showCloseBtn"
 		:show-title="showTitle"
-		class="o-ModalBox o-ModalBox__confirm"
+		class="o-ModalBox o-ModalBox__prompt"
 	>
 		<template
 			slot="header"

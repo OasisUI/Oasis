@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import { wrap } from 'module';
-const Oasis = require('../packages/oasis/index.js')		// TODO: import Oasis from '../packages/oasis'
+import Oasis from '@/oasis/index.js'
 
-Vue.use(Oasis.default)
+Vue.use(Oasis)
+Vue.component('transition', {
+	template: '<div><slot></slot></div>'
+})
 
 export function createInstance (co) {
 	return new Vue(co).$mount(createEl())

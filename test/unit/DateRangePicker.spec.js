@@ -13,7 +13,7 @@ describe('DateRangePicker', () => {
 	})
 
 	it('input', () => {
-		jest.useFakeTimers()
+
 		const wrapper = renderDateRangePicker({
 			date: {
 				time: ['2018-12-12', '2018-12-22'],
@@ -40,11 +40,11 @@ describe('DateRangePicker', () => {
 			}, 10)
 		}, 10)
 
-		jest.runTimersToTime()
+
 	})
 
 	it('Select range', () => {
-		jest.useFakeTimers()
+
 		const wrapper = renderDateRangePicker({
 			date: {
 				time: ['2018-12-12', '2018-12-22'],
@@ -67,7 +67,7 @@ describe('DateRangePicker', () => {
 			}, 10)
 		}, 10)
 
-		jest.runTimersToTime()
+
 	})
 })
 

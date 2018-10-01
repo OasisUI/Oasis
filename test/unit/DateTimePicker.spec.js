@@ -14,7 +14,7 @@ describe('DateTimePicker', () => {
 	})
 
 	it('input', () => {
-		jest.useFakeTimers()
+
 		const wrapper = renderDateTimePicker({
 			date: {
 				time: '2018/12/12 12:13:14',
@@ -56,7 +56,7 @@ describe('DateTimePicker', () => {
 			}, 10)
 		}, 10)
 
-		jest.runTimersToTime()
+
 	})
 })
 
