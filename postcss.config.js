@@ -27,7 +27,7 @@ module.exports = {
 			cascade: false
 		}),
 		require('postcss-reporter')({ clearReportedMessages: true }),
-		process.env.ENV === 'prod' ? require('cssnano')(
+		process.env.NODE_ENV === 'prod' ? require('cssnano')(
 			{
 				discardComments: {
 					removeAll: true

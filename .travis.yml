@@ -7,6 +7,6 @@ node_js:
 
 script:
 - npm run bootstrap
-- npm run test
+- npm run test:coverage
 - npm run test:report
 - sh deploy/deploy.sh

@@ -8,11 +8,12 @@
 		"build:prod": "gulp build:prod",
 		"build:doc": "gulp build:doc",
 		"build:theme": "gulp build:theme",
-		"build": "cross-env ENV=prod gulp build",
+		"build": "cross-env NODE_ENV=prod gulp build",
 		"publish": "npm run build && lerna publish",
 		"test:unit": "jest",
-		"test": "cross-env NODE_ENV=test nyc mocha-webpack --webpack-config ./build/webpack.dev.js --require test/setup.js test/**/*.spec.js",
-		"test:report": "nyc report --reporter=text-lcov && codecov"
+		"test": "cross-env NODE_ENV=test mocha-webpack --webpack-config ./build/webpack.dev.js --require test/setup.js test/**/*.spec.js",
+		"test:coverage": "cross-env NODE_ENV=test nyc mocha-webpack --webpack-config ./build/webpack.dev.js --require test/setup.js test/**/*.spec.js",
+		"test:report": "nyc report && codecov"
 	},
 	"devDependencies": {
 		"@vue/test-utils": "^1.0.0-beta.25",
@@ -34,7 +35,6 @@
 		"babel-preset-es2015": "^6.24.1",
 		"babel-preset-stage-2": "^6.24.1",
 		"babel-preset-stage-3": "^6.24.1",
-		"chai": "^4.1.2",
 		"codecov": "3.1.0",
 		"cross-env": "^5.1.5",
 		"css-loader": "^0.28.8",
@@ -55,7 +55,6 @@
 		"gulp-util": "^3.0.8",
 		"gulp-watch": "^5.0.0",
 		"html-webpack-plugin": "^2.30.1",
-		"istanbul": "^0.4.5",
 		"jest": "^23.1.0",
 		"jest-serializer-vue": "^2.0.2",
 		"jsdom": "^11.12.0",
@@ -82,7 +81,7 @@
 		"uglifyjs-webpack-plugin": "^1.2.5",
 		"url-loader": "^0.6.2",
 		"vue-jest": "^2.6.0",
-		"vue-loader": "^13.7.0",
+		"vue-loader": "^15.4.2",
 		"vue-router": "^3.0.1",
 		"vue-template-compiler": "^2.5.17",
 		"vue2-doc-loader": "0.0.5",
@@ -91,7 +90,7 @@
 		"webpack-merge": "^4.1.1"
 	},
 	"dependencies": {
-		"dayjs": "^1.7.5",
+		"moment": "^2.22.2",
 		"vue": "^2.5.17"
 	},
 	"jest": {
@@ -113,8 +112,22 @@
 		},
 		"snapshotSerializers": [
 			"<rootDir>/node_modules/jest-serializer-vue"
+		]
+	},
+	"nyc": {
+		"report-dir": "./coverage",
+		"reporter": [
+			"lcov",
+			"text-summary"
 		],
-		"coverageDirectory": "./coverage",
-		"collectCoverage": true
+		"include": [
+			"packages"
+		],
+		"watermarks": {
+			"lines": [70, 90],
+			"functions": [70, 90],
+			"branches": [70, 90],
+			"statements": [70, 90]
+		}
 	}
 }
