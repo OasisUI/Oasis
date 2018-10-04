@@ -26,8 +26,7 @@ module.exports = {
 				use: [
 					{ loader: 'style-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } },
 					{ loader: 'css-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } },
-					{ loader: 'postcss-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } },
-					{ loader: 'sass-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } }
+					{ loader: 'postcss-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } }
 				],
 				exclude: /node_modules/
 			},
