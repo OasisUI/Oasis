@@ -22,7 +22,7 @@
 				:style="{
 					backgroundColor: _bg
 				}"
-			>{{name[0]}}</span>
+			>{{computedName}}</span>
 		</div>
 		<div
 			v-if="$slots.default"
@@ -45,6 +45,10 @@
 			type: String,
 			default: ''
 		},
+		defaultName: {
+			type: String,
+			default: ''
+		},
 		src: {
 			type: String,
 			default: ''
@@ -59,7 +63,9 @@
 		}
 	}
 
-	let avatarColors = ['#B390DF', '#DF9090', '#64B3DD', '#74BE7F', '#E9BA5F']
+	let avatarColors = ['#F9C872', '#A882AE', '#74AC9C', '#396483', '#E17474', '#8AA1C3', '#82C8D2', '#F3D9C3', '#4F98A1', '#F999C5']
+
+	// ['#B390DF', '#DF9090', '#64B3DD', '#74BE7F', '#E9BA5F']
 	let minorAavatarColors = []
 
 	export default {
@@ -72,6 +78,13 @@
 
 		},
 		computed: {
+			computedName () {
+				const {
+					name,
+					defaultName
+				} = this
+				return (name || defaultName).slice(0, 2)
+			},
 			group () {
 				return this.$parent
 			},

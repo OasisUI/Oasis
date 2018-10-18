@@ -33,4 +33,14 @@ describe('Avatar', () => {
 		})
 		expect(wrapper.vm.name).toEqual('name')
 	})
+
+	it('invalid name', () => {
+		const wrapper = mount(Avatar, {
+			propsData: {
+				name: null,
+				defaultName: 'default'
+			},
+		})
+		expect(wrapper.find('.o-Avatar__name').text()).toEqual('de')
+	})
 })

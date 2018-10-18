@@ -32,7 +32,7 @@
 	--color-gray-6: #FDFDFD;
 
 	/* font */
-	--fontColor-default: #333333;
+	--fontColor-default: #35393B;
 	--fontSize-default: var(--fontSize-14);
 	--fontSize-12: 12px;
 	--fontSize-14: 14px;
@@ -147,10 +147,10 @@
 
 	/* avatar */
 	--Avatar-color: #FFFFFF;
-	--Avatar-sm-width: 28px;
-	--Avatar-sm-fontSize: 16px;
+	--Avatar-sm-width: 32px;
+	--Avatar-sm-fontSize: 12px;
 	--Avatar-md-width: 40px;
-	--Avatar-md-fontSize: 18px;
+	--Avatar-md-fontSize: 14px;
 	--Avatar-lg-width: 52px;
 	--Avatar-lg-fontSize: 22px;
 

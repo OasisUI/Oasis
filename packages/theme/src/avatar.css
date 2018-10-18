@@ -62,6 +62,7 @@
 	@d addon {
 		height: 100%;
 		margin-left: 1rem;
+		font-weight: bold;
 	}
 }
 

@@ -10,7 +10,6 @@
 		"build:theme": "gulp build:theme",
 		"build": "cross-env NODE_ENV=prod gulp build",
 		"publish": "npm run build && lerna publish",
-		"test:unit": "jest",
 		"test": "cross-env NODE_ENV=test mocha-webpack --webpack-config ./build/webpack.dev.js --require test/setup.js test/**/*.spec.js",
 		"test:coverage": "cross-env NODE_ENV=test nyc mocha-webpack --webpack-config ./build/webpack.dev.js --require test/setup.js test/**/*.spec.js",
 		"test:report": "nyc report && codecov"
@@ -22,7 +21,6 @@
 		"babel-core": "^6.26.0",
 		"babel-eslint": "^8.2.2",
 		"babel-helper-vue-jsx-merge-props": "^2.0.3",
-		"babel-jest": "^23.0.1",
 		"babel-loader": "^7.1.2",
 		"babel-plugin-istanbul": "^4.1.6",
 		"babel-plugin-jsx-v-model": "^2.0.3",
@@ -55,8 +53,6 @@
 		"gulp-util": "^3.0.8",
 		"gulp-watch": "^5.0.0",
 		"html-webpack-plugin": "^2.30.1",
-		"jest": "^23.1.0",
-		"jest-serializer-vue": "^2.0.2",
 		"jsdom": "^11.12.0",
 		"jsdom-global": "^3.0.2",
 		"lerna": "^2.9.0",
@@ -80,7 +76,6 @@
 		"stylelint-selector-bem-pattern": "^2.0.0",
 		"uglifyjs-webpack-plugin": "^1.2.5",
 		"url-loader": "^0.6.2",
-		"vue-jest": "^2.6.0",
 		"vue-loader": "^15.4.2",
 		"vue-router": "^3.0.1",
 		"vue-template-compiler": "^2.5.17",
@@ -93,27 +88,6 @@
 		"moment": "^2.22.2",
 		"vue": "^2.5.17"
 	},
-	"jest": {
-		"testEnvironment": "jsdom",
-		"testMatch": [
-			"<rootDir>/test/unit/**/?(*.)+(spec|test).js"
-		],
-		"moduleFileExtensions": [
-			"js",
-			"vue"
-		],
-		"transform": {
-			".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
-			"^.+\\.js$": "<rootDir>/node_modules/babel-jest"
-		},
-		"moduleNameMapper": {
-			"^@/(.*)$": "<rootDir>/packages/$1",
-			"^utils(/?.*)$": "<rootDir>/utils/$1"
-		},
-		"snapshotSerializers": [
-			"<rootDir>/node_modules/jest-serializer-vue"
-		]
-	},
 	"nyc": {
 		"report-dir": "./coverage",
 		"reporter": [
@@ -124,10 +98,22 @@
 			"packages"
 		],
 		"watermarks": {
-			"lines": [70, 90],
-			"functions": [70, 90],
-			"branches": [70, 90],
-			"statements": [70, 90]
+			"lines": [
+				70,
+				90
+			],
+			"functions": [
+				70,
+				90
+			],
+			"branches": [
+				70,
+				90
+			],
+			"statements": [
+				70,
+				90
+			]
 		}
 	}
 }
