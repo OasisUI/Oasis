@@ -2,7 +2,7 @@ import Navbar from '@/nav/src/index'
 import SideNav from '@/nav/src/sideNav'
 import NavItem from '@/nav/src/navItem'
 import SubNav from '@/nav/src/subNav'
-import Avatar from '@/avatar'
+
 import {
 	querySelector as $,
 	createInstance,
@@ -65,29 +65,23 @@ describe('Navbar', () => {
 		destroyInstance(wrapper)
 	})
 
-	/**
-	 * TODO
-	 * setTimeout cause Error
-	 */
-	// it('select', (done) => {
-	// 	const wrapper = renderNavbarWrapper()
-	// 	const $el = wrapper.el
-	// 	const $navItem = $('.o-NavItem', $el)[1]
-	//
-	// 	console.log($navItem.classList)
-	//
-	// 	expect($navItem.classList.contains('is-selected')).toBeFalsy()
-	//
-	// 	$navItem.click()
-	//
-	// 	setTimeout(() => {
-	//
-	// 		expect($navItem.classList.contains('is-selected')).toBeTruthy()
-	//
-	// 		destroyInstance(wrapper)
-	// 		done()
-	// 	}, 10)
-	// })
+	it('select', (done) => {
+		const wrapper = renderNavbarWrapper()
+		const $el = wrapper.el
+		const $navItem = $('.o-NavItem', $el)[1]
+
+		expect($navItem.classList.contains('is-selected')).toBeFalsy()
+
+		$navItem.click()
+
+		setTimeout(() => {
+
+			expect($navItem.classList.contains('is-selected')).toBeTruthy()
+
+			destroyInstance(wrapper)
+			done()
+		}, 10)
+	})
 })
 
 function renderSideNavWrapper () {

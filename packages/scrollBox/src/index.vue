@@ -6,25 +6,29 @@
 	>
 		<div
 			ref="scrollBox"
-			class="o-Scroll__box"
+			:style="style"
+			:class="[
+				'o-Scroll__box',
+				scrollX ? 'is-scrollX' : '',
+				scrollY ? 'is-scrollY' : ''
+			]"
 		>
 			<div
 				ref="content"
-				:style="style"
 				class="o-Scroll__content"
 			>
 				<slot></slot>
 			</div>
 		</div>
 		<ScrollBar
-			v-if="hover || isDragging"
+			v-if="(hover || isDragging) && scrollY"
 			v-model="scroll.y"
 			:inner="scrollSize.y"
 			:outer="size.y"
 			type="vertical"
 		></ScrollBar>
 		<ScrollBar
-			v-if="hover || isDragging"
+			v-if="(hover || isDragging) && scrollX"
 			v-model="scroll.x"
 			:inner="scrollSize.x"
 			:outer="size.x"
@@ -43,6 +47,14 @@
 	} from 'utils'
 
 	const props = {
+		scrollX: {
+			type: Boolean,
+			default: true
+		},
+		scrollY: {
+			type: Boolean,
+			default: true
+		},
 		autoHide: {
 			type: Boolean,
 			default: true
@@ -88,11 +100,14 @@
 		},
 		computed: {
 			style () {
-				const width = this.scrollbarWidth
+				const {
+					scrollX,
+					scrollY,
+					scrollbarWidth
+				} = this
 				return {
-					marginRight: `-${width}px`,
-					marginBottom: `-${width * 2}px`,
-					paddingBottom: `${width}px`
+					marginRight: scrollX ? `-${scrollbarWidth}px` : '',
+					marginBottom: scrollY ? `-${scrollbarWidth}px` : ''
 				}
 			},
 			mileX () {

@@ -22,7 +22,7 @@
 	## SideNav
 
 	:::html
-		<SideNav>
+		<SideNav style="height: 300px;">
 			<SubNav>
 				<template slot="title">
 					Group 1

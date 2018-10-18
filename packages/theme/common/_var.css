@@ -137,9 +137,9 @@
 	--Popup-inner-padding: 10px;
 
 	/*scrollBox*/
-	--ScrollBox-scrollbar-width: 8px;
-	--ScrollBox-thumb-bg: #DDDDDD;
-	--ScrollBox-thumb-hover-bg: #8D8D8D;
+	--ScrollBox-scrollbar-width: 5px;
+	--ScrollBox-thumb-bg: rgba(221, 221, 221, 0.6);
+	--ScrollBox-thumb-hover-bg: rgba(141, 141, 141, 0.7);
 
 	/*navbar*/
 	--SideNav-height: 50px;

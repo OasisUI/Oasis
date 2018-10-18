@@ -38,6 +38,7 @@
 	|参数|说明|类型|默认值|
 	|---|---|---|---|
 	|name| 姓名 | `String` | `` |
+	|defaultName| name 的兜底值 | `String` | `` |
 	|src| 头像图片地址 | `String` | ``|
 	|round| 头像形状 | `Boolean` | `true` |
 	|size| 头像大小 | `String` | `md` |
