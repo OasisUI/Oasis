@@ -7,12 +7,18 @@
 	@d box {
 		position: relative;
 		box-sizing: content-box;
-		width: 100%;
 		height: 100%;
-		padding-right: 20px;
-		padding-bottom: 20px;
-		overflow-y: scroll;
+		padding: 0;
 		overflow-x: hidden;
+		overflow-y: hidden;
+
+		&.is-scrollX {
+			overflow-x: scroll;
+		}
+
+		&.is-scrollY {
+			overflow-y: scroll;
+		}
 	}
 
 	@d content {

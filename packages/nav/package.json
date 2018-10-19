@@ -10,5 +10,8 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@oasis-ui/scrollbox": "^0.1.0"
   }
 }

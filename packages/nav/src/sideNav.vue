@@ -1,15 +1,21 @@
 <template>
-	<ul
+	<div
 		:class="[
 			'o-SideNav',
 			fixed ? 'o-SideNav--fixed' : ''
 		]"
 	>
-		<slot></slot>
-	</ul>
+		<Scroll>
+			<ul class="o-SideNav__list">
+				<slot></slot>
+			</ul>
+		</Scroll>
+	</div>
 </template>
 
 <script>
+	import Scroll from '@oasis-ui/scrollbox'
+
 	const props = {
 		fixed: {
 			type: Boolean,
@@ -40,6 +46,9 @@
 				this.selectedItem = navItem
 				this.selectedItem.selected = true
 			}
+		},
+		components: {
+			Scroll
 		}
 	}
 </script>

@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const vueLoaderConfig = require('./vueLoaderConfig')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
 	resolve: {
 		modules: ['node_modules'],
@@ -23,11 +23,14 @@ module.exports = {
 			},
 			{
 				test: /\.css|postcss$/i,
-				use: [
-					{ loader: 'style-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } },
-					{ loader: 'css-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } },
-					{ loader: 'postcss-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } }
-				],
+				use: ExtractTextPlugin.extract({
+					fallback: { loader: 'style-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } },
+					use: [
+
+						{ loader: 'css-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } },
+						{ loader: 'postcss-loader', options: { sourceMap: process.env.NODE_ENV !== 'prod' } }
+					]
+				}),
 				exclude: /node_modules/
 			},
 			{
@@ -71,6 +74,7 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new ExtractTextPlugin('style.css'),
 		new webpack.NoEmitOnErrorsPlugin(),
 		new FriendlyErrorsPlugin(),
 		new VueLoaderPlugin()

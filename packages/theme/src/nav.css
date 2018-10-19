@@ -1,9 +1,9 @@
-.o-SideNav {
+@component SideNav {
 	display: block;
 	overflow: auto;
 	width: 280px;
 	height: auto;
-	padding: 0 var(--SideNav-padding) 0 0;
+	padding: 0;
 	list-style: none;
 	border-right: 1px solid #E1E1E1;
 
@@ -15,7 +15,7 @@
 		background: transparent;
 	}
 
-	&.o-SideNav--fixed {
+	@m fixed {
 		position: fixed;
 		z-index: var(--zIndex-fixed);
 		top: 0;
@@ -23,12 +23,18 @@
 		height: 100%;
 	}
 
-	.o-SubNav {
+	@d list {
+		margin: 0;
+		list-style: none;
+		padding: 0 var(--SideNav-padding) 0 0;
+	}
+
+	& .o-SubNav {
 		overflow: hidden;
 		list-style: none;
 	}
 
-	.o-SubNav.is-open {
+	& .o-SubNav.is-open {
 		& > .o-SubNav__title .o-SubNav__arrow {
 			transform: rotateZ(90deg);
 		}
@@ -38,7 +44,7 @@
 		}
 	}
 
-	.o-SubNav__title {
+	& .o-SubNav__title {
 		position: relative;
 		height: var(--SideNav-height);
 		width: 100%;
@@ -47,7 +53,7 @@
 		cursor: pointer;
 	}
 
-	.o-SubNav__arrow {
+	& .o-SubNav__arrow {
 		display: block;
 		position: absolute;
 		top: 0;
@@ -56,7 +62,7 @@
 		transition: var(--transition-navbar);
 	}
 
-	.o-SubNav__group {
+	& .o-SubNav__group {
 		padding-left: var(--SideNav-padding);
 		transition: var(--transition-navbar);
 
@@ -65,7 +71,7 @@
 		}
 	}
 
-	.o-NavItem {
+	& .o-NavItem {
 		display: block;
 		height: var(--SideNav-height);
 		padding: 0 var(--SideNav-padding);
@@ -75,12 +81,12 @@
 		transition: var(--transition-navbar);
 	}
 
-	.o-NavItem.is-selected {
+	& .o-NavItem.is-selected {
 		color: var(--color-primary);
 		font-weight: 500;
 	}
 
-	.o-NavItem:hover {
+	& .o-NavItem:hover {
 		color: var(--color-primary);
 	}
 }

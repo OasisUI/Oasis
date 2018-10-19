@@ -32,7 +32,7 @@
 	--color-gray-6: #FDFDFD;
 
 	/* font */
-	--fontColor-default: #333333;
+	--fontColor-default: #35393B;
 	--fontSize-default: var(--fontSize-14);
 	--fontSize-12: 12px;
 	--fontSize-14: 14px;
@@ -137,9 +137,9 @@
 	--Popup-inner-padding: 10px;
 
 	/*scrollBox*/
-	--ScrollBox-scrollbar-width: 8px;
-	--ScrollBox-thumb-bg: #DDDDDD;
-	--ScrollBox-thumb-hover-bg: #8D8D8D;
+	--ScrollBox-scrollbar-width: 5px;
+	--ScrollBox-thumb-bg: rgba(221, 221, 221, 0.6);
+	--ScrollBox-thumb-hover-bg: rgba(141, 141, 141, 0.7);
 
 	/*navbar*/
 	--SideNav-height: 50px;
@@ -147,10 +147,10 @@
 
 	/* avatar */
 	--Avatar-color: #FFFFFF;
-	--Avatar-sm-width: 28px;
-	--Avatar-sm-fontSize: 16px;
+	--Avatar-sm-width: 32px;
+	--Avatar-sm-fontSize: 12px;
 	--Avatar-md-width: 40px;
-	--Avatar-md-fontSize: 18px;
+	--Avatar-md-fontSize: 14px;
 	--Avatar-lg-width: 52px;
 	--Avatar-lg-fontSize: 22px;
 
