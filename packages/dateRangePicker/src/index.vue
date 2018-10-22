@@ -1,7 +1,7 @@
 <template>
 	<Input
 		@focus="showPicker = true"
-		:value="value.join(delimiter)"
+		:value="value.join(` ${delimiter} `)"
 		class="o-DateRangePicker"
 		:size="size"
 		:readonly="readonly"

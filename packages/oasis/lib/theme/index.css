@@ -532,10 +532,6 @@ a:visited {
 	margin-bottom: 24px;
 }
 
-.o-FormItem.is-error {
-		margin-bottom: 6px;
-}
-
 .o-FormItem.is-error .o-Input__wrapper {
 	border-color: #F06868 !important;
 }
@@ -578,6 +574,8 @@ a:visited {
 
 .o-FormItem__tip {
 		padding-top: 4px;
+		height: 18px;
+		line-height: 18px;
 		font-size: 12px;
 		color: #888888;
 }
