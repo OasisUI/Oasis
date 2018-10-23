@@ -47,8 +47,8 @@
 					style={labelStyle}
 				>{this.label}</label>
 			) : null
-			const $tip = <div class={['o-FormItem__tip']}>{this.tip}</div>
-			const $errorMsg = this.isError && this.errorMsg ? <div class={['o-FormItem__errMsg']}>{this.errorMsg}</div> : ''
+			const $errorMsg = this.isError && this.errorMsg ? <div class={['o-FormItem__errMsg']}>{this.errorMsg}</div> : null
+			const $tip = (this.tip && $errorMsg === null) ? <div class={['o-FormItem__tip']}>{this.tip}</div> : null
 
 			return <div class={[
 					'o-FormItem clearfix',
@@ -84,11 +84,11 @@
 
 		computed: {
 			_labelWidth () {
-				const { $parent, labelWidth } = this
-				return $parent.inline || $parent.blockLabel ? '' : `${$parent.labelWidth || labelWidth}px`
+				const { $form, labelWidth } = this
+				return ($form && ($form.inline || $form.blockLabel)) ? '' : `${$form.labelWidth || labelWidth}px`
 			},
 
-			$from () {
+			$form () {
 				return getParentComponent(this, 'FormGroup')
 			}
 		}
