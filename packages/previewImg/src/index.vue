@@ -3,7 +3,10 @@
 		v-model="show"
 		class="o-PreviewImg"
 	>
-		<div class="o-PreviewImg__list">
+		<div
+			class="o-PreviewImg__list"
+			:style="image.style"
+		>
 
 			<button
 				@click="preview(-1)"
@@ -12,16 +15,12 @@
 			>
 				<i class="iconfont icon-line-arrow-left"></i>
 			</button>
-			<Rahmen
-				v-for="(img, index) in material.images"
-				v-show="index === material.current"
-				:src="img"
-				:key="index"
-				ratio="1"
-				width="100%"
-				type="fillMax"
+			<div
 				class="o-PreviewImg__img"
-			></Rahmen>
+				v-loading="image.status === 'loading'"
+			>
+				<img :src="image.src">
+			</div>
 			<button
 				@click="preview(1)"
 				class="o-PreviewImg__next"
@@ -35,8 +34,12 @@
 
 <script>
 	import Vue from 'vue'
+	import loadImage from 'utils/loadImage'
 	import Modal from '@oasis-ui/modal/src'
-	import Rahmen from '@oasis-ui/rahmen/src'
+	import Loading from '@oasis-ui/loading'
+	import { getScrollSize } from 'utils'
+
+	Vue.use(Loading)
 
 	const props = {
 		material: {
@@ -56,23 +59,74 @@
 		props,
 		data () {
 			return {
-				show: false
+				show: false,
+				image: {
+					src: '',
+					status: 'loading',
+					style: {
+						width: '0px',
+						height: '0px'
+					}
+				},
+				limit: {
+					width: 0,
+					height: 0
+				}
 			}
 		},
 		mounted () {
 			this.show = true
 
+			this.$nextTick(() => {
+				const size = getScrollSize(document.body)
+
+				this.limit = {
+					width: size.x - 280,
+					height: size.y
+				}
+				this.loadImage()
+			})
 		},
 		methods: {
 			preview (step) {
 				const current = this.material.current + step
 				const maxIndex = this.material.images.length - 1
 				this.material.current = current < 0 ? maxIndex : current > maxIndex ? 0 : current
+				this.loadImage()
+			},
+
+			loadImage () {
+				const material = this.material
+				const image = {
+					src: material.images[material.current],
+					status: 'loading',
+					style: {
+						width: '0px',
+						height: '0px'
+					}
+				}
+				loadImage(image.src).then(([res, img]) => {
+					const limit = this.limit
+					const ratio = img.width / img.height
+
+					if (img.width > limit.width) {
+						img.width = limit.width
+						img.height = img.width / ratio
+					}
+					image.status = 'loaded'
+					image.style = {
+						width: img.width + 'px',
+						height: img.height + 'px'
+					}
+				}).catch(err => {
+					image.status = 'failed'
+					console.log(err)
+				})
+				this.image = image
 			}
 		},
 		components: {
-			Modal,
-			Rahmen
+			Modal
 		}
  	}
 </script>
