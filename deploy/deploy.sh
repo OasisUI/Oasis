@@ -3,7 +3,7 @@
 rm -rf web Oasis
 mkdir web
 
-git clone -b master https://$CI_TOKEN@github.com/oasisui-org/oasis-ui.git web
+git clone -b master https://$CI_TOKEN@github.com/OasisUI/Oasis.git web
 
 cd web
 
@@ -25,13 +25,13 @@ npm run build || exit 1
 npm run build:doc || exit 1
 
 cd ..
-git clone -b gh-pages https://$CI_TOKEN@github.com/oasisui-org/oasis-ui.git
+git clone -b gh-pages https://$CI_TOKEN@github.com/OasisUI/Oasis.git
 
-cp -rf web/docs/* ./oasis-ui
-cp icon/favicon.png ./oasis-ui
-cd oasis-ui
+cp -rf web/docs/* ./Oasis
+cp icon/favicon.png ./Oasis
+cd Oasis
 
-echo 'www.oasisui.org' > CNAME
+echo 'https://www.oasisui.org' > CNAME
 
 echo '\r\nstart deploying...'
 
