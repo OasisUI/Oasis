@@ -5,7 +5,7 @@
 			<sub>&nbsp;{{version}}</sub>
 		</router-link>
 		<router-link to="/components">文档</router-link>
-		<a class="float-right" href="https://github.com/oasisui-org/oasis-ui">Github</a>
+		<a class="float-right" href="https://github.com/OasisUI/Oasis">Github</a>
 	</nav>
 </template>
 
