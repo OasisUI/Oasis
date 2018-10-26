@@ -12,7 +12,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@oasis-ui/modal": "^0.1.0",
-    "@oasis-ui/rahmen": "^0.2.0"
+    "@oasis-ui/loading": "^0.2.0",
+    "@oasis-ui/modal": "^0.1.0"
   }
 }
