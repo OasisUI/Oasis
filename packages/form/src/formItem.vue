@@ -85,7 +85,7 @@
 		computed: {
 			_labelWidth () {
 				const { $form, labelWidth } = this
-				return ($form && ($form.inline || $form.blockLabel)) ? '' : `${$form.labelWidth || labelWidth}px`
+				return ($form && ($form.inline || $form.blockLabel)) ? '' : `${($form && $form.labelWidth) || labelWidth}px`
 			},
 
 			$form () {
