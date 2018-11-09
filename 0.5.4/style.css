@@ -2319,10 +2319,6 @@ a:visited {
 	transition: all 0.34s ease 0s;
 }
 
-.o-DatePicker ::-moz-selection {
-	background: transparent;
-}
-
 .o-DatePicker ::selection {
 	background: transparent;
 }
@@ -2982,10 +2978,6 @@ a:visited {
 	text-decoration: none !important;
 }
 
-.o-SideNav ::-moz-selection {
-	background: transparent;
-}
-
 .o-SideNav ::selection {
 	background: transparent;
 }
@@ -3080,10 +3072,6 @@ a:visited {
 
 .o-Navbar a {
 		text-decoration: none !important;
-	}
-
-.o-Navbar ::-moz-selection {
-		background: transparent;
 	}
 
 .o-Navbar ::selection {
