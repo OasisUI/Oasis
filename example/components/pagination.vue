@@ -12,12 +12,21 @@
 			:current-page="currentPage"
 			:page-size="listing.limit"
 			:total="listing.total"
-			layout="prev, pager, next"
-			:formatter="linkFormatter"
-			target="_blank"
 		></Pagination>
 	:::
 
+	:::html
+		<Pagination
+			@current-change="onPageChange"
+			:current-page="currentPage"
+			:page-size="listing.limit"
+			:total="listing.total"
+			layout="prev, pager, next"
+			:formatter="linkFormatter"
+			target="_blank"
+			native-link
+		></Pagination>
+	:::
 
 	```javascript
 		export default {
@@ -63,10 +72,10 @@
 	export default {
 		data () {
 			return {
-				currentPage: 1,
+				currentPage: '1',
 				listing: {
-					limit: 20,
-					total: 21
+					limit: '20',
+					total: '21'
 				}
 			}
 		},

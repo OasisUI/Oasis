@@ -17,7 +17,7 @@
 			:key="index"
 			:page="page"
 			:class="{
-				'is-active': page === currentVal
+				'is-active': page === Number(currentVal)
 			}"
 		>
 			{{page}}
@@ -41,13 +41,13 @@
 	import Link from './link'
 
 	const props = {
-		pageSize: Number,
+		pageSize: [Number, String],
 		total: {
-			type: Number,
+			type: [Number, String],
 			default: 0,
 			required: true
 		},
-		currentPage: Number,
+		currentPage: [Number, String],
 		layout: {
 			type: String,
 			default: 'prev, pager, next'
@@ -129,6 +129,8 @@
 			currentPage: {
 				handler (val) {
 					const { totalPage } = this
+
+					val = Number(val)
 					this.currentVal = val > totalPage ? totalPage : val < 1 ? 1 : val
 				},
 				immediate: true
