@@ -19,7 +19,7 @@
 		display: block;
 		min-width: 30px;
 		padding: 4px 0;
-		color: inherit;
+		color: inherit !important;
 		font-size: 14px;
 		text-decoration: none;
 		text-align: center;

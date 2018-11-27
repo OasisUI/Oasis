@@ -199,7 +199,7 @@ export default class ElDraggable {
 }
 
 export function number (val) {
-	return parseFloat('0' + val)
+	return isNaN(val) ? val ? Number(val.replace(/\D+/g, '')) : val : val
 }
 
 export function getParentComponent (co, name = '') {

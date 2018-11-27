@@ -18,7 +18,7 @@
 
 <script>
 	const props = {
-		page: Number,
+		page: [Number, String],
 		disabled: Boolean
 	}
 
