@@ -1,7 +1,8 @@
 <template>
 	<label
 		:class="{
-			'is-disabled': isDisabled
+			'is-disabled': isDisabled,
+			'is-focused': isFocused
 		}"
 		class="o-Input o-Radio"
 	>
@@ -11,6 +12,8 @@
 			:disabled="isDisabled"
 			:name="name"
 			@change="onChange"
+			@focus="isFocused = true"
+			@blur="isFocused = false"
 			type="radio"
 		/>
 		<span class="o-Radio__inner"></span>
@@ -29,6 +32,11 @@
 	export default {
 		name: 'Radio',
 		props,
+		data () {
+			return {
+				isFocused: false
+			}
+		},
 		computed: {
 			currentValue: {
 				set (value) {

@@ -1,5 +1,6 @@
 
 @component Radio {
+	position: relative;
 	width: auto;
 	cursor: pointer;
 
@@ -47,8 +48,24 @@
 		}
 	}
 
+	@when focused {
+		background: inherit;
+
+		& .o-Radio__inner {
+			border-color: var(--color-primary) !important;
+		}
+	}
+
 	& input[type="radio"] {
-		display: none;
+		z-index: -9999;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		opacity: 0;
 
 		&:checked + .o-Radio__inner {
 			border-color: var(--color-primary);
@@ -88,8 +105,24 @@
 		}
 	}
 
+	@when focused {
+		background: inherit;
+
+		& .o-Radio__inner {
+			border-color: var(--color-primary) !important;
+		}
+	}
+
 	& input[type="radio"] {
-		display: none;
+		z-index: -9999;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		opacity: 0;
 	}
 }
 

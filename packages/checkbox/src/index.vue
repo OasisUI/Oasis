@@ -1,13 +1,16 @@
 <template>
 	<label
 		:class="{
-			'is-disabled': isDisabled
+			'is-disabled': isDisabled,
+			'is-focused': isFocused
 		}"
 		class="o-Input o-Checkbox">
 		<input
 			v-model="currentVal"
 			:value="label"
 			:disabled="isDisabled"
+			@focus="isFocused = true"
+			@blur="isFocused = false"
 			type="checkbox"
 		/>
 		<span class="o-Checkbox__inner"></span>
@@ -25,6 +28,11 @@
 	export default {
 		name: 'Checkbox',
 		props,
+		data () {
+			return {
+				isFocused: false
+			}
+		},
 		computed: {
 			currentVal: {
 				set (val) {
