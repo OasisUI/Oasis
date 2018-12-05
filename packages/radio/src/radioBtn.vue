@@ -5,6 +5,9 @@
  			isDisabled ? 'is-disabled' : '',
 			isChecked ? 'is-checked' : '',
 			'o-Input--' + currentSize,
+			{
+				'is-focused': isFocused
+			}
 		]"
 	>
 		<slot></slot>
@@ -13,6 +16,8 @@
 			:value="label"
 			:disabled="isDisabled"
 			:name="name"
+			@focus="isFocused = true"
+			@blur="isFocused = false"
 			@change="onChange"
 			type="radio"
 		/>
@@ -35,6 +40,11 @@
 	export default {
 		name: 'RadioBtn',
 		props,
+		data () {
+			return {
+				isFocused: false
+			}
+		},
 		computed: {
 			currentValue: {
 				set (value) {

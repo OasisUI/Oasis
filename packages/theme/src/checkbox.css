@@ -46,8 +46,24 @@
 		}
 	}
 
+	@when focused {
+		background: inherit;
+
+		& .o-Radio__inner {
+			border-color: var(--color-primary) !important;
+		}
+	}
+
 	& input[type="checkbox"] {
-		display: none;
+		z-index: -9999;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		opacity: 0;
 
 		&:checked + .o-Checkbox__inner {
 			border-color: var(--color-primary);

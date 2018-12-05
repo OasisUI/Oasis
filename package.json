@@ -9,7 +9,7 @@
 		"build:doc": "gulp build:doc",
 		"build:theme": "gulp build:theme",
 		"build": "cross-env NODE_ENV=prod gulp build",
-		"publish": "npm run build && lerna publish",
+		"publish": "npm run build && git add . && lerna publish",
 		"test": "cross-env NODE_ENV=test mocha-webpack --webpack-config ./build/webpack.dev.js --require test/setup.js test/**/*.spec.js",
 		"test:coverage": "cross-env NODE_ENV=test nyc mocha-webpack --webpack-config ./build/webpack.dev.js --require test/setup.js test/**/*.spec.js",
 		"test:report": "nyc report && codecov"
