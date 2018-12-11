@@ -91,6 +91,12 @@
 
 	@m text {
 		background: transparent;
+		color: var(--fontColor-default);
+		text-decoration: none;
+	}
+
+	@m link {
+		background: transparent;
 		color: var(--color-primary);
 		text-decoration: none;
 
@@ -100,7 +106,7 @@
 	}
 
 	@m default {
-		background: var(--color-gray-4);
+		background: var(--color-gray-3);
 		color: var(--color-black-4);
 
 		&.o-Btn--ghost {

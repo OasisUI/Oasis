@@ -714,16 +714,22 @@ a:visited {
 
 .o-Btn--text {
 		background: transparent;
+		color: #35393B;
+		text-decoration: none;
+}
+
+.o-Btn--link {
+		background: transparent;
 		color: #34B697;
 		text-decoration: none;
 }
 
-.o-Btn--text:hover {
+.o-Btn--link:hover {
 	text-decoration: underline;
 }
 
 .o-Btn--default {
-		background: #F6F6F6;
+		background: #F1F1F1;
 		color: #666666;
 }
 
@@ -2568,7 +2574,7 @@ a:visited {
 	left: 0;
 	border: 9px  solid transparent;
 	border-top-width: 0;
-	border-bottom: 9px dashed rgba(0, 0, 0, .06);
+	border-bottom: 9px dashed rgba(0, 0, 0, .112);
 }
 
 .o-PopupList {

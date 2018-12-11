@@ -9,6 +9,7 @@
 			<Button type="danger" size="lg" round>danger</Button>
 			<Button type="warning" size="lg" round>warning</Button>
 			<Button type="default" size="lg" round>default</Button>
+			<Button type="link" size="lg" round>link</Button>
 			<Button type="text" size="lg" round>text</Button>
 		</div>
 	:::
