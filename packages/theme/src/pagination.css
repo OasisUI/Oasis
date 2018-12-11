@@ -6,9 +6,11 @@
 
 @component Page {
 	display: inline-block;
-	padding: 0;
 	margin: 0 2px;
-	border-radius: 3px;
+	padding: 0;
+	height: var(--Pagination-height);
+	line-height: var(--Pagination-height);
+	border-radius: var(--Pagination-radius);
 	transition: var(--transition-default);
 
 	&:hover {
@@ -17,8 +19,8 @@
 
 	@d link {
 		display: block;
-		min-width: 30px;
-		padding: 4px 0;
+		min-width: var(--Pagination-height);
+		padding: 0 6px;
 		color: inherit !important;
 		font-size: 14px;
 		text-decoration: none;
