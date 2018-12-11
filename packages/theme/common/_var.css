@@ -154,6 +154,10 @@
 	--Avatar-lg-width: 52px;
 	--Avatar-lg-fontSize: 22px;
 
+	/*pagination*/
+	--Pagination-height: 32px;
+	--Pagination-radius: 4px;
+
 	/*shadow*/
 	--shadw-dropdown: 1px 1px 8px 0px rgba(0,0,0,0.24);
 	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);
@@ -165,7 +169,7 @@
 	--zIndex-sticky: 1020;
 	--zIndex-fixed: 1030;
 	--zIndex-modal-backdrop: 1040;
-	--zIndex-modal: 1050;
-	--zIndex-popover: 1060;
-	--zIndex-tooltip: 1070;
+	--zIndex-popover: 1050;
+	--zIndex-tooltip: 1060;
+	--zIndex-modal: 1070;
 }

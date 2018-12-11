@@ -23,10 +23,13 @@
 	@d column {
 		z-index: 2;
 		position: sticky;
+		overflow: hidden;
 		top: 0;
 		padding: var(--Table-cell-padding);
 		border: 0 solid #eee;
 		border-bottom-width: 1px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 		color: var(--color-black-5);
 		background: #fff;
 	}

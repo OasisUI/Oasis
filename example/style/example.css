@@ -13,8 +13,9 @@ body {
 	padding-left: calc(100vw - 100%);
 	color: var(--font-color);
 }
+
 .container {
-	max-width: 760px;
+	max-width: 780px;
 	margin: 0 auto;
 	padding: 0 10px;
 }
