@@ -1,6 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const vueLoaderConfig = require('./vueLoaderConfig')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')

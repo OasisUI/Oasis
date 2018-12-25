@@ -18,9 +18,11 @@
 	<a href="https://opensource.org/licenses/MIT">
 		<img src="https://img.shields.io/npm/l/oasis-ui.svg"/>
 	</a>
+	<a href="https://lgtm.com/projects/g/OasisUI/Oasis/context:javascript">
+		<img src="https://img.shields.io/lgtm/grade/javascript/g/OasisUI/Oasis.svg"/>
+	</a>
 </p>
-
-# Oasis
+<hr/>
 
 An elegant UI framework for building prototype.
 
