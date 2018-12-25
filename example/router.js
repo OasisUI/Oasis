@@ -26,7 +26,7 @@ import Progress from './components/progress'
 import previewImg from './components/previewImg'
 import Table from './components/table'
 import Cascader from './components/cascader'
-import Switchbox from './components/Switchbox'
+import Switchbox from './components/switchbox'
 
 Vue.use(VueRouter)
 
