@@ -30,6 +30,7 @@
 @component FormItem {
 	position: relative;
 	margin-bottom: var(--FormItem-marginBottom);
+	text-align: left;
 
 	@d label {
 		float: left;

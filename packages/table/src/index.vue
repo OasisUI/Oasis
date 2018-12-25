@@ -2,9 +2,7 @@
 	import TableBody from './tableBody'
 	import TableHead from './tableHead'
 	import TableColumn from './tableColumn'
-	import Checkbox from '@oasis-ui/checkbox'
 	import {
-		debounce,
 		throttle
 	} from '../../../utils'
 
@@ -119,7 +117,7 @@
 			},
 			toggleRowSelector ($data) {
 				const {
-					data, $index
+					data
 				} = $data
 				const index = this.selectedRows.indexOf(data)
 				if (index > -1) {

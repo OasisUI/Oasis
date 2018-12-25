@@ -73,6 +73,8 @@
 	--Input-borderRadius: 4px;
 	--Input-padding: 12px;
 	--Input-checkbox-size: 16px;
+	--Input-switchbox-size: 20px;
+	--Input-switchbox-gap: 6px;
 	--Input-borderColor: #E1E1E1;
 	--Input-hoverColor: #BBBBBB;
 	--Input-toggleOptionsColor: #D8D8D8;
