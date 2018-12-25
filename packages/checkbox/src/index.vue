@@ -2,7 +2,8 @@
 	<label
 		:class="{
 			'is-disabled': isDisabled,
-			'is-focused': isFocused
+			'is-focused': isFocused,
+			'is-checked': isChecked
 		}"
 		class="o-Input o-Checkbox">
 		<input
@@ -37,7 +38,9 @@
 		computed: {
 			currentVal: {
 				set (val) {
-					(this.useGroup ? this.group : this).$emit('input', val)
+					const instance = (this.useGroup ? this.group : this)
+					instance.$emit('input', val)
+					instance.$emit('change', val)
 				},
 				get () {
 					return this.useGroup ? this.group.value : this.value
@@ -54,6 +57,17 @@
 					this.group.disabled || this.disabled
 					: this.disabled
 			},
+			isChecked () {
+				const {
+					label,
+					currentVal
+				} = this
+				if (typeof currentVal === 'boolean') {
+					return currentVal
+				} else if (Array.isArray(currentVal)) {
+					return currentVal.indexOf(label) > -1
+				}
+			}
 		}
 	}
 </script>
