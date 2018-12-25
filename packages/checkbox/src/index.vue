@@ -12,6 +12,7 @@
 			@focus="isFocused = true"
 			@blur="isFocused = false"
 			type="checkbox"
+			class="u-invisible"
 		/>
 		<span class="o-Checkbox__inner"></span>
 		<slot></slot>

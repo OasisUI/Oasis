@@ -32,6 +32,7 @@ import AvatarGroup from '../avatarGroup'
 import PreviewImg from '../previewImg'
 import Table from '../table'
 import Cascader from '../cascader'
+import Switchbox from '../switchbox'
 
 // tools
 // TODO
@@ -69,7 +70,8 @@ const components = [
 	AvatarGroup,
 	PreviewImg,
 	Table,
-	Cascader
+	Cascader,
+	Switchbox
 ]
 
 const Oasis = {

@@ -1,8 +1,7 @@
 import Rahmen from '@/rahmen/src'
 import {
-	shallowMount, mount
+	shallowMount
 } from '@vue/test-utils'
-import { wrap } from 'module';
 
 describe('Rahmen', () => {
 	it('render', () => {

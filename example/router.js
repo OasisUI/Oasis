@@ -26,6 +26,7 @@ import Progress from './components/progress'
 import previewImg from './components/previewImg'
 import Table from './components/table'
 import Cascader from './components/cascader'
+import Switchbox from './components/Switchbox'
 
 Vue.use(VueRouter)
 
@@ -84,6 +85,14 @@ const components = [
 		title: {
 			zh: '复选',
 			en: 'Checkbox'
+		}
+	},
+	{
+		path: 'switchbox',
+		component: Switchbox,
+		title: {
+			zh: '开关',
+			en: 'Switchbox'
 		}
 	},
 	{
