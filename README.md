@@ -6,6 +6,9 @@
 	<a href="https://travis-ci.com/OasisUI/Oasis">
 		<img src="https://travis-ci.com/OasisUI/Oasis.svg?branch=dev"/>
 	</a>
+	<a href="https://ci.appveyor.com/project/OasisCI/oasis">
+		<img src="https://ci.appveyor.com/api/projects/status/4301qx7e2sajibp7?svg=true"/>
+	</a>
 	<a href="https://codecov.io/gh/OasisUI/Oasis">
 		<img src="https://codecov.io/gh/OasisUI/Oasis/branch/dev/graph/badge.svg" />
 	</a>
