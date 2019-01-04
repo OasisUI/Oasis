@@ -1,10 +1,13 @@
-<p align="center">
+<h1 align="center">
   <img src="https://cdn.rawgit.com/OasisUI/Oasis/dev/icon/icon.svg" width="200"/>
-</p>
-
+</h1>
+<p align="center">🍃 Elegant UI framework for building prototype.</p>
 <p align="center">
 	<a href="https://travis-ci.com/OasisUI/Oasis">
 		<img src="https://travis-ci.com/OasisUI/Oasis.svg?branch=dev"/>
+	</a>
+	<a href="https://ci.appveyor.com/project/OasisCI/oasis">
+		<img src="https://ci.appveyor.com/api/projects/status/4301qx7e2sajibp7?svg=true"/>
 	</a>
 	<a href="https://codecov.io/gh/OasisUI/Oasis">
 		<img src="https://codecov.io/gh/OasisUI/Oasis/branch/dev/graph/badge.svg" />
@@ -21,16 +24,17 @@
 	<a href="https://lgtm.com/projects/g/OasisUI/Oasis/context:javascript">
 		<img src="https://img.shields.io/lgtm/grade/javascript/g/OasisUI/Oasis.svg"/>
 	</a>
+	<a href="https://www.npmjs.com/package/oasis-ui">
+		<img src="https://img.shields.io/david/OasisUI/Oasis.svg?path=packages%2Foasis"/>
+	</a>
 </p>
-<hr/>
-
-An elegant UI framework for building prototype.
 
 ## Installation
 
-Oasis is available in [NPM](https://npmjs.com/oasis-ui).
+Oasis is available in [npm](https://npmjs.com/oasis-ui).
 
 ```shell
 $ npm install oasis-ui
+$ yarn add oasis-ui
 ```
 
