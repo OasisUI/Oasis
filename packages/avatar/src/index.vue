@@ -83,7 +83,7 @@
 					name,
 					defaultName
 				} = this
-				return (name || defaultName).slice(0, 2)
+				return (name || defaultName).slice(0, 2).toUpperCase()
 			},
 			group () {
 				return this.$parent

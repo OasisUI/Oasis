@@ -55,7 +55,6 @@
 	}
 
 	& input[type="checkbox"] {
-
 		&:checked + .o-Checkbox__inner {
 			border-color: var(--color-primary);
 			background: var(--color-primary);

@@ -1,6 +1,6 @@
 @component Avatar {
 	display: inline-flex;
-	flex: 0 0;
+	flex: auto 0;
 
 	@m round {
 		& .o-Avatar__imgWrapper {
@@ -46,6 +46,8 @@
 	@d imgWrapper {
 		position: relative;
 		height: 100%;
+		border-radius: 50%;
+		border: 1px solid #F5F5F5;
 	}
 
 	@d name {
@@ -58,6 +60,7 @@
 		color: var(--Avatar-color);
 		font-weight: 700;
 		text-align: center;
+		white-space: nowrap;
 	}
 
 	@d addon {
