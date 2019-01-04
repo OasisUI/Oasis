@@ -2953,9 +2953,9 @@ a:visited {
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
-	-webkit-box-flex: 0;
-	    -ms-flex: 0 0;
-	        flex: 0 0;
+	-webkit-box-flex: 1;
+	    -ms-flex: auto 0;
+	        flex: auto 0;
 }
 
 .o-Avatar--round .o-Avatar__imgWrapper {
@@ -3000,6 +3000,8 @@ a:visited {
 .o-Avatar__imgWrapper {
 		position: relative;
 		height: 100%;
+		border-radius: 50%;
+		border: 1px solid #F5F5F5;
 }
 
 .o-Avatar__name {
@@ -3012,6 +3014,7 @@ a:visited {
 		color: #FFFFFF;
 		font-weight: 700;
 		text-align: center;
+		white-space: nowrap;
 }
 
 .o-Avatar__addon {
