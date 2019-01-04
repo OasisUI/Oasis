@@ -1,6 +1,6 @@
 @component Avatar {
 	display: inline-flex;
-	flex: 0 0;
+	flex: auto 0;
 
 	@m round {
 		& .o-Avatar__imgWrapper {
