@@ -41,6 +41,6 @@ describe('Avatar', () => {
 				defaultName: 'default'
 			},
 		})
-		expect(wrapper.find('.o-Avatar__name').text()).toEqual('de')
+		expect(wrapper.find('.o-Avatar__name').text()).toEqual('DE')
 	})
 })
