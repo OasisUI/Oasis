@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@oasis-ui/checkbox": "^0.1.2",
+    "@oasis-ui/pagination": "^0.1.1",
     "@oasis-ui/scrollbox": "^0.1.1"
   }
 }

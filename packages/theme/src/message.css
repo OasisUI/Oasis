@@ -1,5 +1,5 @@
 @component MessageBox {
-	z-index: var(--zIndex-popover);
+	z-index: var(--zIndex-message);
 	position: fixed;
 	top: 0;
 	height: 0;
