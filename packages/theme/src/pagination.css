@@ -1,7 +1,5 @@
 @component Pagination {
-	@d action {
-
-	}
+	padding: 0;
 }
 
 @component Page {

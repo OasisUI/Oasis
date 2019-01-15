@@ -2,17 +2,38 @@
 	import TableBody from './tableBody'
 	import TableHead from './tableHead'
 	import TableColumn from './tableColumn'
+	import Pagination from '@oasis-ui/pagination'
 	import {
 		throttle
 	} from '../../../utils'
 
 	const props = {
-		data: Array,
+		data: {
+			type: Array,
+			default () {
+				return []
+			}
+		},
 		selectable: Boolean,
-		width: String,
-		height: String,
-		tableWidth: String,
-		tableHeight: String,
+		summary: Boolean,
+		pagination: Boolean,
+		innerWidth: String,
+		emptyMsg: {
+			type: String,
+			default: '暂无数据'
+		},
+		currentPage: {
+			type: [String, Number],
+			default: 1
+		},
+		total: {
+			type: [String, Number],
+			default: 0
+		},
+		pageSize: {
+			type: [String, Number],
+			default: 10
+		}
 	}
 
 	export default {
@@ -25,40 +46,54 @@
 			}
 		},
 		render () {
-			const wrapperStyle = {
-				height: this.height,
-				width: this.width
-			}
 			const tableStyle = {
-				height: this.tableHeight,
-				minWidth: this.tableWidth
+				minWidth: this.innerWidth
 			}
+			const footer = this.hasFooter ? <div class="o-TableWrapper__footer">
+				{this.summary ? <div class="o-TableWrapper__footer__summary">
+					共{this.total || 0}条，当前展示{this.data ? this.data.length : 0}条
+				</div> : null}
+				{this.pagination ? <Pagination
+					onCurrent-change={this.onPageChange}
+					currentPage={this.currentPage}
+					pageSize={this.pageSize}
+					total={this.total}
+				/> : null}
+			</div> : null
 
 			return (
 				<div
-					class='o-TableWrapper'
-					style={wrapperStyle}
+					class={['o-TableWrapper ', {
+						'o-TableWrapper--hasFooter': this.hasFooter,
+						'is-empty': this.isEmpty
+					}]}
 				>
-					<table
-						class='o-Table'
-						style={tableStyle}
-					>
-						<TableHead
-							sortedColumns={this.sortedColumns}
-							selectable={this.selectable}
+					<div class="o-TableWrapper__body">
+						<table
+							class='o-Table'
+							style={tableStyle}
 						>
-							{this.selectable ? <TableColumn
-								fixed='left'
-								selectable
-								width='50'
-							></TableColumn> : null}
-							{this.$slots.default}
-						</TableHead>
-						<TableBody
-							sortedColumns={this.sortedColumns}
-							data={this.data}
-						></TableBody>
-					</table>
+							<TableHead
+								sortedColumns={this.sortedColumns}
+								selectable={this.selectable}
+							>
+								{this.selectable ? <TableColumn
+									fixed='left'
+									selectable
+									width='50'
+								/> : null}
+								{this.$slots.default}
+							</TableHead>
+							<TableBody
+								sortedColumns={this.sortedColumns}
+								data={this.data}
+							/>
+						</table>
+						{this.isEmpty && <div class="o-TableWrapper__empty">
+							{this.emptyMsg}
+						</div>}
+					</div>
+					{footer}
 				</div>
 			)
 		},
@@ -90,6 +125,12 @@
 			},
 			isAllSelected () {
 				return this.data.length && this.data.every(item => this.selectedRows.find((row => row === item)))
+			},
+			hasFooter () {
+				return this.summary || this.pagination
+			},
+			isEmpty () {
+				return !this.data || !this.data.length
 			}
 		},
 		methods: {
@@ -130,7 +171,10 @@
 				this.selectedRows = this.selectedRows.filter(item => {
 					return this.data.indexOf(item) > -1
 				})
-			}, 23, true)
+			}, 23, true),
+			onPageChange (page) {
+				this.$emit('page-change', page)
+			}
 		},
 		watch: {
 			data: {

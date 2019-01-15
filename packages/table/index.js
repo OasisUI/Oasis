@@ -9,5 +9,8 @@ Table.install = function (Vue) {
 	Vue.component(TableBody.name, TableBody)
 	Vue.component(TableColumn.name, TableColumn)
 }
+Table.Head = TableHead
+Table.Body = TableBody
+Table.Column = TableColumn
 
 export default Table
