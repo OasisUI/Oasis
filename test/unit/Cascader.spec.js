@@ -34,7 +34,7 @@ describe('Cascader', () => {
 		wrapper.destroy()
 	})
 
-	it('select option without key => value', () => {
+	it('select options', done => {
 		const wrapper = mount(Cascader, {
 			localVue,
 			propsData: {
@@ -75,6 +75,7 @@ describe('Cascader', () => {
 				]
 			}
 		})
+		wrapper.find('.o-Input input').element.focus()
 		wrapper.find('.o-Input').trigger('click')
 		expect(wrapper.find('.o-Popup__inner').isVisible()).toBe(true)
 		setTimeout(() => {

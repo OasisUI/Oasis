@@ -161,7 +161,7 @@
 		watch: {
 			value: {
 				handler (val) {
-					this.currentValue = val
+					this.currentValue = val.slice()
 				},
 				deep: true,
 				immediate: true
