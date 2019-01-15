@@ -164,7 +164,7 @@
 	--shadw-dropdown: 1px 1px 8px 0px rgba(0,0,0,0.24);
 	--shadow-card: 0 1px 4px 0 rgba(0,0,0,0.14);
 	--shadow-message: 0 0 4px 1px rgba(0,0,0,0.12);
-	--shadow-popup: 1px 1px 8px 0px rgba(0,0,0,0.24);
+	--shadow-popup: 0 4px 4px rgba(0,0,0,.12), 1px 1px 8px rgba(0,0,0,0.24);
 
 	/*z-index*/
 	--zIndex-dropdown: 1000;
@@ -174,4 +174,5 @@
 	--zIndex-popover: 1050;
 	--zIndex-tooltip: 1060;
 	--zIndex-modal: 1070;
+	--zIndex-message: 1080;
 }

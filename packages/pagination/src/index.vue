@@ -1,16 +1,22 @@
 <template>
 	<ul class="o-Pagination">
 		<PageLink
-			:page="currentVal - step"
-			:disabled="currentVal - step < 1"
-		>
-			{{prevStep}}
-		</PageLink>
-		<PageLink
 			:page="currentVal - 1"
 			:disabled="currentVal - 1 < 1"
 		>
 			{{prevText}}
+		</PageLink>
+		<PageLink
+			:page="1"
+			v-if="pages[0] > 1"
+		>
+			{{1}}
+		</PageLink>
+		<PageLink
+			:page="pages[0] - 1"
+			v-if="pages[0] > 2"
+		>
+			{{prevStep}}
 		</PageLink>
 		<PageLink
 			v-for="(page, index) in pages"
@@ -23,16 +29,22 @@
 			{{page}}
 		</PageLink>
 		<PageLink
+			:page="pages[pages.length - 1] + 1"
+			v-if="pages[pages.length - 1] < totalPage - 1"
+		>
+			{{nextStep}}
+		</PageLink>
+		<PageLink
+			:page="totalPage"
+			v-if="pages[pages.length - 1] < totalPage"
+		>
+			{{totalPage}}
+		</PageLink>
+		<PageLink
 			:page="currentVal + 1"
 			:disabled="currentVal + 1 > totalPage"
 		>
 			{{nextText}}
-		</PageLink>
-		<PageLink
-			:page="currentVal + step"
-			:disabled="currentVal + step > totalPage"
-		>
-			{{nextStep}}
 		</PageLink>
 	</ul>
 </template>
@@ -54,11 +66,11 @@
 		},
 		prevStep: {
 			type: String,
-			default: '«'
+			default: '···'
 		},
 		nextStep: {
 			type: String,
-			default: '»'
+			default: '···'
 		},
 		prevText: {
 			type: String,
@@ -68,16 +80,16 @@
 			type: String,
 			default: '›'
 		},
-		step: {
-			type: Number,
-			default: 10
-		},
 		nativeLink: Boolean, // render native link or not
 		formatter: {
 			type: Function,
 			default: function (page) {
 				return `./${page}`
 			}
+		},
+		limit: {
+			type: [String, Number],
+			default: 7
 		},
 		target: String
 	}
@@ -92,8 +104,7 @@
 		},
 		computed: {
 			pages () {
-				const limit = 7
-				const { currentVal, totalPage } = this
+				const { limit, currentVal, totalPage } = this
 				const arr = []
 
 				if (totalPage > limit) {

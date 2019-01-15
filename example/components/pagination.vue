@@ -61,9 +61,9 @@
 	|layout|分页组件布局方式 ~~暂不支持~~|String|`''`|
 	|fomatter|链接格式化方法，用于 SSR|Function|`undefined`|
 	|nativeLink|在渲染时是否使用原生链接 `<a>`|Boolean|`false`|
-	|step|跨越式的跳转页码|Number|`10`|
-	|prevStep|向前跨越按钮的文案|String|`«`|
-	|nextStep|向后跨越按钮的文案|String|`»`|
+	|limit|连续展示的页码数|Number|`7`|
+	|prevStep|向前跨越按钮的文案|String|`···`|
+	|nextStep|向后跨越按钮的文案|String|`···`|
 	|prevText|向前一页跳转按钮的文案|String|`‹`|
 	|nextText|向后一页跳转按钮的文案|String|`›`|
 </template>
@@ -75,7 +75,7 @@
 				currentPage: '1',
 				listing: {
 					limit: '20',
-					total: '21'
+					total: '291'
 				}
 			}
 		},
