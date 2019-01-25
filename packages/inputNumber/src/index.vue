@@ -123,7 +123,7 @@
 				if (!isNaN(min) && val < min) {
 					val = min
 				}
-				return val
+				return Number(val)
 			},
 			calculate (...val) {
 				const multiple = 1 / this.step
