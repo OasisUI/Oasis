@@ -1127,6 +1127,10 @@ a:visited {
 	color: #999999;
 }
 
+.o-Input input::-moz-placeholder {
+	color: #999999;
+}
+
 .o-Input input::-ms-input-placeholder {
 	color: #999999;
 }
@@ -1782,6 +1786,10 @@ a:visited {
 	overflow: hidden;
 }
 
+.o-Switchbox ::-moz-selection {
+	background: transparent;
+}
+
 .o-Switchbox ::selection {
 	background: transparent;
 }
@@ -2301,6 +2309,10 @@ a:visited {
 .o-DatePicker * {
 	-webkit-transition: all 0.34s ease 0s;
 	transition: all 0.34s ease 0s;
+}
+
+.o-DatePicker ::-moz-selection {
+	background: transparent;
 }
 
 .o-DatePicker ::selection {
@@ -2962,6 +2974,10 @@ a:visited {
 	text-decoration: none !important;
 }
 
+.o-SideNav ::-moz-selection {
+	background: transparent;
+}
+
 .o-SideNav ::selection {
 	background: transparent;
 }
@@ -3056,6 +3072,10 @@ a:visited {
 
 .o-Navbar a {
 		text-decoration: none !important;
+	}
+
+.o-Navbar ::-moz-selection {
+		background: transparent;
 	}
 
 .o-Navbar ::selection {
