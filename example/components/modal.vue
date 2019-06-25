@@ -152,6 +152,7 @@
 	|---|---|---|---|
 	|title|弹框标题|String|`'提示'`|
 	|content|弹框内容|String|空字符|
+	|customClass|弹框自定义样式类|String|空字符|
 	|validator|输入值检验|Function| |
 	|onError|输入值未通过检验|Function| |
 	|confirmText|弹框确认按钮|String|`'确定'`|

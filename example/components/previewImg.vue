@@ -27,6 +27,12 @@
 	```
 
 	## API
+
+	|参数|说明|类型|默认值|
+	|---|---|---|---|
+	|current|优先展示的图片(base 0)|Number|`0`|
+	|images|待展示的图片列表|Array|`[]`|
+
 </template>
 
 <script>

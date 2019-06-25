@@ -1,13 +1,11 @@
 <template>
 	<Modal
 		v-model="show"
-		class="o-PreviewImg"
+		custom-class="o-PreviewImg"
 	>
 		<div
-			class="o-PreviewImg__list"
-			:style="image.style"
-		>
-
+			v-loading="image.status === 'loading'"
+			class="o-PreviewImg__list">
 			<button
 				@click="preview(-1)"
 				class="o-PreviewImg__prev"
@@ -17,8 +15,7 @@
 			</button>
 			<div
 				class="o-PreviewImg__img"
-				v-loading="image.status === 'loading'"
-			>
+				:style="image.style">
 				<img :src="image.src">
 			</div>
 			<button
@@ -28,6 +25,7 @@
 			>
 				<i class="iconfont icon-line-arrow-right"></i>
 			</button>
+			<div class="o-PreviewImg__index">{{material.current + 1}}/{{material.images.length}}</div>
 		</div>
 	</Modal>
 </template>
