@@ -1,2 +1,2 @@
-packages/**/lib/**/*
+lib/index.min.js
 test/**

@@ -6,7 +6,6 @@
 		"dev": "gulp dev",
 		"dev:theme": "gulp dev:theme",
 		"build:prod": "gulp build:prod",
-		"build:packages": "gulp build:packages",
 		"build:doc": "gulp build:doc",
 		"build:theme": "gulp build:theme",
 		"build": "cross-env NODE_ENV=prod gulp build",

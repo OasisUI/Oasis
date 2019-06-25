@@ -22,8 +22,7 @@ module.exports = merge(base, {
 				commonjs2: 'vue'
 			},
 			moment: 'moment'
-		},
-		/^@oasis-ui/
+		}
 	],
 	devtool: '#source-map',
 	resolve: {

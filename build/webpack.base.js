@@ -37,7 +37,7 @@ module.exports = {
 				use: ['babel-loader', 'eslint-loader'],
 				exclude: [
 					/node_modules/,
-					path.resolve(__dirname, '../packages/oasis/lib/index.min.js')
+					/lib\/index\.min\.js/
 				]
 			},
 			{
