@@ -1,2 +1,2 @@
-packages/oasis/lib/**/*
+packages/**/lib/**/*
 test/**

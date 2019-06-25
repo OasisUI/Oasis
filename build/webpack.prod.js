@@ -12,16 +12,19 @@ module.exports = merge(base, {
 		libraryTarget: 'umd',
 		umdNamedDefine: true
 	},
-	externals: {
-		vue: {
-			// TODO
-			amd: 'vue',
-			root: 'Vue',
-			commonjs: 'vue',
-			commonjs2: 'vue'
+	externals: [
+		{
+			vue: {
+				// TODO
+				amd: 'vue',
+				root: 'Vue',
+				commonjs: 'vue',
+				commonjs2: 'vue'
+			},
+			moment: 'moment'
 		},
-		moment: 'moment'
-	},
+		/^@oasis-ui/
+	],
 	devtool: '#source-map',
 	resolve: {
 		modules: ['node_modules'],

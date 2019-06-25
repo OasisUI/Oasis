@@ -33,7 +33,7 @@
 <script>
 	import Vue from 'vue'
 	import loadImage from 'utils/loadImage'
-	import Modal from '@oasis-ui/modal/src'
+	import Modal from '@oasis-ui/modal'
 	import Loading from '@oasis-ui/loading'
 	import { getScrollSize } from 'utils'
 

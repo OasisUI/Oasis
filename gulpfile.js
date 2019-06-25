@@ -1,9 +1,11 @@
+const fs = require('fs')
 const gulp = require('gulp')
 const rimraf = require('rimraf')
 const util = require('gulp-util')
 const webpack = require('webpack')
 const watch = require('gulp-watch')
 const postcss = require('gulp-postcss')
+const genProdConfig = require('./build/genProdConfig')
 const WebpackDevServer = require('webpack-dev-server')
 const WebpackDevConfig = require('./build/webpack.dev')
 const WebpackDocConfig = require('./build/webpack.doc')
@@ -17,6 +19,30 @@ gulp.task('build:prod', () => {
 	compiler.run((err, stats) => {
 		err && console.log(err)
 	})
+})
+
+gulp.task('build:packages', () => {
+	const pkgs = fs.readdirSync('./packages')
+	const errs = []
+	const tasks = pkgs.filter(pkg => pkg !== 'theme').map(pkg => {
+		return new Promise((resolve, reject) => {
+			webpack(genProdConfig(pkg), (err, stats) => {
+				if (err) {
+					errs.push(`[Build failed in ${pkg}] ${err}`)
+				} else {
+					console.log('[Build package]:', pkg, 'success')
+				}
+				resolve()
+			})
+		})
+	})
+
+	Promise.all(tasks).then(() => {
+		console.log('[Build subpackages]: done')
+		if (errs.length) {
+			errs.forEach(err => console.log(err))
+		}
+	}, err => console.log('[Build subpackages]: failed', err))
 })
 
 gulp.task('build:doc', () => {
