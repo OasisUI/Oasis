@@ -9,7 +9,7 @@ PreviewImg.install = function (Vue) {
 		const el = document.createElement('div')
 
 		document.body.appendChild(el)
-		new PreviewImgClass({
+		return new PreviewImgClass({
 			propsData: {
 				material
 			}

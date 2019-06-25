@@ -6,7 +6,9 @@ node_js:
   - 8
 
 script:
-- npm run bootstrap
-- npm run test:coverage
-- npm run test:report
+- npm install yarn -g
+- yarn install
+- yarn run bootstrap
+- yarn run test:coverage
+- yarn run test:report
 - sh deploy/deploy.sh
