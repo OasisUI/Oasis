@@ -30,7 +30,6 @@ describe('PreviewImg', () => {
 		setTimeout(() => {
 			const el = document.body.querySelector('.o-PreviewImg')
 
-			console.log(document.body.innerHTML)
 			expect(el).toBeDefined()
 			expect(el.querySelector('.o-PreviewImg__img img').src).toEqual(images[1])
 			document.body.removeChild(instance.$el)
