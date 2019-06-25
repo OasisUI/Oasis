@@ -2,7 +2,7 @@
   "name": "@oasis-ui/daterangepicker",
   "version": "0.1.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.min.js",
   "dependencies": {
     "@oasis-ui/datepicker": "^0.1.0"
   },

@@ -1,9 +1,11 @@
+const fs = require('fs')
 const gulp = require('gulp')
 const rimraf = require('rimraf')
 const util = require('gulp-util')
 const webpack = require('webpack')
 const watch = require('gulp-watch')
 const postcss = require('gulp-postcss')
+const genProdConfig = require('./build/genSubpackageConfig')
 const WebpackDevServer = require('webpack-dev-server')
 const WebpackDevConfig = require('./build/webpack.dev')
 const WebpackDocConfig = require('./build/webpack.doc')
@@ -12,16 +14,44 @@ const WebpackBuildConfig = require('./build/webpack.prod')
 const libPath = './packages/oasis/lib'
 const themePath = './packages/theme'
 
-gulp.task('build:prod', () => {
-	const compiler = webpack(WebpackBuildConfig)
-	compiler.run((err, stats) => {
-		err && console.log(err)
+gulp.task('build:prod', ['build:packages'], () => {
+	webpack(WebpackBuildConfig, (err, stats) => {
+		if (err) {
+			console.log(err)
+		} else {
+			console.log('[Build core package]: oasis success')
+		}
 	})
 })
 
+gulp.task('build:packages', done => {
+	const pkgs = fs.readdirSync('./packages')
+	const errs = []
+	const excludes = ['theme', 'oasis']
+	const tasks = pkgs.filter(pkg => !excludes.includes(pkg)).map(pkg => {
+		return new Promise((resolve, reject) => {
+			webpack(genProdConfig(pkg), (err, stats) => {
+				if (err) {
+					errs.push(`[Build failed in ${pkg}] ${err}`)
+				} else {
+					console.log('[Build package]:', pkg, 'success')
+				}
+				resolve()
+			})
+		})
+	})
+
+	Promise.all(tasks).then(() => {
+		console.log('[Build subpackages]: done')
+		if (errs.length) {
+			errs.forEach(err => console.log(err))
+		}
+	}, err => console.log('[Build subpackages]: failed', err))
+		.finally(done)
+})
+
 gulp.task('build:doc', () => {
-	const compiler = webpack(WebpackDocConfig)
-	compiler.run((err, stats) => {
+	const compiler = webpack(WebpackDocConfig, (err, stats) => {
 		err && console.log(err)
 	})
 })

@@ -1,2 +1,2 @@
-packages/oasis/lib/**/*
+lib/index.min.js
 test/**

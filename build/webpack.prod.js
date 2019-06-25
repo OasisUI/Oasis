@@ -12,16 +12,18 @@ module.exports = merge(base, {
 		libraryTarget: 'umd',
 		umdNamedDefine: true
 	},
-	externals: {
-		vue: {
-			// TODO
-			amd: 'vue',
-			root: 'Vue',
-			commonjs: 'vue',
-			commonjs2: 'vue'
-		},
-		moment: 'moment'
-	},
+	externals: [
+		{
+			vue: {
+				// TODO
+				amd: 'vue',
+				root: 'Vue',
+				commonjs: 'vue',
+				commonjs2: 'vue'
+			},
+			moment: 'moment'
+		}
+	],
 	devtool: '#source-map',
 	resolve: {
 		modules: ['node_modules'],

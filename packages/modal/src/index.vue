@@ -7,6 +7,7 @@
 		>
 			<div
 				class="o-Modal__content"
+				:class="customClass"
 			>
 				<div class="o-Modal__header">
 					<slot
@@ -43,6 +44,10 @@
 		showTitle: {
 			type: Boolean,
 			default: true
+		},
+		customClass: {
+			type: String,
+			default: ''
 		}
 	}
 
