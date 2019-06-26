@@ -5,6 +5,10 @@
 	align-items: center;
 	color: #464646;
 	font-size: 14px;
+	border: none;
+	outline: none;
+	color: inherit;
+	font-family: sans-serif;
 
 	& .o-Input__prefix,
 	& .o-Input__suffix,
