@@ -1,6 +1,6 @@
 {
 	"name": "@oasis-ui/theme",
-	"version": "0.3.3",
+	"version": "0.4.0",
 	"description": "",
 	"main": "theme.css",
 	"scripts": {

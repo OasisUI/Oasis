@@ -1,8 +1,8 @@
-<h1 style="text-align: center;">
+<h1 align="center">
   <img src="https://cdn.rawgit.com/OasisUI/Oasis/dev/icon/icon.svg" width="200"/>
 </h1>
-<p style="text-align: center;">🍃 Elegant UI framework for building prototype.</p>
-<p style="text-align: center;">
+<p align="center">🍃 Elegant UI framework for building prototype.</p>
+<p align="center">
 	<a href="https://travis-ci.com/OasisUI/Oasis">
 		<img src="https://travis-ci.com/OasisUI/Oasis.svg?branch=dev"/>
 	</a>
@@ -55,5 +55,3 @@ import '@oasis-ui/theme/theme.css'
 
 Vue.use(PreviewImg)
 ```
-
-
