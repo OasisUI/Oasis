@@ -1,6 +1,9 @@
+@import "../../packages/theme/common/_var.css";
+
 :root {
 	--font-color: #39464e;
 }
+
 html,
 body {
 	width: 100%;
@@ -33,6 +36,7 @@ h2 {
 h3 {
 	padding-top: 0.8rem;
 }
+
 pre, code {
 	font-family: "Roboto Mono", Monaco, courier, monospace;
 	font-size: 0.8rem;
@@ -45,10 +49,12 @@ pre.hljs {
 	border-radius: 8px;
 	padding: 1rem 0.5rem;
 }
+
 code {
 	padding: 0 0.4rem;
 	border-radius: 4px;
 }
+
 table {
 	width: 100%;
 	text-align: center;
@@ -60,6 +66,19 @@ table {
 		border: 1px solid #e8e8e8;
 	}
 }
+
+a:active {
+}
+
+a:any-link {
+	text-decoration: none;
+	color: var(--color-primary);
+}
+
+a:visited {
+	color: var(--color-primary-dark);
+}
+
 @media screen and (max-width: 1140px) {
 	.container {
 		margin-left: 260px;

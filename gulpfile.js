@@ -1,9 +1,11 @@
 const fs = require('fs')
+const path = require('path')
 const gulp = require('gulp')
 const rimraf = require('rimraf')
 const util = require('gulp-util')
 const webpack = require('webpack')
 const watch = require('gulp-watch')
+const rename = require('gulp-rename')
 const postcss = require('gulp-postcss')
 const genProdConfig = require('./build/genSubpackageConfig')
 const WebpackDevServer = require('webpack-dev-server')
@@ -11,20 +13,11 @@ const WebpackDevConfig = require('./build/webpack.dev')
 const WebpackDocConfig = require('./build/webpack.doc')
 const WebpackBuildConfig = require('./build/webpack.prod')
 
-const libPath = './packages/oasis/lib'
+const corePkgPath = './packages/oasis/'
+const libPath = path.join(corePkgPath, 'lib')
 const themePath = './packages/theme'
 
-gulp.task('build:prod', ['build:packages'], () => {
-	webpack(WebpackBuildConfig, (err, stats) => {
-		if (err) {
-			console.log(err)
-		} else {
-			console.log('[Build core package]: oasis success')
-		}
-	})
-})
-
-gulp.task('build:packages', done => {
+gulp.task('build:sub-packages', done => {
 	const pkgs = fs.readdirSync('./packages')
 	const errs = []
 	const excludes = ['theme', 'oasis']
@@ -50,9 +43,30 @@ gulp.task('build:packages', done => {
 		.finally(done)
 })
 
-gulp.task('build:doc', () => {
+gulp.task('build:core-package', done => {
+	webpack(WebpackBuildConfig, (err, stats) => {
+		if (err) {
+			console.log(err)
+		} else {
+			console.log('[Build core package]: oasis success')
+		}
+		done()
+	})
+})
+
+gulp.task('build:prod', gulp.series('build:sub-packages', 'build:core-package'))
+
+gulp.task('build:theme', function () {
+	return gulp.src(`${themePath}/index.css`)
+		.pipe(postcss())
+		// minify
+		.pipe(gulp.dest(`${libPath}/theme`))
+})
+
+gulp.task('build:doc', done => {
 	const compiler = webpack(WebpackDocConfig, (err, stats) => {
 		err && console.log(err)
+		done()
 	})
 })
 
@@ -86,16 +100,20 @@ gulp.task('dev:theme', function () {
 	})
 })
 
-gulp.task('build:theme', function () {
-	return gulp.src(`${themePath}/index.css`)
-		.pipe(postcss())
-		// minify
-		.pipe(gulp.dest(`${libPath}/theme`))
-})
-
-gulp.task('copy', function () {
+gulp.task('copy:font', function () {
 	return gulp.src(`${themePath}/font/*`)
 		.pipe(gulp.dest(`${libPath}/theme/font`))
+})
+
+gulp.task('copy:theme', function () {
+	return gulp.src(`${libPath}/theme/index.css`)
+		.pipe(rename('theme.css'))
+		.pipe(gulp.dest(themePath))
+})
+
+gulp.task('copy:readme', function () {
+	return gulp.src('./README.md')
+		.pipe(gulp.dest(corePkgPath))
 })
 
 gulp.task('lint:theme', function () {
@@ -108,13 +126,20 @@ gulp.task('lint:theme', function () {
 		}))
 })
 
-gulp.task('dev', ['dev:server', 'dev:theme'])
+gulp.task('copy', gulp.series('copy:font', 'copy:theme', 'copy:readme'))
 
-gulp.task('build', function () {
+gulp.task('dev', gulp.series('dev:server', 'dev:theme'))
+
+gulp.task('clean:theme-dir', done => {
 	rimraf('./packages/oasis/theme', function () {
-		gulp.start(['copy', 'build:prod', 'build:theme'], function () {
-			rimraf('./docs', () => {})
-			rimraf('./index.html', () => {})
-		})
+		done()
 	})
 })
+
+gulp.task('clean:docs-dir', done => {
+	rimraf('./docs', function () {
+		done()
+	})
+})
+
+gulp.task('build', gulp.series('clean:theme-dir', 'build:prod', 'build:theme', 'copy', 'clean:docs-dir'))

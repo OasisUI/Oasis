@@ -1,8 +1,8 @@
-<h1 align="center">
+<h1 style="text-align: center;">
   <img src="https://cdn.rawgit.com/OasisUI/Oasis/dev/icon/icon.svg" width="200"/>
 </h1>
-<p align="center">🍃 Elegant UI framework for building prototype.</p>
-<p align="center">
+<p style="text-align: center;">🍃 Elegant UI framework for building prototype.</p>
+<p style="text-align: center;">
 	<a href="https://travis-ci.com/OasisUI/Oasis">
 		<img src="https://travis-ci.com/OasisUI/Oasis.svg?branch=dev"/>
 	</a>
@@ -37,4 +37,23 @@ Oasis is available in [npm](https://npmjs.com/oasis-ui).
 $ npm install oasis-ui
 $ yarn add oasis-ui
 ```
+## Usage
+
+```javascript
+import Vue from 'vue'
+import Oasis from 'oasis-ui'
+import 'oasis-ui/lib/theme/index.css'
+
+Vue.use(Oasis)
+```
+or use specified component:
+
+```javascript
+import Vue from 'vue'
+import PreviewImg from '@oasis-ui/preview-img'
+import '@oasis-ui/theme/theme.css'
+
+Vue.use(PreviewImg)
+```
+
 
