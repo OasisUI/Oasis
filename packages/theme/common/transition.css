@@ -17,6 +17,7 @@
 	transform: scale(1) translateY(0%);
 }
 
+/*Modal*/
 .o-Modal-enter-active,
 .o-Modal-leave-active {
 	transition: all linear 0.3s;
@@ -36,10 +37,23 @@
 
 	& .o-Modal__content {
 		opacity: 0;
-		transform: scale(0.8);
+		transform: scale(0.84);
 	}
 }
 
+
+/*PreviewImg*/
+.o-PreviewImg-enter-active,
+.o-PreviewImg-leave-active {
+	transition: all linear 0.3s;
+}
+
+.o-PreviewImg-enter,
+.o-PreviewImg-leave-to {
+	opacity: 0;
+}
+
+/*Popup*/
 .o-Popup-enter-active,
 .o-Popup-leave-active {
 	transition: all ease 0.12s; /*cubic-bezier(0.38, 0.63, 0.71, 1.29)*/
@@ -52,6 +66,8 @@
 	opacity: 0;
 }
 
+
+/*InputOptions*/
 .o-InputOptions-enter-active,
 .o-InputOptions-leave-active {
 	transition: all ease-in-out 0.18s;
@@ -63,6 +79,7 @@
 	transform: translateY(-4px);
 }
 
+/*ScrollBar*/
 .o-ScrollBar-enter-active {
 	transition: all ease-in-out 0.1s 0.1s;
 }

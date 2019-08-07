@@ -1,7 +1,8 @@
 <template>
 	<Modal
 		v-model="show"
-		custom-class="o-PreviewImg"
+		customClass="o-PreviewImg"
+		customTransition="o-PreviewImg"
 	>
 		<div
 			v-loading="image.status === 'loading'"
@@ -16,7 +17,11 @@
 			<div
 				class="o-PreviewImg__img"
 				:style="image.style">
-				<img :src="image.src">
+				<img
+					:style="{
+						width: `${zoom * 100}%`
+					}"
+					:src="image.src">
 			</div>
 			<button
 				@click="preview(1)"
@@ -25,7 +30,25 @@
 			>
 				<i class="iconfont icon-line-arrow-right"></i>
 			</button>
-			<div class="o-PreviewImg__index">{{material.current + 1}}/{{material.images.length}}</div>
+			<div class="o-PreviewImg__index">{{material.current + 1}}&nbsp;/&nbsp;{{material.images.length}}</div>
+
+			<div class="o-PreviewImg__actionbar">
+				<button
+					@click="zoomImg(0.1)"
+					class="o-PreviewImg__actionbar__action">
+					<i class="iconfont icon-zoom-in"></i>
+				</button>
+				<button
+					@click="zoomImg(-0.1)"
+					class="o-PreviewImg__actionbar__action">
+					<i class="iconfont icon-zoom-out"></i>
+				</button>
+				<button
+					@click="downloadImg"
+					class="o-PreviewImg__actionbar__action">
+					<i class="iconfont icon-download"></i>
+				</button>
+			</div>
 		</div>
 	</Modal>
 </template>
@@ -69,7 +92,8 @@
 				limit: {
 					width: 0,
 					height: 0
-				}
+				},
+				zoom: 1
 			}
 		},
 		mounted () {
@@ -121,6 +145,20 @@
 					console.log(err)
 				})
 				this.image = image
+			},
+
+			zoomImg (step) {
+				const newZoom = this.zoom + step
+
+				if (newZoom >= 0.3 && newZoom <= 1) {
+					this.zoom = newZoom
+				}
+			},
+
+			downloadImg () {
+				if (window) {
+					window.open(this.image.src, '_blank')
+				}
 			}
 		},
 		components: {

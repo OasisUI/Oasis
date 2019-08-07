@@ -17,7 +17,7 @@ const corePkgPath = './packages/oasis/'
 const libPath = path.join(corePkgPath, 'lib')
 const themePath = './packages/theme'
 
-gulp.task('build:sub-packages', done => {
+function genBuildSubPackagesTask (done) {
 	const pkgs = fs.readdirSync('./packages')
 	const errs = []
 	const excludes = ['theme', 'oasis']
@@ -41,7 +41,9 @@ gulp.task('build:sub-packages', done => {
 		}
 	}, err => console.log('[Build subpackages]: failed', err))
 		.finally(done)
-})
+}
+
+gulp.task('build:sub-packages', genBuildSubPackagesTask)
 
 gulp.task('build:core-package', done => {
 	webpack(WebpackBuildConfig, (err, stats) => {
@@ -70,7 +72,7 @@ gulp.task('build:doc', done => {
 	})
 })
 
-gulp.task('dev:server', () => {
+gulp.task('dev:server', (done) => {
 	const compiler = webpack(WebpackDevConfig)
 	new WebpackDevServer(compiler, {
 		publicPath: '/',
@@ -85,12 +87,15 @@ gulp.task('dev:server', () => {
 		},
 		contentBase: 'dist/'
 	}).listen(2333, '127.0.0.1', err => {
+		done()
 		err && util.log(err)
 	})
 })
 
-gulp.task('dev:theme', function () {
-	return watch(`${themePath}/**/*.css`, function () {
+gulp.task('dev:sub-packages', genBuildSubPackagesTask)
+
+gulp.task('dev:theme', function (done) {
+	watch(`${themePath}/**/*.css`, function () {
 		gulp.src(`${themePath}/index.css`)
 			.pipe(postcss())
 			.on('error', err => {
@@ -98,6 +103,7 @@ gulp.task('dev:theme', function () {
 			})
 			.pipe(gulp.dest(`${libPath}/theme`))
 	})
+	done()
 })
 
 gulp.task('copy:font', function () {
@@ -128,7 +134,7 @@ gulp.task('lint:theme', function () {
 
 gulp.task('copy', gulp.series('copy:font', 'copy:theme', 'copy:readme'))
 
-gulp.task('dev', gulp.series('dev:server', 'dev:theme'))
+gulp.task('dev', gulp.series('dev:sub-packages', 'dev:theme', 'dev:server'))
 
 gulp.task('clean:theme-dir', done => {
 	rimraf('./packages/oasis/theme', function () {

@@ -1,5 +1,5 @@
 <template>
-	<transition appear name="o-Modal">
+	<transition appear :name="customTransition">
 		<div
 			v-if="show"
 			class="o-Modal"
@@ -48,6 +48,10 @@
 		customClass: {
 			type: String,
 			default: ''
+		},
+		customTransition: {
+			type: String,
+			default: 'o-Modal'
 		}
 	}
 
@@ -74,11 +78,29 @@
 		methods: {
 			close () {
 				this.show = false
+			},
+
+			enableBodyScroll (enable) {
+				if (!window || !window.document) return
+
+				if (!this.bodyOriginStyle) {
+					this.bodyOriginStyle = getComputedStyle(document.body).overflow
+				}
+
+				if (enable) {
+					document.body.style.overflow = this.bodyOriginStyle
+				} else {
+					document.body.style.overflow = 'hidden'
+				}
 			}
 		},
 		watch: {
-			show (val) {
-				!val && this.$emit('close')
+			show:{
+				handler (val) {
+					!val && this.$emit('close')
+                   	this.enableBodyScroll(!val)
+				},
+				immediate: true
 			}
 		}
 	}

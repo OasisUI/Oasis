@@ -59,6 +59,10 @@ body {
 	/*https://davidwalsh.name/font-smoothing*/
 }
 
+button {
+	cursor: pointer;
+}
+
 .iconfont {
 	font-size: inherit;
 }
