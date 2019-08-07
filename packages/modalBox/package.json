@@ -1,6 +1,6 @@
 {
   "name": "@oasis-ui/modalbox",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "main": "lib/index.min.js",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@oasis-ui/button": "^0.1.1",
-    "@oasis-ui/input": "^0.1.1",
-    "@oasis-ui/modal": "^0.1.1"
+    "@oasis-ui/input": "^0.1.2",
+    "@oasis-ui/modal": "^0.1.2"
   }
 }

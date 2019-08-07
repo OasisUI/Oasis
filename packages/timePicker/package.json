@@ -1,11 +1,11 @@
 {
   "name": "@oasis-ui/timepicker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "lib/index.min.js",
   "dependencies": {
-    "@oasis-ui/input": "^0.1.1",
-    "@oasis-ui/modal": "^0.1.1"
+    "@oasis-ui/input": "^0.1.2",
+    "@oasis-ui/modal": "^0.1.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

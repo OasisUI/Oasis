@@ -1,6 +1,6 @@
 {
   "name": "@oasis-ui/nav",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "lib/index.min.js",
   "scripts": {
@@ -12,6 +12,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@oasis-ui/scrollbox": "^0.1.2"
+    "@oasis-ui/scrollbox": "^0.1.3"
   }
 }
