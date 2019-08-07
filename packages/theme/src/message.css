@@ -91,6 +91,8 @@
 		text-align: center;
 		line-height: var(--Message-statusBlock);
 		border-radius: var(--Message-borderRadius);
+		border: none;
+		background: transparent;
 
 		&:hover {
 			background: rgba(0,0,0,0.1);

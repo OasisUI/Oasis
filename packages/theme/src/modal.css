@@ -37,6 +37,8 @@
 		color: #8A8A8A;
 		cursor: pointer;
 		transition: color linear 0.24s;
+		border: none;
+		background: transparent;
 
 		&:hover {
 			color: #4C4C4C;
