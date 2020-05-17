@@ -3464,7 +3464,6 @@ button {
 
 .o-Table__column {
 		z-index: 2;
-		position: -webkit-sticky;
 		position: sticky;
 		overflow: hidden;
 		top: 0;
@@ -3494,7 +3493,6 @@ button {
 
 .o-Table--stickyLeft {
 		z-index: 3;
-		position: -webkit-sticky;
 		position: sticky;
 		left: 0;
 		border-right-width: 1px;
@@ -3511,7 +3509,6 @@ button {
 
 .o-Table--stickyRight {
 		z-index: 3;
-		position: -webkit-sticky;
 		position: sticky;
 		right: 0;
 		border-left-width: 1px;
